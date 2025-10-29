@@ -96,6 +96,33 @@
             color: #d35400;
         }
 
+        /* Newsletter Section Styles */
+        .newsletter-section {
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe8d6 100%);
+            border-radius: 15px;
+            padding: 35px 30px;
+            margin-bottom: 40px;
+            border: 2px solid #f39c12;
+        }
+
+        .newsletter-section h2 {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .newsletter-description {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 1em;
+        }
+
+        .google-form {
+            border-radius: 10px;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
         .cta-button {
             display: inline-block;
             background: linear-gradient(135deg, #f39c12 0%, #e74c3c 100%);
@@ -136,6 +163,18 @@
             .logo {
                 width: 200px;
             }
+
+            .newsletter-section {
+                padding: 25px 20px;
+            }
+
+            .newsletter-section h2 {
+                font-size: 1.5em;
+            }
+
+            .google-form {
+                height: 450px;
+            }
         }
     </style>
 </head>
@@ -147,6 +186,14 @@
         <div class="mission">
             Our mission is to <strong>empower at-risk youth</strong> through mentorship, education, and support, providing them with <strong>a better way out</strong> toward a brighter future.
         </div>
+        
+        <!-- Newsletter Subscription Form -->
+        <div class="newsletter-section">
+            <h2>Stay Connected</h2>
+            <p class="newsletter-description">Subscribe to receive monthly updates about our programs and success stories.</p>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScz3O8_WkNbH4IbtIDmFScwh1GSvxnq8CubXBq5H7elAW21qw/viewform?embedded=true" width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0" class="google-form">Loading…</iframe>
+        </div>
+
         <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" class="cta-button">Get Involved</a>
         <div class="footer">
             <p>Making a difference, one life at a time.</p>
