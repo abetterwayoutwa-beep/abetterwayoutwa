@@ -85,6 +85,53 @@
             padding: 0 20px;
         }
 
+        /* Photo Gallery Styles */
+        .gallery-section {
+            margin-bottom: 50px;
+        }
+
+        .gallery-section h2 {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .gallery-story {
+            color: #555;
+            margin-bottom: 30px;
+            font-size: 1.05em;
+            line-height: 1.8;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 20px;
+            text-align: left;
+            font-style: italic;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .gallery-photo {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-photo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
         /* Newsletter Section Styles */
         .newsletter-section {
             background: linear-gradient(135deg, #fff5e6 0%, #ffe8d6 100%);
@@ -149,6 +196,15 @@
                 width: 200px;
             }
 
+            .photo-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .gallery-photo {
+                height: 300px;
+            }
+
             .newsletter-section {
                 padding: 25px 20px;
             }
@@ -169,6 +225,20 @@
         <h1>A Better Way Out</h1>
         <div class="mission">
             Our mission is to empower at-risk youth through mentorship, education, and support, providing them with a better way out toward a brighter future.
+        </div>
+
+        <!-- Photo Gallery -->
+        <div class="gallery-section">
+            <h2>Our Impact</h2>
+            <p class="gallery-story">
+                Love is putting the needs of others before your own. Going into places that some don't feel safe going into and sharing God's love with others is what we are called to do. My wife and I were blessed as God opened the doors to Monroe Prison and be part of something only a hand full of people were invited to. Thank you to Josh Zamudio, Micheal Johnson and James Reyes.
+            </p>
+            <div class="photo-grid">
+                <img src="0729_1.jpg" alt="A Better Way Out team and participants" class="gallery-photo">
+                <img src="0729_2.jpg" alt="Mentorship in action" class="gallery-photo">
+                <img src="0729_3.jpg" alt="Building connections" class="gallery-photo">
+                <img src="0729_4.jpg" alt="Supporting youth together" class="gallery-photo">
+            </div>
         </div>
         
         <!-- Newsletter Subscription Form -->
