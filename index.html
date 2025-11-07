@@ -18,6 +18,9 @@
                 background: white !important;
                 padding: 0 !important;
                 min-height: auto !important;
+                display: block !important;
+                align-items: unset !important;
+                justify-content: unset !important;
             }
 
             nav {
@@ -26,36 +29,75 @@
                 box-shadow: none !important;
                 border-bottom: 2px solid #2c3e50;
                 page-break-after: avoid;
+                padding: 10px 0 !important;
+            }
+
+            nav ul {
+                justify-content: flex-start !important;
+                padding-left: 0 !important;
+            }
+
+            nav a {
+                color: #2c3e50 !important;
             }
 
             .container {
                 box-shadow: none !important;
                 border-radius: 0 !important;
                 max-width: 100% !important;
-                padding: 20px !important;
+                padding: 20px 0 !important;
+                margin: 0 !important;
+            }
+
+            .logo {
+                margin-bottom: 20px !important;
+            }
+
+            h1 {
+                margin-bottom: 20px !important;
+            }
+
+            .mission {
+                padding: 0 !important;
+                margin-bottom: 30px !important;
+            }
+
+            .gallery-section {
+                margin-bottom: 30px !important;
+            }
+
+            .gallery-story {
+                padding: 0 !important;
+                margin-bottom: 20px !important;
             }
 
             .gallery-photo {
                 page-break-inside: avoid;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+                height: 220px !important;
             }
 
             .photo-grid {
                 page-break-inside: avoid;
+                gap: 15px !important;
             }
 
             .newsletter-section {
                 page-break-before: always;
+                padding: 25px 20px !important;
+                margin-bottom: 30px !important;
             }
 
             .cta-button {
-                border: 2px solid #f39c12;
+                border: 2px solid #f39c12 !important;
                 background: white !important;
                 color: #f39c12 !important;
+                box-shadow: none !important;
             }
 
             /* Hide iframe for print */
             iframe {
-                display: none;
+                display: none !important;
             }
 
             .newsletter-section::after {
@@ -64,6 +106,10 @@
                 margin-top: 20px;
                 font-style: italic;
                 color: #666;
+            }
+
+            .footer {
+                margin-top: 30px !important;
             }
         }
 
@@ -290,36 +336,6 @@
             font-size: 0.9em;
         }
 
-        /* Print button */
-        .print-button {
-            position: fixed;
-            top: 80px;
-            right: 20px;
-            background: #2c3e50;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1em;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            z-index: 1001;
-        }
-
-        .print-button:hover {
-            background: #34495e;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        @media print {
-            .print-button {
-                display: none;
-            }
-        }
-
         @media (max-width: 768px) {
             nav ul {
                 gap: 20px;
@@ -328,13 +344,6 @@
             nav a {
                 font-size: 1em;
                 padding: 6px 10px;
-            }
-
-            .print-button {
-                top: 70px;
-                right: 10px;
-                padding: 10px 20px;
-                font-size: 0.9em;
             }
         }
 
@@ -381,15 +390,6 @@
             .google-form {
                 height: 450px;
             }
-
-            .print-button {
-                position: relative;
-                top: 0;
-                right: 0;
-                margin: 20px auto;
-                display: block;
-                width: calc(100% - 40px);
-            }
         }
     </style>
 </head>
@@ -401,8 +401,6 @@
             <li><a href="https://www.facebook.com/a.better.way.out" target="_blank">Get Involved</a></li>
         </ul>
     </nav>
-
-    <button class="print-button" onclick="window.print()">🖨️ Print / Save as PDF</button>
 
     <div class="container">
         <img src="logo.jpg" alt="A Better Way Out Logo" class="logo">
