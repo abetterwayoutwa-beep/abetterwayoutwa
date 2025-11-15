@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Community Services - A Better Way Out provides mentorship, mental health support, and family resources">
+    <title>Services - A Better Way Out WA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Navigation Menu Styles */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(44, 62, 80, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav li {
+            display: inline;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            color: #f39c12;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        nav a.active {
+            color: #f39c12;
+            background: rgba(243, 156, 18, 0.2);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            background-image: 
+                linear-gradient(135deg, #f6d365 0%, #fda085 100%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><text x="50" y="50" font-size="60" text-anchor="middle" fill="white">WA</text></svg>');
+            background-size: cover, 200px;
+            background-position: center, center;
+            background-repeat: no-repeat, repeat;
+            min-height: 100vh;
+            padding: 100px 20px 20px 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 1000px;
+            width: 100%;
+            padding: 60px 40px;
+            margin: 0 auto;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-header h1 {
+            font-size: 2.8em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .page-header p {
+            font-size: 1.2em;
+            color: #666;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Service Sections */
+        .service-section {
+            margin-bottom: 50px;
+            padding: 40px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            border-left: 5px solid #f39c12;
+        }
+
+        .service-section h2 {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .service-icon {
+            font-size: 1.2em;
+        }
+
+        .service-section p {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.9;
+            text-align: left;
+        }
+
+        /* Mentor Section */
+        .mentor-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 15px;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .mentor-section h2 {
+            font-size: 2.2em;
+            margin-bottom: 25px;
+        }
+
+        .mentor-section p {
+            font-size: 1.1em;
+            line-height: 1.9;
+            max-width: 900px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px;
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe8d6 100%);
+            border-radius: 15px;
+            border: 2px solid #f39c12;
+        }
+
+        .cta-section h2 {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #f39c12 0%, #e74c3c 100%);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4);
+            margin: 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.6);
+        }
+
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 20px;
+            }
+
+            nav a {
+                font-size: 1em;
+                padding: 6px 10px;
+            }
+
+            .container {
+                padding: 40px 25px;
+            }
+
+            .page-header h1 {
+                font-size: 2.2em;
+            }
+
+            .service-section {
+                padding: 30px 20px;
+            }
+
+            .service-section h2 {
+                font-size: 1.6em;
+            }
+
+            .mentor-section {
+                padding: 40px 25px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding-top: 70px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+
+            .page-header h1 {
+                font-size: 1.8em;
+            }
+
+            .page-header p {
+                font-size: 1em;
+            }
+
+            .service-section h2 {
+                font-size: 1.4em;
+                flex-direction: column;
+            }
+
+            .mentor-section h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html" class="active">Services</a></li>
+            <li><a href="party.html">Partner</a></li>
+            <li><a href="https://www.facebook.com/a.better.way.out" target="_blank">Get Involved</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Community Services</h1>
+            <p>Our Community Services are designed to highlight the comprehensive support we offer to individuals and families seeking stability, healing, and hope. Rooted in compassion and guided by lived experience, our programs bridge the gap between personal growth and community empowerment.</p>
+        </div>
+
+        <!-- Personal Connections -->
+        <div class="service-section">
+            <h2><span class="service-icon">🤝</span> Personal Connections</h2>
+            <p>
+                We believe real change begins with genuine relationships. Our mentors and volunteers walk alongside individuals through one-on-one conversations, guidance, and consistent encouragement. We create safe spaces where people feel heard, valued, and supported as they navigate life's challenges.
+            </p>
+        </div>
+
+        <!-- Mental Health Support -->
+        <div class="service-section">
+            <h2><span class="service-icon">🧠</span> Mental Health Support</h2>
+            <p>
+                Understanding that emotional well-being is essential, we offer resources and supportive mentorship to help individuals manage stress, trauma, anxiety, and life pressures. While we do not replace professional therapy, our team provides practical coping tools, check-ins, and connections to trusted mental health partners when needed.
+            </p>
+        </div>
+
+        <!-- Family Support -->
+        <div class="service-section">
+            <h2><span class="service-icon">👨‍👩‍👧‍👦</span> Family Support</h2>
+            <p>
+                Healthy families strengthen communities. We come alongside parents, guardians, and youth to build stronger communication, restore trust, and promote healthier home environments. Through mentorship, workshops, and family engagement activities, we help families grow together and overcome obstacles as a unified team.
+            </p>
+        </div>
+
+        <!-- Community Connections -->
+        <div class="service-section">
+            <h2><span class="service-icon">🌐</span> Community Connections</h2>
+            <p>
+                No one thrives alone. We connect individuals to local organizations, churches, businesses, and resources that can support their journey toward stability and success. Whether it's employment, education, housing assistance, or community involvement, we help build bridges to long-term opportunities.
+            </p>
+        </div>
+
+        <!-- Mentor Section -->
+        <div class="mentor-section">
+            <h2>Our Approach: Mentors with Lived Experience</h2>
+            <p>
+                Our services are powered by mentors and volunteers who understand the realities of struggle, growth, and transformation because many of them have lived it themselves. Their firsthand experience allows them to connect authentically, inspire hope, and guide others through challenges with compassion and wisdom. Together, we provide support that is relational, not transactional—meeting people where they are and helping them move toward who they can become.
+            </p>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>Ready to Get Started?</h2>
+            <p>Connect with us today and discover how we can support you or someone you care about.</p>
+            <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" class="cta-button">Get Involved</a>
+        </div>
+
+        <div class="footer">
+            <p>Making a difference, one life at a time.</p>
+        </div>
+    </div>
+</body>
+</html>
