@@ -62,6 +62,11 @@
                 margin-bottom: 30px !important;
             }
 
+            .about-section {
+                margin-bottom: 30px !important;
+                page-break-inside: avoid;
+            }
+
             .gallery-section {
                 margin-bottom: 30px !important;
             }
@@ -74,12 +79,7 @@
             .gallery-photo {
                 page-break-inside: avoid;
                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
-                height: 220px !important;
-            }
-
-            .photo-grid {
-                page-break-inside: avoid;
-                gap: 15px !important;
+                height: 300px !important;
             }
 
             .newsletter-section {
@@ -187,7 +187,7 @@
             background: white;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 800px;
+            max-width: 900px;
             width: 100%;
             padding: 60px 40px;
             text-align: center;
@@ -238,6 +238,47 @@
             padding: 0 20px;
         }
 
+        /* About Us Section */
+        .about-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 50px;
+            text-align: left;
+            border-left: 5px solid #f39c12;
+        }
+
+        .about-section h2 {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .about-section p {
+            font-size: 1.05em;
+            color: #555;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        .about-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-section strong {
+            color: #2c3e50;
+        }
+
+        .about-tagline {
+            text-align: center;
+            font-size: 1.15em;
+            font-weight: 600;
+            color: #f39c12;
+            margin-top: 25px;
+            font-style: italic;
+        }
+
         /* Photo Gallery Styles */
         .gallery-section {
             margin-bottom: 50px;
@@ -262,26 +303,21 @@
             font-style: italic;
         }
 
-        .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
         .gallery-photo {
             width: 100%;
-            height: 250px;
+            max-width: 600px;
+            height: auto;
             object-fit: cover;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
+            margin: 0 auto;
+            display: block;
         }
 
         .gallery-photo:hover {
-            transform: scale(1.05);
+            transform: scale(1.03);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
@@ -338,11 +374,11 @@
 
         @media (max-width: 768px) {
             nav ul {
-                gap: 20px;
+                gap: 15px;
             }
 
             nav a {
-                font-size: 1em;
+                font-size: 0.95em;
                 padding: 6px 10px;
             }
         }
@@ -370,13 +406,16 @@
                 width: 200px;
             }
 
-            .photo-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
+            .about-section {
+                padding: 30px 20px;
+            }
+
+            .about-section h2 {
+                font-size: 1.6em;
             }
 
             .gallery-photo {
-                height: 300px;
+                max-width: 100%;
             }
 
             .newsletter-section {
@@ -397,6 +436,7 @@
     <nav>
         <ul>
             <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="services.html">Services</a></li>
             <li><a href="party.html">Partner</a></li>
             <li><a href="https://www.facebook.com/a.better.way.out" target="_blank">Get Involved</a></li>
         </ul>
@@ -409,18 +449,36 @@
             Our mission is to empower at-risk youth through mentorship, education, and support, providing them with a better way out toward a brighter future.
         </div>
 
+        <!-- About Us Section -->
+        <div class="about-section">
+            <h2>About Us</h2>
+            <p>
+                Our story begins with a simple belief: young people deserve more than judgment; they deserve understanding, opportunity, and hope. Our organization was built by individuals who have walked the very paths we now guide others through. Our team is led by mentors whose shared lived experiences reflect the realities faced by many of the youth we serve. They know what it means to struggle with identity, navigate generational trauma, overcome harmful environments, and rebuild life after stepping back into the community.
+            </p>
+            <p>
+                Each mentor carries a personal story of mistakes made, lessons learned, families impacted, and a healing journey that reshaped their purpose. Their experiences are not just history; they are tools. Tools that empower them to meet young people with empathy, cultural awareness, and a deep understanding of what it takes to break cycles that have lasted for generations.
+            </p>
+            <p>
+                We understand how cultural identity, family systems, community pressures, and past trauma can shape a young person's choices. Many of our team members have lived through environments marked by violence, instability, and harmful influences. Some have faced the heavy challenges of reentry, rebuilding trust, and redefining themselves after incarceration. These journeys fuel our passion to serve not from a distance, but from a place of authentic connection.
+            </p>
+            <p>
+                <strong>A Better Way Out exists to stand in that gap.</strong>
+            </p>
+            <p>
+                To offer non-judgmental, trauma-informed support to young people who are actively involved in or at risk of influences that may harm their future. We meet youth where they are, without shame or labels. Through mentorship, community connections, and compassionate guidance, we help them build hope, resilience, and a new vision for their lives.
+            </p>
+            <p class="about-tagline">
+                This is more than a program. It is a movement of healing, restoration, second chances and A Better Way Out led by people who know firsthand that transformation is possible.
+            </p>
+        </div>
+
         <!-- Photo Gallery -->
         <div class="gallery-section">
             <h2>Our Impact</h2>
             <p class="gallery-story">
                 Love is putting the needs of others before your own. Going into places that some don't feel safe going into and sharing God's love with others is what we are called to do. My wife and I were blessed as God opened the doors to Monroe Prison and be part of something only a hand full of people were invited to. Thank you to Josh Zamudio, Micheal Johnson and James Reyes.
             </p>
-            <div class="photo-grid">
-                <img src="0729_1.jpg" alt="A Better Way Out team and participants" class="gallery-photo">
-                <img src="0729_2.jpg" alt="Mentorship in action" class="gallery-photo">
-                <img src="0729_3.jpg" alt="Building connections" class="gallery-photo">
-                <img src="0729_4.jpg" alt="Supporting youth together" class="gallery-photo">
-            </div>
+            <img src="0729_1.jpg" alt="A Better Way Out team - our mentors and community" class="gallery-photo">
         </div>
         
         <!-- Newsletter Subscription Form -->
