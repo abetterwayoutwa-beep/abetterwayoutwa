@@ -135,7 +135,25 @@
         }
 
         .service-icon {
-            font-size: 1.2em;
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f39c12 0%, #e74c3c 100%);
+            border-radius: 12px;
+            padding: 10px;
+        }
+
+        .service-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         .service-section p {
@@ -145,9 +163,9 @@
             text-align: left;
         }
 
-        /* Mentor Section */
+        /* Mentor Section - Changed to warm coral/peach gradient */
         .mentor-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #ff6b6b 0%, #ffa07a 100%);
             color: white;
             padding: 50px 40px;
             border-radius: 15px;
@@ -274,6 +292,16 @@
             .mentor-section h2 {
                 font-size: 1.8em;
             }
+
+            .service-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .service-icon svg {
+                width: 24px;
+                height: 24px;
+            }
         }
     </style>
 </head>
@@ -295,7 +323,17 @@
 
         <!-- Personal Connections -->
         <div class="service-section">
-            <h2><span class="service-icon">🤝</span> Personal Connections</h2>
+            <h2>
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+                Personal Connections
+            </h2>
             <p>
                 We believe real change begins with genuine relationships. Our mentors and volunteers walk alongside individuals through one-on-one conversations, guidance, and consistent encouragement. We create safe spaces where people feel heard, valued, and supported as they navigate life's challenges.
             </p>
@@ -303,7 +341,17 @@
 
         <!-- Mental Health Support -->
         <div class="service-section">
-            <h2><span class="service-icon">🧠</span> Mental Health Support</h2>
+            <h2>
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2a9 9 0 1 0 9 9c0-4.97-4.03-9-9-9z"></path>
+                        <path d="M12 5v14"></path>
+                        <path d="M5 12h14"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                </div>
+                Mental Health Support
+            </h2>
             <p>
                 Understanding that emotional well-being is essential, we offer resources and supportive mentorship to help individuals manage stress, trauma, anxiety, and life pressures. While we do not replace professional therapy, our team provides practical coping tools, check-ins, and connections to trusted mental health partners when needed.
             </p>
@@ -311,7 +359,19 @@
 
         <!-- Family Support -->
         <div class="service-section">
-            <h2><span class="service-icon">👨‍👩‍👧‍👦</span> Family Support</h2>
+            <h2>
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 21h18"></path>
+                        <path d="M3 10h18"></path>
+                        <path d="M5 6h14"></path>
+                        <path d="M4 3h16v18H4V3z"></path>
+                        <path d="M9 6v15"></path>
+                        <path d="M15 6v15"></path>
+                    </svg>
+                </div>
+                Family Support
+            </h2>
             <p>
                 Healthy families strengthen communities. We come alongside parents, guardians, and youth to build stronger communication, restore trust, and promote healthier home environments. Through mentorship, workshops, and family engagement activities, we help families grow together and overcome obstacles as a unified team.
             </p>
@@ -319,7 +379,16 @@
 
         <!-- Community Connections -->
         <div class="service-section">
-            <h2><span class="service-icon">🌐</span> Community Connections</h2>
+            <h2>
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                </div>
+                Community Connections
+            </h2>
             <p>
                 No one thrives alone. We connect individuals to local organizations, churches, businesses, and resources that can support their journey toward stability and success. Whether it's employment, education, housing assistance, or community involvement, we help build bridges to long-term opportunities.
             </p>
