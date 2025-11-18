@@ -163,6 +163,23 @@
             text-align: left;
         }
 
+        /* Service Image Styles */
+        .service-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            margin: 25px auto 0;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+
         /* Mentor Section - Changed to warm coral/peach gradient */
         .mentor-section {
             background: linear-gradient(135deg, #ff6b6b 0%, #ffa07a 100%);
@@ -263,6 +280,10 @@
             .mentor-section {
                 padding: 40px 25px;
             }
+
+            .service-image {
+                max-width: 100%;
+            }
         }
 
         @media (max-width: 600px) {
@@ -337,6 +358,7 @@
             <p>
                 We believe real change begins with genuine relationships. Our mentors and volunteers walk alongside individuals through one-on-one conversations, guidance, and consistent encouragement. We create safe spaces where people feel heard, valued, and supported as they navigate life's challenges.
             </p>
+            <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/Personal-Connections.jpg" alt="Personal Connections - mentorship and support" class="service-image">
         </div>
 
         <!-- Mental Health Support -->
@@ -355,6 +377,7 @@
             <p>
                 Understanding that emotional well-being is essential, we offer resources and supportive mentorship to help individuals manage stress, trauma, anxiety, and life pressures. While we do not replace professional therapy, our team provides practical coping tools, check-ins, and connections to trusted mental health partners when needed.
             </p>
+            <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/Mental-Health-Support.jpg" alt="Mental Health Support services" class="service-image">
         </div>
 
         <!-- Family Support -->
@@ -392,6 +415,7 @@
             <p>
                 No one thrives alone. We connect individuals to local organizations, churches, businesses, and resources that can support their journey toward stability and success. Whether it's employment, education, housing assistance, or community involvement, we help build bridges to long-term opportunities.
             </p>
+            <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/Community-Connections.jpg" alt="Community Connections and resources" class="service-image">
         </div>
 
         <!-- Mentor Section -->
