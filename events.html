@@ -139,7 +139,7 @@
         }
 
         .event-date {
-            background: linear-gradient(135deg, #f39c12 0%, #e74c3c 100%);
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
             color: white;
             padding: 15px 20px;
             border-radius: 12px;
@@ -157,6 +157,11 @@
             font-size: 2em;
             font-weight: 700;
             line-height: 1;
+        }
+
+        .event-date .year {
+            font-size: 0.85em;
+            opacity: 0.9;
         }
 
         .event-info {
@@ -190,11 +195,66 @@
             font-size: 1.05em;
         }
 
+        .event-highlights {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .event-highlights h3 {
+            font-size: 1.3em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .event-highlights ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .event-highlights li {
+            padding: 8px 0 8px 30px;
+            position: relative;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .event-highlights li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #f39c12;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .event-details {
+            background: #fff5e6;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .event-details h3 {
+            font-size: 1.3em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .event-details p {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .event-details strong {
+            color: #2c3e50;
+        }
+
         .event-image {
             width: 100%;
             max-width: 600px;
-            height: 350px;
-            object-fit: cover;
+            height: auto;
             border-radius: 12px;
             margin: 20px auto;
             display: block;
@@ -218,6 +278,33 @@
         .status-past {
             background: #e2e3e5;
             color: #383d41;
+        }
+
+        .status-planning {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .contact-info h4 {
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .contact-info p {
+            margin-bottom: 8px;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: underline;
         }
 
         /* Empty State */
@@ -370,47 +457,70 @@
     <div class="container">
         <div class="page-header">
             <h1>Events & Activities</h1>
-            <p>Join us for community gatherings, mentorship programs, and activities designed to build connections, inspire hope, and create positive change.</p>
+            <p>Join us for transformative community gatherings designed to build understanding, foster healing, and create meaningful connections between youth, families, and community partners.</p>
         </div>
 
-        <!-- Empty state message -->
-        <div class="empty-state">
-            <h3>More Events Coming Soon!</h3>
-            <p>We're planning exciting activities and gatherings. Check back soon or follow us on Facebook for updates.</p>
-        </div>
-
-        <!-- Example Event Card - You can duplicate this structure for each event -->
-        <!-- 
+        <!-- Interview with a Cop Event -->
         <div class="event-card">
             <div class="event-header">
                 <div class="event-date">
-                    <div class="month">Dec</div>
-                    <div class="day">15</div>
+                    <div class="month">TBA</div>
+                    <div class="day">--</div>
+                    <div class="year">2025</div>
                 </div>
                 <div class="event-info">
-                    <h2>Event Title</h2>
+                    <h2>Interview with a Cop: A Better Way Out</h2>
                     <div class="event-meta">
-                        <span>⏰ 2:00 PM - 5:00 PM</span>
-                        <span>📍 Location</span>
+                        <span>📍 Washington State</span>
+                        <span>👥 Ages 12+</span>
                     </div>
                 </div>
             </div>
+            
+            <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/interview_with_a_cop.jpg" alt="Interview with a Cop event flyer" class="event-image">
+            
             <p class="event-description">
-                Event description goes here...
+                A powerful, respectful community conversation designed to build understanding, trust, and connection between police officers and young people in a safe, supportive environment.
             </p>
-            <span class="event-status status-upcoming">Upcoming Event</span>
+
+            <div class="event-highlights">
+                <h3>This is Your Chance To:</h3>
+                <ul>
+                    <li>Ask police officers any question you've ever wanted to ask</li>
+                    <li>Hear what local officers think about safety, community, and their role</li>
+                    <li>Share your voice and be part of real dialogue that matters</li>
+                    <li>Listen to powerful testimonies from individuals who have overcome trauma with strength and support</li>
+                </ul>
+            </div>
+
+            <div class="event-details">
+                <h3>Who Should Attend?</h3>
+                <p><strong>Youth ages 12 and up</strong></p>
+                <p><strong>Police officers</strong></p>
+                <p><strong>Parents, mentors, and community members</strong></p>
+            </div>
+
+            <div class="contact-info">
+                <h4>📞 For More Information & RSVP</h4>
+                <p><strong>Host:</strong> David Garcia</p>
+                <p><strong>Phone:</strong> (360) 540-4466</p>
+                <p><strong>Email:</strong> <a href="mailto:abetterwayoutwa@gmail.com">abetterwayoutwa@gmail.com</a></p>
+                <p><strong>Website:</strong> <a href="https://www.abetterwayoutwa.org" target="_blank">abetterwayoutwa.org</a></p>
+            </div>
+
+            <span class="event-status status-planning">Planning Phase - Date TBA</span>
         </div>
-        -->
 
         <!-- CTA Section -->
         <div class="cta-section">
-            <h2>Want to Participate?</h2>
-            <p>Connect with us to learn about upcoming events and how you can get involved in our community activities.</p>
+            <h2>Want to Stay Updated?</h2>
+            <p>Follow us on Facebook to be the first to know when event dates are announced and to learn about other community activities and programs.</p>
             <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" class="cta-button">Follow Us on Facebook</a>
+            <a href="mailto:abetterwayoutwa@gmail.com" class="cta-button">Contact Us</a>
         </div>
 
         <div class="footer">
-            <p>Making a difference, one life at a time.</p>
+            <p>Making a difference, one conversation at a time.</p>
         </div>
     </div>
 </body>
