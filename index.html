@@ -176,7 +176,12 @@
                 margin-bottom: 30px !important;
             }
 
-            .cta-button {
+            .donation-section {
+                padding: 25px 20px !important;
+                margin-bottom: 30px !important;
+            }
+
+            .cta-button, .donation-button {
                 border: 2px solid #f39c12 !important;
                 background: white !important;
                 color: #f39c12 !important;
@@ -190,6 +195,14 @@
 
             .newsletter-section::after {
                 content: "Visit https://www.abetterwayoutwa.org to subscribe online";
+                display: block;
+                margin-top: 20px;
+                font-style: italic;
+                color: #666;
+            }
+
+            .donation-section::after {
+                content: "Visit https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576 to donate online";
                 display: block;
                 margin-top: 20px;
                 font-style: italic;
@@ -436,6 +449,53 @@
             margin: 0 auto;
         }
 
+        /* Donation Section Styles */
+        .donation-section {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-radius: 15px;
+            padding: 40px 30px;
+            margin-bottom: 40px;
+            border: 2px solid #4caf50;
+        }
+
+        .donation-section h2 {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .donation-description {
+            color: #555;
+            margin-bottom: 30px;
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .donation-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: 700;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+        }
+
+        .donation-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(69, 160, 73, 0.6);
+        }
+
+        .donation-note {
+            margin-top: 20px;
+            font-size: 0.95em;
+            color: #666;
+            font-style: italic;
+        }
+
         .cta-button {
             display: inline-block;
             background: linear-gradient(135deg, #f39c12 0%, #e74c3c 100%);
@@ -517,6 +577,19 @@
             .google-form {
                 height: 450px;
             }
+
+            .donation-section {
+                padding: 30px 20px;
+            }
+
+            .donation-section h2 {
+                font-size: 1.6em;
+            }
+
+            .donation-button {
+                padding: 15px 35px;
+                font-size: 1.1em;
+            }
         }
     </style>
 </head>
@@ -580,6 +653,14 @@
             <h2 id="newsletter-heading">Stay Connected</h2>
             <p class="newsletter-description">Subscribe to receive monthly updates about our programs and success stories.</p>
             <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScz3O8_WkNbH4IbtIDmFScwh1GSvxnq8CubXBq5H7elAW21qw/viewform?embedded=true" width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0" class="google-form" title="Newsletter subscription form">Loading…</iframe>
+        </section>
+
+        <!-- Donation Section -->
+        <section class="donation-section" aria-labelledby="donation-heading">
+            <h2 id="donation-heading">Support Our Mission</h2>
+            <p class="donation-description">Your donation directly impacts the lives of at-risk youth in our community. Every contribution helps us provide mentorship, support, and hope to those who need it most.</p>
+            <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="donation-button" aria-label="Donate to A Better Way Out">Donate Now</a>
+            <p class="donation-note">100% of your donation goes directly to our programs</p>
         </section>
 
         <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" class="cta-button" aria-label="Get involved with A Better Way Out on Facebook">Get Involved</a>
