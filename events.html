@@ -124,6 +124,8 @@
             margin-bottom: 30px;
             border-left: 5px solid #f39c12;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            user-select: none;
         }
 
         .event-card:hover {
@@ -135,7 +137,7 @@
             display: flex;
             align-items: center;
             gap: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 0;
         }
 
         .event-date {
@@ -186,6 +188,30 @@
             display: flex;
             align-items: center;
             gap: 5px;
+        }
+
+        .expand-icon {
+            display: inline-block;
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+            font-size: 1.2em;
+            color: #3498db;
+        }
+
+        .event-card.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+
+        .event-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s ease, margin-top 0.6s ease;
+            margin-top: 0;
+        }
+
+        .event-card.expanded .event-content {
+            max-height: 4000px;
+            margin-top: 20px;
         }
 
         .event-image {
@@ -282,6 +308,13 @@
             font-size: 0.9em;
         }
 
+        .click-hint {
+            font-size: 0.85em;
+            color: #3498db;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
         @media (max-width: 768px) {
             nav ul {
                 gap: 15px;
@@ -366,7 +399,7 @@
         </div>
 
         <!-- Interview with a Cop Event -->
-        <div class="event-card">
+        <div class="event-card" onclick="toggleEvent(this)">
             <div class="event-header">
                 <div class="event-date">
                     <div class="month">JAN</div>
@@ -374,16 +407,32 @@
                     <div class="year">2026</div>
                 </div>
                 <div class="event-info">
-                    <h2>Interview with a Cop: A Better Way Out</h2>
+                    <h2>Interview with a Cop: A Better Way Out <span class="expand-icon">▼</span></h2>
                     <div class="event-meta">
                         <span>📍 500 14th St, Lynden, WA 98264</span>
                         <span>🕒 3:30 PM - 8:00 PM</span>
                         <span>👥 Ages 12+</span>
                     </div>
+                    <div class="click-hint">Click to view event details and images</div>
                 </div>
             </div>
             
-            <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/interview_with_a_cop.jpg" alt="Interview with a Cop event flyer" class="event-image">
+            <div class="event-content">
+                <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/interview_with_a_cop.jpg" 
+                     alt="Interview with a Cop event flyer" 
+                     class="event-image"
+                     onerror="this.style.display='none'">
+                
+                <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/Interview%20with%20a%20Cop_0117_2026_1.jpg" 
+                     alt="Interview with a Cop event poster 1" 
+                     class="event-image"
+                     onerror="this.style.display='none'">
+                
+                <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/Interview%20with%20a%20Cop_0117_2026_2.jpg" 
+                     alt="Interview with a Cop event poster 2" 
+                     class="event-image"
+                     onerror="this.style.display='none'">
+            </div>
         </div>
 
         <!-- CTA Section -->
@@ -397,5 +446,11 @@
             <p>Making a difference, one conversation at a time.</p>
         </div>
     </div>
+
+    <script>
+        function toggleEvent(card) {
+            card.classList.toggle('expanded');
+        }
+    </script>
 </body>
 </html>
