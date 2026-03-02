@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Host your next party at kū cumber SKIN LOUNGE - A Better Way Out's official party venue partner">
-    <title>Party Venue - A Better Way Out WA</title>
+    <meta name="description" content="Our Partners - A Better Way Out WA official community partners">
+    <title>Partners - A Better Way Out WA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,7 +13,6 @@
             box-sizing: border-box;
         }
 
-        /* Navigation Menu Styles */
         nav {
             position: fixed;
             top: 0;
@@ -22,7 +22,7 @@
             backdrop-filter: blur(10px);
             padding: 15px 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         nav ul {
@@ -33,10 +33,6 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
-        }
-
-        nav li {
-            display: inline;
         }
 
         nav a {
@@ -51,105 +47,183 @@
 
         nav a:hover {
             color: #f39c12;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255,255,255,0.1);
         }
 
         nav a.active {
             color: #f39c12;
-            background: rgba(243, 156, 18, 0.2);
+            background: rgba(243,156,18,0.2);
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Nunito', sans-serif;
             line-height: 1.6;
             color: #333;
             background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
-            background-image: 
-                linear-gradient(135deg, #f6d365 0%, #fda085 100%),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><text x="50" y="50" font-size="60" text-anchor="middle" fill="white">WA</text></svg>');
-            background-size: cover, 200px;
-            background-position: center, center;
-            background-repeat: no-repeat, repeat;
             min-height: 100vh;
-            padding: 100px 20px 20px 20px;
+            padding: 100px 20px 40px 20px;
         }
 
         .container {
             background: white;
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             max-width: 900px;
             width: 100%;
             padding: 60px 40px;
             margin: 0 auto;
-            animation: fadeIn 1s ease-in;
+            animation: fadeIn 0.8s ease-out;
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(24px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
         .page-header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
         .page-header h1 {
-            font-size: 2.8em;
+            font-size: 2.6em;
             color: #2c3e50;
-            margin-bottom: 15px;
-            font-weight: 700;
+            font-weight: 900;
+            margin-bottom: 10px;
         }
 
         .page-header p {
-            font-size: 1.2em;
-            color: #666;
+            font-size: 1.1em;
+            color: #777;
         }
 
-        /* Partner Section */
+        /* Thumbnail Grid */
+        .partners-label {
+            text-align: center;
+            font-size: 0.78em;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #bbb;
+            margin-bottom: 18px;
+        }
+
+        .partners-grid {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        .partner-thumb {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            width: 160px;
+            transition: transform 0.25s ease;
+        }
+
+        .partner-thumb:hover {
+            transform: translateY(-6px);
+        }
+
+        .partner-thumb:hover .thumb-img-wrap {
+            box-shadow: 0 14px 32px rgba(0,0,0,0.16);
+            border-color: #f39c12;
+        }
+
+        .partner-thumb:hover .thumb-label {
+            color: #e67e22;
+        }
+
+        .thumb-img-wrap {
+            width: 140px;
+            height: 140px;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 3px solid #e9ecef;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: box-shadow 0.25s ease, border-color 0.25s ease;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+        }
+
+        .thumb-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 10px;
+        }
+
+        .thumb-label {
+            font-size: 0.85em;
+            font-weight: 700;
+            color: #555;
+            text-align: center;
+            transition: color 0.25s ease;
+            line-height: 1.3;
+        }
+
+        .thumb-visit {
+            font-size: 0.75em;
+            color: #f39c12;
+            font-weight: 700;
+        }
+
+        .thumb-visit::after {
+            content: ' →';
+        }
+
+        /* Divider */
+        .divider {
+            border: none;
+            border-top: 2px solid #f0f0f0;
+            margin: 10px 0 40px;
+        }
+
+        /* Full Partner Sections */
         .partner-section {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             border-radius: 15px;
             padding: 40px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             text-align: center;
+            scroll-margin-top: 90px;
         }
 
         .partner-badge {
             display: inline-block;
             background: linear-gradient(135deg, #f39c12 0%, #e74c3c 100%);
             color: white;
-            padding: 8px 20px;
+            padding: 6px 18px;
             border-radius: 20px;
-            font-size: 0.9em;
-            font-weight: 600;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
+            font-size: 0.8em;
+            font-weight: 800;
+            margin-bottom: 18px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
 
         .partner-logo {
-            max-width: 500px;
+            max-width: 460px;
             width: 100%;
             height: auto;
-            margin: 20px auto;
+            margin: 16px auto;
             display: block;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         .partner-description {
-            font-size: 1.1em;
+            font-size: 1.05em;
             color: #555;
             line-height: 1.8;
-            margin: 30px 0;
-            text-align: center;
+            margin: 22px 0;
         }
 
         .partner-website {
@@ -159,221 +233,70 @@
             padding: 12px 30px;
             text-decoration: none;
             border-radius: 50px;
-            font-size: 1.1em;
-            font-weight: 600;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4);
-            margin: 10px;
+            font-size: 1em;
+            font-weight: 700;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            box-shadow: 0 4px 14px rgba(243,156,18,0.35);
         }
 
         .partner-website:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.6);
+            box-shadow: 0 7px 20px rgba(231,76,60,0.5);
         }
 
-        /* Video Section */
+        /* Video */
         .video-section {
-            margin: 50px 0;
+            margin: 36px 0 6px;
             text-align: center;
         }
 
         .video-section h2 {
-            font-size: 2em;
+            font-size: 1.6em;
             color: #2c3e50;
-            margin-bottom: 30px;
+            margin-bottom: 22px;
+            font-weight: 800;
         }
 
         .video-container {
-            position: relative;
             width: 100%;
-            max-width: 500px;
+            max-width: 480px;
             margin: 0 auto;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
         }
 
         .video-container iframe {
             width: 100%;
-            height: 600px;
+            height: 560px;
             border: none;
-        }
-
-        /* Features Section */
-        .features-section {
-            margin: 50px 0;
-        }
-
-        .features-section h2 {
-            font-size: 2em;
-            color: #2c3e50;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .feature-card {
-            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            font-size: 3em;
-            margin-bottom: 15px;
-        }
-
-        .feature-card h3 {
-            font-size: 1.4em;
-            color: #2c3e50;
-            margin-bottom: 15px;
-        }
-
-        .feature-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px;
-            border-radius: 15px;
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        .cta-section h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-
-        .cta-section p {
-            font-size: 1.1em;
-            margin-bottom: 30px;
-            opacity: 0.95;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: white;
-            color: #667eea;
-            padding: 15px 35px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.1em;
-            font-weight: 600;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .cta-button.secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .cta-button.secondary:hover {
-            background: white;
-            color: #667eea;
+            display: block;
         }
 
         .footer {
             margin-top: 50px;
             text-align: center;
-            color: #999;
+            color: #bbb;
             font-size: 0.9em;
         }
 
         @media (max-width: 768px) {
-            nav ul {
-                gap: 15px;
-            }
-
-            nav a {
-                font-size: 0.95em;
-                padding: 6px 10px;
-            }
-
-            .container {
-                padding: 40px 25px;
-            }
-
-            .page-header h1 {
-                font-size: 2.2em;
-            }
-
-            .partner-section {
-                padding: 30px 20px;
-            }
-
-            .video-container iframe {
-                height: 500px;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .cta-button {
-                width: 80%;
-                max-width: 300px;
-            }
+            nav ul { gap: 15px; }
+            nav a { font-size: 0.95em; padding: 6px 10px; }
+            .container { padding: 40px 25px; }
+            .page-header h1 { font-size: 2em; }
+            .partner-section { padding: 30px 20px; }
+            .video-container iframe { height: 440px; }
         }
 
         @media (max-width: 600px) {
-            body {
-                padding-top: 70px;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 10px;
-                align-items: center;
-            }
-
-            .page-header h1 {
-                font-size: 1.8em;
-            }
-
-            .page-header p {
-                font-size: 1em;
-            }
-
-            .video-container iframe {
-                height: 400px;
-            }
+            body { padding-top: 70px; }
+            nav ul { flex-direction: column; gap: 10px; align-items: center; }
+            .page-header h1 { font-size: 1.7em; }
+            .partners-grid { gap: 16px; }
+            .partner-thumb { width: 130px; }
+            .thumb-img-wrap { width: 110px; height: 110px; }
+            .video-container iframe { height: 360px; }
         }
     </style>
 </head>
@@ -389,41 +312,82 @@
     </nav>
 
     <div class="container">
+
         <div class="page-header">
-            <h1>🎉 Party Venue</h1>
-            <p>Celebrate with Purpose at Our Partner Location</p>
+            <h1>🤝 Our Partners</h1>
+            <p>Organizations we're proud to work alongside</p>
         </div>
 
-        <!-- Partner Section -->
-        <div class="partner-section">
-            <span class="partner-badge">OUR OFFICIAL PARTNER</span>
-            <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/partner_logo.png" alt="kū cumber SKIN LOUNGE Logo" class="partner-logo">
+        <!-- Thumbnail Quick-Links -->
+        <p class="partners-label">Click to visit</p>
+        <div class="partners-grid">
+
+            <a class="partner-thumb" href="https://kucumberskinlounge.com" target="_blank" rel="noopener noreferrer">
+                <div class="thumb-img-wrap">
+                    <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/partner_logo.png"
+                         alt="kū cumber SKIN LOUNGE">
+                </div>
+                <span class="thumb-label">kū cumber SKIN LOUNGE</span>
+                <span class="thumb-visit">Visit site</span>
+            </a>
+
+            <a class="partner-thumb" href="https://northsoundach.org/" target="_blank" rel="noopener noreferrer">
+                <div class="thumb-img-wrap">
+                    <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/NSACH.jpeg"
+                         alt="North Sound ACH">
+                </div>
+                <span class="thumb-label">North Sound ACH</span>
+                <span class="thumb-visit">Visit site</span>
+            </a>
+
+        </div>
+
+        <hr class="divider">
+
+        <!-- kū cumber Full Section -->
+        <div class="partner-section" id="kucumber">
+            <span class="partner-badge">Official Partner</span>
+            <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/partner_logo.png"
+                 alt="kū cumber SKIN LOUNGE Logo" class="partner-logo">
             <p class="partner-description">
-                We're proud to partner with <strong>kū cumber SKIN LOUNGE</strong> to provide an exceptional venue for your celebrations. 
-                Whether you're planning a birthday party, community gathering, or special event, this beautiful space offers 
+                We're proud to partner with <strong>kū cumber SKIN LOUNGE</strong> to provide an exceptional venue for your celebrations.
+                Whether you're planning a birthday party, community gathering, or special event, this beautiful space offers
                 the perfect atmosphere for memorable moments while supporting our mission.
             </p>
             <a href="https://kucumberskinlounge.com" target="_blank" rel="noopener noreferrer" class="partner-website">
                 Visit kū cumber SKIN LOUNGE
             </a>
-        </div>
 
-        <!-- Video Section -->
-        <div class="video-section">
-            <h2>Experience the Venue</h2>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/oCOY3vY_MaI" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                </iframe>
+            <div class="video-section">
+                <h2>Experience the Venue</h2>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/oCOY3vY_MaI"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                    </iframe>
+                </div>
             </div>
         </div>
 
-
+        <!-- North Sound ACH Full Section -->
+        <div class="partner-section" id="nsach">
+            <span class="partner-badge">Official Partner</span>
+            <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/NSACH.jpeg"
+                 alt="North Sound ACH Logo" class="partner-logo">
+            <p class="partner-description">
+                We're proud to partner with <strong>North Sound ACH (North Sound Accountable Community of Health)</strong>,
+                an organization committed to improving health and well-being across our region. Together, we work to
+                connect community members with the resources and support they need to thrive.
+            </p>
+            <a href="https://northsoundach.org/" target="_blank" rel="noopener noreferrer" class="partner-website">
+                Visit North Sound ACH
+            </a>
+        </div>
 
         <div class="footer">
-            <p>Making a difference, one celebration at a time. 🎉</p>
+            <p>Making a difference, one partnership at a time. 🤝</p>
         </div>
+
     </div>
 </body>
 </html>
