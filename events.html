@@ -12,7 +12,6 @@
             box-sizing: border-box;
         }
 
-        /* Navigation Menu Styles */
         nav {
             position: fixed;
             top: 0;
@@ -86,14 +85,8 @@
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .page-header {
@@ -116,7 +109,6 @@
             margin: 0 auto;
         }
 
-        /* Event Card Styles */
         .event-card {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             border-radius: 15px;
@@ -133,6 +125,12 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
+        /* TBD / upcoming event style */
+        .event-card.tbd {
+            border-left: 5px solid #8e44ad;
+            opacity: 0.92;
+        }
+
         .event-header {
             display: flex;
             align-items: center;
@@ -147,6 +145,10 @@
             border-radius: 12px;
             text-align: center;
             min-width: 100px;
+        }
+
+        .event-date.tbd-date {
+            background: linear-gradient(135deg, #8e44ad 0%, #6c3483 100%);
         }
 
         .event-date .month {
@@ -190,6 +192,20 @@
             gap: 5px;
         }
 
+        .badge-upcoming {
+            display: inline-block;
+            background: #f0e6f6;
+            color: #6c3483;
+            border: 1px solid #d2b4de;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
         .expand-icon {
             display: inline-block;
             margin-left: 10px;
@@ -224,18 +240,15 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
         }
 
-        .event-status {
-            display: inline-block;
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 0.9em;
+        .event-description {
+            background: white;
+            border-radius: 10px;
+            padding: 20px 25px;
             margin-top: 15px;
-        }
-
-        .status-confirmed {
-            background: #d4edda;
-            color: #155724;
+            color: #444;
+            font-size: 1em;
+            line-height: 1.8;
+            border: 1px solid #e0e0e0;
         }
 
         .contact-info {
@@ -260,7 +273,6 @@
             text-decoration: underline;
         }
 
-        /* CTA Section */
         .cta-section {
             text-align: center;
             margin-top: 60px;
@@ -316,68 +328,23 @@
         }
 
         @media (max-width: 768px) {
-            nav ul {
-                gap: 15px;
-            }
-
-            nav a {
-                font-size: 0.95em;
-                padding: 6px 10px;
-            }
-
-            .container {
-                padding: 40px 25px;
-            }
-
-            .page-header h1 {
-                font-size: 2.2em;
-            }
-
-            .event-card {
-                padding: 25px 20px;
-            }
-
-            .event-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .event-info h2 {
-                font-size: 1.5em;
-            }
+            nav ul { gap: 15px; }
+            nav a { font-size: 0.95em; padding: 6px 10px; }
+            .container { padding: 40px 25px; }
+            .page-header h1 { font-size: 2.2em; }
+            .event-card { padding: 25px 20px; }
+            .event-header { flex-direction: column; align-items: flex-start; }
+            .event-info h2 { font-size: 1.5em; }
         }
 
         @media (max-width: 600px) {
-            body {
-                padding-top: 70px;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 10px;
-                align-items: center;
-            }
-
-            .page-header h1 {
-                font-size: 1.8em;
-            }
-
-            .page-header p {
-                font-size: 1em;
-            }
-
-            .event-info h2 {
-                font-size: 1.3em;
-            }
-
-            .event-date {
-                min-width: 80px;
-                padding: 12px 15px;
-            }
-
-            .event-date .day {
-                font-size: 1.6em;
-            }
+            body { padding-top: 70px; }
+            nav ul { flex-direction: column; gap: 10px; align-items: center; }
+            .page-header h1 { font-size: 1.8em; }
+            .page-header p { font-size: 1em; }
+            .event-info h2 { font-size: 1.3em; }
+            .event-date { min-width: 80px; padding: 12px 15px; }
+            .event-date .day { font-size: 1.6em; }
         }
     </style>
 </head>
@@ -398,6 +365,56 @@
             <p>Join us for community gatherings designed to build connections, inspire hope, and create positive change.</p>
         </div>
 
+        <!-- ===================== HOMELESS OUTREACH EVENT (NEW) ===================== -->
+        <div class="event-card tbd" onclick="toggleEvent(this)">
+            <div class="event-header">
+                <div class="event-date tbd-date">
+                    <div class="month">DATE</div>
+                    <div class="day" style="font-size:1.3em;">TBD</div>
+                    <div class="year">2026</div>
+                </div>
+                <div class="event-info">
+                    <div class="badge-upcoming">&#128197; Coming Soon</div>
+                    <h2>Homeless Outreach <span class="expand-icon">▼</span></h2>
+                    <div class="event-meta">
+                        <span>📍 Location: TBD</span>
+                        <span>🕒 Time: TBD</span>
+                        <span>🤝 Open to All Volunteers</span>
+                    </div>
+                    <div class="click-hint">Click to view event details and images</div>
+                </div>
+            </div>
+
+            <div class="event-content">
+                <div class="event-description">
+                    <p>We're planning a community outreach event to serve those experiencing homelessness in our area. Volunteers will distribute supplies, share meals, and offer connection and resources to those in need. Date and location will be announced soon — follow us on Facebook to stay updated!</p>
+                </div>
+
+                <!-- 
+                    INSTRUCTIONS FOR ADDING YOUR PHOTOS:
+                    Upload your images to your GitHub repo under the /images/ folder,
+                    then replace the filenames below with your actual image filenames.
+                    Example: ABWO-group-1.jpg and ABWO-group.jpg
+                -->
+                <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/ABWO-group-1.jpg"
+                     alt="A Better Way Out Homeless Outreach group photo 1"
+                     class="event-image"
+                     onerror="this.style.display='none'">
+
+                <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/ABWO-group.jpg"
+                     alt="A Better Way Out Homeless Outreach group photo 2"
+                     class="event-image"
+                     onerror="this.style.display='none'">
+
+                <div class="contact-info">
+                    <h4>📣 Stay in the Loop</h4>
+                    <p>Date and location will be confirmed soon. Follow us on Facebook for the latest updates.</p>
+                    <p><a href="https://www.facebook.com/a.better.way.out" target="_blank">facebook.com/a.better.way.out</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- ===================== END HOMELESS OUTREACH EVENT ===================== -->
+
         <!-- Interview with a Cop Event -->
         <div class="event-card" onclick="toggleEvent(this)">
             <div class="event-header">
@@ -416,20 +433,20 @@
                     <div class="click-hint">Click to view event details and images</div>
                 </div>
             </div>
-            
+
             <div class="event-content">
-                <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/interview_with_a_cop.jpg" 
-                     alt="Interview with a Cop event flyer" 
+                <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/interview_with_a_cop.jpg"
+                     alt="Interview with a Cop event flyer"
                      class="event-image"
                      onerror="this.style.display='none'">
-                
-                <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/Interview%20with%20a%20Cop_0117_2026_1.jpg" 
-                     alt="Interview with a Cop event poster 1" 
+
+                <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/Interview%20with%20a%20Cop_0117_2026_1.jpg"
+                     alt="Interview with a Cop event poster 1"
                      class="event-image"
                      onerror="this.style.display='none'">
-                
-                <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/Interview%20with%20a%20Cop_0117_2026_2.jpg" 
-                     alt="Interview with a Cop event poster 2" 
+
+                <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/Interview%20with%20a%20Cop_0117_2026_2.jpg"
+                     alt="Interview with a Cop event poster 2"
                      class="event-image"
                      onerror="this.style.display='none'">
             </div>
