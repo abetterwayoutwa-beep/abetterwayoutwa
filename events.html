@@ -233,11 +233,19 @@
         .event-image {
             width: 100%;
             max-width: 700px;
-            height: auto;
+            height: 420px;
+            object-fit: cover;
+            object-position: center;
             border-radius: 12px;
             margin: 20px auto;
             display: block;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 600px) {
+            .event-image {
+                height: 220px;
+            }
         }
 
         .event-description {
