@@ -219,21 +219,20 @@ nav {
     box-shadow: 0 6px 24px rgba(255, 152, 0, 0.5);
 }
 
-/* ─── Footer (Frame_18 — bright cyan) ─── */
+/* ─── Footer (Frame_18 — bright cyan, horizontal layout) ─── */
 .site-footer {
     background: #03b8d4;
-    padding: 50px 28px 44px;
+    padding: 44px 28px 38px;
     margin-top: 0;
 }
 
 .footer-inner {
-    max-width: 1060px;
+    max-width: 1100px;
     margin: 0 auto;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
-    gap: 40px;
-    flex-wrap: wrap;
+    gap: 30px;
 }
 
 .footer-brand img {
@@ -244,13 +243,18 @@ nav {
     background: #fff;
     padding: 6px;
     box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+}
+
+.footer-nav {
+    text-align: center;
 }
 
 .footer-nav h3 {
     color: #fff;
     font-size: 1.4em;
     font-weight: 800;
-    margin-bottom: 18px;
+    margin-bottom: 14px;
 }
 
 .footer-nav ul {
@@ -259,7 +263,7 @@ nav {
 }
 
 .footer-nav ul li {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .footer-nav ul li a {
@@ -277,24 +281,28 @@ nav {
 .footer-ctas {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 18px;
     align-items: flex-end;
+    flex-shrink: 0;
+}
+
+.footer-cta-block {
+    text-align: right;
 }
 
 .footer-cta-label {
     color: #0d2137;
     font-weight: 800;
-    font-size: 1em;
-    margin-bottom: 8px;
-    text-align: right;
+    font-size: 0.95em;
+    margin-bottom: 6px;
 }
 
 .footer-btn {
     display: inline-block;
-    padding: 14px 40px;
+    padding: 13px 36px;
     text-decoration: none;
     border-radius: 12px;
-    font-size: 1em;
+    font-size: 0.95em;
     font-weight: 700;
     transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -380,16 +388,31 @@ nav {
     }
 
     .footer-inner {
-        flex-direction: column;
-        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
         text-align: center;
+        gap: 24px;
+    }
+
+    .footer-brand {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .footer-nav {
+        width: 100%;
     }
 
     .footer-ctas {
-        align-items: center;
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 24px;
     }
 
-    .footer-cta-label {
+    .footer-cta-block {
         text-align: center;
     }
 }
@@ -397,5 +420,10 @@ nav {
 @media (max-width: 480px) {
     .page-header h1 {
         font-size: 1.9em;
+    }
+
+    .footer-ctas {
+        flex-direction: column;
+        align-items: center;
     }
 }
