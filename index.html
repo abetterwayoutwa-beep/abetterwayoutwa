@@ -47,7 +47,6 @@
 
     <link rel="stylesheet" href="shared.css">
     <style>
-        /* Hero */
         .hero {
             text-align: center;
             padding: 50px 20px 40px;
@@ -62,7 +61,6 @@
             border-radius: 20px;
         }
 
-        /* What is ABWO */
         .intro-section {
             display: flex;
             align-items: center;
@@ -73,9 +71,7 @@
             margin-bottom: 30px;
         }
 
-        .intro-text {
-            flex: 1;
-        }
+        .intro-text { flex: 1; }
 
         .intro-text h2 {
             font-size: 1.8em;
@@ -101,18 +97,15 @@
             font-size: 1em;
             font-weight: 700;
             transition: transform 0.25s, box-shadow 0.25s;
-            box-shadow: 0 4px 14px rgba(0, 137, 123, 0.3);
+            box-shadow: 0 4px 14px rgba(0,137,123,0.3);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 137, 123, 0.45);
+            box-shadow: 0 6px 20px rgba(0,137,123,0.45);
         }
 
-        .intro-image {
-            flex: 1;
-            max-width: 420px;
-        }
+        .intro-image { flex: 1; max-width: 420px; }
 
         .intro-image img {
             width: 100%;
@@ -121,17 +114,55 @@
             box-shadow: 0 6px 24px rgba(0,0,0,0.12);
         }
 
+        /* About Us (inline) */
+        .about-content {
+            background: #f4f5f7;
+            border-radius: 16px;
+            padding: 50px 44px;
+            margin-bottom: 30px;
+            text-align: center;
+            scroll-margin-top: 90px;
+        }
+
+        .about-content h2 {
+            font-size: 2.2em;
+            color: #0d2137;
+            font-weight: 800;
+            margin-bottom: 28px;
+        }
+
+        .about-content p {
+            font-size: 1.02em;
+            color: #444;
+            line-height: 1.9;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+
+        .about-content p:last-of-type { margin-bottom: 0; }
+
+        .about-gap-statement {
+            font-size: 1.4em !important;
+            font-weight: 800;
+            color: #0d2137 !important;
+            margin-top: 30px !important;
+            margin-bottom: 20px !important;
+        }
+
+        .about-tagline {
+            font-style: italic;
+            color: #d84315 !important;
+            font-weight: 700;
+            font-size: 1.05em !important;
+            margin-top: 30px !important;
+        }
+
         @media (max-width: 768px) {
-            .intro-section {
-                flex-direction: column;
-                padding: 35px 25px;
-            }
-            .intro-image {
-                max-width: 100%;
-            }
-            .hero-logo {
-                width: 260px;
-            }
+            .intro-section { flex-direction: column; padding: 35px 25px; }
+            .intro-image { max-width: 100%; }
+            .hero-logo { width: 260px; }
+            .about-content { padding: 35px 24px; }
+            .about-content h2 { font-size: 1.8em; }
         }
     </style>
 </head>
@@ -145,7 +176,7 @@
                 <span></span><span></span><span></span>
             </button>
             <ul class="nav-links">
-                <li><a href="about.html">About Us</a></li>
+                <li><a href="index.html#about">About Us</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Get Involved</a></li>
                 <li><a href="events.html">Events</a></li>
@@ -158,31 +189,37 @@
     <main class="page-wrap">
         <div class="container">
 
-            <!-- Hero -->
             <section class="hero">
                 <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/logo.jpg" alt="A Better Way Out WA logo" class="hero-logo" width="340" height="340" loading="eager">
             </section>
 
-            <!-- What is A Better Way Out -->
             <section class="intro-section">
                 <div class="intro-text">
                     <h2>What is A Better Way Out</h2>
                     <p>Our mission is to empower at-risk youth through mentorship, education, and support, providing them with a better way out toward a brighter future.</p>
-                    <a href="about.html" class="btn-primary">Learn More</a>
+                    <a href="#about" class="btn-primary">Learn More</a>
                 </div>
                 <div class="intro-image">
                     <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/0729_1.jpg" alt="A Better Way Out team members" width="420" height="300" loading="lazy">
                 </div>
             </section>
 
-            <!-- Support Our Mission -->
+            <section class="about-content" id="about">
+                <h2>About Us</h2>
+                <p>Our story begins with a simple belief: young people deserve more than judgment; they deserve understanding, opportunity, and hope. Our organization was built by individuals who have walked the very paths we now guide others through. Our team is led by mentors whose shared lived experiences reflect the realities faced by many of the youth we serve. They know what it means to struggle with identity, navigate generational trauma, overcome harmful environments, and rebuild life after stepping back into the community.</p>
+                <p>Each mentor carries a personal story of mistakes made, lessons learned, families impacted, and a healing journey that reshaped their purpose. Their experiences are not just history; they are tools. Tools that empower them to meet young people with empathy, cultural awareness, and a deep understanding of what it takes to break cycles that have lasted for generations.</p>
+                <p>We understand how cultural identity, family systems, community pressures, and past trauma can shape a young person's choices. Many of our team members have lived through environments marked by violence, instability, and harmful influences. Some have faced the heavy challenges of reentry, rebuilding trust, and redefining themselves after incarceration. These journeys fuel our passion to serve not from a distance, but from a place of authentic connection.</p>
+                <p class="about-gap-statement">A Better Way Out exists to stand in that gap.</p>
+                <p>To offer non-judgmental, trauma-informed support to young people who are actively involved in or at risk of influences that may harm their future. We meet youth where they are, without shame or labels. Through mentorship, community connections, and compassionate guidance, we help them build hope, resilience, and a new vision for their lives.</p>
+                <p class="about-tagline">This is more than a program. It is a movement of healing, restoration, second chances and A Better Way Out led by people who know firsthand that transformation is possible.</p>
+            </section>
+
             <section class="support-section">
                 <h2>Support Our Mission</h2>
                 <p>Our donation directly impacts the lives of at-risk youth in our community. Every contribution helps us provide mentorship, support, and hope to those who need it most.</p>
                 <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="btn-donate">Donate Now</a>
             </section>
 
-            <!-- Volunteer With Us -->
             <section class="volunteer-section">
                 <h2>Volunteer With Us</h2>
                 <p>Making a difference, one life at a time.</p>
@@ -200,7 +237,7 @@
             <div class="footer-nav">
                 <h3>A Better Way Out</h3>
                 <ul>
-                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
                     <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Get Involved</a></li>
                     <li><a href="events.html">Events</a></li>
                     <li><a href="party.html">Partner</a></li>
