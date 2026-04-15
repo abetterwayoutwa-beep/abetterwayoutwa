@@ -1,14 +1,8 @@
 /* ============================================================
    A Better Way Out WA — Shared Styles
-   Colors matched to Figma component screenshots
    ============================================================ */
 
-/* Reset */
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -20,12 +14,10 @@ body {
 
 img { max-width: 100%; height: auto; }
 
-/* ─── Navigation (Component_9) ─── */
+/* ─── Navigation ─── */
 nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     background: #03b8d4;
     padding: 0;
     z-index: 1000;
@@ -35,15 +27,14 @@ nav {
 .nav-inner {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 8px 28px;
+    padding: 10px 28px;
+    gap: 20px;
 }
 
 .nav-logo img {
-    width: 52px;
-    height: 52px;
+    width: 52px; height: 52px;
     border-radius: 10px;
     display: block;
     background: #fff;
@@ -54,9 +45,9 @@ nav {
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 6px;
+    gap: 4px;
     align-items: center;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
 }
 
@@ -67,27 +58,25 @@ nav {
     text-decoration: none;
     font-weight: 600;
     font-size: 0.95em;
-    padding: 8px 18px;
+    padding: 9px 20px;
     border-radius: 6px;
-    transition: background 0.2s, color 0.2s;
+    transition: background 0.2s;
     letter-spacing: 0.01em;
 }
 
 .nav-links a:hover {
     background: rgba(255,255,255,0.15);
-    color: #fff;
 }
 
 .nav-links a.active {
-    background: rgba(255,255,255,0.2);
-    color: #fff;
+    background: rgba(255,255,255,0.22);
     border-bottom: 2px solid #fff;
 }
 
 .nav-donate {
     display: inline-block;
-    background: rgba(255,255,255,0.18);
-    border: 2px solid rgba(255,255,255,0.45);
+    background: rgba(0,90,100,0.35);
+    border: 2px solid rgba(255,255,255,0.4);
     color: #fff;
     padding: 11px 28px;
     text-decoration: none;
@@ -96,15 +85,15 @@ nav {
     font-weight: 700;
     transition: background 0.25s, transform 0.2s;
     white-space: nowrap;
-    letter-spacing: 0.02em;
+    flex-shrink: 0;
 }
 
 .nav-donate:hover {
-    background: rgba(255,255,255,0.32);
+    background: rgba(0,90,100,0.5);
     transform: translateY(-1px);
 }
 
-/* Mobile hamburger */
+/* Hamburger */
 .mobile-toggle {
     display: none;
     flex-direction: column;
@@ -117,17 +106,13 @@ nav {
 
 .mobile-toggle span {
     display: block;
-    width: 26px;
-    height: 3px;
+    width: 26px; height: 3px;
     background: #fff;
     border-radius: 2px;
-    transition: 0.3s;
 }
 
 /* ─── Page Wrapper ─── */
-.page-wrap {
-    padding-top: 80px;
-}
+.page-wrap { padding-top: 82px; }
 
 .container {
     max-width: 960px;
@@ -136,19 +121,26 @@ nav {
     padding: 30px 24px;
 }
 
-/* ─── Support Our Mission (Frame_15 — mint green) ─── */
+/* ─── Card background token ─── */
+:root {
+    --card-bg: #f0f4f8;
+    --card-radius: 18px;
+    --card-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* ─── Support Our Mission ─── */
 .support-section {
     background: #a5f5d0;
-    border-radius: 20px;
-    padding: 55px 44px;
+    border-radius: var(--card-radius);
+    padding: 52px 44px;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 28px;
 }
 
 .support-section h2 {
-    font-size: 2em;
+    font-size: 1.9em;
     color: #0d2137;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     font-weight: 800;
 }
 
@@ -157,40 +149,40 @@ nav {
     color: #333;
     line-height: 1.7;
     max-width: 720px;
-    margin: 0 auto 36px;
+    margin: 0 auto 32px;
 }
 
 .btn-donate {
     display: inline-block;
     background: #00c853;
     color: #fff;
-    padding: 18px 56px;
+    padding: 16px 52px;
     text-decoration: none;
     border-radius: 14px;
-    font-size: 1.15em;
+    font-size: 1.1em;
     font-weight: 700;
     transition: transform 0.25s, box-shadow 0.25s;
-    box-shadow: 0 4px 18px rgba(0, 200, 83, 0.35);
+    box-shadow: 0 4px 18px rgba(0,200,83,0.35);
 }
 
 .btn-donate:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 24px rgba(0, 200, 83, 0.5);
+    box-shadow: 0 6px 24px rgba(0,200,83,0.5);
 }
 
-/* ─── Volunteer With Us (Frame_15-1 — peach/apricot) ─── */
+/* ─── Volunteer With Us ─── */
 .volunteer-section {
     background: #fddcb5;
-    border-radius: 20px;
-    padding: 55px 44px;
+    border-radius: var(--card-radius);
+    padding: 52px 44px;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 28px;
 }
 
 .volunteer-section h2 {
-    font-size: 2em;
+    font-size: 1.9em;
     color: #0d2137;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     font-weight: 800;
 }
 
@@ -198,132 +190,118 @@ nav {
     font-size: 1.02em;
     color: #333;
     line-height: 1.7;
-    margin-bottom: 36px;
+    margin-bottom: 32px;
 }
 
 .btn-involve {
     display: inline-block;
     background: #ff9800;
     color: #fff;
-    padding: 18px 56px;
+    padding: 16px 52px;
     text-decoration: none;
     border-radius: 14px;
-    font-size: 1.15em;
+    font-size: 1.1em;
     font-weight: 700;
     transition: transform 0.25s, box-shadow 0.25s;
-    box-shadow: 0 4px 18px rgba(255, 152, 0, 0.35);
+    box-shadow: 0 4px 18px rgba(255,152,0,0.35);
 }
 
 .btn-involve:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 24px rgba(255, 152, 0, 0.5);
+    box-shadow: 0 6px 24px rgba(255,152,0,0.5);
 }
 
-/* ─── Footer (Frame_18 — bright cyan, horizontal layout) ─── */
+/* ─── Footer (horizontal layout) ─── */
 .site-footer {
     background: #03b8d4;
-    padding: 44px 28px 38px;
-    margin-top: 0;
+    padding: 40px 28px 36px;
 }
 
 .footer-inner {
     max-width: 1100px;
     margin: 0 auto;
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
-    justify-content: space-between;
-    gap: 30px;
+    gap: 40px;
 }
 
 .footer-brand img {
-    width: 130px;
-    height: 130px;
-    border-radius: 16px;
+    width: 120px; height: 120px;
+    border-radius: 14px;
     display: block;
     background: #fff;
-    padding: 6px;
+    padding: 5px;
     box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-    flex-shrink: 0;
 }
 
-.footer-nav {
-    text-align: center;
-}
+.footer-nav { text-align: center; }
 
 .footer-nav h3 {
     color: #fff;
-    font-size: 1.4em;
+    font-size: 1.3em;
     font-weight: 800;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
 }
 
 .footer-nav ul {
     list-style: none;
     padding: 0;
-}
-
-.footer-nav ul li {
-    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
 }
 
 .footer-nav ul li a {
     color: rgba(255,255,255,0.9);
     text-decoration: none;
-    font-size: 1em;
+    font-size: 0.95em;
     font-weight: 600;
     transition: color 0.2s;
 }
 
-.footer-nav ul li a:hover {
-    color: #fff;
-}
+.footer-nav ul li a:hover { color: #fff; }
 
 .footer-ctas {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 16px;
     align-items: flex-end;
-    flex-shrink: 0;
 }
 
-.footer-cta-block {
-    text-align: right;
-}
+.footer-cta-block { text-align: right; }
 
 .footer-cta-label {
     color: #0d2137;
     font-weight: 800;
-    font-size: 0.95em;
-    margin-bottom: 6px;
+    font-size: 0.9em;
+    margin-bottom: 5px;
 }
 
 .footer-btn {
     display: inline-block;
-    padding: 13px 36px;
+    padding: 12px 32px;
     text-decoration: none;
-    border-radius: 12px;
+    border-radius: 10px;
     font-size: 0.95em;
     font-weight: 700;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s;
 }
 
 .footer-btn.donate {
     background: #00c853;
     color: #fff;
-    box-shadow: 0 3px 14px rgba(0, 200, 83, 0.35);
 }
 
 .footer-btn.involve {
     background: #ff9800;
     color: #fff;
-    box-shadow: 0 3px 14px rgba(255, 152, 0, 0.35);
 }
 
-.footer-btn:hover {
-    transform: translateY(-2px);
-}
+.footer-btn:hover { transform: translateY(-2px); }
 
-/* ─── Page Header (used on sub-pages) ─── */
+/* ─── Page Header ─── */
 .page-header {
     text-align: center;
     margin-bottom: 40px;
@@ -339,7 +317,7 @@ nav {
 
 .page-header p {
     font-size: 1.05em;
-    color: #666;
+    color: #555;
     line-height: 1.8;
     max-width: 750px;
     margin: 0 auto;
@@ -347,80 +325,45 @@ nav {
 
 /* ─── Responsive ─── */
 @media (max-width: 768px) {
-    .mobile-toggle {
-        display: flex;
-    }
+    .mobile-toggle { display: flex; }
 
     .nav-links {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 68px;
-        left: 0;
-        right: 0;
+        top: 72px; left: 0; right: 0;
         background: #02a5be;
         padding: 16px 24px;
         gap: 4px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
-    .nav-links.open {
-        display: flex;
-    }
+    .nav-links.open { display: flex; }
+    .nav-links a { padding: 12px 16px; font-size: 1em; }
+    .nav-donate { font-size: 0.85em; padding: 8px 16px; }
+    .container { padding: 20px 16px; }
 
-    .nav-links a {
-        padding: 12px 16px;
-        font-size: 1em;
-    }
-
-    .nav-donate {
-        font-size: 0.85em;
-        padding: 8px 18px;
-    }
-
-    .container {
-        padding: 20px 16px;
-    }
-
-    .support-section,
-    .volunteer-section {
-        padding: 38px 24px;
-    }
+    .support-section, .volunteer-section { padding: 36px 22px; }
 
     .footer-inner {
-        flex-wrap: wrap;
-        justify-content: center;
+        grid-template-columns: 1fr;
+        justify-items: center;
         text-align: center;
         gap: 24px;
-    }
-
-    .footer-brand {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-
-    .footer-nav {
-        width: 100%;
     }
 
     .footer-ctas {
-        width: 100%;
         flex-direction: row;
         justify-content: center;
         align-items: flex-start;
-        gap: 24px;
+        gap: 20px;
     }
 
-    .footer-cta-block {
-        text-align: center;
-    }
+    .footer-cta-block { text-align: center; }
 }
 
 @media (max-width: 480px) {
-    .page-header h1 {
-        font-size: 1.9em;
-    }
+    .page-header h1 { font-size: 1.9em; }
 
     .footer-ctas {
         flex-direction: column;
