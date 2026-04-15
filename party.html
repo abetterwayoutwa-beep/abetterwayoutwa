@@ -5,407 +5,167 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Our Partners - A Better Way Out WA official community partners">
     <title>Partners - A Better Way Out WA</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shared.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(44, 62, 80, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1em;
-            transition: color 0.3s ease;
-            padding: 8px 15px;
-            border-radius: 5px;
-        }
-
-        nav a:hover {
-            color: #f39c12;
-            background: rgba(255,255,255,0.1);
-        }
-
-        nav a.active {
-            color: #f39c12;
-            background: rgba(243,156,18,0.2);
-        }
-
-        body {
-            font-family: 'Nunito', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
-            min-height: 100vh;
-            padding: 100px 20px 40px 20px;
-        }
-
-        .container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            max-width: 900px;
-            width: 100%;
-            padding: 60px 40px;
-            margin: 0 auto;
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(24px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        .page-header {
+        .partner-block {
+            background: #f4f5f7;
+            border-radius: 16px;
+            padding: 44px 36px;
+            margin-bottom: 28px;
             text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .page-header h1 {
-            font-size: 2.6em;
-            color: #2c3e50;
-            font-weight: 900;
-            margin-bottom: 10px;
-        }
-
-        .page-header p {
-            font-size: 1.1em;
-            color: #777;
-        }
-
-        /* Thumbnail Grid */
-        .partners-label {
-            text-align: center;
-            font-size: 0.78em;
-            font-weight: 800;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #bbb;
-            margin-bottom: 18px;
-        }
-
-        .partners-grid {
-            display: flex;
-            gap: 24px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 50px;
-        }
-
-        .partner-thumb {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            width: 160px;
-            transition: transform 0.25s ease;
-        }
-
-        .partner-thumb:hover {
-            transform: translateY(-6px);
-        }
-
-        .partner-thumb:hover .thumb-img-wrap {
-            box-shadow: 0 14px 32px rgba(0,0,0,0.16);
-            border-color: #f39c12;
-        }
-
-        .partner-thumb:hover .thumb-label {
-            color: #e67e22;
-        }
-
-        .thumb-img-wrap {
-            width: 140px;
-            height: 140px;
-            border-radius: 18px;
-            overflow: hidden;
-            border: 3px solid #e9ecef;
-            background: #f8f9fa;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: box-shadow 0.25s ease, border-color 0.25s ease;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-        }
-
-        .thumb-img-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            padding: 10px;
-        }
-
-        .thumb-label {
-            font-size: 0.85em;
-            font-weight: 700;
-            color: #555;
-            text-align: center;
-            transition: color 0.25s ease;
-            line-height: 1.3;
-        }
-
-        .thumb-visit {
-            font-size: 0.75em;
-            color: #f39c12;
-            font-weight: 700;
-        }
-
-        .thumb-visit::after {
-            content: ' →';
-        }
-
-        /* Divider */
-        .divider {
-            border: none;
-            border-top: 2px solid #f0f0f0;
-            margin: 10px 0 40px;
-        }
-
-        /* Full Partner Sections */
-        .partner-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 15px;
-            padding: 40px;
-            margin-bottom: 30px;
-            text-align: center;
-            scroll-margin-top: 90px;
-        }
-
-        .partner-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #f39c12 0%, #e74c3c 100%);
-            color: white;
-            padding: 6px 18px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: 800;
-            margin-bottom: 18px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
         }
 
         .partner-logo {
-            max-width: 460px;
+            max-width: 380px;
             width: 100%;
             height: auto;
-            margin: 16px auto;
+            margin: 0 auto 24px;
             display: block;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        .partner-description {
-            font-size: 1.05em;
+        .partner-block p {
+            font-size: 1em;
             color: #555;
             line-height: 1.8;
-            margin: 22px 0;
+            max-width: 680px;
+            margin: 0 auto 28px;
         }
 
-        .partner-website {
+        .btn-partner {
             display: inline-block;
-            background: linear-gradient(135deg, #f39c12 0%, #e74c3c 100%);
-            color: white;
-            padding: 12px 30px;
+            background: #e74c3c;
+            color: #fff;
+            padding: 12px 32px;
             text-decoration: none;
             border-radius: 50px;
-            font-size: 1em;
+            font-size: 0.95em;
             font-weight: 700;
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-            box-shadow: 0 4px 14px rgba(243,156,18,0.35);
+            transition: transform 0.25s, box-shadow 0.25s;
+            box-shadow: 0 4px 14px rgba(231, 76, 60, 0.3);
         }
 
-        .partner-website:hover {
+        .btn-partner:hover {
             transform: translateY(-3px);
-            box-shadow: 0 7px 20px rgba(231,76,60,0.5);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.45);
         }
 
-        /* Video */
-        .video-section {
-            margin: 36px 0 6px;
-            text-align: center;
-        }
-
-        .video-section h2 {
-            font-size: 1.6em;
-            color: #2c3e50;
-            margin-bottom: 22px;
+        .video-heading {
+            font-size: 1.4em;
+            color: #0d2137;
             font-weight: 800;
+            margin: 30px 0 20px;
         }
 
         .video-container {
             width: 100%;
             max-width: 480px;
             margin: 0 auto;
-            border-radius: 15px;
+            border-radius: 14px;
             overflow: hidden;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.15);
         }
 
         .video-container iframe {
             width: 100%;
-            height: 560px;
+            height: 540px;
             border: none;
             display: block;
         }
 
-        .footer {
-            margin-top: 50px;
-            text-align: center;
-            color: #bbb;
-            font-size: 0.9em;
-        }
-
-        @media (max-width: 768px) {
-            nav ul { gap: 15px; }
-            nav a { font-size: 0.95em; padding: 6px 10px; }
-            .container { padding: 40px 25px; }
-            .page-header h1 { font-size: 2em; }
-            .partner-section { padding: 30px 20px; }
-            .video-container iframe { height: 440px; }
-        }
-
-        @media (max-width: 600px) {
-            body { padding-top: 70px; }
-            nav ul { flex-direction: column; gap: 10px; align-items: center; }
-            .page-header h1 { font-size: 1.7em; }
-            .partners-grid { gap: 16px; }
-            .partner-thumb { width: 130px; }
-            .thumb-img-wrap { width: 110px; height: 110px; }
-            .video-container iframe { height: 360px; }
+        @media (max-width: 680px) {
+            .partner-block { padding: 30px 22px; }
+            .video-container iframe { height: 380px; }
         }
     </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="events.html">Events</a></li>
-            <li><a href="party.html" class="active">Partner</a></li>
-            <li><a href="https://www.facebook.com/a.better.way.out" target="_blank">Get Involved</a></li>
-        </ul>
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/logo.jpg" alt="A Better Way Out logo" width="48" height="48">
+            </a>
+            <button class="mobile-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Get Involved</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="party.html" class="active">Partner</a></li>
+            </ul>
+            <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="nav-donate">Donate Today</a>
+        </div>
     </nav>
 
-    <div class="container">
+    <main class="page-wrap">
+        <div class="container">
 
-        <div class="page-header">
-            <h1>🤝 Our Partners</h1>
-            <p>Organizations we're proud to work alongside</p>
-        </div>
+            <div class="page-header">
+                <h1>Our Partners</h1>
+                <p>Organizations we're proud to work alongside</p>
+            </div>
 
-        <!-- Thumbnail Quick-Links -->
-        <p class="partners-label">Click to visit</p>
-        <div class="partners-grid">
+            <!-- kū cumber SKIN LOUNGE -->
+            <section class="partner-block">
+                <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/partner_logo.png" alt="kū cumber SKIN LOUNGE Logo" class="partner-logo">
+                <p>We're proud to partner with <strong>kū cumber SKIN LOUNGE</strong> to provide an exceptional venue for your celebrations. Whether you're planning a birthday party, community gathering, or special event, this beautiful space offers the perfect atmosphere for memorable moments while supporting our mission.</p>
+                <a href="https://kucumberskinlounge.com" target="_blank" rel="noopener noreferrer" class="btn-partner">Visit kū cumber SKIN LOUNGE</a>
 
-            <a class="partner-thumb" href="https://kucumberskinlounge.com" target="_blank" rel="noopener noreferrer">
-                <div class="thumb-img-wrap">
-                    <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/partner_logo.png"
-                         alt="kū cumber SKIN LOUNGE">
-                </div>
-                <span class="thumb-label">kū cumber SKIN LOUNGE</span>
-                <span class="thumb-visit">Visit site</span>
-            </a>
-
-            <a class="partner-thumb" href="https://northsoundach.org/" target="_blank" rel="noopener noreferrer">
-                <div class="thumb-img-wrap">
-                    <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/NSACH.jpeg"
-                         alt="North Sound ACH">
-                </div>
-                <span class="thumb-label">North Sound ACH</span>
-                <span class="thumb-visit">Visit site</span>
-            </a>
-
-            <a class="partner-thumb" href="https://ferndalewachamber.com/" target="_blank" rel="noopener noreferrer">
-                <div class="thumb-img-wrap">
-                    <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/Ferndale-chamber.jpg"
-                         alt="Ferndale Chamber of Commerce">
-                </div>
-                <span class="thumb-label">Ferndale Chamber of Commerce</span>
-                <span class="thumb-visit">Visit site</span>
-            </a>
-
-        </div>
-
-        <hr class="divider">
-
-        <!-- kū cumber Full Section -->
-        <div class="partner-section" id="kucumber">
-            <span class="partner-badge">Official Partner</span>
-            <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/partner_logo.png"
-                 alt="kū cumber SKIN LOUNGE Logo" class="partner-logo">
-            <p class="partner-description">
-                <strong>kū cumber SKIN LOUNGE</strong> is a PNW-based medical aesthetics practice with locations in Seattle, Bellevue, and Bellingham — known for personalized, results-driven skin care. We're proud to partner with them to support our community members in feeling confident and cared for.
-            </p>
-            <a href="https://kucumberskinlounge.com" target="_blank" rel="noopener noreferrer" class="partner-website">
-                Visit kū cumber SKIN LOUNGE
-            </a>
-
-            <div class="video-section">
-                <h2>Experience the Venue</h2>
+                <h3 class="video-heading">Experience the Venue</h3>
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/oCOY3vY_MaI"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                    </iframe>
+                    <iframe src="https://www.youtube.com/embed/oCOY3vY_MaI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </section>
+
+            <!-- North Sound ACH -->
+            <section class="partner-block">
+                <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/NSACH.jpeg" alt="North Sound ACH Logo" class="partner-logo">
+                <p>We're proud to partner with North Sound ACH <strong>(North Sound Accountable Community of Health)</strong>, an organization committed to improving health and well-being across our region. Together, we work to connect community members with the resources and support they need to thrive.</p>
+                <a href="https://northsoundach.org/" target="_blank" rel="noopener noreferrer" class="btn-partner">Visit North Sound ACH</a>
+            </section>
+
+            <section class="support-section">
+                <h2>Support Our Mission</h2>
+                <p>Our donation directly impacts the lives of at-risk youth in our community. Every contribution helps us provide mentorship, support, and hope to those who need it most.</p>
+                <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="btn-donate">Donate Now</a>
+            </section>
+
+            <section class="volunteer-section">
+                <h2>Volunteer With Us</h2>
+                <p>Making a difference, one life at a time.</p>
+                <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" class="btn-involve">Get Involved</a>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/logo.jpg" alt="A Better Way Out logo" width="100" height="100">
+            </div>
+            <div class="footer-nav">
+                <h3>A Better Way Out</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Get Involved</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="party.html">Partner</a></li>
+                </ul>
+            </div>
+            <div class="footer-ctas">
+                <div class="footer-cta-block">
+                    <p class="footer-cta-label">Every Contribution Helps</p>
+                    <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="footer-btn donate">Donate Now</a>
+                </div>
+                <div class="footer-cta-block">
+                    <p class="footer-cta-label">Help Out and Make a Difference</p>
+                    <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" class="footer-btn involve">Get Involved</a>
                 </div>
             </div>
         </div>
-
-        <!-- North Sound ACH Full Section -->
-        <div class="partner-section" id="nsach">
-            <span class="partner-badge">Official Partner</span>
-            <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/NSACH.jpeg"
-                 alt="North Sound ACH Logo" class="partner-logo">
-            <p class="partner-description">
-                <strong>North Sound ACH</strong> is a regional nonprofit connecting partners across five counties and eight Tribal nations to advance health equity and community well-being. We're aligned in the belief that everyone — regardless of where they live — deserves the conditions to thrive.
-            </p>
-            <a href="https://northsoundach.org/" target="_blank" rel="noopener noreferrer" class="partner-website">
-                Visit North Sound ACH
-            </a>
-        </div>
-
-        <!-- Ferndale Chamber of Commerce Full Section -->
-        <div class="partner-section" id="ferndale-chamber">
-            <span class="partner-badge">Official Partner</span>
-            <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/Ferndale-chamber.jpg"
-                 alt="Ferndale Chamber of Commerce Logo" class="partner-logo">
-            <p class="partner-description">
-                The <strong>Ferndale Chamber of Commerce</strong> advocates for local businesses and helps make Ferndale the best place to live, work, and do business. Partnering with them connects us directly to the local business community and the people who make Ferndale thrive.
-            </p>
-            <a href="https://ferndalewachamber.com/" target="_blank" rel="noopener noreferrer" class="partner-website">
-                Visit Ferndale Chamber of Commerce
-            </a>
-        </div>
-
-        <div class="footer">
-            <p>Making a difference, one partnership at a time. 🤝</p>
-        </div>
-
-    </div>
+    </footer>
 </body>
 </html>
