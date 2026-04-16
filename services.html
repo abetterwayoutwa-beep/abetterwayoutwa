@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Community Services - A Better Way Out provides mentorship, mental health support, and family resources">
     <title>Services — A Better Way Out WA</title>
+    <meta name="description" content="Community Services - A Better Way Out provides mentorship, mental health support, and family resources">
     <link rel="stylesheet" href="shared.css">
     <style>
         body { background: #e0f7fa; }
@@ -19,7 +19,7 @@
         .service-card {
             background: #fff;
             border-radius: 20px;
-            padding: 34px 30px;
+            padding: 32px 30px;
             box-shadow: 0 4px 20px rgba(13,33,55,0.06);
             transition: all 0.3s;
             display: flex;
@@ -39,7 +39,7 @@
         }
 
         .service-icon {
-            width: 46px; height: 46px; min-width: 46px;
+            width: 48px; height: 48px; min-width: 48px;
             display: flex; align-items: center; justify-content: center;
             background: #03b8d4;
             border-radius: 12px;
@@ -59,31 +59,27 @@
             margin-bottom: 20px;
         }
 
-        /* Images show fully, not cropped */
         .service-image-wrap {
             margin-top: auto;
             background: #f7fafc;
             border-radius: 12px;
-            padding: 8px;
+            padding: 10px;
             text-align: center;
         }
 
         .service-image {
             width: 100%;
             max-height: 240px;
-            height: auto;
             object-fit: contain;
             border-radius: 10px;
             margin: 0 auto;
-            display: block;
         }
 
         .mentor-section {
             background: linear-gradient(135deg, #ef7b7b 0%, #f5a0a0 100%);
             color: white;
-            padding: 50px 40px;
+            padding: 48px 40px;
             border-radius: 20px;
-            margin-bottom: 28px;
             text-align: center;
         }
 
@@ -104,7 +100,7 @@
 
         @media (max-width: 680px) {
             .services-grid { grid-template-columns: 1fr; }
-            .mentor-section { padding: 36px 22px; }
+            .mentor-section { padding: 34px 22px; }
         }
     </style>
 </head>
@@ -112,28 +108,24 @@
 
     <nav class="navbar">
         <div class="navbar-inner">
-            <a href="index.html" class="navbar-logo">
-                <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/logo.png" alt="A Better Way Out logo">
-            </a>
             <button class="mobile-toggle" aria-label="Toggle menu" onclick="document.querySelector('.navbar-menu').classList.toggle('open')">
                 <span></span><span></span><span></span>
             </button>
             <ul class="navbar-menu">
                 <li><a href="index.html#about">About Us</a></li>
                 <li><a href="services.html" class="active">Services</a></li>
-                <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Get Involved</a></li>
                 <li><a href="events.html">Events</a></li>
                 <li><a href="party.html">Partner</a></li>
+                <li><a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer">Donate</a></li>
             </ul>
-            <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="btn-nav-donate">Donate Today</a>
         </div>
     </nav>
 
-    <main class="page-wrap">
+    <main>
         <div class="container">
             <div class="page-header">
                 <h1>Services</h1>
-                <p>Our Community Services are designed to highlight the comprehensive support we offer to individuals and families seeking stability, healing, and hope. Rooted in compassion and guided by lived experience.</p>
+                <p>Our Community Services are designed to highlight the comprehensive support we offer to individuals and families seeking stability, healing, and hope.</p>
             </div>
 
             <div class="services-grid">
@@ -184,58 +176,41 @@
 
             <section class="mentor-section">
                 <h2>Our Approach: Mentors with Lived Experience</h2>
-                <p>Our services are powered by mentors and volunteers who understand the realities of struggle, growth, and transformation because many of them have lived it themselves. Their firsthand experience allows them to connect authentically, inspire hope, and guide others through challenges with compassion and wisdom — meeting people where they are and helping them move toward who they can become.</p>
-            </section>
-
-            <section class="support-section">
-                <h2>Support Our Mission</h2>
-                <p>Your donation directly impacts the lives of at-risk youth in our community. Every contribution helps us provide mentorship, support, and hope to those who need it most.</p>
-                <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="btn-donate">Donate Now</a>
+                <p>Our services are powered by mentors and volunteers who understand the realities of struggle, growth, and transformation because many of them have lived it themselves. Their firsthand experience allows them to connect authentically, inspire hope, and guide others through challenges with compassion and wisdom.</p>
             </section>
         </div>
     </main>
 
     <footer class="site-footer">
-        <div class="footer-main">
-            <section class="footer-about">
-                <div class="footer-about-row">
-                    <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/logo.png" alt="A Better Way Out logo">
-                    <h2>A Better Way Out</h2>
-                </div>
-                <p class="footer-about-text">Empowering at-risk youth in Washington through trauma-informed mentorship, education, and support — led by mentors with lived experience.</p>
-                <div class="footer-social">
-                    <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                    </a>
-                </div>
-            </section>
-            <section class="footer-section">
-                <h3>Discover Us</h3>
+        <div class="footer-container">
+            <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/logo.png" alt="A Better Way Out logo" class="footer-logo">
+            <p class="footer-brand-name">A Better Way Out</p>
+
+            <nav class="footer-nav" aria-label="Footer navigation">
                 <ul>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="index.html#about">About Us</a></li>
                     <li><a href="services.html">Services</a></li>
-                    <li><a href="party.html">Partners</a></li>
-                </ul>
-            </section>
-            <section class="footer-section">
-                <h3>Our Impact</h3>
-                <ul>
                     <li><a href="events.html">Events</a></li>
-                    <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Stories</a></li>
-                </ul>
-            </section>
-            <section class="footer-section">
-                <h3>Get Involved</h3>
-                <ul>
-                    <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Volunteer</a></li>
+                    <li><a href="party.html">Partners</a></li>
                     <li><a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer">Donate</a></li>
-                    <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Follow on Facebook</a></li>
                 </ul>
-            </section>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 A Better Way Out WA — All Rights Reserved</p>
-            <p class="ein">EIN: 92-1581139 — A 501(c)(3) Nonprofit</p>
+            </nav>
+
+            <nav class="footer-social" aria-label="Social media">
+                <ul>
+                    <li>
+                        <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <p class="footer-copyright">
+                &copy; 2026 A Better Way Out WA — All Rights Reserved
+                <span class="ein">EIN: 92-1581139 — A 501(c)(3) Nonprofit</span>
+            </p>
         </div>
     </footer>
 
