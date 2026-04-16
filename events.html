@@ -7,39 +7,37 @@
     <title>Events — A Better Way Out WA</title>
     <link rel="stylesheet" href="shared.css">
     <style>
+        body { background: #e0f7fa; }
+
         .event-card {
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            padding: 32px 36px;
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px 34px;
             margin-bottom: 22px;
             display: flex;
             align-items: flex-start;
-            gap: 28px;
+            gap: 26px;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: var(--card-shadow);
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(13,33,55,0.06);
         }
         .event-card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--card-shadow-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(13,33,55,0.1);
         }
 
         .event-date-box {
-            background: linear-gradient(135deg, var(--cyan) 0%, #00d4f0 100%);
+            background: #03b8d4;
             color: white;
-            padding: 18px 22px;
-            border-radius: 16px;
+            padding: 16px 22px;
+            border-radius: 14px;
             text-align: center;
-            min-width: 110px;
+            min-width: 108px;
             flex-shrink: 0;
-            box-shadow: 0 4px 14px rgba(3,184,212,0.3);
         }
-        .event-date-box.upcoming {
-            background: linear-gradient(135deg, var(--green) 0%, #00e676 100%);
-            box-shadow: 0 4px 14px rgba(0,200,83,0.3);
-        }
-        .event-date-box .month { font-size: 0.92em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
-        .event-date-box .day { font-size: 2.3em; font-weight: 800; line-height: 1.1; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .event-date-box.upcoming { background: #00c853; }
+        .event-date-box .month { font-size: 0.92em; font-weight: 700; text-transform: uppercase; }
+        .event-date-box .day { font-size: 2.2em; font-weight: 800; line-height: 1.1; font-family: 'Plus Jakarta Sans', sans-serif; }
         .event-date-box .year { font-size: 0.85em; opacity: 0.9; }
 
         .event-body { flex: 1; }
@@ -47,52 +45,39 @@
             display: inline-block;
             background: rgba(0,200,83,0.12);
             color: #00803d;
-            padding: 4px 14px;
+            padding: 3px 12px;
             border-radius: 999px;
             font-size: 0.72em;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.06em;
             margin-bottom: 8px;
         }
-        .event-body h2 { font-size: 1.35em; font-weight: 800; margin-bottom: 12px; }
-        .event-meta { display: flex; gap: 18px; flex-wrap: wrap; color: #4a5568; font-size: 0.9em; margin-bottom: 16px; }
-        .event-meta span { display: flex; align-items: center; gap: 5px; }
+        .event-body h2 { font-size: 1.3em; font-weight: 800; margin-bottom: 10px; }
+        .event-meta { display: flex; gap: 16px; flex-wrap: wrap; color: #555; font-size: 0.9em; margin-bottom: 14px; }
 
         .btn-event-details {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: var(--navy);
+            display: inline-block;
+            background: #0d2137;
             color: #fff;
-            padding: 10px 26px;
             border: none;
-            border-radius: 999px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            padding: 10px 28px;
+            font-family: 'Inter', sans-serif;
             font-size: 0.92em;
             font-weight: 700;
+            border-radius: 8px;
             cursor: pointer;
             transition: all 0.25s;
         }
-        .btn-event-details::after {
-            content: "↓";
-            transition: transform 0.25s;
-        }
-        .event-card.expanded .btn-event-details::after {
-            transform: rotate(180deg);
-        }
-        .btn-event-details:hover {
-            background: #1a4866;
-            transform: translateY(-1px);
-        }
+        .btn-event-details:hover { background: #1a4866; }
 
         .event-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, margin-top 0.5s ease; margin-top: 0; }
-        .event-card.expanded .event-content { max-height: 3000px; margin-top: 18px; }
+        .event-card.expanded .event-content { max-height: 3000px; margin-top: 16px; }
 
         .event-description {
-            background: #f8fafc;
-            border-radius: 14px;
-            padding: 22px 26px;
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 20px 24px;
             color: #4a5568;
             font-size: 0.95em;
             line-height: 1.8;
@@ -100,79 +85,76 @@
             margin-bottom: 14px;
         }
         .event-description ul { margin: 8px 0 0 20px; line-height: 2; }
-        .event-image { width: 100%; max-width: 580px; height: auto; border-radius: 14px; margin: 10px auto; display: block; box-shadow: 0 6px 20px rgba(13,33,55,0.12); }
+        .event-image { width: 100%; max-width: 580px; height: auto; border-radius: 12px; margin: 10px auto; display: block; box-shadow: 0 6px 18px rgba(13,33,55,0.1); }
 
         .event-contact {
-            background: linear-gradient(135deg, var(--cyan) 0%, var(--cyan-dark) 100%);
+            background: #03b8d4;
             color: white;
-            padding: 22px 26px;
-            border-radius: 14px;
+            padding: 20px 24px;
+            border-radius: 12px;
             margin-top: 14px;
         }
-        .event-contact h4 { margin-bottom: 8px; font-size: 1.1em; color: #fff; }
+        .event-contact h4 { margin-bottom: 8px; font-size: 1.05em; color: #fff; }
         .event-contact a { color: #fff; text-decoration: underline; font-weight: 600; }
 
         .stay-updated {
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            padding: 52px 40px;
+            background: #fff;
+            border-radius: 20px;
+            padding: 48px 40px;
             text-align: center;
             margin-bottom: 28px;
-            box-shadow: var(--card-shadow);
+            box-shadow: 0 4px 20px rgba(13,33,55,0.06);
         }
-        .stay-updated h2 { font-size: 1.7em; font-weight: 800; margin-bottom: 14px; }
-        .stay-updated p { color: #4a5568; font-size: 1em; margin-bottom: 28px; }
+        .stay-updated h2 { font-size: 1.6em; font-weight: 800; margin-bottom: 14px; }
+        .stay-updated p { color: #4a5568; font-size: 1em; margin-bottom: 26px; }
 
         .btn-facebook {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: linear-gradient(135deg, #1877F2 0%, #0d5fc7 100%);
+            background: #1877F2;
             color: #fff;
-            padding: 14px 32px;
+            padding: 13px 30px;
             text-decoration: none;
-            border-radius: 999px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
             font-size: 1em;
             font-weight: 700;
             transition: all 0.25s;
-            box-shadow: 0 4px 16px rgba(24,119,242,0.35);
+            box-shadow: 0 4px 14px rgba(24,119,242,0.3);
+            border: none;
+            cursor: pointer;
         }
         .btn-facebook:hover {
+            background: #0d5fc7;
             transform: translateY(-2px);
-            box-shadow: 0 6px 22px rgba(24,119,242,0.5);
         }
-        .fb-icon {
-            width: 22px; height: 22px;
-            background: #fff; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-weight: 900; color: #1877F2; font-size: 0.85em;
-        }
+        .btn-facebook svg { width: 20px; height: 20px; fill: #fff; }
 
         @media (max-width: 680px) {
-            .event-card { flex-direction: column; padding: 24px 22px; }
+            .event-card { flex-direction: column; padding: 22px 20px; }
             .event-date-box { min-width: 90px; }
         }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="nav-inner">
-            <a href="index.html" class="nav-logo">
+
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="index.html" class="navbar-logo">
                 <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/logo.png" alt="A Better Way Out logo">
-                <span class="brand-name">A Better Way Out</span>
             </a>
-            <button class="mobile-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+            <button class="mobile-toggle" aria-label="Toggle menu" onclick="document.querySelector('.navbar-menu').classList.toggle('open')">
                 <span></span><span></span><span></span>
             </button>
-            <ul class="nav-links">
+            <ul class="navbar-menu">
                 <li><a href="index.html#about">About Us</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Get Involved</a></li>
                 <li><a href="events.html" class="active">Events</a></li>
                 <li><a href="party.html">Partner</a></li>
             </ul>
-            <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="nav-donate">Donate Today</a>
+            <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="btn-nav-donate">Donate Today</a>
         </div>
     </nav>
 
@@ -183,7 +165,6 @@
                 <p>Join us for community gatherings designed to build connections, inspire hope, and create positive change.</p>
             </div>
 
-            <!-- Q&A Upcoming -->
             <div class="event-card" onclick="toggleEvent(this)">
                 <div class="event-date-box upcoming">
                     <div class="month">APR</div><div class="day">25</div><div class="year">2026</div>
@@ -204,7 +185,7 @@
                             <ul><li>Ask questions about our mission</li><li>Meet the director and our dedicated team</li><li>Learn how you can get involved in our community efforts</li></ul>
                             <p style="margin-top:12px;"><strong>Who should attend:</strong> Youth ages 12 and up, community members, parents &amp; mentors, city officials, non-profits &amp; business leaders.</p>
                         </div>
-                        <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/Q%26A-with-the-director.png" alt="Q&A with the Director event flyer" class="event-image" onerror="this.style.display='none'">
+                        <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/Q%26A-with-the-director.png" alt="Q&A with the Director flyer" class="event-image" onerror="this.style.display='none'">
                         <div class="event-contact">
                             <h4>📣 Want to Attend?</h4>
                             <p>Follow us on Facebook for the latest updates and announcements.</p>
@@ -214,7 +195,6 @@
                 </div>
             </div>
 
-            <!-- Homeless Outreach Past -->
             <div class="event-card" onclick="toggleEvent(this)">
                 <div class="event-date-box">
                     <div class="month">APR</div><div class="day">11</div><div class="year">2026</div>
@@ -243,7 +223,6 @@
                 </div>
             </div>
 
-            <!-- Interview with a Cop Past -->
             <div class="event-card" onclick="toggleEvent(this)">
                 <div class="event-date-box">
                     <div class="month">JAN</div><div class="day">17</div><div class="year">2026</div>
@@ -268,7 +247,8 @@
                 <h2>Want to Stay Updated?</h2>
                 <p>Follow us on Facebook to be the first to know about upcoming events and community programs.</p>
                 <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" class="btn-facebook">
-                    <span class="fb-icon">f</span> Follow Us on Facebook
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    Follow Us on Facebook
                 </a>
             </section>
 
@@ -281,40 +261,42 @@
     </main>
 
     <footer class="site-footer">
-        <div class="footer-inner">
-            <div class="footer-brand-block">
-                <div class="footer-brand-row">
+        <div class="footer-main">
+            <section class="footer-about">
+                <div class="footer-about-row">
                     <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/logo.png" alt="A Better Way Out logo">
                     <h2>A Better Way Out</h2>
                 </div>
-                <p>Empowering at-risk youth in Washington through trauma-informed mentorship, education, and support — led by mentors with lived experience.</p>
-                <div class="footer-socials">
-                    <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
+                <p class="footer-about-text">Empowering at-risk youth in Washington through trauma-informed mentorship, education, and support — led by mentors with lived experience.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
                 </div>
-            </div>
-            <div class="footer-col">
+            </section>
+            <section class="footer-section">
                 <h3>Discover Us</h3>
                 <ul>
                     <li><a href="index.html#about">About Us</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="party.html">Partners</a></li>
                 </ul>
-            </div>
-            <div class="footer-col">
+            </section>
+            <section class="footer-section">
                 <h3>Our Impact</h3>
                 <ul>
                     <li><a href="events.html">Events</a></li>
                     <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Stories</a></li>
                 </ul>
-            </div>
-            <div class="footer-col">
+            </section>
+            <section class="footer-section">
                 <h3>Get Involved</h3>
                 <ul>
                     <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Volunteer</a></li>
                     <li><a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer">Donate</a></li>
                     <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Follow on Facebook</a></li>
                 </ul>
-            </div>
+            </section>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2026 A Better Way Out WA — All Rights Reserved</p>
@@ -322,5 +304,6 @@
         </div>
     </footer>
     <script>function toggleEvent(card){card.classList.toggle('expanded');}</script>
+
 </body>
 </html>
