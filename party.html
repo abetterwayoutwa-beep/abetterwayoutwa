@@ -9,6 +9,71 @@
     <style>
         body { background: #e0f7fa; }
 
+        /* Thumbnail grid at top */
+        .partners-thumb-section {
+            background: #fff;
+            border-radius: 20px;
+            padding: 32px 28px;
+            margin-bottom: 26px;
+            box-shadow: 0 4px 20px rgba(13,33,55,0.06);
+            text-align: center;
+        }
+        .partners-thumb-label {
+            font-size: 0.78em;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #718096;
+            margin-bottom: 22px;
+        }
+        .partners-thumb-grid {
+            display: flex;
+            gap: 22px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .partner-thumb {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            width: 160px;
+            transition: transform 0.25s;
+        }
+        .partner-thumb:hover {
+            transform: translateY(-4px);
+        }
+        .partner-thumb-wrap {
+            width: 130px;
+            height: 130px;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 3px solid #e2e8f0;
+            background: #f7fafc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border-color 0.25s, box-shadow 0.25s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+        .partner-thumb:hover .partner-thumb-wrap {
+            border-color: #03b8d4;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .partner-thumb-wrap img {
+            width: 100%; height: 100%;
+            object-fit: contain;
+            padding: 8px;
+        }
+        .partner-thumb-label {
+            font-size: 0.85em;
+            font-weight: 700;
+            color: #2d3748;
+            text-align: center;
+            line-height: 1.3;
+        }
+
         .partner-block {
             background: #fff;
             border-radius: 20px;
@@ -17,6 +82,7 @@
             text-align: center;
             box-shadow: 0 4px 20px rgba(13,33,55,0.06);
             transition: all 0.3s;
+            scroll-margin-top: 100px;
         }
         .partner-block:hover {
             transform: translateY(-2px);
@@ -103,7 +169,7 @@
                 <li><a href="services.html">Services</a></li>
                 <li><a href="events.html">Events</a></li>
                 <li><a href="party.html" class="active">Partner</a></li>
-                <li><a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer">Donate</a></li>
+                <li><a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="nav-donate">Donate</a></li>
             </ul>
         </div>
     </nav>
@@ -115,7 +181,26 @@
                 <p>Organizations we're proud to work alongside.</p>
             </div>
 
-            <section class="partner-block">
+            <!-- Thumbnail quick-links -->
+            <section class="partners-thumb-section">
+                <p class="partners-thumb-label">Our Partners · Click to view</p>
+                <div class="partners-thumb-grid">
+                    <a class="partner-thumb" href="#kucumber">
+                        <div class="partner-thumb-wrap">
+                            <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/partner_logo.png" alt="kū cumber SKIN LOUNGE">
+                        </div>
+                        <span class="partner-thumb-label">kū cumber SKIN LOUNGE</span>
+                    </a>
+                    <a class="partner-thumb" href="#nsach">
+                        <div class="partner-thumb-wrap">
+                            <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/NSACH.jpeg" alt="North Sound ACH">
+                        </div>
+                        <span class="partner-thumb-label">North Sound ACH</span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="partner-block" id="kucumber">
                 <div class="partner-logo-wrap">
                     <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/partner_logo.png" alt="kū cumber SKIN LOUNGE Logo" class="partner-logo">
                 </div>
@@ -128,7 +213,7 @@
                 </div>
             </section>
 
-            <section class="partner-block">
+            <section class="partner-block" id="nsach">
                 <div class="partner-logo-wrap">
                     <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/NSACH.jpeg" alt="North Sound ACH Logo" class="partner-logo">
                 </div>
@@ -138,36 +223,46 @@
         </div>
     </main>
 
-    <footer class="site-footer">
+        <footer class="site-footer">
         <div class="footer-container">
-            <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/logo.png" alt="A Better Way Out logo" class="footer-logo">
-            <p class="footer-brand-name">A Better Way Out</p>
 
-            <nav class="footer-nav" aria-label="Footer navigation">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#about">About Us</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="events.html">Events</a></li>
-                    <li><a href="party.html">Partners</a></li>
-                    <li><a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer">Donate</a></li>
-                </ul>
-            </nav>
+            <div class="footer-brand">
+                <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/logo.png" alt="A Better Way Out logo">
+                <h2>A Better Way Out</h2>
+                <p>Empowering at-risk youth in Washington through trauma-informed mentorship, education, and support — led by mentors with lived experience.</p>
+            </div>
 
-            <nav class="footer-social" aria-label="Social media">
-                <ul>
-                    <li>
-                        <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+            <div class="footer-columns">
+                <section class="footer-col">
+                    <h3>Discover Us</h3>
+                    <ul>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="party.html">Partners</a></li>
+                    </ul>
+                </section>
 
-            <p class="footer-copyright">
-                &copy; 2026 A Better Way Out WA — All Rights Reserved
-                <span class="ein">EIN: 92-1581139 — A 501(c)(3) Nonprofit</span>
-            </p>
+                <section class="footer-col">
+                    <h3>Our Impact</h3>
+                    <ul>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Stories</a></li>
+                    </ul>
+                </section>
+
+                <section class="footer-col">
+                    <h3>Get Involved</h3>
+                    <ul>
+                        <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Volunteer</a></li>
+                        <li><a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer">Donate</a></li>
+                    </ul>
+                </section>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 A Better Way Out WA — All Rights Reserved</p>
+                <p class="ein">EIN: 92-1581139 — A 501(c)(3) Nonprofit</p>
+            </div>
         </div>
     </footer>
 
