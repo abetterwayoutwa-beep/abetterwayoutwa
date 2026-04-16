@@ -3,89 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Better Way Out WA - Youth Mentorship & Support | Empowering At-Risk Youth</title>
+    <title>A Better Way Out WA — Youth Mentorship & Support</title>
     <meta name="description" content="A Better Way Out empowers at-risk youth in Washington through trauma-informed mentorship, education, and community support. EIN: 92-1581139">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.abetterwayoutwa.org/">
-    <meta property="og:title" content="A Better Way Out WA - Youth Mentorship & Support">
+    <meta property="og:title" content="A Better Way Out WA — Youth Mentorship & Support">
     <meta property="og:description" content="Empowering at-risk youth through mentorship, education, and support.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/logo.jpg">
+    <meta property="og:image" content="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/logo.png">
     <meta name="theme-color" content="#03b8d4">
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"NGO","name":"A Better Way Out WA","url":"https://www.abetterwayoutwa.org","logo":"https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/logo.jpg","taxID":"92-1581139","nonprofitStatus":"Nonprofit501c3"}
+    {"@context":"https://schema.org","@type":"NGO","name":"A Better Way Out WA","url":"https://www.abetterwayoutwa.org","logo":"https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/logo.png","taxID":"92-1581139","nonprofitStatus":"Nonprofit501c3"}
     </script>
     <link rel="stylesheet" href="shared.css">
     <style>
-        body { background: #e0f7fa; }
-
+        /* Hero */
         .hero {
             text-align: center;
-            padding: 44px 20px 36px;
+            padding: 30px 20px 50px;
         }
         .hero-logo {
-            width: 320px; max-width: 75%;
+            width: 280px;
+            max-width: 70%;
             height: auto;
-            margin: 0 auto;
+            margin: 0 auto 28px;
             display: block;
-            border-radius: 20px;
+            border-radius: 24px;
+            filter: drop-shadow(0 12px 30px rgba(13, 33, 55, 0.15));
+        }
+        .hero h1 {
+            font-size: 3.2em;
+            font-weight: 800;
+            margin-bottom: 14px;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, var(--navy) 0%, #1a4866 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero-tagline {
+            font-size: 1.15em;
+            color: #4a5568;
+            max-width: 620px;
+            margin: 0 auto;
         }
 
+        /* Intro / What is */
         .intro-section {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 44px;
             align-items: center;
-            gap: 40px;
-            background: #f0f4f8;
-            border-radius: 18px;
-            padding: 48px 42px;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 52px 44px;
             margin-bottom: 28px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: var(--card-shadow);
         }
-        .intro-text { flex: 1; }
-        .intro-text h2 { font-size: 1.7em; color: #0d2137; margin-bottom: 14px; font-weight: 800; }
-        .intro-text p { font-size: 1.02em; color: #444; line-height: 1.8; margin-bottom: 26px; }
+        .intro-text h2 {
+            font-size: 1.9em;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+        .intro-text p {
+            font-size: 1.04em;
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 28px;
+        }
         .btn-learn {
-            display: inline-block;
-            background: #03b8d4;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--navy);
             color: #fff;
-            padding: 15px 40px;
+            padding: 14px 32px;
             text-decoration: none;
-            border-radius: 14px;
-            font-size: 1.05em;
+            border-radius: 999px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1em;
             font-weight: 700;
-            transition: transform 0.25s, box-shadow 0.25s;
-            box-shadow: 0 4px 16px rgba(3,184,212,0.3);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 14px rgba(13, 33, 55, 0.2);
         }
-        .btn-learn:hover { transform: translateY(-3px); box-shadow: 0 6px 22px rgba(3,184,212,0.45); }
-        .intro-image { flex: 1; max-width: 400px; }
-        .intro-image img { width: 100%; border-radius: 14px; box-shadow: 0 6px 24px rgba(0,0,0,0.12); }
+        .btn-learn::after {
+            content: "→";
+            transition: transform 0.25s;
+        }
+        .btn-learn:hover {
+            transform: translateY(-2px);
+            background: #1a4866;
+            box-shadow: 0 6px 20px rgba(13, 33, 55, 0.3);
+        }
+        .btn-learn:hover::after { transform: translateX(4px); }
 
+        .intro-image img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 8px 28px rgba(13, 33, 55, 0.15);
+        }
+
+        /* About section */
         .about-content {
-            background: #f0f4f8;
-            border-radius: 18px;
-            padding: 48px 42px;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 52px 44px;
             margin-bottom: 28px;
             text-align: center;
-            scroll-margin-top: 90px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            scroll-margin-top: 110px;
+            box-shadow: var(--card-shadow);
         }
-        .about-content h2 { font-size: 2.1em; color: #0d2137; font-weight: 800; margin-bottom: 26px; }
-        .about-content p { font-size: 1em; color: #444; line-height: 1.9; max-width: 780px; margin: 0 auto 18px; }
-        .about-gap { font-size: 1.35em !important; font-weight: 800; color: #0d2137 !important; margin-top: 28px !important; }
-        .about-tag { font-style: italic; color: #d84315 !important; font-weight: 700; margin-top: 28px !important; }
+        .about-content h2 {
+            font-size: 2.4em;
+            font-weight: 800;
+            margin-bottom: 28px;
+        }
+        .about-content p {
+            font-size: 1.02em;
+            color: #4a5568;
+            line-height: 1.9;
+            max-width: 780px;
+            margin: 0 auto 18px;
+        }
+        .about-gap {
+            font-size: 1.5em !important;
+            font-weight: 800;
+            color: var(--navy) !important;
+            margin: 32px 0 18px !important;
+        }
+        .about-tag {
+            font-style: italic;
+            color: #d84315 !important;
+            font-weight: 600;
+            margin-top: 28px !important;
+        }
 
         @media (max-width: 768px) {
-            .intro-section { flex-direction: column; padding: 32px 24px; }
-            .intro-image { max-width: 100%; }
-            .hero-logo { width: 240px; }
-            .about-content { padding: 32px 22px; }
+            .hero h1 { font-size: 2.3em; }
+            .hero-logo { width: 200px; }
+            .intro-section { grid-template-columns: 1fr; gap: 28px; padding: 36px 26px; }
+            .about-content { padding: 36px 24px; }
+            .about-content h2 { font-size: 1.9em; }
         }
     </style>
 </head>
 <body>
     <nav>
         <div class="nav-inner">
-            <a href="index.html" class="nav-logo"><img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/logo.jpg" alt="A Better Way Out logo" width="52" height="52"></a>
-            <button class="mobile-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></button>
+            <a href="index.html" class="nav-logo">
+                <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/logo.png" alt="A Better Way Out logo">
+                <span class="brand-name">A Better Way Out</span>
+            </a>
+            <button class="mobile-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+                <span></span><span></span><span></span>
+            </button>
             <ul class="nav-links">
                 <li><a href="index.html#about">About Us</a></li>
                 <li><a href="services.html">Services</a></li>
@@ -99,8 +169,11 @@
 
     <main class="page-wrap">
         <div class="container">
+
             <section class="hero">
-                <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/logo.jpg" alt="A Better Way Out WA logo" class="hero-logo">
+                <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/logo.png" alt="A Better Way Out WA logo" class="hero-logo">
+                <h1>A Better Way Out</h1>
+                <p class="hero-tagline">Empowering at-risk youth through mentorship, education, and support — toward a brighter future.</p>
             </section>
 
             <section class="intro-section">
@@ -126,19 +199,24 @@
 
             <section class="support-section">
                 <h2>Support Our Mission</h2>
-                <p>Our donation directly impacts the lives of at-risk youth in our community. Every contribution helps us provide mentorship, support, and hope to those who need it most.</p>
+                <p>Your donation directly impacts the lives of at-risk youth in our community. Every contribution helps us provide mentorship, support, and hope to those who need it most.</p>
                 <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="btn-donate">Donate Now</a>
             </section>
 
-            </div>
+        </div>
     </main>
 
     <footer class="site-footer">
         <div class="footer-inner">
             <div class="footer-brand-block">
-                <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/logo.jpg" alt="A Better Way Out logo">
-                <h2>A Better Way Out</h2>
+                <div class="footer-brand-row">
+                    <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/logo.png" alt="A Better Way Out logo">
+                    <h2>A Better Way Out</h2>
+                </div>
                 <p>Empowering at-risk youth in Washington through trauma-informed mentorship, education, and support — led by mentors with lived experience.</p>
+                <div class="footer-socials">
+                    <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
+                </div>
             </div>
 
             <div class="footer-col">
@@ -169,7 +247,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 A Better Way Out WA | All Rights Reserved</p>
+            <p>&copy; 2026 A Better Way Out WA — All Rights Reserved</p>
             <p class="ein">EIN: 92-1581139 — A 501(c)(3) Nonprofit</p>
         </div>
     </footer>
