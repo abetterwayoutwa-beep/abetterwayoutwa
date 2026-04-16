@@ -4,44 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Our Partners - A Better Way Out WA official community partners">
-    <title>Partners - A Better Way Out WA</title>
+    <title>Partners — A Better Way Out WA</title>
     <link rel="stylesheet" href="shared.css">
     <style>
-        body { background: #e0f7fa; }
-
         .partner-block {
-            background: #f0f4f8;
-            border-radius: 18px;
-            padding: 42px 34px;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 48px 40px;
             margin-bottom: 26px;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .partner-logo { max-width: 360px; width: 100%; height: auto; margin: 0 auto 22px; display: block; border-radius: 12px; }
-        .partner-block p { font-size: 1em; color: #444; line-height: 1.8; max-width: 660px; margin: 0 auto 26px; }
+        .partner-block:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--card-shadow-hover);
+        }
+        .partner-logo {
+            max-width: 340px;
+            width: 100%;
+            height: auto;
+            margin: 0 auto 24px;
+            display: block;
+            border-radius: 14px;
+        }
+        .partner-block p {
+            font-size: 1em;
+            color: #4a5568;
+            line-height: 1.8;
+            max-width: 660px;
+            margin: 0 auto 28px;
+        }
         .btn-partner {
-            display: inline-block;
-            background: #e74c3c; color: #fff;
-            padding: 12px 30px; text-decoration: none;
-            border-radius: 50px; font-size: 0.95em; font-weight: 700;
-            transition: transform 0.25s; box-shadow: 0 4px 14px rgba(231,76,60,0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--cyan) 0%, #00d4f0 100%);
+            color: #fff;
+            padding: 13px 30px;
+            text-decoration: none;
+            border-radius: 999px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95em;
+            font-weight: 700;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 14px rgba(3,184,212,0.35);
         }
-        .btn-partner:hover { transform: translateY(-3px); }
-        .video-heading { font-size: 1.35em; color: #0d2137; font-weight: 800; margin: 28px 0 18px; }
-        .video-container { width: 100%; max-width: 460px; margin: 0 auto; border-radius: 14px; overflow: hidden; box-shadow: 0 6px 22px rgba(0,0,0,0.14); }
-        .video-container iframe { width: 100%; height: 520px; border: none; display: block; }
+        .btn-partner::after {
+            content: "→";
+            transition: transform 0.25s;
+        }
+        .btn-partner:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(3,184,212,0.5);
+        }
+        .btn-partner:hover::after { transform: translateX(4px); }
+
+        .video-heading {
+            font-size: 1.4em;
+            font-weight: 800;
+            margin: 32px 0 20px;
+            color: var(--navy);
+        }
+        .video-container {
+            width: 100%;
+            max-width: 460px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(13,33,55,0.18);
+        }
+        .video-container iframe {
+            width: 100%;
+            height: 520px;
+            border: none;
+            display: block;
+        }
 
         @media (max-width: 680px) {
-            .partner-block { padding: 28px 20px; }
-            .video-container iframe { height: 360px; }
+            .partner-block { padding: 34px 22px; }
+            .video-container iframe { height: 380px; }
         }
     </style>
 </head>
 <body>
     <nav>
         <div class="nav-inner">
-            <a href="index.html" class="nav-logo"><img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/logo.jpg" alt="A Better Way Out logo" width="52" height="52"></a>
-            <button class="mobile-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></button>
+            <a href="index.html" class="nav-logo">
+                <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/logo.png" alt="A Better Way Out logo">
+                <span class="brand-name">A Better Way Out</span>
+            </a>
+            <button class="mobile-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+                <span></span><span></span><span></span>
+            </button>
             <ul class="nav-links">
                 <li><a href="index.html#about">About Us</a></li>
                 <li><a href="services.html">Services</a></li>
@@ -57,7 +112,7 @@
         <div class="container">
             <div class="page-header">
                 <h1>Our Partners</h1>
-                <p>Organizations we're proud to work alongside</p>
+                <p>Organizations we're proud to work alongside.</p>
             </div>
 
             <section class="partner-block">
@@ -78,21 +133,24 @@
 
             <section class="support-section">
                 <h2>Support Our Mission</h2>
-                <p>Our donation directly impacts the lives of at-risk youth in our community. Every contribution helps us provide mentorship, support, and hope to those who need it most.</p>
+                <p>Your donation directly impacts the lives of at-risk youth in our community. Every contribution helps us provide mentorship, support, and hope to those who need it most.</p>
                 <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="btn-donate">Donate Now</a>
             </section>
-
-            </div>
+        </div>
     </main>
 
     <footer class="site-footer">
         <div class="footer-inner">
             <div class="footer-brand-block">
-                <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/logo.jpg" alt="A Better Way Out logo">
-                <h2>A Better Way Out</h2>
+                <div class="footer-brand-row">
+                    <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/logo.png" alt="A Better Way Out logo">
+                    <h2>A Better Way Out</h2>
+                </div>
                 <p>Empowering at-risk youth in Washington through trauma-informed mentorship, education, and support — led by mentors with lived experience.</p>
+                <div class="footer-socials">
+                    <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
+                </div>
             </div>
-
             <div class="footer-col">
                 <h3>Discover Us</h3>
                 <ul>
@@ -101,7 +159,6 @@
                     <li><a href="party.html">Partners</a></li>
                 </ul>
             </div>
-
             <div class="footer-col">
                 <h3>Our Impact</h3>
                 <ul>
@@ -109,7 +166,6 @@
                     <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Stories</a></li>
                 </ul>
             </div>
-
             <div class="footer-col">
                 <h3>Get Involved</h3>
                 <ul>
@@ -119,9 +175,8 @@
                 </ul>
             </div>
         </div>
-
         <div class="footer-bottom">
-            <p>&copy; 2026 A Better Way Out WA | All Rights Reserved</p>
+            <p>&copy; 2026 A Better Way Out WA — All Rights Reserved</p>
             <p class="ein">EIN: 92-1581139 — A 501(c)(3) Nonprofit</p>
         </div>
     </footer>
