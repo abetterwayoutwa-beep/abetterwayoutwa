@@ -7,72 +7,77 @@
     <title>Partners — A Better Way Out WA</title>
     <link rel="stylesheet" href="shared.css">
     <style>
+        body { background: #e0f7fa; }
+
         .partner-block {
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            padding: 48px 40px;
+            background: #fff;
+            border-radius: 20px;
+            padding: 44px 38px;
             margin-bottom: 26px;
             text-align: center;
-            box-shadow: var(--card-shadow);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(13,33,55,0.06);
+            transition: all 0.3s;
         }
         .partner-block:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--card-shadow-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(13,33,55,0.1);
+        }
+
+        .partner-logo-wrap {
+            background: #f7fafc;
+            border-radius: 14px;
+            padding: 18px;
+            margin: 0 auto 24px;
+            max-width: 400px;
         }
         .partner-logo {
-            max-width: 340px;
+            max-width: 360px;
             width: 100%;
             height: auto;
-            margin: 0 auto 24px;
-            display: block;
-            border-radius: 14px;
+            margin: 0 auto;
         }
+
         .partner-block p {
             font-size: 1em;
             color: #4a5568;
             line-height: 1.8;
             max-width: 660px;
-            margin: 0 auto 28px;
+            margin: 0 auto 26px;
         }
+
         .btn-partner {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: linear-gradient(135deg, var(--cyan) 0%, #00d4f0 100%);
+            display: inline-block;
+            background: #03b8d4;
             color: #fff;
-            padding: 13px 30px;
-            text-decoration: none;
-            border-radius: 999px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            border: none;
+            padding: 12px 30px;
+            font-family: 'Inter', sans-serif;
             font-size: 0.95em;
             font-weight: 700;
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 14px rgba(3,184,212,0.35);
-        }
-        .btn-partner::after {
-            content: "→";
-            transition: transform 0.25s;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.25s;
+            box-shadow: 0 4px 14px rgba(3,184,212,0.3);
+            text-decoration: none;
         }
         .btn-partner:hover {
+            background: #0099b8;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(3,184,212,0.5);
         }
-        .btn-partner:hover::after { transform: translateX(4px); }
 
         .video-heading {
-            font-size: 1.4em;
+            font-size: 1.35em;
             font-weight: 800;
-            margin: 32px 0 20px;
-            color: var(--navy);
+            margin: 28px 0 18px;
+            color: #0d2137;
         }
         .video-container {
             width: 100%;
             max-width: 460px;
             margin: 0 auto;
-            border-radius: 16px;
+            border-radius: 14px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(13,33,55,0.18);
+            box-shadow: 0 8px 24px rgba(13,33,55,0.15);
         }
         .video-container iframe {
             width: 100%;
@@ -82,29 +87,29 @@
         }
 
         @media (max-width: 680px) {
-            .partner-block { padding: 34px 22px; }
+            .partner-block { padding: 30px 22px; }
             .video-container iframe { height: 380px; }
         }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="nav-inner">
-            <a href="index.html" class="nav-logo">
+
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="index.html" class="navbar-logo">
                 <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/logo.png" alt="A Better Way Out logo">
-                <span class="brand-name">A Better Way Out</span>
             </a>
-            <button class="mobile-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+            <button class="mobile-toggle" aria-label="Toggle menu" onclick="document.querySelector('.navbar-menu').classList.toggle('open')">
                 <span></span><span></span><span></span>
             </button>
-            <ul class="nav-links">
+            <ul class="navbar-menu">
                 <li><a href="index.html#about">About Us</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Get Involved</a></li>
                 <li><a href="events.html">Events</a></li>
                 <li><a href="party.html" class="active">Partner</a></li>
             </ul>
-            <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="nav-donate">Donate Today</a>
+            <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="btn-nav-donate">Donate Today</a>
         </div>
     </nav>
 
@@ -116,9 +121,12 @@
             </div>
 
             <section class="partner-block">
-                <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/partner_logo.png" alt="kū cumber SKIN LOUNGE Logo" class="partner-logo">
+                <div class="partner-logo-wrap">
+                    <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/partner_logo.png" alt="kū cumber SKIN LOUNGE Logo" class="partner-logo">
+                </div>
                 <p>We're proud to partner with <strong>kū cumber SKIN LOUNGE</strong> to provide an exceptional venue for your celebrations. Whether you're planning a birthday party, community gathering, or special event, this beautiful space offers the perfect atmosphere for memorable moments while supporting our mission.</p>
                 <a href="https://kucumberskinlounge.com" target="_blank" rel="noopener noreferrer" class="btn-partner">Visit kū cumber SKIN LOUNGE</a>
+
                 <h3 class="video-heading">Experience the Venue</h3>
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/oCOY3vY_MaI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
@@ -126,7 +134,9 @@
             </section>
 
             <section class="partner-block">
-                <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/NSACH.jpeg" alt="North Sound ACH Logo" class="partner-logo">
+                <div class="partner-logo-wrap">
+                    <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/NSACH.jpeg" alt="North Sound ACH Logo" class="partner-logo">
+                </div>
                 <p>We're proud to partner with North Sound ACH <strong>(North Sound Accountable Community of Health)</strong>, an organization committed to improving health and well-being across our region. Together, we work to connect community members with the resources and support they need to thrive.</p>
                 <a href="https://northsoundach.org/" target="_blank" rel="noopener noreferrer" class="btn-partner">Visit North Sound ACH</a>
             </section>
@@ -140,45 +150,48 @@
     </main>
 
     <footer class="site-footer">
-        <div class="footer-inner">
-            <div class="footer-brand-block">
-                <div class="footer-brand-row">
+        <div class="footer-main">
+            <section class="footer-about">
+                <div class="footer-about-row">
                     <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/logo.png" alt="A Better Way Out logo">
                     <h2>A Better Way Out</h2>
                 </div>
-                <p>Empowering at-risk youth in Washington through trauma-informed mentorship, education, and support — led by mentors with lived experience.</p>
-                <div class="footer-socials">
-                    <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
+                <p class="footer-about-text">Empowering at-risk youth in Washington through trauma-informed mentorship, education, and support — led by mentors with lived experience.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
                 </div>
-            </div>
-            <div class="footer-col">
+            </section>
+            <section class="footer-section">
                 <h3>Discover Us</h3>
                 <ul>
                     <li><a href="index.html#about">About Us</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="party.html">Partners</a></li>
                 </ul>
-            </div>
-            <div class="footer-col">
+            </section>
+            <section class="footer-section">
                 <h3>Our Impact</h3>
                 <ul>
                     <li><a href="events.html">Events</a></li>
                     <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Stories</a></li>
                 </ul>
-            </div>
-            <div class="footer-col">
+            </section>
+            <section class="footer-section">
                 <h3>Get Involved</h3>
                 <ul>
                     <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Volunteer</a></li>
                     <li><a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer">Donate</a></li>
                     <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Follow on Facebook</a></li>
                 </ul>
-            </div>
+            </section>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2026 A Better Way Out WA — All Rights Reserved</p>
             <p class="ein">EIN: 92-1581139 — A 501(c)(3) Nonprofit</p>
         </div>
     </footer>
+
 </body>
 </html>
