@@ -17,10 +17,8 @@
     --text: #2d3748;
     --text-light: #4a5568;
     --footer-bg: #0d2137;
-    --footer-text: #a0aec0;
-    --footer-link: #ffffff;
+    --footer-link: #cbd5e0;
     --footer-link-hover: #03b8d4;
-    --footer-border: rgba(255,255,255,0.08);
 }
 
 html { scroll-behavior: smooth; }
@@ -40,7 +38,7 @@ img { max-width: 100%; height: auto; display: block; }
 h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--navy); }
 
 /* ============================================================
-   NAVBAR — Frame_23 style (menu only, no logo)
+   NAVBAR — menu items as solid button blocks
    ============================================================ */
 .navbar {
     position: sticky;
@@ -48,12 +46,12 @@ h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--navy
     background: var(--cyan);
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+    padding: 14px 24px;
 }
 
 .navbar-inner {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 28px;
 }
 
 .navbar-menu {
@@ -61,33 +59,55 @@ h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--navy
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0;
+    gap: 12px;
     margin: 0;
     padding: 0;
+    flex-wrap: wrap;
 }
 
-.navbar-menu li {
-    display: block;
-}
-
+/* Each menu item = solid white button with cyan text */
 .navbar-menu li a {
-    display: block;
-    color: #fff;
+    display: inline-block;
+    background: #ffffff;
+    color: var(--cyan);
     text-decoration: none;
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700;
-    font-size: 1em;
-    padding: 18px 28px;
-    transition: background 0.2s;
+    font-size: 0.98em;
+    padding: 12px 28px;
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+    transition: all 0.25s;
     letter-spacing: 0.01em;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .navbar-menu li a:hover {
-    background: rgba(255,255,255,0.15);
+    background: var(--navy);
+    color: #fff;
+    border-color: var(--navy);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(13,33,55,0.25);
 }
 
 .navbar-menu li a.active {
-    background: rgba(255,255,255,0.22);
+    background: var(--navy);
+    color: #fff;
+    border-color: var(--navy);
+}
+
+/* Donate-special: distinct green button */
+.navbar-menu li a.nav-donate {
+    background: var(--green);
+    color: #fff;
+    border-color: var(--green);
+    box-shadow: 0 3px 10px rgba(0,200,83,0.4);
+}
+
+.navbar-menu li a.nav-donate:hover {
+    background: var(--green-hover);
+    border-color: var(--green-hover);
+    box-shadow: 0 5px 16px rgba(0,200,83,0.55);
 }
 
 /* Mobile hamburger */
@@ -95,16 +115,17 @@ h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--navy
     display: none;
     flex-direction: column;
     gap: 5px;
-    background: none;
+    background: rgba(255,255,255,0.2);
     border: none;
     cursor: pointer;
-    padding: 16px;
+    padding: 12px;
+    border-radius: 10px;
     margin: 0 auto;
 }
 
 .mobile-toggle span {
     display: block;
-    width: 28px; height: 3px;
+    width: 24px; height: 3px;
     background: #fff;
     border-radius: 2px;
 }
@@ -123,7 +144,7 @@ main {
 }
 
 /* ============================================================
-   PAGE HEADER
+   PAGE HEADER — centered
    ============================================================ */
 .page-header {
     text-align: center;
@@ -135,6 +156,7 @@ main {
     font-size: 2.8em;
     margin-bottom: 14px;
     font-weight: 800;
+    text-align: center;
 }
 
 .page-header p {
@@ -143,13 +165,12 @@ main {
     line-height: 1.75;
     max-width: 720px;
     margin: 0 auto;
+    text-align: center;
 }
 
 /* ============================================================
-   BUTTONS (real button element styling)
+   BUTTONS
    ============================================================ */
-
-/* Primary cyan button — Learn More */
 .btn-primary {
     display: inline-block;
     background: var(--cyan);
@@ -172,7 +193,6 @@ main {
     box-shadow: 0 6px 20px rgba(3,184,212,0.45);
 }
 
-/* Big green Donate button */
 .btn-donate {
     display: inline-block;
     background: var(--green);
@@ -196,112 +216,155 @@ main {
 }
 
 /* ============================================================
-   FOOTER — centered template adaptation
+   FOOTER — GWE-style 3-column with centered brand
    ============================================================ */
 .site-footer {
     background: var(--footer-bg);
-    color: var(--footer-text);
-    padding: 48px 24px 28px;
-    text-align: center;
+    color: var(--footer-link);
+    padding: 56px 24px 24px;
+    margin-top: 40px;
 }
 
 .footer-container {
-    max-width: 860px;
+    max-width: 1200px;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 28px;
 }
 
-.footer-logo {
-    display: block;
-    width: 80px;
-    height: 80px;
-    border-radius: 14px;
+/* Centered brand block */
+.footer-brand {
+    text-align: center;
+    margin-bottom: 44px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-brand img {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
     background: #fff;
     padding: 4px;
+    margin: 0 auto 16px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.2);
 }
 
-.footer-brand-name {
+.footer-brand h2 {
     color: #fff;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 1.4em;
+    font-size: 1.6em;
     font-weight: 800;
-    margin-top: -12px;
+    margin-bottom: 10px;
 }
 
-/* Main nav links */
-.footer-nav ul {
+.footer-brand p {
+    color: rgba(255,255,255,0.65);
+    font-size: 0.95em;
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.65;
+}
+
+/* 3-column link sections */
+.footer-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto 40px;
+    text-align: left;
+}
+
+.footer-col h3 {
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 800;
+    margin-bottom: 16px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.footer-col ul {
     list-style: none;
-    margin: 0;
     padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px 28px;
 }
 
-.footer-nav a {
+.footer-col ul li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.footer-col ul li::before {
+    content: "•";
+    color: var(--cyan);
+    font-weight: bold;
+    font-size: 1.1em;
+    flex-shrink: 0;
+}
+
+.footer-col ul li a {
     color: var(--footer-link);
     text-decoration: none;
-    font-weight: 500;
-    font-size: 0.98em;
+    font-size: 0.95em;
     transition: color 0.2s;
 }
 
-.footer-nav a:hover {
+.footer-col ul li a:hover {
     color: var(--footer-link-hover);
 }
 
-/* Social icons - PROPER size */
+/* Social icons row */
+.footer-social {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
 .footer-social ul {
     list-style: none;
-    margin: 0;
+    display: inline-flex;
+    gap: 14px;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 18px;
 }
 
 .footer-social a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.08);
-    color: var(--footer-link);
+    background: rgba(255,255,255,0.1);
+    color: #fff;
     transition: all 0.2s;
 }
 
 .footer-social a:hover {
-    background: var(--footer-link-hover);
+    background: var(--cyan);
     transform: translateY(-2px);
 }
 
+/* PROPERLY SIZED icon */
 .footer-social svg {
-    width: 18px;
-    height: 18px;
+    width: 14px;
+    height: 14px;
     fill: currentColor;
-}
-
-.footer-copyright {
-    font-size: 0.85em;
-    margin: 0;
-    color: rgba(255,255,255,0.55);
-    padding-top: 20px;
-    border-top: 1px solid var(--footer-border);
-    width: 100%;
-    max-width: 500px;
-}
-
-.footer-copyright .ein {
     display: block;
-    margin-top: 6px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.5);
     font-size: 0.85em;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.footer-bottom p { margin-bottom: 4px; }
+
+.footer-bottom .ein {
     color: rgba(255,255,255,0.4);
+    font-size: 0.92em;
 }
 
 /* ============================================================
@@ -316,14 +379,23 @@ main {
         position: absolute;
         top: 100%; left: 0; right: 0;
         background: var(--cyan-hover);
-        padding: 8px;
-        gap: 0;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        padding: 16px;
+        gap: 8px;
     }
 
     .navbar-menu.open { display: flex; }
-    .navbar-menu li a { padding: 14px 20px; text-align: center; }
+    .navbar-menu li { width: 100%; }
+    .navbar-menu li a { display: block; text-align: center; }
 
     main { padding: 24px 16px 40px; }
     .page-header h1 { font-size: 2em; }
+
+    .footer-columns {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        text-align: center;
+    }
+    .footer-col ul li {
+        justify-content: center;
+    }
 }
