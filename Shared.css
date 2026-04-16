@@ -170,136 +170,100 @@ nav {
     box-shadow: 0 6px 24px rgba(0,200,83,0.5);
 }
 
-/* ─── Volunteer With Us ─── */
-.volunteer-section {
-    background: #fddcb5;
-    border-radius: var(--card-radius);
-    padding: 52px 44px;
-    text-align: center;
-    margin-bottom: 28px;
-}
-
-.volunteer-section h2 {
-    font-size: 1.9em;
-    color: #0d2137;
-    margin-bottom: 18px;
-    font-weight: 800;
-}
-
-.volunteer-section p {
-    font-size: 1.02em;
-    color: #333;
-    line-height: 1.7;
-    margin-bottom: 32px;
-}
-
-.btn-involve {
-    display: inline-block;
-    background: #ff9800;
-    color: #fff;
-    padding: 16px 52px;
-    text-decoration: none;
-    border-radius: 14px;
-    font-size: 1.1em;
-    font-weight: 700;
-    transition: transform 0.25s, box-shadow 0.25s;
-    box-shadow: 0 4px 18px rgba(255,152,0,0.35);
-}
-
-.btn-involve:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 24px rgba(255,152,0,0.5);
-}
-
-/* ─── Footer (horizontal layout) ─── */
+/* ─── Footer (dark, GWE-style with grouped link columns) ─── */
 .site-footer {
-    background: #03b8d4;
-    padding: 40px 28px 36px;
+    background: #0d2137;
+    color: rgba(255,255,255,0.85);
+    padding: 56px 28px 28px;
+    margin-top: 40px;
 }
 
 .footer-inner {
     max-width: 1100px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
     gap: 40px;
+    align-items: flex-start;
 }
 
-.footer-brand img {
-    width: 120px; height: 120px;
-    border-radius: 14px;
-    display: block;
+.footer-brand-block {
+    padding-right: 20px;
+}
+
+.footer-brand-block img {
+    width: 80px; height: 80px;
+    border-radius: 12px;
     background: #fff;
-    padding: 5px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    padding: 4px;
+    margin-bottom: 16px;
+    display: block;
 }
 
-.footer-nav { text-align: center; }
-
-.footer-nav h3 {
+.footer-brand-block h2 {
     color: #fff;
-    font-size: 1.3em;
+    font-size: 1.5em;
     font-weight: 800;
     margin-bottom: 12px;
+    letter-spacing: 0.02em;
 }
 
-.footer-nav ul {
+.footer-brand-block p {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.92em;
+    line-height: 1.7;
+}
+
+.footer-col h3 {
+    color: #fff;
+    font-size: 1.05em;
+    font-weight: 800;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.footer-col ul {
     list-style: none;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    flex-wrap: wrap;
 }
 
-.footer-nav ul li a {
-    color: rgba(255,255,255,0.9);
-    text-decoration: none;
+.footer-col ul li {
+    margin-bottom: 10px;
     font-size: 0.95em;
-    font-weight: 600;
+}
+
+.footer-col ul li::before {
+    content: "•";
+    color: #03b8d4;
+    margin-right: 8px;
+    font-weight: 700;
+}
+
+.footer-col ul li a {
+    color: rgba(255,255,255,0.78);
+    text-decoration: none;
     transition: color 0.2s;
 }
 
-.footer-nav ul li a:hover { color: #fff; }
-
-.footer-ctas {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    align-items: flex-end;
+.footer-col ul li a:hover {
+    color: #03b8d4;
 }
 
-.footer-cta-block { text-align: right; }
-
-.footer-cta-label {
-    color: #0d2137;
-    font-weight: 800;
-    font-size: 0.9em;
-    margin-bottom: 5px;
+.footer-bottom {
+    max-width: 1100px;
+    margin: 36px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    color: rgba(255,255,255,0.55);
+    font-size: 0.85em;
 }
 
-.footer-btn {
-    display: inline-block;
-    padding: 12px 32px;
-    text-decoration: none;
-    border-radius: 10px;
-    font-size: 0.95em;
-    font-weight: 700;
-    transition: transform 0.2s;
+.footer-bottom .ein {
+    margin-top: 4px;
+    font-size: 0.85em;
 }
-
-.footer-btn.donate {
-    background: #00c853;
-    color: #fff;
-}
-
-.footer-btn.involve {
-    background: #ff9800;
-    color: #fff;
-}
-
-.footer-btn:hover { transform: translateY(-2px); }
 
 /* ─── Page Header ─── */
 .page-header {
@@ -343,30 +307,30 @@ nav {
     .nav-donate { font-size: 0.85em; padding: 8px 16px; }
     .container { padding: 20px 16px; }
 
-    .support-section, .volunteer-section { padding: 36px 22px; }
+    .support-section { padding: 36px 22px; }
 
     .footer-inner {
-        grid-template-columns: 1fr;
-        justify-items: center;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+    }
+
+    .footer-brand-block {
+        grid-column: 1 / -1;
+        padding-right: 0;
         text-align: center;
-        gap: 24px;
     }
 
-    .footer-ctas {
-        flex-direction: row;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 20px;
-    }
-
-    .footer-cta-block { text-align: center; }
+    .footer-brand-block img { margin: 0 auto 16px; }
 }
 
 @media (max-width: 480px) {
     .page-header h1 { font-size: 1.9em; }
 
-    .footer-ctas {
-        flex-direction: column;
-        align-items: center;
+    .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        text-align: center;
     }
+
+    .footer-col ul li::before { display: inline; }
 }
