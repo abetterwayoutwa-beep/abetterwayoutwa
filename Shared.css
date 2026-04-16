@@ -1,23 +1,21 @@
 /* ============================================================
-   A Better Way Out WA — Modern Polished Design
+   A Better Way Out WA — Shared Styles
+   Reference: Component_9, Frame_13, Frame_15, Frame_18
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
     --cyan: #03b8d4;
-    --cyan-dark: #0099b8;
-    --cyan-light: #e0f7fa;
+    --cyan-hover: #0099b8;
+    --cyan-bg: #e0f7fa;
     --navy: #0d2137;
     --green: #00c853;
-    --green-dark: #009933;
-    --orange: #ff9800;
     --card-bg: #ffffff;
-    --card-shadow: 0 4px 20px rgba(13, 33, 55, 0.06);
-    --card-shadow-hover: 0 8px 30px rgba(13, 33, 55, 0.12);
-    --radius: 20px;
+    --text: #2d3748;
+    --text-light: #4a5568;
 }
 
 html { scroll-behavior: smooth; }
@@ -25,76 +23,57 @@ html { scroll-behavior: smooth; }
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     line-height: 1.6;
-    color: #2d3748;
-    background:
-        radial-gradient(ellipse at top, rgba(3,184,212,0.08) 0%, transparent 50%),
-        linear-gradient(180deg, #e0f7fa 0%, #f0fbfd 100%);
+    color: var(--text);
+    background: var(--cyan-bg);
     min-height: 100vh;
-    background-attachment: fixed;
-    -webkit-font-smoothing: antialiased;
 }
 
-img { max-width: 100%; height: auto; }
+img { max-width: 100%; height: auto; display: block; }
 
 h1, h2, h3, h4 {
     font-family: 'Plus Jakarta Sans', sans-serif;
     color: var(--navy);
-    letter-spacing: -0.02em;
 }
 
-/* ─── Navigation — modern pill style ─── */
-nav {
+/* ============================================================
+   NAVIGATION BAR (traditional horizontal, CSS navbar)
+   Reference: Component_9
+   ============================================================ */
+.navbar {
     position: fixed;
-    top: 16px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% - 32px);
-    max-width: 1180px;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    border-radius: 999px;
-    padding: 10px 14px 10px 18px;
+    top: 0; left: 0; right: 0;
+    background: var(--cyan);
+    padding: 0;
     z-index: 1000;
-    box-shadow:
-        0 1px 0 rgba(255,255,255,0.6) inset,
-        0 8px 32px rgba(13, 33, 55, 0.08);
-    border: 1px solid rgba(255,255,255,0.8);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.12);
 }
 
-.nav-inner {
+.navbar-inner {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 10px 28px;
     gap: 16px;
 }
 
-.nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
+.navbar-logo {
+    display: block;
     flex-shrink: 0;
 }
 
-.nav-logo img {
-    width: 42px; height: 42px;
+.navbar-logo img {
+    width: 52px;
+    height: 52px;
     border-radius: 10px;
-    display: block;
     background: #fff;
-    padding: 2px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 3px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
 }
 
-.nav-logo .brand-name {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 800;
-    color: var(--navy);
-    font-size: 1em;
-    white-space: nowrap;
-    letter-spacing: -0.02em;
-}
-
-.nav-links {
+/* Navigation list (CSS navbar pattern: ul + li) */
+.navbar-menu {
     list-style: none;
     display: flex;
     gap: 4px;
@@ -103,368 +82,316 @@ nav {
     padding: 0;
 }
 
-.nav-links a {
-    color: var(--navy);
+.navbar-menu li { display: inline-block; }
+
+.navbar-menu li a {
+    display: block;
+    color: #fff;
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.92em;
-    padding: 9px 18px;
-    border-radius: 999px;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 0.98em;
+    padding: 10px 22px;
+    border-radius: 8px;
+    transition: background 0.2s;
 }
 
-.nav-links a:hover {
-    background: rgba(3, 184, 212, 0.1);
-    color: var(--cyan-dark);
+.navbar-menu li a:hover {
+    background: rgba(255,255,255,0.18);
 }
 
-.nav-links a.active {
-    background: var(--navy);
+.navbar-menu li a.active {
+    background: rgba(255,255,255,0.25);
+}
+
+/* Donate Today — real <button> element */
+.btn-nav-donate {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
     color: #fff;
-}
-
-/* "Donate Today" — gradient pill button */
-.nav-donate {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: linear-gradient(135deg, var(--cyan) 0%, #00d4f0 100%);
-    color: #fff;
-    padding: 11px 24px;
-    text-decoration: none;
-    border-radius: 999px;
-    font-size: 0.92em;
+    border: 2px solid rgba(255,255,255,0.5);
+    padding: 10px 26px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95em;
     font-weight: 700;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.25s;
     white-space: nowrap;
     flex-shrink: 0;
-    box-shadow:
-        0 1px 0 rgba(255,255,255,0.3) inset,
-        0 4px 14px rgba(3, 184, 212, 0.4);
-    letter-spacing: -0.01em;
+    text-decoration: none;
 }
 
-.nav-donate::before {
-    content: "❤";
-    font-size: 0.9em;
-}
-
-.nav-donate:hover {
-    transform: translateY(-2px);
-    box-shadow:
-        0 1px 0 rgba(255,255,255,0.3) inset,
-        0 6px 22px rgba(3, 184, 212, 0.55);
+.btn-nav-donate:hover {
+    background: #fff;
+    color: var(--cyan);
+    border-color: #fff;
 }
 
 /* Mobile hamburger */
 .mobile-toggle {
     display: none;
     flex-direction: column;
-    gap: 4px;
+    gap: 5px;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 8px;
-    border-radius: 8px;
+    padding: 6px;
 }
 
 .mobile-toggle span {
     display: block;
-    width: 22px; height: 2.5px;
-    background: var(--navy);
+    width: 26px; height: 3px;
+    background: #fff;
     border-radius: 2px;
 }
 
-/* ─── Page Wrapper ─── */
-.page-wrap { padding-top: 100px; }
+/* ============================================================
+   PAGE WRAPPER
+   ============================================================ */
+.page-wrap { padding-top: 90px; }
 
 .container {
-    max-width: 980px;
+    max-width: 1000px;
     width: 100%;
     margin: 0 auto;
-    padding: 30px 24px;
+    padding: 32px 24px;
 }
 
-/* ─── Cards (general) ─── */
-.card {
-    background: var(--card-bg);
-    border-radius: var(--radius);
-    padding: 44px 40px;
-    margin-bottom: 28px;
-    box-shadow: var(--card-shadow);
-    transition: box-shadow 0.3s;
-}
-
-/* ─── Support Our Mission — centered hero CTA ─── */
+/* ============================================================
+   SUPPORT OUR MISSION (centered CTA section)
+   Reference: Frame_15
+   ============================================================ */
 .support-section {
-    background: linear-gradient(135deg, #b8f5d4 0%, #a5f5d0 50%, #8defc0 100%);
-    border-radius: var(--radius);
-    padding: 64px 40px;
+    background: #a5f5d0;
+    border-radius: 20px;
+    padding: 56px 40px;
+    margin: 0 auto 28px;
     text-align: center;
-    margin-bottom: 28px;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 4px 30px rgba(0, 200, 83, 0.15);
 }
-
-.support-section::before {
-    content: "";
-    position: absolute;
-    top: -50%; left: -20%;
-    width: 140%; height: 200%;
-    background: radial-gradient(ellipse at center, rgba(255,255,255,0.4) 0%, transparent 60%);
-    pointer-events: none;
-}
-
-.support-section > * { position: relative; z-index: 1; }
 
 .support-section h2 {
-    font-size: 2.2em;
-    margin-bottom: 16px;
+    font-size: 2em;
+    margin-bottom: 18px;
     font-weight: 800;
 }
 
 .support-section p {
-    font-size: 1.05em;
-    color: #1a3a2a;
+    font-size: 1.02em;
+    color: var(--navy);
     line-height: 1.7;
-    max-width: 640px;
+    max-width: 680px;
     margin: 0 auto 36px;
 }
 
-/* Beautiful CTA button */
+/* Donate Now — actual <button> */
 .btn-donate {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: linear-gradient(135deg, var(--green) 0%, #00e676 100%);
+    display: inline-block;
+    background: var(--green);
     color: #fff;
-    padding: 18px 56px;
-    text-decoration: none;
-    border-radius: 999px;
+    border: none;
+    padding: 18px 60px;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 1.1em;
+    font-size: 1.15em;
     font-weight: 700;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow:
-        0 1px 0 rgba(255,255,255,0.3) inset,
-        0 6px 24px rgba(0, 200, 83, 0.4);
-    letter-spacing: -0.01em;
-    position: relative;
-}
-
-.btn-donate::after {
-    content: "→";
-    font-size: 1.1em;
-    transition: transform 0.25s;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.25s;
+    box-shadow: 0 4px 18px rgba(0,200,83,0.35);
+    text-decoration: none;
+    margin: 0 auto;
 }
 
 .btn-donate:hover {
-    transform: translateY(-3px);
-    box-shadow:
-        0 1px 0 rgba(255,255,255,0.3) inset,
-        0 10px 32px rgba(0, 200, 83, 0.55);
+    background: #00a344;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0,200,83,0.5);
 }
 
-.btn-donate:hover::after {
-    transform: translateX(4px);
-}
-
-/* ─── Page Header ─── */
+/* ============================================================
+   PAGE HEADER
+   ============================================================ */
 .page-header {
     text-align: center;
-    margin-bottom: 44px;
-    padding: 16px 0;
+    margin-bottom: 40px;
+    padding: 12px 0;
 }
 
 .page-header h1 {
-    font-size: 3em;
+    font-size: 2.6em;
     margin-bottom: 14px;
     font-weight: 800;
-    letter-spacing: -0.03em;
 }
 
 .page-header p {
-    font-size: 1.08em;
-    color: #4a5568;
+    font-size: 1.05em;
+    color: var(--text-light);
     line-height: 1.75;
     max-width: 720px;
     margin: 0 auto;
 }
 
-/* ─── Footer (modern dark) ─── */
+/* ============================================================
+   FOOTER (semantic <footer> with sections)
+   Reference: Frame_18
+   ============================================================ */
 .site-footer {
-    background: linear-gradient(180deg, #0d2137 0%, #061625 100%);
+    background: var(--navy);
     color: rgba(255,255,255,0.85);
-    padding: 64px 28px 28px;
-    margin-top: 60px;
+    padding: 56px 28px 0;
+    margin-top: 40px;
 }
 
-.footer-inner {
-    max-width: 1140px;
+.footer-main {
+    max-width: 1180px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
     gap: 48px;
-    align-items: flex-start;
+    padding-bottom: 40px;
 }
 
-.footer-brand-block {
-    padding-right: 20px;
-}
-
-.footer-brand-row {
+.footer-about-row {
     display: flex;
     align-items: center;
     gap: 14px;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
 }
 
-.footer-brand-row img {
+.footer-about-row img {
     width: 56px; height: 56px;
     border-radius: 12px;
     background: #fff;
     padding: 3px;
-    display: block;
 }
 
-.footer-brand-row h2 {
+.footer-about-row h2 {
     color: #fff;
     font-size: 1.25em;
     font-weight: 800;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
 }
 
-.footer-brand-block p {
-    color: rgba(255,255,255,0.65);
+.footer-about-text {
+    color: rgba(255,255,255,0.7);
     font-size: 0.92em;
     line-height: 1.7;
     margin-bottom: 18px;
 }
 
-.footer-socials {
+.footer-social {
     display: flex;
     gap: 10px;
 }
 
-.footer-socials a {
-    width: 38px; height: 38px;
+.footer-social a {
+    width: 40px; height: 40px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.08);
-    display: flex;
+    background: rgba(255,255,255,0.1);
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     color: #fff;
     text-decoration: none;
     transition: all 0.25s;
-    font-weight: 700;
 }
 
-.footer-socials a:hover {
+.footer-social a:hover {
     background: var(--cyan);
     transform: translateY(-2px);
 }
 
-.footer-col h3 {
+.footer-social svg {
+    width: 20px; height: 20px;
+    fill: currentColor;
+}
+
+.footer-section h3 {
     color: #fff;
-    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 0.78em;
     font-weight: 800;
     margin-bottom: 18px;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    opacity: 0.95;
 }
 
-.footer-col ul {
+.footer-section ul {
     list-style: none;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
 }
 
-.footer-col ul li a {
-    color: rgba(255,255,255,0.72);
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: rgba(255,255,255,0.75);
     text-decoration: none;
     font-size: 0.95em;
-    padding: 7px 12px;
-    margin-left: -12px;
-    border-radius: 8px;
-    display: inline-block;
-    transition: all 0.2s;
+    transition: color 0.2s;
 }
 
-.footer-col ul li a:hover {
-    color: #fff;
-    background: rgba(255,255,255,0.06);
-    transform: translateX(2px);
+.footer-section ul li a:hover {
+    color: var(--cyan);
 }
 
 .footer-bottom {
-    max-width: 1140px;
-    margin: 48px auto 0;
-    padding-top: 24px;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 22px 0;
     border-top: 1px solid rgba(255,255,255,0.08);
     text-align: center;
-    color: rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.55);
     font-size: 0.85em;
 }
 
-.footer-bottom .ein {
-    margin-top: 6px;
-    color: rgba(255,255,255,0.4);
-}
+.footer-bottom p { margin-bottom: 4px; }
+.footer-bottom .ein { color: rgba(255,255,255,0.4); }
 
-/* ─── Responsive ─── */
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
 @media (max-width: 900px) {
-    .footer-inner {
+    .footer-main {
         grid-template-columns: 1fr 1fr;
         gap: 36px;
     }
-    .footer-brand-block {
+    .footer-about {
         grid-column: 1 / -1;
-        padding-right: 0;
     }
 }
 
 @media (max-width: 768px) {
-    nav { padding: 8px 8px 8px 14px; }
-    .nav-logo .brand-name { display: none; }
     .mobile-toggle { display: flex; }
 
-    .nav-links {
+    .navbar-menu {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: calc(100% + 12px);
-        left: 0; right: 0;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: saturate(180%) blur(20px);
-        padding: 14px;
+        top: 72px; left: 0; right: 0;
+        background: var(--cyan-hover);
+        padding: 14px 20px;
         gap: 4px;
-        border-radius: 24px;
-        box-shadow: 0 12px 32px rgba(0,0,0,0.12);
-        border: 1px solid rgba(255,255,255,0.8);
-        margin: 0 auto;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
-    .nav-links.open { display: flex; }
-    .nav-links a { padding: 12px 18px; font-size: 0.95em; text-align: center; }
-    .nav-donate { padding: 9px 18px; font-size: 0.85em; }
-    .nav-donate::before { display: none; }
+    .navbar-menu.open { display: flex; }
+    .navbar-menu li a {
+        padding: 12px 16px;
+        font-size: 1em;
+        text-align: center;
+    }
+
+    .btn-nav-donate { padding: 8px 16px; font-size: 0.85em; }
 
     .container { padding: 20px 16px; }
-    .support-section { padding: 48px 24px; }
-    .support-section h2 { font-size: 1.7em; }
-    .page-header h1 { font-size: 2.2em; }
+    .support-section { padding: 40px 22px; }
+    .page-header h1 { font-size: 2em; }
 }
 
 @media (max-width: 540px) {
-    .footer-inner { grid-template-columns: 1fr; gap: 30px; text-align: center; }
-    .footer-brand-row { justify-content: center; }
-    .footer-socials { justify-content: center; }
-    .footer-col ul li a { margin-left: 0; }
-    .page-header h1 { font-size: 1.9em; }
+    .footer-main {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-about-row { justify-content: center; }
+    .footer-social { justify-content: center; }
 }
