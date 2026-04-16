@@ -1,6 +1,5 @@
 /* ============================================================
    A Better Way Out WA — Shared Styles
-   Reference: Component_9, Frame_13, Frame_15, Frame_18
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
@@ -13,9 +12,15 @@
     --cyan-bg: #e0f7fa;
     --navy: #0d2137;
     --green: #00c853;
+    --green-hover: #00a344;
     --card-bg: #ffffff;
     --text: #2d3748;
     --text-light: #4a5568;
+    --footer-bg: #0d2137;
+    --footer-text: #a0aec0;
+    --footer-link: #ffffff;
+    --footer-link-hover: #03b8d4;
+    --footer-border: rgba(255,255,255,0.08);
 }
 
 html { scroll-behavior: smooth; }
@@ -26,105 +31,63 @@ body {
     color: var(--text);
     background: var(--cyan-bg);
     min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }
 
 img { max-width: 100%; height: auto; display: block; }
 
-h1, h2, h3, h4 {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    color: var(--navy);
-}
+h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--navy); }
 
 /* ============================================================
-   NAVIGATION BAR (traditional horizontal, CSS navbar)
-   Reference: Component_9
+   NAVBAR — Frame_23 style (menu only, no logo)
    ============================================================ */
 .navbar {
-    position: fixed;
-    top: 0; left: 0; right: 0;
+    position: sticky;
+    top: 0;
     background: var(--cyan);
-    padding: 0;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.12);
 }
 
 .navbar-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     max-width: 1280px;
     margin: 0 auto;
-    padding: 10px 28px;
-    gap: 16px;
+    padding: 0 28px;
 }
 
-.navbar-logo {
-    display: block;
-    flex-shrink: 0;
-}
-
-.navbar-logo img {
-    width: 52px;
-    height: 52px;
-    border-radius: 10px;
-    background: #fff;
-    padding: 3px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
-}
-
-/* Navigation list (CSS navbar pattern: ul + li) */
 .navbar-menu {
     list-style: none;
     display: flex;
-    gap: 4px;
+    justify-content: center;
     align-items: center;
-    margin: 0 auto;
+    gap: 0;
+    margin: 0;
     padding: 0;
 }
 
-.navbar-menu li { display: inline-block; }
+.navbar-menu li {
+    display: block;
+}
 
 .navbar-menu li a {
     display: block;
     color: #fff;
     text-decoration: none;
-    font-weight: 600;
-    font-size: 0.98em;
-    padding: 10px 22px;
-    border-radius: 8px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1em;
+    padding: 18px 28px;
     transition: background 0.2s;
+    letter-spacing: 0.01em;
 }
 
 .navbar-menu li a:hover {
-    background: rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.15);
 }
 
 .navbar-menu li a.active {
-    background: rgba(255,255,255,0.25);
-}
-
-/* Donate Today — real <button> element */
-.btn-nav-donate {
-    display: inline-block;
-    background: rgba(255,255,255,0.2);
-    color: #fff;
-    border: 2px solid rgba(255,255,255,0.5);
-    padding: 10px 26px;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.95em;
-    font-weight: 700;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.25s;
-    white-space: nowrap;
-    flex-shrink: 0;
-    text-decoration: none;
-}
-
-.btn-nav-donate:hover {
-    background: #fff;
-    color: var(--cyan);
-    border-color: #fff;
+    background: rgba(255,255,255,0.22);
 }
 
 /* Mobile hamburger */
@@ -135,76 +98,28 @@ h1, h2, h3, h4 {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 6px;
+    padding: 16px;
+    margin: 0 auto;
 }
 
 .mobile-toggle span {
     display: block;
-    width: 26px; height: 3px;
+    width: 28px; height: 3px;
     background: #fff;
     border-radius: 2px;
 }
 
 /* ============================================================
-   PAGE WRAPPER
+   MAIN + CONTAINER
    ============================================================ */
-.page-wrap { padding-top: 90px; }
+main {
+    padding: 40px 24px 60px;
+}
 
 .container {
     max-width: 1000px;
     width: 100%;
     margin: 0 auto;
-    padding: 32px 24px;
-}
-
-/* ============================================================
-   SUPPORT OUR MISSION (centered CTA section)
-   Reference: Frame_15
-   ============================================================ */
-.support-section {
-    background: #a5f5d0;
-    border-radius: 20px;
-    padding: 56px 40px;
-    margin: 0 auto 28px;
-    text-align: center;
-}
-
-.support-section h2 {
-    font-size: 2em;
-    margin-bottom: 18px;
-    font-weight: 800;
-}
-
-.support-section p {
-    font-size: 1.02em;
-    color: var(--navy);
-    line-height: 1.7;
-    max-width: 680px;
-    margin: 0 auto 36px;
-}
-
-/* Donate Now — actual <button> */
-.btn-donate {
-    display: inline-block;
-    background: var(--green);
-    color: #fff;
-    border: none;
-    padding: 18px 60px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 1.15em;
-    font-weight: 700;
-    border-radius: 14px;
-    cursor: pointer;
-    transition: all 0.25s;
-    box-shadow: 0 4px 18px rgba(0,200,83,0.35);
-    text-decoration: none;
-    margin: 0 auto;
-}
-
-.btn-donate:hover {
-    background: #00a344;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(0,200,83,0.5);
 }
 
 /* ============================================================
@@ -217,7 +132,7 @@ h1, h2, h3, h4 {
 }
 
 .page-header h1 {
-    font-size: 2.6em;
+    font-size: 2.8em;
     margin-bottom: 14px;
     font-weight: 800;
 }
@@ -231,134 +146,167 @@ h1, h2, h3, h4 {
 }
 
 /* ============================================================
-   FOOTER (semantic <footer> with sections)
-   Reference: Frame_18
+   BUTTONS (real button element styling)
+   ============================================================ */
+
+/* Primary cyan button — Learn More */
+.btn-primary {
+    display: inline-block;
+    background: var(--cyan);
+    color: #fff;
+    border: none;
+    padding: 14px 38px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s;
+    box-shadow: 0 4px 14px rgba(3,184,212,0.3);
+}
+
+.btn-primary:hover {
+    background: var(--cyan-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(3,184,212,0.45);
+}
+
+/* Big green Donate button */
+.btn-donate {
+    display: inline-block;
+    background: var(--green);
+    color: #fff;
+    border: none;
+    padding: 20px 64px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.2em;
+    font-weight: 700;
+    border-radius: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s;
+    box-shadow: 0 6px 20px rgba(0,200,83,0.35);
+}
+
+.btn-donate:hover {
+    background: var(--green-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 26px rgba(0,200,83,0.5);
+}
+
+/* ============================================================
+   FOOTER — centered template adaptation
    ============================================================ */
 .site-footer {
-    background: var(--navy);
-    color: rgba(255,255,255,0.85);
-    padding: 56px 28px 0;
-    margin-top: 40px;
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 48px 24px 28px;
+    text-align: center;
 }
 
-.footer-main {
-    max-width: 1180px;
+.footer-container {
+    max-width: 860px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1.6fr 1fr 1fr 1fr;
-    gap: 48px;
-    padding-bottom: 40px;
-}
-
-.footer-about-row {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 14px;
-    margin-bottom: 16px;
+    gap: 28px;
 }
 
-.footer-about-row img {
-    width: 56px; height: 56px;
-    border-radius: 12px;
+.footer-logo {
+    display: block;
+    width: 80px;
+    height: 80px;
+    border-radius: 14px;
     background: #fff;
-    padding: 3px;
+    padding: 4px;
 }
 
-.footer-about-row h2 {
+.footer-brand-name {
     color: #fff;
-    font-size: 1.25em;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.4em;
     font-weight: 800;
+    margin-top: -12px;
 }
 
-.footer-about-text {
-    color: rgba(255,255,255,0.7);
-    font-size: 0.92em;
-    line-height: 1.7;
-    margin-bottom: 18px;
-}
-
-.footer-social {
+/* Main nav links */
+.footer-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
-    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 28px;
+}
+
+.footer-nav a {
+    color: var(--footer-link);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.98em;
+    transition: color 0.2s;
+}
+
+.footer-nav a:hover {
+    color: var(--footer-link-hover);
+}
+
+/* Social icons - PROPER size */
+.footer-social ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
 }
 
 .footer-social a {
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.1);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
-    text-decoration: none;
-    transition: all 0.25s;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    color: var(--footer-link);
+    transition: all 0.2s;
 }
 
 .footer-social a:hover {
-    background: var(--cyan);
+    background: var(--footer-link-hover);
     transform: translateY(-2px);
 }
 
 .footer-social svg {
-    width: 20px; height: 20px;
+    width: 18px;
+    height: 18px;
     fill: currentColor;
 }
 
-.footer-section h3 {
-    color: #fff;
-    font-size: 0.78em;
-    font-weight: 800;
-    margin-bottom: 18px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-}
-
-.footer-section ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-section ul li {
-    margin-bottom: 10px;
-}
-
-.footer-section ul li a {
-    color: rgba(255,255,255,0.75);
-    text-decoration: none;
-    font-size: 0.95em;
-    transition: color 0.2s;
-}
-
-.footer-section ul li a:hover {
-    color: var(--cyan);
-}
-
-.footer-bottom {
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: 22px 0;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    text-align: center;
-    color: rgba(255,255,255,0.55);
+.footer-copyright {
     font-size: 0.85em;
+    margin: 0;
+    color: rgba(255,255,255,0.55);
+    padding-top: 20px;
+    border-top: 1px solid var(--footer-border);
+    width: 100%;
+    max-width: 500px;
 }
 
-.footer-bottom p { margin-bottom: 4px; }
-.footer-bottom .ein { color: rgba(255,255,255,0.4); }
+.footer-copyright .ein {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.85em;
+    color: rgba(255,255,255,0.4);
+}
 
 /* ============================================================
    RESPONSIVE
    ============================================================ */
-@media (max-width: 900px) {
-    .footer-main {
-        grid-template-columns: 1fr 1fr;
-        gap: 36px;
-    }
-    .footer-about {
-        grid-column: 1 / -1;
-    }
-}
-
 @media (max-width: 768px) {
     .mobile-toggle { display: flex; }
 
@@ -366,32 +314,16 @@ h1, h2, h3, h4 {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 72px; left: 0; right: 0;
+        top: 100%; left: 0; right: 0;
         background: var(--cyan-hover);
-        padding: 14px 20px;
-        gap: 4px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        padding: 8px;
+        gap: 0;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
 
     .navbar-menu.open { display: flex; }
-    .navbar-menu li a {
-        padding: 12px 16px;
-        font-size: 1em;
-        text-align: center;
-    }
+    .navbar-menu li a { padding: 14px 20px; text-align: center; }
 
-    .btn-nav-donate { padding: 8px 16px; font-size: 0.85em; }
-
-    .container { padding: 20px 16px; }
-    .support-section { padding: 40px 22px; }
+    main { padding: 24px 16px 40px; }
     .page-header h1 { font-size: 2em; }
-}
-
-@media (max-width: 540px) {
-    .footer-main {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    .footer-about-row { justify-content: center; }
-    .footer-social { justify-content: center; }
 }
