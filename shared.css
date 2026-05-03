@@ -215,6 +215,86 @@ main {
     box-shadow: 0 8px 26px rgba(0,200,83,0.5);
 }
 
+.btn-involve {
+    display: inline-block;
+    background: var(--cyan);
+    color: #fff;
+    border: none;
+    padding: 20px 64px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.2em;
+    font-weight: 700;
+    border-radius: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s;
+    box-shadow: 0 6px 20px rgba(3,184,212,0.35);
+}
+
+.btn-involve:hover {
+    background: var(--cyan-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 26px rgba(3,184,212,0.5);
+}
+
+/* ============================================================
+   CTA SECTIONS — Donate + Volunteer cards (used on every page)
+   ============================================================ */
+.cta-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.support-section,
+.volunteer-section {
+    background: #fff;
+    border-radius: 20px;
+    padding: 44px 38px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(13,33,55,0.06);
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.support-section:hover,
+.volunteer-section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(13,33,55,0.1);
+}
+
+.support-section h2,
+.volunteer-section h2 {
+    font-size: 1.6em;
+    font-weight: 800;
+    margin-bottom: 14px;
+}
+
+.support-section p,
+.volunteer-section p {
+    font-size: 1em;
+    color: var(--text-light);
+    line-height: 1.75;
+    margin-bottom: 24px;
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 768px) {
+    .cta-row {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+    .support-section,
+    .volunteer-section {
+        padding: 32px 24px;
+    }
+}
+
 /* ============================================================
    FOOTER — GWE-style 3-column with centered brand
    ============================================================ */
