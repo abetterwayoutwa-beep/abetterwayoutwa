@@ -87,6 +87,25 @@
         .event-description ul { margin: 8px 0 0 20px; line-height: 2; }
         .event-image { width: 100%; max-width: 580px; border-radius: 12px; margin: 10px auto; box-shadow: 0 6px 18px rgba(13,33,55,0.1); }
 
+        .event-photo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 14px 0;
+        }
+        .event-photo-grid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 14px rgba(13,33,55,0.12);
+            display: block;
+        }
+        @media (max-width: 500px) {
+            .event-photo-grid { grid-template-columns: 1fr; }
+            .event-photo-grid img { height: 180px; }
+        }
+
         .event-contact {
             background: #03b8d4;
             color: white;
@@ -126,6 +145,38 @@
             <div class="page-header">
                 <h1>Events &amp; Activities</h1>
                 <p>Join us for community gatherings designed to build connections, inspire hope, and create positive change.</p>
+            </div>
+
+            <div class="event-card" onclick="toggleEvent(this)">
+                <div class="event-date-box">
+                    <div class="month">JUN</div><div class="day">26</div><div class="year">2026</div>
+                </div>
+                <div class="event-body">
+                    <h2>In A Jam Down By The River</h2>
+                    <div class="event-meta">
+                        <span>📍 2007 Cherry St., Ferndale, WA 98248</span>
+                        <span>🕒 Various Times</span>
+                        <span>🎟️ Admission: Free!</span>
+                    </div>
+                    <button class="btn-event-details">Event Details</button>
+                    <div class="event-content">
+                        <div class="event-description">
+                            <p><strong>In A Jam Down By The River</strong> is a three-day music festival starting <strong>June 26, 2026</strong>. Come enjoy live music, community connection, and good vibes — and find us at our booth!</p>
+                            <p style="margin-top:12px;">This is a free community event open to everyone. Join us for great music and a chance to learn more about A Better Way Out's programs and mission.</p>
+                        </div>
+                        <div class="event-photo-grid">
+                            <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/Jam_in_the_River_booth.jpg" alt="Jam in the River — our booth" onerror="this.parentElement.removeChild(this)">
+                            <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/Jam_in_the_River_group_photo.jpg" alt="Jam in the River — group photo" onerror="this.parentElement.removeChild(this)">
+                            <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/Jam_in_the_River_event_live.jpg" alt="Jam in the River — live event" onerror="this.parentElement.removeChild(this)">
+                            <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/Jam_in_the_River_event_live_2.jpg" alt="Jam in the River — live event 2" onerror="this.parentElement.removeChild(this)">
+                        </div>
+                        <div class="event-contact">
+                            <h4>📣 Come Say Hi!</h4>
+                            <p>Find us at our booth during the festival. Follow us on Facebook for updates and schedule info.</p>
+                            <p><a href="https://www.facebook.com/a.better.way.out" target="_blank">facebook.com/a.better.way.out</a></p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="event-card" onclick="toggleEvent(this)">
