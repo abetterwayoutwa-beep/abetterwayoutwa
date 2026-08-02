@@ -104,6 +104,22 @@
             display: block;
         }
 
+        .event-video-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px;
+            margin: 14px auto;
+        }
+        .event-video-row .event-video-shorts {
+            flex: 1 1 200px;
+            max-width: 240px;
+            margin: 0;
+        }
+        @media (max-width: 680px) {
+            .event-video-row .event-video-shorts { flex: 1 1 100%; max-width: 300px; }
+        }
+
         .event-photo-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -191,8 +207,16 @@
                             <p style="margin-top:12px;">Special thanks to sponsor <strong>Whatcom Community Foundation</strong> for supporting this event.</p>
                         </div>
                         <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/Amando%20Mi%20Comunidad.jpg" alt="Amando Mi Comunidad event flyer" class="event-image" onerror="this.style.display='none'">
-                        <div class="event-video-shorts">
-                            <iframe src="https://www.youtube.com/embed/6qFkTRWGbhc" title="Serving Our Community: Cornhole with Kids at Amando mi Comunidad" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                        <div class="event-video-row">
+                            <div class="event-video-shorts">
+                                <iframe src="https://www.youtube.com/embed/6qFkTRWGbhc" title="Serving Our Community: Cornhole with Kids at Amando mi Comunidad" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            </div>
+                            <div class="event-video-shorts">
+                                <iframe src="https://www.youtube.com/embed/AKfDjFIjZ1g" title="Cornhole Fun with Kids at Amando mi Comunidad — Part 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            </div>
+                            <div class="event-video-shorts">
+                                <iframe src="https://www.youtube.com/embed/GDKV666FdE0" title="Cornhole Fun with Kids at Amando mi Comunidad — Part 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            </div>
                         </div>
                         <div class="event-contact">
                             <h4>📣 Stay Connected</h4>
