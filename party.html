@@ -3,157 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Partners — A Better Way Out WA</title>
-    <meta name="description" content="Our Partners - A Better Way Out WA official community partners">
+    <title>Services — A Better Way Out WA</title>
+    <meta name="description" content="Community Services - A Better Way Out provides mentorship, mental health support, and family resources">
     <link rel="stylesheet" href="shared.css">
     <style>
         body { background: #e0f7fa; }
 
-        /* Thumbnail grid at top */
-        .partners-thumb-section {
-            background: #fff;
-            border-radius: 20px;
-            padding: 32px 28px;
-            margin-bottom: 26px;
-            box-shadow: 0 4px 20px rgba(13,33,55,0.06);
-            text-align: center;
-        }
-        .partners-thumb-label {
-            font-size: 0.78em;
-            font-weight: 800;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #718096;
-            margin-bottom: 22px;
-        }
-        .partners-thumb-grid {
-            display: flex;
-            gap: 22px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .partner-thumb {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            width: 160px;
-            transition: transform 0.25s;
-        }
-        .partner-thumb:hover {
-            transform: translateY(-4px);
-        }
-        .partner-thumb-wrap {
-            width: 130px;
-            height: 130px;
-            border-radius: 18px;
-            overflow: hidden;
-            border: 3px solid #e2e8f0;
-            background: #f7fafc;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: border-color 0.25s, box-shadow 0.25s;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-        }
-        .partner-thumb:hover .partner-thumb-wrap {
-            border-color: #03b8d4;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-        .partner-thumb-wrap img {
-            width: 100%; height: 100%;
-            object-fit: contain;
-            padding: 8px;
-        }
-        .partner-thumb-label {
-            font-size: 0.85em;
-            font-weight: 700;
-            color: #2d3748;
-            text-align: center;
-            line-height: 1.3;
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 28px;
         }
 
-        .partner-block {
+        .service-card {
             background: #fff;
             border-radius: 20px;
-            padding: 44px 38px;
-            margin-bottom: 26px;
-            text-align: center;
+            padding: 32px 30px;
             box-shadow: 0 4px 20px rgba(13,33,55,0.06);
             transition: all 0.3s;
-            scroll-margin-top: 100px;
+            display: flex;
+            flex-direction: column;
         }
-        .partner-block:hover {
-            transform: translateY(-2px);
+
+        .service-card:hover {
+            transform: translateY(-3px);
             box-shadow: 0 8px 28px rgba(13,33,55,0.1);
         }
 
-        .partner-logo-wrap {
-            background: #f7fafc;
-            border-radius: 14px;
-            padding: 18px;
-            margin: 0 auto 24px;
-            max-width: 400px;
-        }
-        .partner-logo {
-            max-width: 360px;
-            width: 100%;
-            margin: 0 auto;
+        .service-card-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 16px;
         }
 
-        .partner-block p {
-            font-size: 1em;
+        .service-icon {
+            width: 48px; height: 48px; min-width: 48px;
+            display: flex; align-items: center; justify-content: center;
+            background: #03b8d4;
+            border-radius: 12px;
+            font-size: 1.4em;
+        }
+
+        .service-card h2 {
+            font-size: 1.3em;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .service-card p {
+            font-size: 0.95em;
             color: #4a5568;
             line-height: 1.8;
-            max-width: 660px;
-            margin: 0 auto 26px;
+            margin-bottom: 20px;
         }
 
-        .btn-partner {
-            display: inline-block;
-            background: #03b8d4;
-            color: #fff;
-            border: none;
-            padding: 14px 34px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1em;
-            font-weight: 700;
+        .service-image-wrap {
+            margin-top: auto;
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .service-image {
+            width: 100%;
+            max-height: 240px;
+            object-fit: contain;
             border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.25s;
-            box-shadow: 0 4px 14px rgba(3,184,212,0.3);
-            text-decoration: none;
-        }
-        .btn-partner:hover {
-            background: #0099b8;
-            transform: translateY(-2px);
+            margin: 0 auto;
         }
 
-        .video-heading {
-            font-size: 1.35em;
+        .mentor-section {
+            background: linear-gradient(135deg, #ef7b7b 0%, #f5a0a0 100%);
+            color: white;
+            padding: 48px 40px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .mentor-section h2 {
+            font-size: 1.6em;
+            margin-bottom: 18px;
             font-weight: 800;
-            margin: 30px 0 18px;
-            color: #0d2137;
+            color: #fff;
         }
-        .video-container {
-            width: 100%;
-            max-width: 460px;
+
+        .mentor-section p {
+            font-size: 1em;
+            line-height: 1.8;
+            max-width: 740px;
             margin: 0 auto;
-            border-radius: 14px;
-            overflow: hidden;
-            box-shadow: 0 8px 24px rgba(13,33,55,0.15);
-        }
-        .video-container iframe {
-            width: 100%;
-            height: 520px;
-            border: none;
-            display: block;
+            opacity: 0.97;
         }
 
         @media (max-width: 680px) {
-            .partner-block { padding: 30px 22px; }
-            .video-container iframe { height: 380px; }
+            .services-grid { grid-template-columns: 1fr; }
+            .mentor-section { padding: 34px 22px; }
         }
     </style>
 </head>
@@ -167,10 +114,10 @@
             <ul class="navbar-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
                 <li><a href="events.html">Events</a></li>
                 <li><a href="interviews.html">Interviews</a></li>
-                <li><a href="party.html" class="active">Partner</a></li>
+                <li><a href="party.html">Partner</a></li>
                 <li><a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="nav-donate">Donate</a></li>
             </ul>
         </div>
@@ -179,62 +126,59 @@
     <main>
         <div class="container">
             <div class="page-header">
-                <h1>Our Partners</h1>
-                <p>Organizations we're proud to work alongside.</p>
+                <h1>Services</h1>
+                <p>Our Community Services are designed to highlight the comprehensive support we offer to individuals and families seeking stability, healing, and hope.</p>
             </div>
 
-            <!-- Thumbnail quick-links -->
-            <section class="partners-thumb-section">
-                <p class="partners-thumb-label">Our Partners · Click to view</p>
-                <div class="partners-thumb-grid">
-                    <a class="partner-thumb" href="#kucumber">
-                        <div class="partner-thumb-wrap">
-                            <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/partner_logo.png" alt="kū cumber SKIN LOUNGE">
-                        </div>
-                        <span class="partner-thumb-label">kū cumber SKIN LOUNGE</span>
-                    </a>
-                    <a class="partner-thumb" href="#nsach">
-                        <div class="partner-thumb-wrap">
-                            <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/NSACH.jpeg" alt="North Sound ACH">
-                        </div>
-                        <span class="partner-thumb-label">North Sound ACH</span>
-                    </a>
-                    <a class="partner-thumb" href="#ferndale-chamber">
-                        <div class="partner-thumb-wrap">
-                            <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/Ferndale-chamber.jpg" alt="Ferndale Chamber of Commerce">
-                        </div>
-                        <span class="partner-thumb-label">Ferndale Chamber of Commerce</span>
-                    </a>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <div class="service-icon">🧠</div>
+                        <h2>Mental Health Support</h2>
+                    </div>
+                    <p>Understanding that emotional well-being is essential, we offer resources and supportive mentorship to help individuals manage stress, trauma, anxiety, and life pressures. Our team provides practical coping tools, check-ins, and connections to trusted mental health partners when needed.</p>
+                    <div class="service-image-wrap">
+                        <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/Mental-Health-Support.jpg" alt="Mental Health Support" class="service-image" onerror="this.parentElement.style.display='none'">
+                    </div>
                 </div>
-            </section>
 
-            <section class="partner-block" id="kucumber">
-                <div class="partner-logo-wrap">
-                    <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/partner_logo.png" alt="kū cumber SKIN LOUNGE Logo" class="partner-logo">
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <div class="service-icon">👥</div>
+                        <h2>Personal Connections</h2>
+                    </div>
+                    <p>We believe real change begins with genuine relationships. Our mentors and volunteers walk alongside individuals through one-on-one conversations, guidance, and consistent encouragement. We create safe spaces where people feel heard, valued, and supported.</p>
+                    <div class="service-image-wrap">
+                        <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/Personal-Connections.jpg" alt="Personal Connections" class="service-image" onerror="this.parentElement.style.display='none'">
+                    </div>
                 </div>
-                <p>We're proud to partner with <strong>kū cumber SKIN LOUNGE</strong> to provide an exceptional venue for your celebrations. Whether you're planning a birthday party, community gathering, or special event, this beautiful space offers the perfect atmosphere for memorable moments while supporting our mission.</p>
-                <a href="https://kucumberskinlounge.com" target="_blank" rel="noopener noreferrer" class="btn-partner">Visit kū cumber SKIN LOUNGE</a>
 
-                <h3 class="video-heading">Experience the Venue</h3>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/oCOY3vY_MaI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <div class="service-icon">🏠</div>
+                        <h2>Family Support</h2>
+                    </div>
+                    <p>Healthy families strengthen communities. We come alongside parents, guardians, and youth to build stronger communication, restore trust, and promote healthier home environments. Through mentorship and workshops, we help families grow together.</p>
+                    <div class="service-image-wrap">
+                        <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/Family-Support.jpg" alt="Family Support" class="service-image" onerror="this.parentElement.style.display='none'">
+                    </div>
                 </div>
-            </section>
 
-            <section class="partner-block" id="nsach">
-                <div class="partner-logo-wrap">
-                    <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/NSACH.jpeg" alt="North Sound ACH Logo" class="partner-logo">
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <div class="service-icon">🌐</div>
+                        <h2>Community Connections</h2>
+                    </div>
+                    <p>No one thrives alone. We connect individuals to local organizations, churches, businesses, and resources that can support their journey toward stability and success — employment, education, housing assistance, and community involvement.</p>
+                    <div class="service-image-wrap">
+                        <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/Community-Connections.jpg" alt="Community Connections" class="service-image" onerror="this.parentElement.style.display='none'">
+                    </div>
                 </div>
-                <p>We're proud to partner with North Sound ACH <strong>(North Sound Accountable Community of Health)</strong>, an organization committed to improving health and well-being across our region. Together, we work to connect community members with the resources and support they need to thrive.</p>
-                <a href="https://northsoundach.org/" target="_blank" rel="noopener noreferrer" class="btn-partner">Visit North Sound ACH</a>
-            </section>
+            </div>
 
-            <section class="partner-block" id="ferndale-chamber">
-                <div class="partner-logo-wrap">
-                    <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/Ferndale-chamber.jpg" alt="Ferndale Chamber of Commerce Logo" class="partner-logo">
-                </div>
-                <p>We're proud to partner with the <strong>Ferndale Chamber of Commerce</strong>, a dedicated organization that supports local businesses and strengthens the Ferndale community. Their commitment to fostering connections, economic growth, and community engagement aligns with our mission to build a stronger, more supportive environment for the youth and families we serve.</p>
-                <a href="https://ferndalewachamber.com/" target="_blank" rel="noopener noreferrer" class="btn-partner">Visit Ferndale Chamber of Commerce</a>
+            <section class="mentor-section">
+                <h2>Our Approach: Mentors with Lived Experience</h2>
+                <p>Our services are powered by mentors and volunteers who understand the realities of struggle, growth, and transformation because many of them have lived it themselves. Their firsthand experience allows them to connect authentically, inspire hope, and guide others through challenges with compassion and wisdom.</p>
             </section>
 
             <!-- CTA Row — Donate + Volunteer (shown on every page) -->
