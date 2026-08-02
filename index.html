@@ -56,44 +56,66 @@
             box-shadow: 0 8px 24px rgba(13,33,55,0.12);
         }
 
-        .about-section {
+        /* Explore cards — gateway to the rest of the site */
+        .explore-header {
+            text-align: center;
+            margin: 40px 0 22px;
+        }
+        .explore-header h2 {
+            font-size: 2em;
+            font-weight: 800;
+            color: #0d2137;
+        }
+        .explore-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 28px;
+        }
+        .explore-card {
             background: #fff;
             border-radius: 20px;
-            padding: 48px 42px;
-            text-align: center;
-            scroll-margin-top: 80px;
+            overflow: hidden;
             box-shadow: 0 4px 20px rgba(13,33,55,0.06);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
         }
-        .about-section h2 {
-            font-size: 2.2em;
+        .explore-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(13,33,55,0.12);
+        }
+        .explore-card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            display: block;
+        }
+        .explore-card-body {
+            padding: 24px 24px 28px;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .explore-card-body h3 {
+            font-size: 1.25em;
             font-weight: 800;
-            margin-bottom: 24px;
+            color: #0d2137;
+            margin-bottom: 10px;
         }
-        .about-section p {
-            font-size: 1em;
+        .explore-card-body p {
             color: #4a5568;
-            line-height: 1.9;
-            max-width: 780px;
-            margin: 0 auto 18px;
+            font-size: 0.95em;
+            line-height: 1.7;
+            margin-bottom: 18px;
+            flex: 1;
         }
-        .about-gap {
-            font-size: 1.4em !important;
-            font-weight: 800;
-            color: #0d2137 !important;
-            margin: 28px 0 18px !important;
-        }
-        .about-tag {
-            font-style: italic;
-            color: #d84315 !important;
-            font-weight: 600;
-            margin-top: 26px !important;
-        }
-
-        @media (max-width: 768px) {
-            .intro-section { grid-template-columns: 1fr; gap: 26px; padding: 32px 24px; }
-            .hero-logo { width: 220px; }
-            .about-section { padding: 32px 24px; }
-            .about-section h2 { font-size: 1.7em; }
+        .explore-card-body span {
+            color: #03b8d4;
+            font-weight: 700;
+            font-size: 0.95em;
         }
 
         .newsletter-section {
@@ -120,6 +142,12 @@
             margin: 0 auto;
             display: block;
         }
+
+        @media (max-width: 768px) {
+            .intro-section { grid-template-columns: 1fr; gap: 26px; padding: 32px 24px; }
+            .hero-logo { width: 220px; }
+            .explore-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -130,7 +158,7 @@
                 <span></span><span></span><span></span>
             </button>
             <ul class="navbar-menu">
-                <li><a href="index.html#about">About Us</a></li>
+                <li><a href="about.html">About Us</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="events.html">Events</a></li>
                 <li><a href="interviews.html">Interviews</a></li>
@@ -151,22 +179,43 @@
                 <div class="intro-text">
                     <h2>What is A Better Way Out</h2>
                     <p>Our mission is to empower at-risk youth through mentorship, education, and support, providing them with a better way out toward a brighter future.</p>
-                    <a href="#about" class="btn-primary">Learn More</a>
+                    <p>Built by mentors with lived experience, we meet young people where they are — without shame or labels — and walk alongside them toward hope, resilience, and a new vision for their lives.</p>
+                    <a href="about.html" class="btn-primary">Read Our Story</a>
                 </div>
                 <div class="intro-image">
                     <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/0729_1.jpg" alt="A Better Way Out team members" loading="lazy">
                 </div>
             </section>
 
-            <section class="about-section" id="about">
-                <h2>About Us</h2>
-                <p>Our story begins with a simple belief: young people deserve more than judgment; they deserve understanding, opportunity, and hope. Our organization was built by individuals who have walked the very paths we now guide others through. Our team is led by mentors whose shared lived experiences reflect the realities faced by many of the youth we serve.</p>
-                <p>Each mentor carries a personal story of mistakes made, lessons learned, families impacted, and a healing journey that reshaped their purpose. Their experiences are not just history; they are tools. Tools that empower them to meet young people with empathy, cultural awareness, and a deep understanding of what it takes to break cycles that have lasted for generations.</p>
-                <p>We understand how cultural identity, family systems, community pressures, and past trauma can shape a young person's choices. Many of our team members have lived through environments marked by violence, instability, and harmful influences. Some have faced the heavy challenges of reentry, rebuilding trust, and redefining themselves after incarceration.</p>
-                <p class="about-gap">A Better Way Out exists to stand in that gap.</p>
-                <p>To offer non-judgmental, trauma-informed support to young people who are actively involved in or at risk of influences that may harm their future. We meet youth where they are, without shame or labels. Through mentorship, community connections, and compassionate guidance, we help them build hope, resilience, and a new vision for their lives.</p>
-                <p class="about-tag">This is more than a program. It is a movement of healing, restoration, second chances and A Better Way Out led by people who know firsthand that transformation is possible.</p>
-            </section>
+            <div class="explore-header">
+                <h2>See What We're Up To</h2>
+            </div>
+            <div class="explore-grid">
+                <a href="events.html" class="explore-card">
+                    <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/Amando%20Mi%20Comunidad.jpg" alt="Amando Mi Comunidad community event" loading="lazy">
+                    <div class="explore-card-body">
+                        <h3>Events &amp; Activities</h3>
+                        <p>From community festivals to homeless outreach — see photos and videos from our latest gatherings, including Amando Mi Comunidad.</p>
+                        <span>View Events →</span>
+                    </div>
+                </a>
+                <a href="interviews.html" class="explore-card">
+                    <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/Personal-Connections.jpg" alt="Interview conversations" loading="lazy">
+                    <div class="explore-card-body">
+                        <h3>Interviews</h3>
+                        <p>Conversations and stories from our team, our community, and the voices that shape our mission.</p>
+                        <span>Watch Interviews →</span>
+                    </div>
+                </a>
+                <a href="services.html" class="explore-card">
+                    <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/Mental-Health-Support.jpg" alt="Support services" loading="lazy">
+                    <div class="explore-card-body">
+                        <h3>Our Services</h3>
+                        <p>Mentorship, mental health support, family resources, and community connections for the youth we serve.</p>
+                        <span>Explore Services →</span>
+                    </div>
+                </a>
+            </div>
 
             <!-- Stay Connected — Newsletter -->
             <section class="newsletter-section">
@@ -197,7 +246,7 @@
         </div>
     </main>
 
-        <footer class="site-footer">
+    <footer class="site-footer">
         <div class="footer-container">
 
             <div class="footer-brand">
@@ -210,7 +259,7 @@
                 <section class="footer-col">
                     <h3>Discover Us</h3>
                     <ul>
-                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="about.html">About Us</a></li>
                         <li><a href="services.html">Services</a></li>
                         <li><a href="party.html">Partners</a></li>
                     </ul>
