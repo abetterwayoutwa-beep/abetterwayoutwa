@@ -102,6 +102,26 @@
             margin: 0 auto;
         }
 
+        /* For "reverse" logos (white artwork) that need a dark backdrop */
+        .partner-logo-wrap.reverse { background: #0d2137; }
+        .partner-thumb-wrap.reverse {
+            background: #0d2137;
+            border-color: #0d2137;
+        }
+
+        .partner-tag {
+            display: inline-block;
+            background: #fff3e0;
+            color: #d84315;
+            font-size: 0.72em;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 18px;
+        }
+
         .partner-block p {
             font-size: 1em;
             color: #4a5568;
@@ -180,12 +200,12 @@
         <div class="container">
             <div class="page-header">
                 <h1>Our Partners</h1>
-                <p>Organizations we're proud to work alongside.</p>
+                <p>Organizations and donors we're proud to work alongside.</p>
             </div>
 
             <!-- Thumbnail quick-links -->
             <section class="partners-thumb-section">
-                <p class="partners-thumb-label">Our Partners · Click to view</p>
+                <p class="partners-thumb-label">Our Partners &amp; Donors · Click to view</p>
                 <div class="partners-thumb-grid">
                     <a class="partner-thumb" href="#kucumber">
                         <div class="partner-thumb-wrap">
@@ -204,6 +224,12 @@
                             <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/Ferndale-chamber.jpg" alt="Ferndale Chamber of Commerce">
                         </div>
                         <span class="partner-thumb-label">Ferndale Chamber of Commerce</span>
+                    </a>
+                    <a class="partner-thumb" href="#whatcom-cf">
+                        <div class="partner-thumb-wrap reverse">
+                            <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/WCF_Horizntl_rvsrse.png" alt="Whatcom Community Foundation">
+                        </div>
+                        <span class="partner-thumb-label">Whatcom Community Foundation</span>
                     </a>
                 </div>
             </section>
@@ -235,6 +261,15 @@
                 </div>
                 <p>We're proud to partner with the <strong>Ferndale Chamber of Commerce</strong>, a dedicated organization that supports local businesses and strengthens the Ferndale community. Their commitment to fostering connections, economic growth, and community engagement aligns with our mission to build a stronger, more supportive environment for the youth and families we serve.</p>
                 <a href="https://ferndalewachamber.com/" target="_blank" rel="noopener noreferrer" class="btn-partner">Visit Ferndale Chamber of Commerce</a>
+            </section>
+
+            <section class="partner-block" id="whatcom-cf">
+                <div class="partner-logo-wrap reverse">
+                    <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/WCF_Horizntl_rvsrse.png" alt="Whatcom Community Foundation Logo" class="partner-logo">
+                </div>
+                <span class="partner-tag">Donor</span>
+                <p>We are deeply grateful to the <strong>Whatcom Community Foundation</strong> for their generous support of our work. Since 1996, the Foundation has connected people, ideas, and resources across Whatcom County so that communities can flourish. Their investment in A Better Way Out helps us bring mentorship, guidance, and hope to the youth and returning citizens we serve.</p>
+                <a href="https://whatcomcf.org/" target="_blank" rel="noopener noreferrer" class="btn-partner">Visit Whatcom Community Foundation</a>
             </section>
 
             <!-- CTA Row — Donate + Volunteer (shown on every page) -->
