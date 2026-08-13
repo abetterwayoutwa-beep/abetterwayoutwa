@@ -54,8 +54,83 @@
             box-shadow: 0 8px 24px rgba(13,33,55,0.12);
         }
 
+        /* ---- Leadership / Board section ---- */
+        .leadership-block {
+            background: #fff;
+            border-radius: 20px;
+            padding: 48px 42px;
+            margin-bottom: 26px;
+            box-shadow: 0 4px 20px rgba(13,33,55,0.06);
+        }
+        .leadership-heading {
+            text-align: center;
+            font-size: 1.6em;
+            font-weight: 800;
+            color: #0d2137;
+            margin: 0 0 8px;
+        }
+        .leadership-sub {
+            text-align: center;
+            font-size: 0.78em;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #718096;
+            margin: 0 0 36px;
+        }
+
+        .person {
+            display: flex;
+            gap: 34px;
+            align-items: flex-start;
+            text-align: left;
+        }
+        .person + .person {
+            border-top: 1px solid #e2e8f0;
+            margin-top: 38px;
+            padding-top: 38px;
+        }
+        .person-photo {
+            width: 230px;
+            flex-shrink: 0;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 14px;
+            box-shadow: 0 8px 24px rgba(13,33,55,0.12);
+        }
+        .person-name {
+            font-size: 1.3em;
+            font-weight: 800;
+            color: #0d2137;
+            margin: 0 0 6px;
+        }
+        .person-role {
+            font-size: 0.78em;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #03b8d4;
+            margin: 0 0 18px;
+        }
+        .person-bio p {
+            font-size: 1em;
+            color: #4a5568;
+            line-height: 1.85;
+            margin: 0 0 14px;
+        }
+        .person-bio p:last-child { margin-bottom: 0; }
+
         @media (max-width: 680px) {
             .about-block { padding: 32px 24px; }
+            .leadership-block { padding: 32px 24px; }
+            .person {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 22px;
+            }
+            .person-photo { width: 100%; max-width: 280px; }
         }
     </style>
 </head>
@@ -93,6 +168,42 @@
                 <p class="about-gap">A Better Way Out exists to stand in that gap.</p>
                 <p>To offer non-judgmental, trauma-informed support to young people who are actively involved in or at risk of influences that may harm their future. We meet youth where they are, without shame or labels. Through mentorship, community connections, and compassionate guidance, we help them build hope, resilience, and a new vision for their lives.</p>
                 <p class="about-tag">This is more than a program. It is a movement of healing, restoration, second chances and A Better Way Out led by people who know firsthand that transformation is possible.</p>
+            </section>
+
+            <!-- ============================================================
+                 LEADERSHIP & BOARD
+                 To add another board member, copy the <div class="person">
+                 block below, paste it after the last one, and swap out the
+                 image, name, role, and bio paragraphs.
+                 ============================================================ -->
+            <section class="leadership-block" id="leadership">
+                <h2 class="leadership-heading">Leadership &amp; Board</h2>
+                <p class="leadership-sub">The people behind the mission</p>
+
+                <div class="person">
+                    <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/meeeeeee1111.jpg"
+                         alt="David Garcia, Founder and Executive Director of A Better Way Out"
+                         class="person-photo" loading="lazy">
+                    <div class="person-bio">
+                        <h3 class="person-name">David Garcia</h3>
+                        <p class="person-role">Founder &amp; Executive Director</p>
+                        <p>David Garcia is the founder and Executive Director of <strong>A Better Way Out</strong>, a Washington State nonprofit dedicated to empowering at-risk youth and returning citizens in Whatcom County. Freed from a life marked by trauma, gang affiliation, and drug trafficking, David's story is not one of self-improvement; it is one of redemption by the mercy and grace of God.</p>
+                        <p>That transformation is the fuel behind everything A Better Way Out does, because David knows firsthand that when God changes a life, He changes it completely. He leads this organization with the authority of someone who has lived the struggle, found the way out, and now dedicates his life to showing others that the same freedom is possible for them.</p>
+                    </div>
+                </div>
+
+                <!-- ---- TEMPLATE: copy this block for the next board member ----
+                <div class="person">
+                    <img src="https://raw.githubusercontent.com/abetterwayoutwa-beep/abetterwayoutwa/main/images/FILENAME.jpg"
+                         alt="Full Name, Role at A Better Way Out"
+                         class="person-photo" loading="lazy">
+                    <div class="person-bio">
+                        <h3 class="person-name">Full Name</h3>
+                        <p class="person-role">Board Member</p>
+                        <p>Bio paragraph goes here.</p>
+                    </div>
+                </div>
+                ------------------------------------------------------------- -->
             </section>
 
             <!-- CTA Row — Donate + Volunteer (shown on every page) -->
