@@ -1,0 +1,19 @@
+{
+  "name": "A Better Way Out WA",
+  "short_name": "ABWO",
+  "icons": [
+    {
+      "src": "/images/favicon/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/favicon/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#03b8d4",
+  "background_color": "#ffffff",
+  "display": "browser"
+}
