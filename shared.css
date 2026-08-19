@@ -13,6 +13,8 @@
     --navy: #0d2137;
     --green: #00c853;
     --green-hover: #00a344;
+    --donate: #3167b2;        /* matches Zeffy donation page */
+    --donate-hover: #27538f;
     --card-bg: #ffffff;
     --text: #2d3748;
     --text-light: #4a5568;
@@ -96,18 +98,18 @@ h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--navy
     border-color: var(--navy);
 }
 
-/* Donate-special: distinct green button */
+/* Donate-special: Zeffy blue button */
 .navbar-menu li a.nav-donate {
-    background: var(--green);
+    background: var(--donate);
     color: #fff;
-    border-color: var(--green);
-    box-shadow: 0 3px 10px rgba(0,200,83,0.4);
+    border-color: var(--donate);
+    box-shadow: 0 3px 10px rgba(49,103,178,0.4);
 }
 
 .navbar-menu li a.nav-donate:hover {
-    background: var(--green-hover);
-    border-color: var(--green-hover);
-    box-shadow: 0 5px 16px rgba(0,200,83,0.55);
+    background: var(--donate-hover);
+    border-color: var(--donate-hover);
+    box-shadow: 0 5px 16px rgba(49,103,178,0.55);
 }
 
 /* Mobile hamburger */
@@ -195,7 +197,7 @@ main {
 
 .btn-donate {
     display: inline-block;
-    background: var(--green);
+    background: var(--donate);
     color: #fff;
     border: none;
     padding: 20px 64px;
@@ -206,13 +208,13 @@ main {
     cursor: pointer;
     text-decoration: none;
     transition: all 0.25s;
-    box-shadow: 0 6px 20px rgba(0,200,83,0.35);
+    box-shadow: 0 6px 20px rgba(49,103,178,0.35);
 }
 
 .btn-donate:hover {
-    background: var(--green-hover);
+    background: var(--donate-hover);
     transform: translateY(-2px);
-    box-shadow: 0 8px 26px rgba(0,200,83,0.5);
+    box-shadow: 0 8px 26px rgba(49,103,178,0.5);
 }
 
 .btn-involve {
