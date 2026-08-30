@@ -16,7 +16,9 @@
     <meta property="og:title" content="About Us — A Better Way Out WA">
     <meta property="og:description" content="Our story, mission, and the mentors with lived experience who guide at-risk youth.">
     <meta property="og:image" content="https://www.abetterwayoutwa.org/images/logo.png">
-    <meta name="theme-color" content="#03b8d4">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="shared.css">
     <style>
         body { background: #e0f7fa; }
@@ -144,7 +146,7 @@
 
     <nav class="navbar">
         <div class="navbar-inner">
-            <button class="mobile-toggle" aria-label="Toggle menu" onclick="document.querySelector('.navbar-menu').classList.toggle('open')">
+            <button class="mobile-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
             <ul class="navbar-menu">
@@ -167,7 +169,7 @@
             </div>
 
             <section class="about-block">
-                <img src="images/0729_1.jpg" alt="A Better Way Out team members" class="about-photo" loading="lazy">
+                <img src="images/0729_1.jpg" alt="A Better Way Out team members" class="about-photo" loading="lazy" width="1080" height="810">
                 <p>Our story begins with a simple belief: young people deserve more than judgment; they deserve understanding, opportunity, and hope. Our organization was built by individuals who have walked the very paths we now guide others through. Our team is led by mentors whose shared lived experiences reflect the realities faced by many of the youth we serve. They know what it means to struggle with identity, navigate generational trauma, overcome harmful environments, and rebuild life after stepping back into the community.</p>
                 <p>Each mentor carries a personal story of mistakes made, lessons learned, families impacted, and a healing journey that reshaped their purpose. Their experiences are not just history; they are tools. Tools that empower them to meet young people with empathy, cultural awareness, and a deep understanding of what it takes to break cycles that have lasted for generations.</p>
                 <p>We understand how cultural identity, family systems, community pressures, and past trauma can shape a young person's choices. Many of our team members have lived through environments marked by violence, instability, and harmful influences. Some have faced the heavy challenges of reentry, rebuilding trust, and redefining themselves after incarceration. These journeys fuel our passion to serve not from a distance, but from a place of authentic connection.</p>
@@ -189,7 +191,7 @@
                 <div class="person">
                     <img src="images/meeeeeee1111.jpg"
                          alt="David Garcia, Founder and Executive Director of A Better Way Out"
-                         class="person-photo" loading="lazy">
+                         class="person-photo" loading="lazy" width="1280" height="1195">
                     <div class="person-bio">
                         <h3 class="person-name">David Garcia</h3>
                         <p class="person-role">Founder &amp; Executive Director</p>
@@ -201,7 +203,7 @@
                 <div class="person">
                     <img src="images/Bernabe%20Garcia%20.jpg"
                          alt="Bernabe Garcia, Board Member and Youth Ministry Leader at A Better Way Out"
-                         class="person-photo" loading="lazy">
+                         class="person-photo" loading="lazy" width="1080" height="1435">
                     <div class="person-bio">
                         <h3 class="person-name">Bernabe Garcia</h3>
                         <p class="person-role">Board Member &middot; Youth Ministry Leader</p>
@@ -213,7 +215,7 @@
                 <div class="person">
                     <img src="images/Mona.jpg"
                          alt="Mona Galindo, Board Member of A Better Way Out"
-                         class="person-photo" loading="lazy">
+                         class="person-photo" loading="lazy" width="226" height="225">
                     <div class="person-bio">
                         <h3 class="person-name">Mona Galindo</h3>
                         <p class="person-role">Board Member &middot; Executive Director &amp; Founder of Sent Ones Ministry</p>
@@ -223,9 +225,9 @@
                 </div>
 
                 <div class="person">
-                    <img src="images/Armando%20.png"
+                    <img src="images/Armando.jpg"
                          alt="Armando, Board Member of A Better Way Out"
-                         class="person-photo" loading="lazy">
+                         class="person-photo" loading="lazy" width="750" height="1000">
                     <div class="person-bio">
                         <h3 class="person-name">Armando</h3>
                         <p class="person-role">Board Member</p>
@@ -274,7 +276,7 @@
         <div class="footer-container">
 
             <div class="footer-brand">
-                <img src="images/logo.png" alt="A Better Way Out logo">
+                <img src="images/logo-sm.png" alt="A Better Way Out logo" width="120" height="120" loading="lazy">
                 <h2>A Better Way Out</h2>
                 <p>Empowering at-risk youth in Washington through trauma-informed mentorship, education, and support — led by mentors with lived experience.</p>
             </div>
@@ -313,5 +315,6 @@
         </div>
     </footer>
 
+    <script src="shared.js" defer></script>
 </body>
 </html>

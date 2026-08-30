@@ -11,6 +11,9 @@
     <link rel="manifest" href="images/favicon/site.webmanifest">
     <meta name="theme-color" content="#03b8d4">
     <meta name="description" content="Events & Activities - A Better Way Out community programs and gatherings">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="shared.css">
     <style>
         body { background: #e0f7fa; }
@@ -193,7 +196,7 @@
 
     <nav class="navbar">
         <div class="navbar-inner">
-            <button class="mobile-toggle" aria-label="Toggle menu" onclick="document.querySelector('.navbar-menu').classList.toggle('open')">
+            <button class="mobile-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
             <ul class="navbar-menu">
@@ -236,7 +239,7 @@
                             <p style="margin-top:12px;"><strong>Ways you can help:</strong> register &amp; run, donate, sponsor, or volunteer — every step supports change.</p>
                             <p style="margin-top:12px;">🐾 Please note: no pets allowed — sorry for the inconvenience.</p>
                         </div>
-                        <img src="images/FB_IMG_1786567376608.jpg" alt="2026 Gump Run 5K — Running for the Kids" class="event-image" style="display:block;" onerror="this.style.display='none'">
+                        <img src="images/FB_IMG_1786567376608.jpg" alt="2026 Gump Run 5K — Running for the Kids" class="event-image" style="display:block;" onerror="this.style.display='none'" width="1009" height="1605" loading="lazy">
                         <div class="event-contact">
                             <h4>📣 Register &amp; Learn More</h4>
                             <p>Scan the QR code on the flyer to register, or email <a href="mailto:Kaylaallyayden21@gmail.com">Kaylaallyayden21@gmail.com</a> with questions.</p>
@@ -280,7 +283,7 @@
         <div class="footer-container">
 
             <div class="footer-brand">
-                <img src="images/logo.png" alt="A Better Way Out logo">
+                <img src="images/logo-sm.png" alt="A Better Way Out logo" width="120" height="120" loading="lazy">
                 <h2>A Better Way Out</h2>
                 <p>Empowering at-risk youth in Washington through trauma-informed mentorship, education, and support — led by mentors with lived experience.</p>
             </div>
@@ -320,5 +323,6 @@
     </footer>
     <script>function toggleEvent(card){card.classList.toggle('expanded');}</script>
 
+    <script src="shared.js" defer></script>
 </body>
 </html>

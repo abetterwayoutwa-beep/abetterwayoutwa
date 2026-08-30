@@ -16,10 +16,12 @@
     <meta property="og:title" content="A Better Way Out WA — Youth Mentorship & Support">
     <meta property="og:description" content="Empowering at-risk youth through mentorship, education, and support.">
     <meta property="og:image" content="https://www.abetterwayoutwa.org/images/logo.png">
-    <meta name="theme-color" content="#03b8d4">
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"NGO","name":"A Better Way Out WA","url":"https://www.abetterwayoutwa.org","logo":"https://www.abetterwayoutwa.org/images/logo.png","taxID":"92-1581139","nonprofitStatus":"Nonprofit501c3"}
     </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="shared.css">
     <style>
         body { background: #e0f7fa; }
@@ -45,7 +47,7 @@
             margin-bottom: 28px;
             box-shadow: 0 4px 20px rgba(13,33,55,0.06);
         }
-        .intro-text h2 {
+        .intro-text h1 {
             font-size: 1.85em;
             margin-bottom: 16px;
             font-weight: 800;
@@ -166,7 +168,7 @@
 
     <nav class="navbar">
         <div class="navbar-inner">
-            <button class="mobile-toggle" aria-label="Toggle menu" onclick="document.querySelector('.navbar-menu').classList.toggle('open')">
+            <button class="mobile-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
             <ul class="navbar-menu">
@@ -185,18 +187,18 @@
         <div class="container">
 
             <section class="hero">
-                <img src="images/logo.png" alt="A Better Way Out WA" class="hero-logo">
+                <img src="images/logo.png" alt="A Better Way Out WA" class="hero-logo" width="558" height="551" fetchpriority="high">
             </section>
 
             <section class="intro-section">
                 <div class="intro-text">
-                    <h2>What is A Better Way Out</h2>
+                    <h1>What is A Better Way Out</h1>
                     <p>Our mission is to empower at-risk youth through mentorship, education, and support, providing them with a better way out toward a brighter future.</p>
                     <p>Built by mentors with lived experience, we meet young people where they are — without shame or labels — and walk alongside them toward hope, resilience, and a new vision for their lives.</p>
                     <a href="about.html" class="btn-primary">Read Our Story</a>
                 </div>
                 <div class="intro-image">
-                    <img src="images/0729_1.jpg" alt="A Better Way Out team members" loading="lazy">
+                    <img src="images/0729_1.jpg" alt="A Better Way Out team members" width="1080" height="810" loading="lazy">
                 </div>
             </section>
 
@@ -205,7 +207,7 @@
             </div>
             <div class="explore-grid">
                 <a href="events.html" class="explore-card">
-                    <img src="images/Amando%20Mi%20Comunidad.jpg" alt="Amando Mi Comunidad community event" loading="lazy">
+                    <img src="images/Amando%20Mi%20Comunidad.jpg" alt="Amando Mi Comunidad community event" width="1131" height="1600" loading="lazy">
                     <div class="explore-card-body">
                         <h3>Events &amp; Activities</h3>
                         <p>From community festivals to homeless outreach — see photos and videos from our latest gatherings, including Amando Mi Comunidad.</p>
@@ -213,7 +215,7 @@
                     </div>
                 </a>
                 <a href="interviews.html" class="explore-card">
-                    <img src="https://img.youtube.com/vi/te8Qdu3mjhE/hqdefault.jpg" alt="Interview video thumbnail" loading="lazy">
+                    <img src="https://img.youtube.com/vi/te8Qdu3mjhE/hqdefault.jpg" alt="Interview video thumbnail" width="480" height="360" loading="lazy">
                     <div class="explore-card-body">
                         <h3>Interviews</h3>
                         <p>Conversations and stories from our team, our community, and the voices that shape our mission.</p>
@@ -221,7 +223,7 @@
                     </div>
                 </a>
                 <a href="services.html" class="explore-card">
-                    <img src="images/Mental-Health-Support.jpg" class="fit-contain" alt="Mental Health Support" loading="lazy">
+                    <img src="images/Mental-Health-Support.jpg" class="fit-contain" alt="Mental Health Support" width="960" height="426" loading="lazy">
                     <div class="explore-card-body">
                         <h3>Our Services</h3>
                         <p>Mentorship, mental health support, family resources, and community connections for the youth we serve.</p>
@@ -234,7 +236,7 @@
             <section class="newsletter-section">
                 <h2>Stay Connected</h2>
                 <p>Subscribe to receive monthly updates about our programs and success stories.</p>
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScz3O8_WkNbH4IbtIDmFScwh1GSvxnq8CubXBq5H7elAW21qw/viewform?embedded=true" width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0" title="Newsletter subscription form" loading="lazy">Loading…</iframe>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScz3O8_WkNbH4IbtIDmFScwh1GSvxnq8CubXBq5H7elAW21qw/viewform?embedded=true" width="100%" height="560" frameborder="0" marginheight="0" marginwidth="0" title="Newsletter subscription form" loading="lazy">Loading…</iframe>
             </section>
 
             <!-- CTA Row — Donate + Volunteer (shown on every page) -->
@@ -263,7 +265,7 @@
         <div class="footer-container">
 
             <div class="footer-brand">
-                <img src="images/logo.png" alt="A Better Way Out logo">
+                <img src="images/logo-sm.png" alt="A Better Way Out logo" width="120" height="120" loading="lazy">
                 <h2>A Better Way Out</h2>
                 <p>Empowering at-risk youth in Washington through trauma-informed mentorship, education, and support — led by mentors with lived experience.</p>
             </div>
@@ -302,5 +304,6 @@
         </div>
     </footer>
 
+    <script src="shared.js" defer></script>
 </body>
 </html>
