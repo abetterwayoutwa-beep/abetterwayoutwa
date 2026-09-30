@@ -3,14 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Partners — A Better Way Out WA</title>
+        <title>Partners — A Better Way Out WA</title>
     <link rel="canonical" href="https://www.abetterwayoutwa.org/party.html">
-    <link rel="icon" href="images/favicon/favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
-    <link rel="manifest" href="images/favicon/site.webmanifest">
-    <meta name="theme-color" content="#03b8d4">
+    <meta name="theme-color" content="#eef0ec">
     <meta name="description" content="Our Partners - A Better Way Out WA official community partners">
     <!-- Open Graph / social sharing -->
     <meta property="og:type" content="website">
@@ -24,330 +19,197 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="A Better Way Out WA — empowering at-risk youth in Whatcom County, Washington">
     <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" href="images/favicon/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
     <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="preload" href="fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/literata.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="shared.css">
     <style>
-        body { background: #e0f7fa; }
-
-        /* Thumbnail grid at top */
-        .partners-thumb-section {
+        .logo-wall {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1px;
+            background: var(--line);
+            border: 1px solid var(--line);
+            margin-bottom: clamp(56px, 7vw, 104px);
+        }
+        .logo-wall a {
             background: #fff;
-            border-radius: 20px;
-            padding: 32px 28px;
-            margin-bottom: 26px;
-            box-shadow: 0 4px 20px rgba(13,33,55,0.06);
-            text-align: center;
-        }
-        .partners-thumb-label {
-            font-size: 0.78em;
-            font-weight: 800;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #718096;
-            margin-bottom: 22px;
-        }
-        .partners-thumb-grid {
-            display: flex;
-            gap: 22px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .partner-thumb {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
+            display: grid;
+            grid-template-rows: 1fr auto;
+            gap: 14px;
+            padding: 28px 24px 20px;
             text-decoration: none;
-            width: 160px;
-            transition: transform 0.25s;
+            color: var(--ink);
+            min-height: 200px;
         }
-        .partner-thumb:hover {
-            transform: translateY(-4px);
-        }
-        .partner-thumb-wrap {
-            width: 130px;
-            height: 130px;
-            border-radius: 18px;
-            overflow: hidden;
-            border: 3px solid #e2e8f0;
-            background: #f7fafc;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: border-color 0.25s, box-shadow 0.25s;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-        }
-        .partner-thumb:hover .partner-thumb-wrap {
-            border-color: #03b8d4;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-        .partner-thumb-wrap img {
-            width: 100%; height: 100%;
-            object-fit: contain;
-            padding: 8px;
-        }
-        .partner-thumb-label {
-            font-size: 0.85em;
-            font-weight: 700;
-            color: #2d3748;
-            text-align: center;
-            line-height: 1.3;
-        }
+        .logo-wall img { width: 100%; height: 100px; object-fit: contain; align-self: center; }
+        .logo-wall span { font-family: var(--ui); font-size: .9rem; color: var(--ink-mute); }
+        .logo-wall a:hover span { color: var(--ring); text-decoration: underline; }
+        @media (max-width: 860px) { .logo-wall { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
         .partner-block {
-            background: #fff;
-            border-radius: 20px;
-            padding: 44px 38px;
-            margin-bottom: 26px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(13,33,55,0.06);
-            transition: all 0.3s;
-            scroll-margin-top: 100px;
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            column-gap: 24px; row-gap: 24px;
+            padding: clamp(36px, 4vw, 56px) 0;
+            border-top: 1px solid var(--ink);
         }
-        .partner-block:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 28px rgba(13,33,55,0.1);
-        }
-
-        .partner-logo-wrap {
-            background: #f7fafc;
-            border-radius: 14px;
-            padding: 18px;
-            margin: 0 auto 24px;
-            max-width: 400px;
-        }
-        .partner-logo {
-            max-width: 360px;
-            width: 100%;
-            margin: 0 auto;
-        }
-
+        .partner-block h2 { grid-column: 1 / span 5; font-size: var(--step-3); }
         .partner-tag {
-            display: inline-block;
-            background: #fff3e0;
-            color: #d84315;
-            font-size: 0.72em;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding: 6px 14px;
-            border-radius: 20px;
-            margin-bottom: 18px;
+            display: inline-block; margin-top: 14px;
+            font-family: var(--ui); font-size: .85rem; font-weight: 650;
+            color: var(--forest); background: var(--ochre-light);
+            padding: 4px 12px; border-radius: var(--radius-pill);
         }
-
-        .partner-block p {
-            font-size: 1em;
-            color: #4a5568;
-            line-height: 1.8;
-            max-width: 660px;
-            margin: 0 auto 26px;
-        }
-
-        .btn-partner {
-            display: inline-block;
-            background: #03b8d4;
-            color: #fff;
-            border: none;
-            padding: 14px 34px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1em;
-            font-weight: 700;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.25s;
-            box-shadow: 0 4px 14px rgba(3,184,212,0.3);
-            text-decoration: none;
-        }
-        .btn-partner:hover {
-            background: #0099b8;
-            transform: translateY(-2px);
-        }
-
-        .video-heading {
-            font-size: 1.35em;
-            font-weight: 800;
-            margin: 30px 0 18px;
-            color: #0d2137;
-        }
-        .video-container {
-            width: 100%;
-            max-width: 460px;
-            margin: 0 auto;
-            border-radius: 14px;
-            overflow: hidden;
-            box-shadow: 0 8px 24px rgba(13,33,55,0.15);
-        }
-        .video-container iframe {
-            width: 100%;
-            height: 520px;
-            border: none;
-            display: block;
-        }
-
-        @media (max-width: 680px) {
-            .partner-block { padding: 30px 22px; }
-            .video-container iframe { height: 380px; }
-        }
+        .partner-body { grid-column: 7 / span 6; }
+        .partner-body .prose { margin-bottom: 24px; }
+        .partner-video { grid-column: 7 / span 6; margin-top: 12px; }
+        .partner-video h3 { font-family: var(--ui); font-stretch: 100%; font-weight: 600; font-size: 1rem; margin-bottom: 12px; }
+        @media (max-width: 760px) { .partner-block h2, .partner-body, .partner-video { grid-column: 1 / -1; } }
     </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="navbar-inner">
-            <button class="mobile-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
-                <span></span><span></span><span></span>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="wrap">
+            <a class="brand" href="index.html" aria-label="A Better Way Out — home">
+                <img src="images/logo-mark-112.webp" alt="" width="56" height="55">
+                <span>A Better Way Out</span>
+            </a>
+            <button class="mobile-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+                <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+                Menu
             </button>
-            <ul class="navbar-menu">
+            <nav aria-label="Main">
+            <ul class="navbar-menu" id="primary-menu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="events.html">Events</a></li>
                 <li><a href="interviews.html">Interviews</a></li>
-                <li><a href="party.html" class="active">Partner</a></li>
+                <li><a href="party.html" class="active" aria-current="page">Partners</a></li>
                 <li><a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="nav-donate">Donate</a></li>
             </ul>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <main>
-        <div class="container">
-            <div class="page-header">
-                <h1>Our Partners</h1>
-                <p>Organizations and donors we're proud to work alongside.</p>
-            </div>
+    <main id="main">
+        <header class="page-header wrap">
+            <h1>Our partners</h1>
+            <p>Organizations and donors we&rsquo;re proud to work alongside.</p>
+        </header>
 
-            <!-- Thumbnail quick-links -->
-            <section class="partners-thumb-section">
-                <p class="partners-thumb-label">Our Partners &amp; Donors · Click to view</p>
-                <div class="partners-thumb-grid">
-                    <a class="partner-thumb" href="#kucumber">
-                        <div class="partner-thumb-wrap">
-                            <img src="images/partner_logo.png" alt="kū cumber SKIN LOUNGE" width="600" height="180" loading="lazy">
+        <section class="section" aria-label="Partners and donors">
+            <div class="wrap">
+                <!-- Logo wall — one <a> per partner, linking to its section below -->
+                <div class="logo-wall">
+                    <a href="#kucumber"><img src="images/partner_logo.png" alt="kū cumber SKIN LOUNGE" width="600" height="180" loading="lazy"><span>kū cumber SKIN LOUNGE</span></a>
+                    <a href="#nsach"><img src="images/NSACH.jpeg" alt="North Sound ACH" width="225" height="225" loading="lazy"><span>North Sound ACH</span></a>
+                    <a href="#ferndale-chamber"><img src="images/Ferndale-chamber.jpg" alt="Ferndale Chamber of Commerce" width="618" height="263" loading="lazy"><span>Ferndale Chamber of Commerce</span></a>
+                    <a href="#whatcom-cf"><img src="images/wcf.png" alt="Whatcom Community Foundation" width="516" height="236" loading="lazy"><span>Whatcom Community Foundation</span></a>
+                </div>
+
+                <section class="partner-block" id="kucumber" aria-labelledby="kucumber-t">
+                    <h2 id="kucumber-t">kū cumber SKIN LOUNGE</h2>
+                    <div class="partner-body">
+                        <div class="prose"><p>We&rsquo;re proud to partner with <strong>kū cumber SKIN LOUNGE</strong> to provide an exceptional venue for your celebrations. Whether you&rsquo;re planning a birthday party, community gathering, or special event, this beautiful space offers the perfect atmosphere for memorable moments while supporting our mission.</p></div>
+                        <a href="https://kucumberskinlounge.com" target="_blank" rel="noopener noreferrer" class="btn-ghost">Visit kū cumber SKIN LOUNGE</a>
+                    </div>
+                    <div class="partner-video">
+                        <h3>Experience the venue</h3>
+                        <div class="video-frame">
+                            <iframe src="https://www.youtube-nocookie.com/embed/oCOY3vY_MaI" title="kū cumber SKIN LOUNGE venue tour" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                         </div>
-                        <span class="partner-thumb-label">kū cumber SKIN LOUNGE</span>
-                    </a>
-                    <a class="partner-thumb" href="#nsach">
-                        <div class="partner-thumb-wrap">
-                            <img src="images/NSACH.jpeg" alt="North Sound ACH" width="225" height="225" loading="lazy">
-                        </div>
-                        <span class="partner-thumb-label">North Sound ACH</span>
-                    </a>
-                    <a class="partner-thumb" href="#ferndale-chamber">
-                        <div class="partner-thumb-wrap">
-                            <img src="images/Ferndale-chamber.jpg" alt="Ferndale Chamber of Commerce" width="618" height="263" loading="lazy">
-                        </div>
-                        <span class="partner-thumb-label">Ferndale Chamber of Commerce</span>
-                    </a>
-                    <a class="partner-thumb" href="#whatcom-cf">
-                        <div class="partner-thumb-wrap">
-                            <img src="images/wcf.png" alt="Whatcom Community Foundation" width="516" height="236" loading="lazy">
-                        </div>
-                        <span class="partner-thumb-label">Whatcom Community Foundation</span>
-                    </a>
-                </div>
-            </section>
-
-            <section class="partner-block" id="kucumber">
-                <div class="partner-logo-wrap">
-                    <img src="images/partner_logo.png" alt="kū cumber SKIN LOUNGE Logo" class="partner-logo" width="600" height="180" loading="lazy">
-                </div>
-                <p>We're proud to partner with <strong>kū cumber SKIN LOUNGE</strong> to provide an exceptional venue for your celebrations. Whether you're planning a birthday party, community gathering, or special event, this beautiful space offers the perfect atmosphere for memorable moments while supporting our mission.</p>
-                <a href="https://kucumberskinlounge.com" target="_blank" rel="noopener noreferrer" class="btn-partner">Visit kū cumber SKIN LOUNGE</a>
-
-                <h3 class="video-heading">Experience the Venue</h3>
-                <div class="video-container">
-                    <iframe src="https://www.youtube-nocookie.com/embed/oCOY3vY_MaI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                </div>
-            </section>
-
-            <section class="partner-block" id="nsach">
-                <div class="partner-logo-wrap">
-                    <img src="images/NSACH.jpeg" alt="North Sound ACH Logo" class="partner-logo" width="225" height="225" loading="lazy">
-                </div>
-                <p>We're proud to partner with North Sound ACH <strong>(North Sound Accountable Community of Health)</strong>, an organization committed to improving health and well-being across our region. Together, we work to connect community members with the resources and support they need to thrive.</p>
-                <a href="https://northsoundach.org/" target="_blank" rel="noopener noreferrer" class="btn-partner">Visit North Sound ACH</a>
-            </section>
-
-            <section class="partner-block" id="ferndale-chamber">
-                <div class="partner-logo-wrap">
-                    <img src="images/Ferndale-chamber.jpg" alt="Ferndale Chamber of Commerce Logo" class="partner-logo" width="618" height="263" loading="lazy">
-                </div>
-                <p>We're proud to partner with the <strong>Ferndale Chamber of Commerce</strong>, a dedicated organization that supports local businesses and strengthens the Ferndale community. Their commitment to fostering connections, economic growth, and community engagement aligns with our mission to build a stronger, more supportive environment for the youth and families we serve.</p>
-                <a href="https://ferndalewachamber.com/" target="_blank" rel="noopener noreferrer" class="btn-partner">Visit Ferndale Chamber of Commerce</a>
-            </section>
-
-            <section class="partner-block" id="whatcom-cf">
-                <div class="partner-logo-wrap">
-                    <img src="images/wcf.png" alt="Whatcom Community Foundation Logo" class="partner-logo" width="516" height="236" loading="lazy">
-                </div>
-                <span class="partner-tag">Donor</span>
-                <p>We are deeply grateful to the <strong>Whatcom Community Foundation</strong> for their generous support of our work. Since 1996, the Foundation has connected people, ideas, and resources across Whatcom County so that communities can flourish. Their investment in A Better Way Out helps us bring mentorship, guidance, and hope to the youth and returning citizens we serve.</p>
-                <a href="https://whatcomcf.org/" target="_blank" rel="noopener noreferrer" class="btn-partner">Visit Whatcom Community Foundation</a>
-            </section>
-
-            <!-- CTA Row — Donate + Volunteer (shown on every page) -->
-            <div class="cta-row">
-                <section class="support-section">
-                    <h2>Support Our Mission</h2>
-                    <p>Your donation directly impacts the lives of at-risk youth in our community. Every contribution helps us provide mentorship, support, and hope to those who need it most.</p>
-                    <div>
-                        <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="btn-donate">Donate Now</a>
                     </div>
                 </section>
-
-                <section class="volunteer-section">
-                    <h2>Volunteer With Us</h2>
-                    <p>Making a difference, one life at a time. Join our community of mentors and helpers who walk alongside the youth we serve.</p>
-                    <div>
-                        <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" class="btn-involve">Get Involved</a>
+                <section class="partner-block" id="nsach" aria-labelledby="nsach-t">
+                    <h2 id="nsach-t">North Sound ACH</h2>
+                    <div class="partner-body">
+                        <div class="prose"><p>We&rsquo;re proud to partner with North Sound ACH <strong>(North Sound Accountable Community of Health)</strong>, an organization committed to improving health and well-being across our region. Together, we work to connect community members with the resources and support they need to thrive.</p></div>
+                        <a href="https://northsoundach.org/" target="_blank" rel="noopener noreferrer" class="btn-ghost">Visit North Sound ACH</a>
+                    </div>
+                </section>
+                <section class="partner-block" id="ferndale-chamber" aria-labelledby="ferndale-chamber-t">
+                    <h2 id="ferndale-chamber-t">Ferndale Chamber of Commerce</h2>
+                    <div class="partner-body">
+                        <div class="prose"><p>We&rsquo;re proud to partner with the <strong>Ferndale Chamber of Commerce</strong>, a dedicated organization that supports local businesses and strengthens the Ferndale community. Their commitment to fostering connections, economic growth, and community engagement aligns with our mission to build a stronger, more supportive environment for the youth and families we serve.</p></div>
+                        <a href="https://ferndalewachamber.com/" target="_blank" rel="noopener noreferrer" class="btn-ghost">Visit Ferndale Chamber of Commerce</a>
+                    </div>
+                </section>
+                <section class="partner-block" id="whatcom-cf" aria-labelledby="whatcom-cf-t">
+                    <h2 id="whatcom-cf-t">Whatcom Community Foundation<br><span class="partner-tag">Donor</span></h2>
+                    <div class="partner-body">
+                        <div class="prose"><p>We are deeply grateful to the <strong>Whatcom Community Foundation</strong> for their generous support of our work. Since 1996, the Foundation has connected people, ideas, and resources across Whatcom County so that communities can flourish. Their investment in A Better Way Out helps us bring mentorship, guidance, and hope to the youth and returning citizens we serve.</p></div>
+                        <a href="https://whatcomcf.org/" target="_blank" rel="noopener noreferrer" class="btn-ghost">Visit Whatcom Community Foundation</a>
                     </div>
                 </section>
             </div>
-        </div>
+        </section>
+
+        <!-- CTA — Donate + Volunteer (shown on every page) -->
+        <section class="cta-row" aria-labelledby="cta-title">
+            <img class="cta-roots" src="images/logo-mark-360.webp" alt="" width="360" height="355" loading="lazy">
+            <div class="wrap">
+                <h2 class="cta-title" id="cta-title">Walk with the next young person who needs a way out.</h2>
+                <div class="support-section">
+                    <h3>Give</h3>
+                    <p>Your donation goes straight into mentorship, outreach, and family support for young people in Whatcom County. Donations are tax-deductible.</p>
+                    <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="btn-donate">Donate on Zeffy</a>
+                </div>
+                <div class="volunteer-section">
+                    <h3>Volunteer</h3>
+                    <p>Serve at outreach days, staff a booth, or mentor. Message us on Facebook and we&rsquo;ll tell you what&rsquo;s coming up.</p>
+                    <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" class="btn-involve">Message us on Facebook</a>
+                </div>
+            </div>
+        </section>
     </main>
 
-        <footer class="site-footer">
-        <div class="footer-container">
-
-            <div class="footer-brand">
-                <img src="images/logo-sm.png" alt="A Better Way Out logo" width="120" height="120" loading="lazy">
-                <h2>A Better Way Out</h2>
-                <p>Empowering at-risk youth in Washington through trauma-informed mentorship, education, and support — led by mentors with lived experience.</p>
-            </div>
-
-            <div class="footer-columns">
-                <section class="footer-col">
-                    <h3>Discover Us</h3>
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo-mark-112.webp" alt="" width="72" height="71" loading="lazy">
+                    <h2>A Better Way Out</h2>
+                    <p>Trauma-informed mentorship for young people in Whatcom County, Washington &mdash; led by mentors with lived experience.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Who we are</h3>
                     <ul>
-                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="about.html">About us</a></li>
+                        <li><a href="about.html#leadership">Leadership &amp; board</a></li>
                         <li><a href="services.html">Services</a></li>
                         <li><a href="party.html">Partners</a></li>
                     </ul>
-                </section>
-
-                <section class="footer-col">
-                    <h3>Our Impact</h3>
+                </div>
+                <div class="footer-col">
+                    <h3>What we do</h3>
                     <ul>
                         <li><a href="events.html">Events</a></li>
                         <li><a href="interviews.html">Interviews</a></li>
                     </ul>
-                </section>
-
-                <section class="footer-col">
-                    <h3>Get Involved</h3>
+                </div>
+                <div class="footer-col">
+                    <h3>Get in touch</h3>
                     <ul>
-                        <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Volunteer</a></li>
+                        <li><a href="mailto:abetterwayoutwa@gmail.com">abetterwayoutwa@gmail.com</a></li>
+                        <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Facebook</a></li>
                         <li><a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer">Donate</a></li>
                     </ul>
-                </section>
+                </div>
             </div>
-
             <div class="footer-bottom">
-                <p>&copy; 2026 A Better Way Out WA — All Rights Reserved</p>
-                <p class="ein">EIN: 92-1581139 — A 501(c)(3) Nonprofit &middot; <a href="privacy.html">Privacy Policy</a></p>
+                <p>&copy; 2026 A Better Way Out WA. A 501(c)(3) nonprofit, EIN 92-1581139.</p>
+                <p><a href="privacy.html">Privacy policy</a></p>
             </div>
         </div>
     </footer>

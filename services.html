@@ -3,14 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services — A Better Way Out WA</title>
+        <title>Services — A Better Way Out WA</title>
     <link rel="canonical" href="https://www.abetterwayoutwa.org/services.html">
-    <link rel="icon" href="images/favicon/favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
-    <link rel="manifest" href="images/favicon/site.webmanifest">
-    <meta name="theme-color" content="#03b8d4">
+    <meta name="theme-color" content="#eef0ec">
     <meta name="description" content="Community Services - A Better Way Out provides mentorship, mental health support, and family resources">
     <!-- Open Graph / social sharing -->
     <meta property="og:type" content="website">
@@ -24,246 +19,170 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="A Better Way Out WA — empowering at-risk youth in Whatcom County, Washington">
     <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" href="images/favicon/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
     <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="preload" href="fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/literata.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="shared.css">
     <style>
-        body { background: #e0f7fa; }
-
-        .services-grid {
+        .service-list { border-top: 1px solid var(--ink); }
+        .service {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            margin-bottom: 28px;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            column-gap: 24px; row-gap: 16px;
+            padding: clamp(32px, 4vw, 56px) 0;
+            border-bottom: 1px solid var(--line);
         }
+        .service h2 { grid-column: 1 / span 5; font-size: var(--step-3); }
+        .service p { grid-column: 7 / span 6; font-size: 1.125rem; color: var(--ink-soft); max-width: 58ch; }
+        .service:hover h2 { color: var(--ring); }
+        @media (max-width: 760px) { .service h2, .service p { grid-column: 1 / -1; } }
 
-        .service-card {
-            background: #fff;
-            border-radius: 20px;
-            padding: 32px 30px;
-            box-shadow: 0 4px 20px rgba(13,33,55,0.06);
-            transition: all 0.3s;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .service-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 28px rgba(13,33,55,0.1);
-        }
-
-        .service-card-header {
-            display: flex;
+        .section.approach { background: var(--paper-2); padding-top: clamp(64px, 9vw, 128px); }
+        .approach .wrap {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            column-gap: 24px; row-gap: 40px;
             align-items: center;
-            gap: 14px;
-            margin-bottom: 16px;
         }
-
-        .service-icon {
-            width: 48px; height: 48px; min-width: 48px;
-            display: flex; align-items: center; justify-content: center;
-            background: #03b8d4;
-            border-radius: 12px;
-            font-size: 1.4em;
-        }
-
-        .service-card h2 {
-            font-size: 1.3em;
-            font-weight: 800;
-            line-height: 1.2;
-        }
-
-        .service-card p {
-            font-size: 0.95em;
-            color: #4a5568;
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        .service-image-wrap {
-            margin-top: auto;
-            background: #f7fafc;
-            border-radius: 12px;
-            padding: 10px;
-            text-align: center;
-        }
-
-        .service-image {
-            width: 100%;
-            max-height: 240px;
-            object-fit: contain;
-            border-radius: 10px;
-            margin: 0 auto;
-        }
-
-        .mentor-section {
-            background: linear-gradient(135deg, #ef7b7b 0%, #f5a0a0 100%);
-            color: white;
-            padding: 48px 40px;
-            border-radius: 20px;
-            text-align: center;
-        }
-
-        .mentor-section h2 {
-            font-size: 1.6em;
-            margin-bottom: 18px;
-            font-weight: 800;
-            color: #fff;
-        }
-
-        .mentor-section p {
-            font-size: 1em;
-            line-height: 1.8;
-            max-width: 740px;
-            margin: 0 auto;
-            opacity: 0.97;
-        }
-
-        @media (max-width: 680px) {
-            .services-grid { grid-template-columns: 1fr; }
-            .mentor-section { padding: 34px 22px; }
-        }
+        .approach-text { grid-column: 1 / span 5; }
+        .approach-text h2 { font-size: var(--step-4); margin-bottom: 24px; }
+        .approach-text p { color: var(--ink-soft); font-size: 1.125rem; max-width: 46ch; }
+        .approach .photo { grid-column: 7 / span 6; }
+        .approach .photo img { aspect-ratio: 3 / 2; object-fit: cover; }
+        @media (max-width: 860px) { .approach-text, .approach .photo { grid-column: 1 / -1; } }
     </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="navbar-inner">
-            <button class="mobile-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
-                <span></span><span></span><span></span>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="wrap">
+            <a class="brand" href="index.html" aria-label="A Better Way Out — home">
+                <img src="images/logo-mark-112.webp" alt="" width="56" height="55">
+                <span>A Better Way Out</span>
+            </a>
+            <button class="mobile-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+                <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+                Menu
             </button>
-            <ul class="navbar-menu">
+            <nav aria-label="Main">
+            <ul class="navbar-menu" id="primary-menu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html" class="active" aria-current="page">Services</a></li>
                 <li><a href="events.html">Events</a></li>
                 <li><a href="interviews.html">Interviews</a></li>
-                <li><a href="party.html">Partner</a></li>
+                <li><a href="party.html">Partners</a></li>
                 <li><a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="nav-donate">Donate</a></li>
             </ul>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <main>
-        <div class="container">
-            <div class="page-header">
-                <h1>Services</h1>
-                <p>Our Community Services are designed to highlight the comprehensive support we offer to individuals and families seeking stability, healing, and hope.</p>
-            </div>
+    <main id="main">
+        <header class="page-header wrap">
+            <h1>Services</h1>
+            <p>Support for individuals and families seeking stability, healing, and hope.</p>
+        </header>
 
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-card-header">
-                        <div class="service-icon">🧠</div>
-                        <h2>Mental Health Support</h2>
-                    </div>
-                    <p>Understanding that emotional well-being is essential, we offer resources and supportive mentorship to help individuals manage stress, trauma, anxiety, and life pressures. Our team provides practical coping tools, check-ins, and connections to trusted mental health partners when needed.</p>
-                    <div class="service-image-wrap">
-                        <img src="images/Mental-Health-Support.jpg" alt="Mental Health Support" class="service-image" onerror="this.parentElement.style.display='none'" width="960" height="426" loading="lazy">
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-card-header">
-                        <div class="service-icon">👥</div>
-                        <h2>Personal Connections</h2>
-                    </div>
-                    <p>We believe real change begins with genuine relationships. Our mentors and volunteers walk alongside individuals through one-on-one conversations, guidance, and consistent encouragement. We create safe spaces where people feel heard, valued, and supported.</p>
-                    <div class="service-image-wrap">
-                        <img src="images/Personal-Connections.jpg" alt="Personal Connections" class="service-image" onerror="this.parentElement.style.display='none'" width="626" height="417" loading="lazy">
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-card-header">
-                        <div class="service-icon">🏠</div>
-                        <h2>Family Support</h2>
-                    </div>
-                    <p>Healthy families strengthen communities. We come alongside parents, guardians, and youth to build stronger communication, restore trust, and promote healthier home environments. Through mentorship and workshops, we help families grow together.</p>
-                    <div class="service-image-wrap">
-                        <img src="images/Family-Support.jpg" alt="Family Support" class="service-image" onerror="this.parentElement.style.display='none'" width="370" height="393" loading="lazy">
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-card-header">
-                        <div class="service-icon">🌐</div>
-                        <h2>Community Connections</h2>
-                    </div>
-                    <p>No one thrives alone. We connect individuals to local organizations, churches, businesses, and resources that can support their journey toward stability and success — employment, education, housing assistance, and community involvement.</p>
-                    <div class="service-image-wrap">
-                        <img src="images/Community-Connections.jpg" alt="Community Connections" class="service-image" onerror="this.parentElement.style.display='none'" width="573" height="607" loading="lazy">
-                    </div>
+        <section class="section" aria-label="What we offer">
+            <div class="wrap">
+                <div class="service-list">
+                    <article class="service">
+                        <h2>Mental health support</h2>
+                        <p>Understanding that emotional well-being is essential, we offer resources and supportive mentorship to help individuals manage stress, trauma, anxiety, and life pressures. Our team provides practical coping tools, check-ins, and connections to trusted mental health partners when needed.</p>
+                    </article>
+                    <article class="service">
+                        <h2>Personal connections</h2>
+                        <p>We believe real change begins with genuine relationships. Our mentors and volunteers walk alongside individuals through one-on-one conversations, guidance, and consistent encouragement. We create safe spaces where people feel heard, valued, and supported.</p>
+                    </article>
+                    <article class="service">
+                        <h2>Family support</h2>
+                        <p>Healthy families strengthen communities. We come alongside parents, guardians, and youth to build stronger communication, restore trust, and promote healthier home environments. Through mentorship and workshops, we help families grow together.</p>
+                    </article>
+                    <article class="service">
+                        <h2>Community connections</h2>
+                        <p>No one thrives alone. We connect individuals to local organizations, churches, businesses, and resources that can support their journey toward stability and success &mdash; employment, education, housing assistance, and community involvement.</p>
+                    </article>
                 </div>
             </div>
+        </section>
 
-            <section class="mentor-section">
-                <h2>Our Approach: Mentors with Lived Experience</h2>
-                <p>Our services are powered by mentors and volunteers who understand the realities of struggle, growth, and transformation because many of them have lived it themselves. Their firsthand experience allows them to connect authentically, inspire hope, and guide others through challenges with compassion and wisdom.</p>
-            </section>
-
-            <!-- CTA Row — Donate + Volunteer (shown on every page) -->
-            <div class="cta-row">
-                <section class="support-section">
-                    <h2>Support Our Mission</h2>
-                    <p>Your donation directly impacts the lives of at-risk youth in our community. Every contribution helps us provide mentorship, support, and hope to those who need it most.</p>
-                    <div>
-                        <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="btn-donate">Donate Now</a>
-                    </div>
-                </section>
-
-                <section class="volunteer-section">
-                    <h2>Volunteer With Us</h2>
-                    <p>Making a difference, one life at a time. Join our community of mentors and helpers who walk alongside the youth we serve.</p>
-                    <div>
-                        <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" class="btn-involve">Get Involved</a>
-                    </div>
-                </section>
+        <section class="section approach" aria-labelledby="approach-title">
+            <div class="wrap">
+                <div class="approach-text">
+                    <h2 id="approach-title">Mentors with lived experience.</h2>
+                    <p>Our services are powered by mentors and volunteers who understand the realities of struggle, growth, and transformation because many of them have lived it themselves. Their firsthand experience allows them to connect authentically, inspire hope, and guide others through challenges with compassion and wisdom.</p>
+                </div>
+                <figure class="photo">
+                    <img src="images/street-outreach-2026-09-2.jpg" alt="Two volunteers in A Better Way Out shirts preparing supply bags on a downtown sidewalk" width="1160" height="773" loading="lazy">
+                    <figcaption>Volunteers preparing supply bags before street outreach in Bellingham.</figcaption>
+                </figure>
             </div>
-        </div>
+        </section>
+
+        <!-- CTA — Donate + Volunteer (shown on every page) -->
+        <section class="cta-row" aria-labelledby="cta-title">
+            <img class="cta-roots" src="images/logo-mark-360.webp" alt="" width="360" height="355" loading="lazy">
+            <div class="wrap">
+                <h2 class="cta-title" id="cta-title">Walk with the next young person who needs a way out.</h2>
+                <div class="support-section">
+                    <h3>Give</h3>
+                    <p>Your donation goes straight into mentorship, outreach, and family support for young people in Whatcom County. Donations are tax-deductible.</p>
+                    <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="btn-donate">Donate on Zeffy</a>
+                </div>
+                <div class="volunteer-section">
+                    <h3>Volunteer</h3>
+                    <p>Serve at outreach days, staff a booth, or mentor. Message us on Facebook and we&rsquo;ll tell you what&rsquo;s coming up.</p>
+                    <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" class="btn-involve">Message us on Facebook</a>
+                </div>
+            </div>
+        </section>
     </main>
 
-        <footer class="site-footer">
-        <div class="footer-container">
-
-            <div class="footer-brand">
-                <img src="images/logo-sm.png" alt="A Better Way Out logo" width="120" height="120" loading="lazy">
-                <h2>A Better Way Out</h2>
-                <p>Empowering at-risk youth in Washington through trauma-informed mentorship, education, and support — led by mentors with lived experience.</p>
-            </div>
-
-            <div class="footer-columns">
-                <section class="footer-col">
-                    <h3>Discover Us</h3>
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo-mark-112.webp" alt="" width="72" height="71" loading="lazy">
+                    <h2>A Better Way Out</h2>
+                    <p>Trauma-informed mentorship for young people in Whatcom County, Washington &mdash; led by mentors with lived experience.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Who we are</h3>
                     <ul>
-                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="about.html">About us</a></li>
+                        <li><a href="about.html#leadership">Leadership &amp; board</a></li>
                         <li><a href="services.html">Services</a></li>
                         <li><a href="party.html">Partners</a></li>
                     </ul>
-                </section>
-
-                <section class="footer-col">
-                    <h3>Our Impact</h3>
+                </div>
+                <div class="footer-col">
+                    <h3>What we do</h3>
                     <ul>
                         <li><a href="events.html">Events</a></li>
                         <li><a href="interviews.html">Interviews</a></li>
                     </ul>
-                </section>
-
-                <section class="footer-col">
-                    <h3>Get Involved</h3>
+                </div>
+                <div class="footer-col">
+                    <h3>Get in touch</h3>
                     <ul>
-                        <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Volunteer</a></li>
+                        <li><a href="mailto:abetterwayoutwa@gmail.com">abetterwayoutwa@gmail.com</a></li>
+                        <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Facebook</a></li>
                         <li><a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer">Donate</a></li>
                     </ul>
-                </section>
+                </div>
             </div>
-
             <div class="footer-bottom">
-                <p>&copy; 2026 A Better Way Out WA — All Rights Reserved</p>
-                <p class="ein">EIN: 92-1581139 — A 501(c)(3) Nonprofit &middot; <a href="privacy.html">Privacy Policy</a></p>
+                <p>&copy; 2026 A Better Way Out WA. A 501(c)(3) nonprofit, EIN 92-1581139.</p>
+                <p><a href="privacy.html">Privacy policy</a></p>
             </div>
         </div>
     </footer>

@@ -1,46 +1,70 @@
 /* ============================================================
    A Better Way Out WA — Shared behaviour
-   Mobile navigation menu: open/close, outside click, Escape key.
+   1. Mobile navigation menu
+   2. Header hairline once the page scrolls
+   3. Time-limited blocks (data-until="YYYY-MM-DD") hide themselves
    ============================================================ */
 (function () {
     var toggle = document.querySelector('.mobile-toggle');
     var menu = document.querySelector('.navbar-menu');
-    if (!toggle || !menu) return;
 
-    function setOpen(open) {
-        menu.classList.toggle('open', open);
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (toggle && menu) {
+        var setOpen = function (open) {
+            menu.classList.toggle('open', open);
+            document.body.classList.toggle('menu-open', open);
+            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        };
+
+        toggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            setOpen(!menu.classList.contains('open'));
+        });
+
+        // Close after choosing a link (matters for same-page anchors)
+        menu.addEventListener('click', function (e) {
+            if (e.target.closest('a')) setOpen(false);
+        });
+
+        // Close on Escape and hand focus back to the button
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && menu.classList.contains('open')) {
+                setOpen(false);
+                toggle.focus();
+            }
+        });
+
+        // Reset state when resizing back to desktop
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 960) setOpen(false);
+        });
     }
 
-    toggle.setAttribute('aria-expanded', 'false');
-    toggle.setAttribute('aria-controls', 'primary-menu');
-    menu.id = menu.id || 'primary-menu';
+    var header = document.querySelector('.site-header');
+    if (header) {
+        var onScroll = function () {
+            header.classList.toggle('is-scrolled', window.scrollY > 8);
+        };
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+    }
 
-    toggle.addEventListener('click', function (e) {
-        e.stopPropagation();
-        setOpen(!menu.classList.contains('open'));
+    // Blocks such as "Next event" disappear the day they go stale.
+    var today = new Date();
+    var stamp = today.getFullYear() + '-' +
+        String(today.getMonth() + 1).padStart(2, '0') + '-' +
+        String(today.getDate()).padStart(2, '0');
+    document.querySelectorAll('[data-until]').forEach(function (el) {
+        if (stamp >= el.getAttribute('data-until')) el.hidden = true;
     });
 
-    // Close when tapping anywhere outside the menu
-    document.addEventListener('click', function (e) {
-        if (!menu.classList.contains('open')) return;
-        if (!menu.contains(e.target) && !toggle.contains(e.target)) setOpen(false);
-    });
-
-    // Close after choosing a link (matters for same-page anchors)
-    menu.addEventListener('click', function (e) {
-        if (e.target.closest('a')) setOpen(false);
-    });
-
-    // Close on Escape
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') setOpen(false);
-    });
-
-    // Reset state when resizing back to desktop
-    window.addEventListener('resize', function () {
-        if (window.innerWidth > 768) setOpen(false);
-    });
+    // Opening an event from a link like events-2026.html#amando
+    var openFromHash = function () {
+        if (!location.hash) return;
+        var target = document.getElementById(location.hash.slice(1));
+        if (target && target.tagName === 'DETAILS') target.open = true;
+    };
+    openFromHash();
+    window.addEventListener('hashchange', openFromHash);
 })();
 
 

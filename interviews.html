@@ -3,14 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interviews — A Better Way Out WA</title>
+        <title>Interviews — A Better Way Out WA</title>
     <link rel="canonical" href="https://www.abetterwayoutwa.org/interviews.html">
-    <link rel="icon" href="images/favicon/favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
-    <link rel="manifest" href="images/favicon/site.webmanifest">
-    <meta name="theme-color" content="#03b8d4">
+    <meta name="theme-color" content="#eef0ec">
     <meta name="description" content="Interviews - Conversations and stories from A Better Way Out WA, our team, and the community we serve.">
     <!-- Open Graph / social sharing -->
     <meta property="og:type" content="website">
@@ -24,177 +19,152 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="A Better Way Out WA — empowering at-risk youth in Whatcom County, Washington">
     <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" href="images/favicon/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
     <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="preload" href="fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/literata.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="shared.css">
     <style>
-        body { background: #e0f7fa; }
-
-        .interview-block {
-            background: #fff;
-            border-radius: 20px;
-            padding: 44px 38px;
-            margin-bottom: 26px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(13,33,55,0.06);
-            transition: all 0.3s;
+        .interview { padding-bottom: clamp(56px, 7vw, 96px); }
+        .interview-head {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            column-gap: 24px;
+            align-items: end;
+            border-top: 1px solid var(--ink);
+            padding-top: 24px;
+            margin-bottom: 24px;
         }
-        .interview-block:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 28px rgba(13,33,55,0.1);
-        }
-
-        .interview-block h2 {
-            font-size: 1.5em;
-            font-weight: 800;
-            margin-bottom: 12px;
-            color: #0d2137;
-        }
-
-        .interview-meta {
-            color: #718096;
-            font-size: 0.9em;
-            font-weight: 600;
-            margin-bottom: 22px;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-        }
-
-        .interview-block p {
-            font-size: 1em;
-            color: #4a5568;
-            line-height: 1.8;
-            max-width: 720px;
-            margin: 0 auto 26px;
-        }
-
-        .video-container {
-            width: 100%;
-            max-width: 820px;
-            margin: 0 auto;
-            border-radius: 14px;
-            overflow: hidden;
-            box-shadow: 0 8px 24px rgba(13,33,55,0.15);
-            background: #000;
-            aspect-ratio: 16 / 9;
-        }
-        .video-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
-        }
-
-        @media (max-width: 680px) {
-            .interview-block { padding: 30px 22px; }
-            .interview-block h2 { font-size: 1.25em; }
+        .interview-head h2 { grid-column: 1 / span 8; font-size: var(--step-3); }
+        .interview-head p { grid-column: 10 / span 3; justify-self: end; font-family: var(--ui); color: var(--ink-mute); }
+        .interview.second { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); column-gap: 24px; }
+        .interview.second > * { grid-column: 4 / span 9; }
+        @media (max-width: 760px) {
+            .interview-head h2, .interview-head p { grid-column: 1 / -1; justify-self: start; }
+            .interview-head p { margin-top: 8px; }
+            .interview.second > * { grid-column: 1 / -1; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="navbar-inner">
-            <button class="mobile-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
-                <span></span><span></span><span></span>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="wrap">
+            <a class="brand" href="index.html" aria-label="A Better Way Out — home">
+                <img src="images/logo-mark-112.webp" alt="" width="56" height="55">
+                <span>A Better Way Out</span>
+            </a>
+            <button class="mobile-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+                <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+                Menu
             </button>
-            <ul class="navbar-menu">
+            <nav aria-label="Main">
+            <ul class="navbar-menu" id="primary-menu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="events.html">Events</a></li>
-                <li><a href="interviews.html" class="active">Interviews</a></li>
-                <li><a href="party.html">Partner</a></li>
+                <li><a href="interviews.html" class="active" aria-current="page">Interviews</a></li>
+                <li><a href="party.html">Partners</a></li>
                 <li><a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="nav-donate">Donate</a></li>
             </ul>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <main>
-        <div class="container">
-            <div class="page-header">
-                <h1>Interviews</h1>
-                <p>Conversations, stories, and reflections from our team, our community, and the voices that shape our mission.</p>
-            </div>
+    <main id="main">
+        <header class="page-header wrap">
+            <h1>Interviews</h1>
+            <p>Conversations, stories, and reflections from our team, our community, and the voices that shape our mission.</p>
+        </header>
 
-            <section class="interview-block">
-                <h2>A Better Way Out — Community Conversation</h2>
-                <p class="interview-meta">Latest</p>
-                <div class="video-container">
-                    <iframe src="https://www.youtube-nocookie.com/embed/te8Qdu3mjhE" title="A Better Way Out — Community Conversation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                </div>
-            </section>
-
-            <section class="interview-block">
-                <h2>A Better Way Out — Featured Interview</h2>
-                <p class="interview-meta">Featured</p>
-                <div class="video-container">
-                    <iframe src="https://www.youtube-nocookie.com/embed/5JQ26b9_33M" title="A Better Way Out — Featured Interview" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                </div>
-            </section>
-
-            <!-- CTA Row — Donate + Volunteer (shown on every page) -->
-            <div class="cta-row">
-                <section class="support-section">
-                    <h2>Support Our Mission</h2>
-                    <p>Your donation directly impacts the lives of at-risk youth in our community. Every contribution helps us provide mentorship, support, and hope to those who need it most.</p>
-                    <div>
-                        <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="btn-donate">Donate Now</a>
+        <section class="section" aria-label="Videos">
+            <div class="wrap">
+                <!-- Newest first. Copy an <article class="interview"> block to add a video. -->
+                <article class="interview">
+                    <div class="interview-head">
+                        <h2>A Better Way Out &mdash; community conversation</h2>
+                        <p>Latest</p>
                     </div>
-                </section>
-
-                <section class="volunteer-section">
-                    <h2>Volunteer With Us</h2>
-                    <p>Making a difference, one life at a time. Join our community of mentors and helpers who walk alongside the youth we serve.</p>
-                    <div>
-                        <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" class="btn-involve">Get Involved</a>
+                    <div class="video-frame">
+                        <iframe src="https://www.youtube-nocookie.com/embed/te8Qdu3mjhE" title="A Better Way Out — Community Conversation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                     </div>
-                </section>
+                </article>
+
+                <article class="interview second">
+                    <div class="interview-head">
+                        <h2>A Better Way Out &mdash; featured interview</h2>
+                        <p>Featured</p>
+                    </div>
+                    <div class="video-frame">
+                        <iframe src="https://www.youtube-nocookie.com/embed/5JQ26b9_33M" title="A Better Way Out — Featured Interview" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                </article>
             </div>
-        </div>
+        </section>
+
+        <!-- CTA — Donate + Volunteer (shown on every page) -->
+        <section class="cta-row" aria-labelledby="cta-title">
+            <img class="cta-roots" src="images/logo-mark-360.webp" alt="" width="360" height="355" loading="lazy">
+            <div class="wrap">
+                <h2 class="cta-title" id="cta-title">Walk with the next young person who needs a way out.</h2>
+                <div class="support-section">
+                    <h3>Give</h3>
+                    <p>Your donation goes straight into mentorship, outreach, and family support for young people in Whatcom County. Donations are tax-deductible.</p>
+                    <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="btn-donate">Donate on Zeffy</a>
+                </div>
+                <div class="volunteer-section">
+                    <h3>Volunteer</h3>
+                    <p>Serve at outreach days, staff a booth, or mentor. Message us on Facebook and we&rsquo;ll tell you what&rsquo;s coming up.</p>
+                    <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" class="btn-involve">Message us on Facebook</a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="site-footer">
-        <div class="footer-container">
-
-            <div class="footer-brand">
-                <img src="images/logo-sm.png" alt="A Better Way Out logo" width="120" height="120" loading="lazy">
-                <h2>A Better Way Out</h2>
-                <p>Empowering at-risk youth in Washington through trauma-informed mentorship, education, and support — led by mentors with lived experience.</p>
-            </div>
-
-            <div class="footer-columns">
-                <section class="footer-col">
-                    <h3>Discover Us</h3>
+        <div class="wrap">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo-mark-112.webp" alt="" width="72" height="71" loading="lazy">
+                    <h2>A Better Way Out</h2>
+                    <p>Trauma-informed mentorship for young people in Whatcom County, Washington &mdash; led by mentors with lived experience.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Who we are</h3>
                     <ul>
-                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="about.html">About us</a></li>
+                        <li><a href="about.html#leadership">Leadership &amp; board</a></li>
                         <li><a href="services.html">Services</a></li>
                         <li><a href="party.html">Partners</a></li>
                     </ul>
-                </section>
-
-                <section class="footer-col">
-                    <h3>Our Impact</h3>
+                </div>
+                <div class="footer-col">
+                    <h3>What we do</h3>
                     <ul>
                         <li><a href="events.html">Events</a></li>
                         <li><a href="interviews.html">Interviews</a></li>
                     </ul>
-                </section>
-
-                <section class="footer-col">
-                    <h3>Get Involved</h3>
+                </div>
+                <div class="footer-col">
+                    <h3>Get in touch</h3>
                     <ul>
-                        <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Volunteer</a></li>
+                        <li><a href="mailto:abetterwayoutwa@gmail.com">abetterwayoutwa@gmail.com</a></li>
+                        <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Facebook</a></li>
                         <li><a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer">Donate</a></li>
                     </ul>
-                </section>
+                </div>
             </div>
-
             <div class="footer-bottom">
-                <p>&copy; 2026 A Better Way Out WA — All Rights Reserved</p>
-                <p class="ein">EIN: 92-1581139 — A 501(c)(3) Nonprofit &middot; <a href="privacy.html">Privacy Policy</a></p>
+                <p>&copy; 2026 A Better Way Out WA. A 501(c)(3) nonprofit, EIN 92-1581139.</p>
+                <p><a href="privacy.html">Privacy policy</a></p>
             </div>
         </div>
     </footer>

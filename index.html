@@ -3,14 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Better Way Out WA — Home</title>
+        <title>A Better Way Out WA — Home</title>
     <link rel="canonical" href="https://www.abetterwayoutwa.org/">
-    <link rel="icon" href="images/favicon/favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
-    <link rel="manifest" href="images/favicon/site.webmanifest">
-    <meta name="theme-color" content="#03b8d4">
+    <meta name="theme-color" content="#eef0ec">
     <meta name="description" content="A Better Way Out empowers at-risk youth in Washington through trauma-informed mentorship, education, and community support. EIN: 92-1581139">
     <!-- Open Graph / social sharing -->
     <meta property="og:type" content="website">
@@ -27,300 +22,413 @@
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"NGO","name":"A Better Way Out WA","url":"https://www.abetterwayoutwa.org","logo":"https://www.abetterwayoutwa.org/images/logo.png","taxID":"92-1581139","nonprofitStatus":"Nonprofit501c3"}
     </script>
+    
+    <link rel="icon" href="images/favicon/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
     <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="preload" href="fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/literata.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="shared.css">
     <style>
-        body { background: #e0f7fa; }
-
-        .hero {
-            text-align: center;
-            padding: 20px 20px 40px;
+        /* ---------- Hero ---------- */
+        .hero { padding-top: clamp(40px, 6vw, 88px); }
+        .hero h1 {
+            font-size: clamp(3.6rem, 0.4rem + 11.2vw, 12rem);
+            font-stretch: 66%;
+            line-height: 0.86;
+            letter-spacing: -0.015em;
         }
-        .hero-logo {
-            width: 280px; max-width: 72%;
-            margin: 0 auto;
-            border-radius: 24px;
+        .hero-line { margin: clamp(18px, 3vw, 36px) 0 clamp(28px, 4vw, 48px); }
+        .hero-line svg { width: 100%; height: auto; overflow: visible; }
+        .hero-line path, .hero-line circle { stroke: var(--ring); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+        .hero-line circle { fill: var(--ring); }
+        @media (prefers-reduced-motion: no-preference) {
+            .hero-line path { stroke-dasharray: var(--len); stroke-dashoffset: var(--len); animation: draw 2.4s cubic-bezier(.6,.05,.25,1) .35s forwards; }
+            .hero-line circle { opacity: 0; animation: arrive .4s ease 2.55s forwards; }
         }
+        @keyframes draw { to { stroke-dashoffset: 0; } }
+        @keyframes arrive { to { opacity: 1; } }
 
-        .intro-section {
+        .hero-lower {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 44px;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            column-gap: 24px;
+            row-gap: 36px;
+            align-items: start;
+        }
+        .hero-copy { grid-column: 1 / span 4; }
+        .hero-copy p {
+            font-size: var(--step-1);
+            line-height: 1.5;
+            color: var(--ink-soft);
+            margin-bottom: 28px;
+            max-width: 30ch;
+        }
+        .hero-photo { grid-column: 6 / span 7; }
+        .hero-photo img { aspect-ratio: 3 / 2; object-fit: cover; }
+        @media (max-width: 860px) {
+            .hero-copy, .hero-photo { grid-column: 1 / -1; }
+        }
+
+        /* ---------- Next event ---------- */
+        .next-event { margin-top: clamp(56px, 7vw, 96px); }
+        .next-event a {
+            display: grid;
+            grid-template-columns: auto minmax(0, 1fr) auto;
             align-items: center;
-            background: #fff;
-            border-radius: 20px;
-            padding: 48px 42px;
-            margin-bottom: 28px;
-            box-shadow: 0 4px 20px rgba(13,33,55,0.06);
-        }
-        .intro-text h1 {
-            font-size: 1.85em;
-            margin-bottom: 16px;
-            font-weight: 800;
-        }
-        .intro-text p {
-            font-size: 1.02em;
-            color: #4a5568;
-            line-height: 1.8;
-            margin-bottom: 28px;
-        }
-        .intro-image img {
-            width: 100%;
-            border-radius: 14px;
-            box-shadow: 0 8px 24px rgba(13,33,55,0.12);
-        }
-
-        /* Explore cards — gateway to the rest of the site */
-        .explore-header {
-            text-align: center;
-            margin: 40px 0 22px;
-        }
-        .explore-header h2 {
-            font-size: 2em;
-            font-weight: 800;
-            color: #0d2137;
-        }
-        .explore-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-bottom: 28px;
-        }
-        .explore-card {
-            background: #fff;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(13,33,55,0.06);
-            transition: all 0.3s;
-            display: flex;
-            flex-direction: column;
+            gap: 28px;
+            padding: 22px 0;
+            border-top: 1px solid var(--ink);
+            border-bottom: 1px solid var(--ink);
+            color: var(--ink);
             text-decoration: none;
         }
-        .explore-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 28px rgba(13,33,55,0.12);
-        }
-        .explore-card img {
-            width: 100%;
-            height: 190px;
-            object-fit: cover;
-            display: block;
-        }
-        .explore-card img.fit-contain {
-            object-fit: contain;
-            background: #fff;
-            padding: 18px 24px;
-            box-sizing: border-box;
-        }
-        .explore-card-body {
-            padding: 24px 24px 28px;
-            text-align: center;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        .explore-card-body h3 {
-            font-size: 1.25em;
+        .next-when {
+            font-family: var(--display);
+            font-stretch: 66%;
             font-weight: 800;
-            color: #0d2137;
-            margin-bottom: 10px;
+            font-size: clamp(2.2rem, 1.4rem + 2.6vw, 3.4rem);
+            line-height: 0.9;
+            color: var(--ribbon);
         }
-        .explore-card-body p {
-            color: #4a5568;
-            font-size: 0.95em;
-            line-height: 1.7;
-            margin-bottom: 18px;
-            flex: 1;
-        }
-        .explore-card-body span {
-            color: #03b8d4;
-            font-weight: 700;
-            font-size: 0.95em;
-        }
-
-        .newsletter-section {
-            background: #fff;
-            border-radius: 20px;
-            padding: 44px 38px;
-            margin-top: 28px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(13,33,55,0.06);
-        }
-        .newsletter-section h2 {
-            font-size: 1.8em;
-            font-weight: 800;
-            margin-bottom: 12px;
-        }
-        .newsletter-section p {
-            color: #4a5568;
-            font-size: 1em;
-            margin-bottom: 24px;
-        }
-        .newsletter-section iframe {
-            border-radius: 10px;
-            max-width: 640px;
-            margin: 0 auto;
-            display: block;
-        }
-        .newsletter-section .newsletter-note {
-            font-size: 0.85em;
-            color: #718096;
-            margin: 14px auto 0;
-        }
-        .newsletter-section .newsletter-note a {
-            color: #0099b8;
+        .next-what { font-family: var(--ui); line-height: 1.4; }
+        .next-what small { display: block; font-size: 0.9rem; color: var(--ink-mute); }
+        .next-what strong { display: block; font-size: 1.3rem; font-weight: 700; }
+        .next-go {
+            font-family: var(--ui);
             font-weight: 600;
-            text-decoration: none;
+            padding: 12px 20px;
+            border: 1.5px solid var(--ink);
+            border-radius: var(--radius-pill);
+            white-space: nowrap;
+            transition: background .2s, color .2s;
         }
-        .newsletter-section .newsletter-note a:hover { text-decoration: underline; }
+        .next-event a:hover .next-go { background: var(--ink); color: var(--paper); }
+        @media (max-width: 640px) {
+            .next-event a { grid-template-columns: 1fr; gap: 10px; }
+            .next-go { justify-self: start; margin-top: 6px; }
+        }
 
-        @media (max-width: 768px) {
-            .intro-section { grid-template-columns: 1fr; gap: 26px; padding: 32px 24px; }
-            .hero-logo { width: 220px; }
-            .explore-grid { grid-template-columns: 1fr; }
+        /* ---------- Mission ---------- */
+        .mission .wrap {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            column-gap: 24px;
+            row-gap: 40px;
+            align-items: center;
         }
+        .mission-mark { grid-column: 1 / span 4; }
+        .mission-mark img { width: 100%; max-width: 380px; margin-inline: auto; }
+        .mission-text { grid-column: 6 / span 7; }
+        .mission-text h2 { font-size: var(--step-4); margin-bottom: 32px; max-width: 14ch; }
+        .mission-text .prose { font-size: 1.125rem; margin-bottom: 32px; }
+        @media (max-width: 860px) {
+            .mission-mark { grid-column: 1 / -1; }
+            .mission-mark img { max-width: 240px; margin: 0; }
+            .mission-text { grid-column: 1 / -1; }
+        }
+
+        /* ---------- How we show up ---------- */
+        .ways .wrap > h2 { font-size: var(--step-4); max-width: 12ch; margin-bottom: clamp(40px, 5vw, 72px); }
+        .ways-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 24px;
+        }
+        .way { border-top: 2px solid var(--ochre); padding-top: 22px; }
+        .way h3 { font-size: 1.9rem; margin-bottom: 14px; }
+        .way p { color: #c3d0cb; font-size: 1rem; line-height: 1.65; }
+        .ways-foot { margin-top: 48px; }
+        .ways-foot a { color: var(--ochre-light); font-family: var(--ui); font-weight: 600; }
+        @media (max-width: 1000px) { .ways-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 40px; } }
+        @media (max-width: 560px) { .ways-grid { grid-template-columns: 1fr; } }
+
+        /* ---------- Out in the community ---------- */
+        .field .head {
+            display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 20px;
+            margin-bottom: clamp(32px, 4vw, 56px);
+        }
+        .field .head h2 { font-size: var(--step-4); max-width: 12ch; }
+        .field-grid {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            gap: 24px;
+            align-items: start;
+        }
+        .field-grid figure:nth-child(1) { grid-column: 1 / span 7; }
+        .field-grid figure:nth-child(2) { grid-column: 8 / span 5; margin-top: clamp(0px, 8vw, 120px); }
+        .field-grid figure:nth-child(3) { grid-column: 2 / span 5; }
+        .field-grid figure:nth-child(4) { grid-column: 7 / span 6; }
+        .field-grid img { aspect-ratio: 4 / 3; object-fit: cover; }
+        @media (max-width: 760px) {
+            .field-grid figure:nth-child(n) { grid-column: 1 / -1; margin-top: 0; }
+        }
+
+        /* ---------- Interviews teaser ---------- */
+        .voices .wrap {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            column-gap: 24px; row-gap: 32px;
+            align-items: center;
+        }
+        .voices-text { grid-column: 1 / span 4; }
+        .voices-text h2 { font-size: var(--step-4); margin-bottom: 20px; }
+        .voices-text p { color: var(--ink-soft); margin-bottom: 28px; max-width: 34ch; }
+        .voices-thumb { grid-column: 6 / span 7; position: relative; display: block; border-radius: var(--radius-s); overflow: hidden; background: var(--ink); }
+        .voices-thumb img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; opacity: .88; transition: opacity .25s; }
+        .voices-thumb:hover img { opacity: 1; }
+        .voices-thumb .play {
+            position: absolute; left: 24px; bottom: 24px;
+            display: inline-flex; align-items: center; gap: 12px;
+            background: var(--paper); color: var(--ink);
+            font-family: var(--ui); font-weight: 600;
+            padding: 12px 20px 12px 14px; border-radius: var(--radius-pill);
+        }
+        .voices-thumb .play svg { width: 22px; height: 22px; }
+        @media (max-width: 860px) { .voices-text, .voices-thumb { grid-column: 1 / -1; } }
+
+        /* ---------- Newsletter ---------- */
+        .newsletter-section .wrap {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            column-gap: 24px; row-gap: 32px;
+        }
+        .newsletter-section .wrap::before {
+            content: ""; grid-column: 1 / -1; height: 1px; background: var(--ink);
+            margin-bottom: clamp(16px, 3vw, 40px);
+        }
+        .newsletter-copy { grid-column: 1 / span 4; }
+        .newsletter-copy h2 { font-size: var(--step-3); margin-bottom: 16px; }
+        .newsletter-copy p { color: var(--ink-soft); max-width: 34ch; }
+        .newsletter-note { font-family: var(--ui); font-size: .9rem; margin-top: 16px; }
+        .newsletter-frame { grid-column: 6 / span 7; background: #fff; border-radius: var(--radius-s); overflow: hidden; }
+        .newsletter-frame iframe { width: 100%; height: 560px; border: 0; }
+        @media (max-width: 860px) { .newsletter-copy, .newsletter-frame { grid-column: 1 / -1; } }
     </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="navbar-inner">
-            <button class="mobile-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
-                <span></span><span></span><span></span>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="wrap">
+            <a class="brand" href="index.html" aria-label="A Better Way Out — home">
+                <img src="images/logo-mark-112.webp" alt="" width="56" height="55">
+                <span>A Better Way Out</span>
+            </a>
+            <button class="mobile-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+                <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+                Menu
             </button>
-            <ul class="navbar-menu">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
+            <nav aria-label="Main">
+            <ul class="navbar-menu" id="primary-menu">
+                <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="events.html">Events</a></li>
                 <li><a href="interviews.html">Interviews</a></li>
-                <li><a href="party.html">Partner</a></li>
+                <li><a href="party.html">Partners</a></li>
                 <li><a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="nav-donate">Donate</a></li>
             </ul>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <main>
-        <div class="container">
+    <main id="main">
+        <section class="hero wrap" aria-labelledby="hero-title">
+            <h1 id="hero-title">Built by people who found their way out.</h1>
 
-            <section class="hero">
-                <img src="images/logo.png" alt="A Better Way Out WA" class="hero-logo" width="558" height="551" fetchpriority="high">
-            </section>
+            <div class="hero-line" aria-hidden="true">
+                <!-- A tangled root that straightens into a path. Draws once on load. -->
+                <svg viewBox="0 0 1320 92" preserveAspectRatio="xMinYMid meet" focusable="false">
+                    <path pathLength="1" style="--len:1" d="M3,48 C30,6 92,4 102,38 C112,74 52,86 50,52 C48,16 128,2 160,36 C192,70 146,90 130,66 C110,40 186,12 228,38 C270,64 236,86 214,70 C190,52 266,22 314,40 C362,58 404,44 470,40 L1310,40"/>
+                    <circle cx="1310" cy="40" r="5"/>
+                </svg>
+            </div>
 
-            <section class="intro-section">
-                <div class="intro-text">
-                    <h1>What is A Better Way Out</h1>
-                    <p>Our mission is to empower at-risk youth through mentorship, education, and support, providing them with a better way out toward a brighter future.</p>
-                    <p>Built by mentors with lived experience, we meet young people where they are — without shame or labels — and walk alongside them toward hope, resilience, and a new vision for their lives.</p>
-                    <a href="about.html" class="btn-primary">Read Our Story</a>
+            <div class="hero-lower">
+                <div class="hero-copy">
+                    <p>Mentorship and steady support for young people in Whatcom County, from mentors who have walked the same roads and know the way through.</p>
+                    <div class="btn-row">
+                        <a href="about.html" class="btn-primary">Read our story</a>
+                        <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="btn-ghost">Donate</a>
+                    </div>
                 </div>
-                <div class="intro-image">
-                    <img src="images/0729_1.jpg" alt="A Better Way Out team members" width="1080" height="810" loading="lazy">
+                <figure class="photo hero-photo">
+                    <img src="images/street-outreach-2026-09-4.jpg" alt="Volunteers pulling wagons of supplies down a sunlit street at the start of an outreach day" width="946" height="630" fetchpriority="high">
+                    <figcaption>Heading out with supplies for street outreach in downtown Bellingham, September 2026.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- NEXT EVENT — hides itself automatically the day after data-until.
+             Update the date, text, and link when the next event is announced. -->
+        <section class="next-event wrap" data-until="2026-10-25" aria-label="Next event">
+            <a href="events.html#gump-run">
+                <span class="next-when">Oct 24</span>
+                <span class="next-what">
+                    <small>Next event</small>
+                    <strong>2026 Gump Run 5K &mdash; Running for the Kids</strong>
+                    Everson City Park. Check-in 9:00 AM, run starts 10:00 AM.
+                </span>
+                <span class="next-go">Event details</span>
+            </a>
+        </section>
+
+        <section class="section mission" aria-labelledby="mission-title">
+            <div class="wrap">
+                <div class="mission-mark">
+                    <img src="images/logo-mark-360.webp" alt="The A Better Way Out emblem: a tree of life with deep roots" width="360" height="355" loading="lazy">
                 </div>
-            </section>
-
-            <div class="explore-header">
-                <h2>See What We're Up To</h2>
+                <div class="mission-text">
+                    <h2 id="mission-title">A Better Way Out exists to stand in that gap.</h2>
+                    <div class="prose">
+                        <p>Our mission is to empower at-risk youth through mentorship, education, and support, providing them with a better way out toward a brighter future.</p>
+                        <p>Many of our mentors carry their own stories of gangs, addiction, prison, and rebuilding. They meet young people where they are, without shame or labels, and walk alongside them toward hope, resilience, and a new vision for their lives.</p>
+                    </div>
+                    <a href="about.html" class="btn-ghost">Meet the people behind it</a>
+                </div>
             </div>
-            <div class="explore-grid">
-                <a href="events.html" class="explore-card">
-                    <img src="images/amando-mi-comunidad.jpg" alt="Amando Mi Comunidad community event" width="1131" height="1600" loading="lazy">
-                    <div class="explore-card-body">
-                        <h3>Events &amp; Activities</h3>
-                        <p>From community festivals to homeless outreach — see photos and videos from our latest gatherings, including Amando Mi Comunidad.</p>
-                        <span>View Events →</span>
+        </section>
+
+        <section class="section section-dark ways" aria-labelledby="ways-title">
+            <div class="wrap">
+                <h2 id="ways-title">Four ways we show up.</h2>
+                <div class="ways-grid">
+                    <div class="way">
+                        <h3>Mental health support</h3>
+                        <p>Coping tools for stress, trauma, and pressure, with check-ins and connections to trusted counselors.</p>
                     </div>
-                </a>
-                <a href="interviews.html" class="explore-card">
-                    <img src="https://img.youtube.com/vi/te8Qdu3mjhE/hqdefault.jpg" alt="Interview video thumbnail" width="480" height="360" loading="lazy">
-                    <div class="explore-card-body">
-                        <h3>Interviews</h3>
-                        <p>Conversations and stories from our team, our community, and the voices that shape our mission.</p>
-                        <span>Watch Interviews →</span>
+                    <div class="way">
+                        <h3>Personal connections</h3>
+                        <p>One-on-one conversations, guidance, and consistent encouragement from someone who has been there.</p>
                     </div>
-                </a>
-                <a href="services.html" class="explore-card">
-                    <img src="images/Mental-Health-Support.jpg" class="fit-contain" alt="Mental Health Support" width="960" height="426" loading="lazy">
-                    <div class="explore-card-body">
-                        <h3>Our Services</h3>
-                        <p>Mentorship, mental health support, family resources, and community connections for the youth we serve.</p>
-                        <span>Explore Services →</span>
+                    <div class="way">
+                        <h3>Family support</h3>
+                        <p>Helping parents, guardians, and youth rebuild communication and trust at home.</p>
                     </div>
+                    <div class="way">
+                        <h3>Community connections</h3>
+                        <p>Links to local churches, employers, schools, and housing help that support the road ahead.</p>
+                    </div>
+                </div>
+                <p class="ways-foot"><a href="services.html">How each service works</a></p>
+            </div>
+        </section>
+
+        <section class="section field" aria-labelledby="field-title">
+            <div class="wrap">
+                <div class="head">
+                    <h2 id="field-title">Out in the community.</h2>
+                    <a href="events.html" class="btn-ghost">See upcoming events</a>
+                </div>
+                <div class="field-grid">
+                    <figure class="photo">
+                        <img src="images/Jam_in_the_River_event_live_2.jpg" alt="Tents and families at Jam on the River, with the A Better Way Out booth in the middle" width="1280" height="720" loading="lazy">
+                        <figcaption>Our booth at Jam on the River, Ferndale, June 2026.</figcaption>
+                    </figure>
+                    <figure class="photo">
+                        <img src="images/street-outreach-2026-09-2.jpg" alt="Two volunteers in A Better Way Out shirts preparing supply bags on a downtown sidewalk" width="1160" height="773" loading="lazy">
+                        <figcaption>Packing supply bags before a street outreach, September 2026.</figcaption>
+                    </figure>
+                    <figure class="photo">
+                        <img src="images/ABWO-group.jpg" alt="A Better Way Out volunteers gathered for a group photo in a parking lot" width="1080" height="499" loading="lazy">
+                        <figcaption>Volunteers after homeless outreach in Bellingham, April 2026.</figcaption>
+                    </figure>
+                    <figure class="photo">
+                        <img src="images/Jam_in_the_River_group_photo.jpg" alt="Three women from A Better Way Out at the booth table with giveaways" width="654" height="475" loading="lazy">
+                        <figcaption>Meeting families at the booth, Jam on the River.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="section voices" aria-labelledby="voices-title">
+            <div class="wrap">
+                <div class="voices-text">
+                    <h2 id="voices-title">Hear it in their words.</h2>
+                    <p>Conversations with our team and community about where they&rsquo;ve been and what changed.</p>
+                    <a href="interviews.html" class="btn-ghost">Watch the interviews</a>
+                </div>
+                <a class="voices-thumb" href="interviews.html" aria-label="Watch: A Better Way Out community conversation">
+                    <img src="https://img.youtube.com/vi/te8Qdu3mjhE/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
+                    <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="M10 8l6 4-6 4z" fill="#eef0ec"/></svg>Community conversation</span>
                 </a>
             </div>
+        </section>
 
-            <!-- Stay Connected — Newsletter -->
-            <section class="newsletter-section">
-                <h2>Stay Connected</h2>
-                <p>Subscribe to receive monthly updates about our programs and success stories.</p>
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScz3O8_WkNbH4IbtIDmFScwh1GSvxnq8CubXBq5H7elAW21qw/viewform?embedded=true" width="100%" height="560" frameborder="0" marginheight="0" marginwidth="0" title="Newsletter subscription form" loading="lazy">Loading…</iframe>
-                <p class="newsletter-note">We only use your email to send our updates. We never share it. <a href="privacy.html">Privacy Policy</a></p>
-            </section>
-
-            <!-- CTA Row — Donate + Volunteer (shown on every page) -->
-            <div class="cta-row">
-                <section class="support-section">
-                    <h2>Support Our Mission</h2>
-                    <p>Your donation directly impacts the lives of at-risk youth in our community. Every contribution helps us provide mentorship, support, and hope to those who need it most.</p>
-                    <div>
-                        <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="btn-donate">Donate Now</a>
-                    </div>
-                </section>
-
-                <section class="volunteer-section">
-                    <h2>Volunteer With Us</h2>
-                    <p>Making a difference, one life at a time. Join our community of mentors and helpers who walk alongside the youth we serve.</p>
-                    <div>
-                        <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" class="btn-involve">Get Involved</a>
-                    </div>
-                </section>
+        <!-- Stay Connected — Newsletter -->
+        <section class="section newsletter-section" aria-labelledby="news-title">
+            <div class="wrap">
+                <div class="newsletter-copy">
+                    <h2 id="news-title">Stay connected.</h2>
+                    <p>Get a monthly update on our programs, upcoming events, and the young people finding their way.</p>
+                    <p class="newsletter-note">We only use your email to send these updates and never share it. <a href="privacy.html">Privacy policy</a></p>
+                </div>
+                <div class="newsletter-frame">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScz3O8_WkNbH4IbtIDmFScwh1GSvxnq8CubXBq5H7elAW21qw/viewform?embedded=true" title="Newsletter sign-up form" loading="lazy">Loading…</iframe>
+                </div>
             </div>
+        </section>
 
-        </div>
+        <!-- CTA — Donate + Volunteer (shown on every page) -->
+        <section class="cta-row" aria-labelledby="cta-title">
+            <img class="cta-roots" src="images/logo-mark-360.webp" alt="" width="360" height="355" loading="lazy">
+            <div class="wrap">
+                <h2 class="cta-title" id="cta-title">Walk with the next young person who needs a way out.</h2>
+                <div class="support-section">
+                    <h3>Give</h3>
+                    <p>Your donation goes straight into mentorship, outreach, and family support for young people in Whatcom County. Donations are tax-deductible.</p>
+                    <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="btn-donate">Donate on Zeffy</a>
+                </div>
+                <div class="volunteer-section">
+                    <h3>Volunteer</h3>
+                    <p>Serve at outreach days, staff a booth, or mentor. Message us on Facebook and we&rsquo;ll tell you what&rsquo;s coming up.</p>
+                    <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" class="btn-involve">Message us on Facebook</a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="site-footer">
-        <div class="footer-container">
-
-            <div class="footer-brand">
-                <img src="images/logo-sm.png" alt="A Better Way Out logo" width="120" height="120" loading="lazy">
-                <h2>A Better Way Out</h2>
-                <p>Empowering at-risk youth in Washington through trauma-informed mentorship, education, and support — led by mentors with lived experience.</p>
-            </div>
-
-            <div class="footer-columns">
-                <section class="footer-col">
-                    <h3>Discover Us</h3>
+        <div class="wrap">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo-mark-112.webp" alt="" width="72" height="71" loading="lazy">
+                    <h2>A Better Way Out</h2>
+                    <p>Trauma-informed mentorship for young people in Whatcom County, Washington &mdash; led by mentors with lived experience.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Who we are</h3>
                     <ul>
-                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="about.html">About us</a></li>
+                        <li><a href="about.html#leadership">Leadership &amp; board</a></li>
                         <li><a href="services.html">Services</a></li>
                         <li><a href="party.html">Partners</a></li>
                     </ul>
-                </section>
-
-                <section class="footer-col">
-                    <h3>Our Impact</h3>
+                </div>
+                <div class="footer-col">
+                    <h3>What we do</h3>
                     <ul>
                         <li><a href="events.html">Events</a></li>
                         <li><a href="interviews.html">Interviews</a></li>
                     </ul>
-                </section>
-
-                <section class="footer-col">
-                    <h3>Get Involved</h3>
+                </div>
+                <div class="footer-col">
+                    <h3>Get in touch</h3>
                     <ul>
-                        <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Volunteer</a></li>
+                        <li><a href="mailto:abetterwayoutwa@gmail.com">abetterwayoutwa@gmail.com</a></li>
+                        <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Facebook</a></li>
                         <li><a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer">Donate</a></li>
                     </ul>
-                </section>
+                </div>
             </div>
-
             <div class="footer-bottom">
-                <p>&copy; 2026 A Better Way Out WA — All Rights Reserved</p>
-                <p class="ein">EIN: 92-1581139 — A 501(c)(3) Nonprofit &middot; <a href="privacy.html">Privacy Policy</a></p>
+                <p>&copy; 2026 A Better Way Out WA. A 501(c)(3) nonprofit, EIN 92-1581139.</p>
+                <p><a href="privacy.html">Privacy policy</a></p>
             </div>
         </div>
     </footer>

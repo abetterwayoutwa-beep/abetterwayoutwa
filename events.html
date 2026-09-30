@@ -3,14 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events — A Better Way Out WA</title>
+        <title>Events — A Better Way Out WA</title>
     <link rel="canonical" href="https://www.abetterwayoutwa.org/events.html">
-    <link rel="icon" href="images/favicon/favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
-    <link rel="manifest" href="images/favicon/site.webmanifest">
-    <meta name="theme-color" content="#03b8d4">
+    <meta name="theme-color" content="#eef0ec">
     <meta name="description" content="Events & Activities - A Better Way Out community programs and gatherings">
     <!-- Open Graph / social sharing -->
     <meta property="og:type" content="website">
@@ -24,318 +19,195 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="A Better Way Out WA — empowering at-risk youth in Whatcom County, Washington">
     <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" href="images/favicon/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
     <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="preload" href="fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/literata.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="shared.css">
     <style>
-        body { background: #e0f7fa; }
-
-        .event-card {
-            background: #fff;
-            border-radius: 20px;
-            padding: 30px 34px;
-            margin-bottom: 22px;
-            display: flex;
-            align-items: flex-start;
-            gap: 26px;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 4px 20px rgba(13,33,55,0.06);
+        .upcoming .wrap {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            column-gap: 24px; row-gap: 40px;
+            align-items: start;
         }
-        .event-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 28px rgba(13,33,55,0.1);
-        }
-
-        .event-date-box {
-            background: #03b8d4;
-            color: white;
-            padding: 16px 22px;
-            border-radius: 14px;
-            text-align: center;
-            min-width: 108px;
-            flex-shrink: 0;
-        }
-        .event-date-box.upcoming { background: #00c853; }
-        .event-date-box .month { font-size: 0.92em; font-weight: 700; text-transform: uppercase; }
-        .event-date-box .day { font-size: 2.2em; font-weight: 800; line-height: 1.1; font-family: 'Plus Jakarta Sans', sans-serif; }
-        .event-date-box .year { font-size: 0.85em; opacity: 0.9; }
-
-        .event-body { flex: 1; }
-        .badge-upcoming {
+        .upcoming .wrap::before { content: ""; grid-column: 1 / -1; height: 1px; background: var(--ink); margin-bottom: clamp(0px, 1vw, 16px); }
+        .upcoming-poster { grid-column: 1 / span 5; }
+        .upcoming-poster img { border-radius: var(--radius-s); }
+        .upcoming-info { grid-column: 7 / span 6; }
+        .status {
             display: inline-block;
-            background: rgba(0,200,83,0.12);
-            color: #00803d;
-            padding: 3px 12px;
-            border-radius: 999px;
-            font-size: 0.72em;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            margin-bottom: 8px;
+            font-family: var(--ui); font-weight: 650; font-size: .85rem;
+            color: #fff; background: var(--ribbon);
+            padding: 5px 12px; border-radius: var(--radius-pill);
+            margin-bottom: 20px;
         }
-        .event-body h2 { font-size: 1.3em; font-weight: 800; margin-bottom: 10px; }
-        .event-meta { display: flex; gap: 16px; flex-wrap: wrap; color: #555; font-size: 0.9em; margin-bottom: 14px; }
-
-        .btn-event-details {
-            display: inline-block;
-            background: #0d2137;
-            color: #fff;
-            border: none;
-            padding: 10px 28px;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.92em;
-            font-weight: 700;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.25s;
-        }
-        .btn-event-details:hover { background: #1a4866; }
-
-        .event-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, margin-top 0.5s ease; margin-top: 0; }
-        .event-card.expanded .event-content { max-height: 3000px; margin-top: 16px; }
-
-        .event-description {
-            background: #f7fafc;
-            border-radius: 12px;
-            padding: 20px 24px;
-            color: #4a5568;
-            font-size: 0.95em;
-            line-height: 1.8;
-            border: 1px solid #edf2f7;
+        .upcoming-date {
+            font-family: var(--display); font-stretch: 66%; font-weight: 800;
+            font-size: var(--step-4); line-height: .9; color: var(--ribbon);
             margin-bottom: 14px;
         }
-        .event-description ul { margin: 8px 0 0 20px; line-height: 2; }
-        .event-image { width: 100%; max-width: 580px; border-radius: 12px; margin: 10px auto; box-shadow: 0 6px 18px rgba(13,33,55,0.1); }
-
-        .event-video-shorts {
-            width: 100%;
-            max-width: 340px;
-            aspect-ratio: 9 / 16;
-            margin: 14px auto;
-            border-radius: 12px;
-            overflow: hidden;
-            background: #000;
-            box-shadow: 0 6px 18px rgba(13,33,55,0.15);
-        }
-        .event-video-shorts iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
+        .upcoming-info h2 { font-size: var(--step-3); margin-bottom: 28px; }
+        .upcoming-info .prose { margin-bottom: 28px; }
+        .upcoming-info .event-facts { border-top: 1px solid var(--line); padding-top: 20px; }
+        @media (max-width: 860px) {
+            .upcoming-poster, .upcoming-info { grid-column: 1 / -1; }
+            .upcoming-poster { max-width: 420px; }
         }
 
-        .event-video-row {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 14px;
-            margin: 14px auto;
-        }
-        .event-video-row .event-video-shorts {
-            flex: 1 1 200px;
-            max-width: 240px;
-            margin: 0;
-        }
-
-        /* Past events archive */
-        .past-events {
-            margin: 48px 0 8px;
-            padding: 32px 28px;
-            background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(13,33,55,0.06);
-            text-align: center;
-        }
-        .past-events h2 { font-size: 1.5em; font-weight: 800; margin-bottom: 8px; }
-        .past-events p { color: #555; margin-bottom: 20px; }
-        .year-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-        .btn-year {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: #03b8d4; color: #fff; text-decoration: none;
-            font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.15em;
-            padding: 14px 32px; border-radius: 999px;
-            box-shadow: 0 4px 14px rgba(3,184,212,0.3);
-            transition: all 0.25s;
-        }
-        .btn-year:hover { background: #0299b1; transform: translateY(-2px); }
-        .btn-year small { font-weight: 600; font-size: 0.7em; opacity: 0.9; }
-        .back-link {
-            display: inline-block; margin-bottom: 22px; color: #03b8d4; font-weight: 700; text-decoration: none;
-        }
-        .back-link:hover { text-decoration: underline; }
-
-        @media (max-width: 680px) {
-            .event-video-row .event-video-shorts { flex: 1 1 100%; max-width: 300px; }
-        }
-
-        .event-photo-grid {
+        .past .wrap {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin: 14px 0;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            column-gap: 24px; row-gap: 32px;
         }
-        .event-photo-grid img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 4px 14px rgba(13,33,55,0.12);
-            display: block;
+        .past h2 { grid-column: 1 / span 5; font-size: var(--step-4); }
+        .past-body { grid-column: 7 / span 6; }
+        .past-body p { color: var(--ink-soft); margin-bottom: 28px; max-width: 46ch; }
+        .year-link {
+            display: flex; justify-content: space-between; align-items: baseline;
+            border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink);
+            padding: 18px 0; text-decoration: none; color: var(--ink);
         }
-        @media (max-width: 500px) {
-            .event-photo-grid { grid-template-columns: 1fr; }
-            .event-photo-grid img { height: 180px; }
-        }
-
-        .event-contact {
-            background: #03b8d4;
-            color: white;
-            padding: 20px 24px;
-            border-radius: 12px;
-            margin-top: 14px;
-        }
-        .event-contact h4 { margin-bottom: 8px; font-size: 1.05em; color: #fff; }
-        .event-contact a { color: #fff; text-decoration: underline; font-weight: 600; }
-
-        @media (max-width: 680px) {
-            .event-card { flex-direction: column; padding: 22px 20px; }
-            .event-date-box { min-width: 90px; }
-        }
+        .year-link b { font-family: var(--display); font-stretch: 66%; font-weight: 800; font-size: 3rem; line-height: 1; }
+        .year-link span { font-family: var(--ui); font-weight: 600; }
+        .year-link:hover b { color: var(--ring); }
+        @media (max-width: 760px) { .past h2, .past-body { grid-column: 1 / -1; } }
     </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="navbar-inner">
-            <button class="mobile-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
-                <span></span><span></span><span></span>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="wrap">
+            <a class="brand" href="index.html" aria-label="A Better Way Out — home">
+                <img src="images/logo-mark-112.webp" alt="" width="56" height="55">
+                <span>A Better Way Out</span>
+            </a>
+            <button class="mobile-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+                <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+                Menu
             </button>
-            <ul class="navbar-menu">
+            <nav aria-label="Main">
+            <ul class="navbar-menu" id="primary-menu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="events.html" class="active">Events</a></li>
+                <li><a href="events.html" class="active" aria-current="page">Events</a></li>
                 <li><a href="interviews.html">Interviews</a></li>
-                <li><a href="party.html">Partner</a></li>
+                <li><a href="party.html">Partners</a></li>
                 <li><a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="nav-donate">Donate</a></li>
             </ul>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <main>
-        <div class="container">
-            <div class="page-header">
-                <h1>Events &amp; Activities</h1>
-                <p>Join us for community gatherings designed to build connections, inspire hope, and create positive change.</p>
-            </div>
+    <main id="main">
+        <header class="page-header wrap">
+            <h1>Events &amp; activities</h1>
+            <p>Community gatherings built to create connection, inspire hope, and bring real change.</p>
+        </header>
 
-            <div class="event-card" onclick="toggleEvent(this)">
-                <div class="event-date-box upcoming">
-                    <div class="month">OCT</div><div class="day">24</div><div class="year">2026</div>
-                </div>
-                <div class="event-body">
-                    <span class="badge-upcoming">Upcoming</span>
-                    <h2>2026 Gump Run 5K — Running for the Kids &amp; A Better Way Out</h2>
-                    <div class="event-meta">
-                        <span>📅 Saturday, October 24, 2026</span>
-                        <span>📍 Everson City Park, 201–205 Lincoln St, Everson, WA 98247</span>
-                        <span>🕒 Check-in 9:00 AM · 5K Start 10:00 AM</span>
-                        <span>🏃 Kids, families, youth, adults &amp; supporters of all ages</span>
+        <!-- UPCOMING EVENT — replace this block when the next event is announced -->
+        <section class="section upcoming" id="gump-run" aria-labelledby="gump-title">
+            <div class="wrap">
+                <figure class="upcoming-poster">
+                    <img src="images/FB_IMG_1786567376608.jpg" alt="Flyer for the 2026 Gump Run 5K, Running for the Kids" width="1009" height="1605" loading="lazy">
+                </figure>
+                <div class="upcoming-info">
+                    <span class="status">Upcoming</span>
+                    <p class="upcoming-date">Saturday, October 24</p>
+                    <h2 id="gump-title">2026 Gump Run 5K &mdash; Running for the Kids &amp; A Better Way Out</h2>
+                    <div class="prose">
+                        <p>Lace up your shoes and join us for a fun run supporting the kids and the mission of <strong>A Better Way Out</strong>. Every step helps us provide mentorship, support, and hope to at-risk youth in our community.</p>
+                        <p><strong>Run. Support. Transform.</strong> Kids, families, youth, adults, and supporters of all ages are welcome. You can register and run, donate, sponsor, or volunteer &mdash; every step supports change.</p>
                     </div>
-                    <button class="btn-event-details">Event Details</button>
-                    <div class="event-content">
-                        <div class="event-description">
-                            <p>Mark your calendars! The <strong>2026 Gump Run 5K</strong> is happening on <strong>Saturday, October 24, 2026</strong>. Lace up your shoes and join us for a fun run supporting the kids and the mission of <strong>A Better Way Out</strong>. Every step helps us provide mentorship, support, and hope to at-risk youth in our community.</p>
-                            <p style="margin-top:12px;"><strong>Run. Support. Transform.</strong> A community 5K creating paths to hope, opportunity, and a better way out. Check-in opens at <strong>9:00 AM</strong> and the 5K starts at <strong>10:00 AM</strong> at <strong>Everson City Park</strong> (201–205 Lincoln St, Everson, WA 98247). Kids, families, youth, adults, and supporters of all ages are welcome.</p>
-                            <p style="margin-top:12px;"><strong>Ways you can help:</strong> register &amp; run, donate, sponsor, or volunteer — every step supports change.</p>
-                            <p style="margin-top:12px;">🐾 Please note: no pets allowed — sorry for the inconvenience.</p>
-                        </div>
-                        <img src="images/FB_IMG_1786567376608.jpg" alt="2026 Gump Run 5K — Running for the Kids" class="event-image" style="display:block;" onerror="this.style.display='none'" width="1009" height="1605" loading="lazy">
-                        <div class="event-contact">
-                            <h4>📣 Register &amp; Learn More</h4>
-                            <p>Scan the QR code on the flyer to register, or email <a href="mailto:Kaylaallyayden21@gmail.com">Kaylaallyayden21@gmail.com</a> with questions.</p>
-                            <p><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">facebook.com/a.better.way.out</a></p>
-                        </div>
-                    </div>
+                    <dl class="event-facts">
+                        <dt>Where</dt><dd>Everson City Park, 201&ndash;205 Lincoln St, Everson, WA 98247</dd>
+                        <dt>When</dt><dd>Check-in 9:00 AM, 5K starts 10:00 AM</dd>
+                        <dt>Who</dt><dd>All ages welcome</dd>
+                        <dt>Pets</dt><dd>No pets, sorry for the inconvenience</dd>
+                        <dt>Register</dt><dd>Scan the QR code on the flyer, or email <a href="mailto:Kaylaallyayden21@gmail.com">Kaylaallyayden21@gmail.com</a></dd>
+                    </dl>
+                    <p class="event-note">Updates are posted on <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">our Facebook page</a>.</p>
                 </div>
             </div>
+        </section>
 
-            <!-- ---- PAST EVENTS ARCHIVE — add a new button for each year ---- -->
-            <section class="past-events">
-                <h2>Past Events</h2>
-                <p>Looking back at what we've done together — photos, videos, and highlights from previous gatherings.</p>
-                <div class="year-buttons">
-                    <a href="events-2026.html" class="btn-year">2026 <small>→ 8 events</small></a>
+        <!-- ---- PAST EVENTS ARCHIVE — add a new year-link for each year ---- -->
+        <section class="section past" aria-labelledby="past-title">
+            <div class="wrap">
+                <h2 id="past-title">Past events</h2>
+                <div class="past-body">
+                    <p>Looking back at what we&rsquo;ve done together: photos, videos, and highlights from previous gatherings.</p>
+                    <a href="events-2026.html" class="year-link"><b>2026</b><span>8 events</span></a>
                 </div>
-            </section>
-
-            <!-- CTA Row — Donate + Volunteer (shown on every page) -->
-            <div class="cta-row">
-                <section class="support-section">
-                    <h2>Support Our Mission</h2>
-                    <p>Your donation directly impacts the lives of at-risk youth in our community. Every contribution helps us provide mentorship, support, and hope to those who need it most.</p>
-                    <div>
-                        <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="btn-donate">Donate Now</a>
-                    </div>
-                </section>
-
-                <section class="volunteer-section">
-                    <h2>Volunteer With Us</h2>
-                    <p>Making a difference, one life at a time. Join our community of mentors and helpers who walk alongside the youth we serve.</p>
-                    <div>
-                        <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" class="btn-involve">Get Involved</a>
-                    </div>
-                </section>
             </div>
-        </div>
+        </section>
+
+        <!-- CTA — Donate + Volunteer (shown on every page) -->
+        <section class="cta-row" aria-labelledby="cta-title">
+            <img class="cta-roots" src="images/logo-mark-360.webp" alt="" width="360" height="355" loading="lazy">
+            <div class="wrap">
+                <h2 class="cta-title" id="cta-title">Walk with the next young person who needs a way out.</h2>
+                <div class="support-section">
+                    <h3>Give</h3>
+                    <p>Your donation goes straight into mentorship, outreach, and family support for young people in Whatcom County. Donations are tax-deductible.</p>
+                    <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="btn-donate">Donate on Zeffy</a>
+                </div>
+                <div class="volunteer-section">
+                    <h3>Volunteer</h3>
+                    <p>Serve at outreach days, staff a booth, or mentor. Message us on Facebook and we&rsquo;ll tell you what&rsquo;s coming up.</p>
+                    <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" class="btn-involve">Message us on Facebook</a>
+                </div>
+            </div>
+        </section>
     </main>
 
-        <footer class="site-footer">
-        <div class="footer-container">
-
-            <div class="footer-brand">
-                <img src="images/logo-sm.png" alt="A Better Way Out logo" width="120" height="120" loading="lazy">
-                <h2>A Better Way Out</h2>
-                <p>Empowering at-risk youth in Washington through trauma-informed mentorship, education, and support — led by mentors with lived experience.</p>
-            </div>
-
-            <div class="footer-columns">
-                <section class="footer-col">
-                    <h3>Discover Us</h3>
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo-mark-112.webp" alt="" width="72" height="71" loading="lazy">
+                    <h2>A Better Way Out</h2>
+                    <p>Trauma-informed mentorship for young people in Whatcom County, Washington &mdash; led by mentors with lived experience.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Who we are</h3>
                     <ul>
-                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="about.html">About us</a></li>
+                        <li><a href="about.html#leadership">Leadership &amp; board</a></li>
                         <li><a href="services.html">Services</a></li>
                         <li><a href="party.html">Partners</a></li>
                     </ul>
-                </section>
-
-                <section class="footer-col">
-                    <h3>Our Impact</h3>
+                </div>
+                <div class="footer-col">
+                    <h3>What we do</h3>
                     <ul>
                         <li><a href="events.html">Events</a></li>
                         <li><a href="interviews.html">Interviews</a></li>
                     </ul>
-                </section>
-
-                <section class="footer-col">
-                    <h3>Get Involved</h3>
+                </div>
+                <div class="footer-col">
+                    <h3>Get in touch</h3>
                     <ul>
-                        <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Volunteer</a></li>
+                        <li><a href="mailto:abetterwayoutwa@gmail.com">abetterwayoutwa@gmail.com</a></li>
+                        <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Facebook</a></li>
                         <li><a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer">Donate</a></li>
                     </ul>
-                </section>
+                </div>
             </div>
-
             <div class="footer-bottom">
-                <p>&copy; 2026 A Better Way Out WA — All Rights Reserved</p>
-                <p class="ein">EIN: 92-1581139 — A 501(c)(3) Nonprofit &middot; <a href="privacy.html">Privacy Policy</a></p>
+                <p>&copy; 2026 A Better Way Out WA. A 501(c)(3) nonprofit, EIN 92-1581139.</p>
+                <p><a href="privacy.html">Privacy policy</a></p>
             </div>
         </div>
     </footer>
-    <script>function toggleEvent(card){card.classList.toggle('expanded');}</script>
 
     <script src="shared.js" defer></script>
 </body>

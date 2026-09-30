@@ -3,14 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us — A Better Way Out WA</title>
+        <title>About Us — A Better Way Out WA</title>
     <link rel="canonical" href="https://www.abetterwayoutwa.org/about.html">
-    <link rel="icon" href="images/favicon/favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
-    <link rel="manifest" href="images/favicon/site.webmanifest">
-    <meta name="theme-color" content="#03b8d4">
+    <meta name="theme-color" content="#eef0ec">
     <meta name="description" content="About A Better Way Out WA — Our story, mission, and the mentors with lived experience who guide at-risk youth in Washington.">
     <!-- Open Graph / social sharing -->
     <meta property="og:type" content="website">
@@ -24,302 +19,264 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="A Better Way Out WA — empowering at-risk youth in Whatcom County, Washington">
     <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" href="images/favicon/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
     <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="preload" href="fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/literata.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="shared.css">
     <style>
-        body { background: #e0f7fa; }
-
-        .about-block {
-            background: #fff;
-            border-radius: 20px;
-            padding: 48px 42px;
-            margin-bottom: 26px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(13,33,55,0.06);
+        .story .wrap {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            column-gap: 24px; row-gap: 40px;
+            align-items: start;
         }
-        .about-block p {
-            font-size: 1.02em;
-            color: #4a5568;
-            line-height: 1.9;
-            max-width: 780px;
-            margin: 0 auto 18px;
-        }
-        .about-block p:last-child { margin-bottom: 0; }
-
-        .about-gap {
-            font-size: 1.4em !important;
+        .story-photo { grid-column: 1 / span 5; position: sticky; top: calc(var(--header-h) + 24px); }
+        .story-text { grid-column: 7 / span 6; font-size: 1.125rem; }
+        .prose .story-gap {
+            font-family: var(--display);
+            font-stretch: 70%;
             font-weight: 800;
-            color: #0d2137 !important;
-            margin: 28px auto 18px !important;
+            font-size: var(--step-3);
+            line-height: 1;
+            color: var(--ring);
+            margin: 1.3em 0 0.8em;
+            max-width: 16ch;
         }
-        .about-tag {
+        .prose .story-close {
+            margin-top: 2em;
+            padding-top: 1.4em;
+            border-top: 2px solid var(--ochre);
             font-style: italic;
-            color: #d84315 !important;
-            font-weight: 600;
-            margin-top: 26px !important;
+            color: var(--ink);
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+        @media (max-width: 860px) {
+            .story-photo { grid-column: 1 / -1; position: static; }
+            .story-text { grid-column: 1 / -1; }
         }
 
-        .about-photo {
-            width: 100%;
-            max-width: 720px;
-            border-radius: 14px;
-            margin: 0 auto 26px;
-            display: block;
-            box-shadow: 0 8px 24px rgba(13,33,55,0.12);
-        }
-
-        /* ---- Leadership / Board section ---- */
-        .leadership-block {
-            background: #fff;
-            border-radius: 20px;
-            padding: 48px 42px;
-            margin-bottom: 26px;
-            box-shadow: 0 4px 20px rgba(13,33,55,0.06);
-        }
-        .leadership-heading {
-            text-align: center;
-            font-size: 1.6em;
-            font-weight: 800;
-            color: #0d2137;
-            margin: 0 0 8px;
-        }
-        .leadership-sub {
-            text-align: center;
-            font-size: 0.78em;
-            font-weight: 800;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #718096;
-            margin: 0 0 36px;
-        }
-
+        .leadership .wrap > h2 { font-size: var(--step-4); margin-bottom: 12px; }
+        .leadership .wrap > .lead-sub { color: var(--ink-mute); font-family: var(--ui); margin-bottom: clamp(40px, 5vw, 72px); }
         .person {
-            display: flex;
-            gap: 34px;
-            align-items: flex-start;
-            text-align: left;
-        }
-        .person + .person {
-            border-top: 1px solid #e2e8f0;
-            margin-top: 38px;
-            padding-top: 38px;
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            column-gap: 24px; row-gap: 24px;
+            padding: clamp(36px, 4vw, 56px) 0;
+            border-top: 1px solid var(--ink);
         }
         .person-photo {
-            width: 230px;
-            flex-shrink: 0;
+            grid-column: 1 / span 3;
+            width: 100%;
             aspect-ratio: 4 / 5;
             object-fit: cover;
-            object-position: center top;
-            border-radius: 14px;
-            box-shadow: 0 8px 24px rgba(13,33,55,0.12);
+            border-radius: var(--radius-s);
+            background: var(--paper-2);
         }
-        .person-name {
-            font-size: 1.3em;
-            font-weight: 800;
-            color: #0d2137;
-            margin: 0 0 6px;
+        .person-head { grid-column: 4 / span 3; }
+        .person-name { font-size: var(--step-3); margin-bottom: 12px; }
+        .person-role { font-family: var(--ui); color: var(--ink-mute); font-size: .95rem; line-height: 1.45; }
+        .person-bio { grid-column: 7 / span 6; }
+        @media (max-width: 960px) {
+            .person-photo { grid-column: 1 / span 4; }
+            .person-head { grid-column: 5 / span 8; align-self: end; }
+            .person-bio { grid-column: 1 / -1; }
         }
-        .person-role {
-            font-size: 0.78em;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #03b8d4;
-            margin: 0 0 18px;
-        }
-        .person-bio p {
-            font-size: 1em;
-            color: #4a5568;
-            line-height: 1.85;
-            margin: 0 0 14px;
-        }
-        .person-bio p:last-child { margin-bottom: 0; }
-
-        @media (max-width: 680px) {
-            .about-block { padding: 32px 24px; }
-            .leadership-block { padding: 32px 24px; }
-            .person {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                gap: 22px;
-            }
-            .person-photo { width: 100%; max-width: 280px; }
+        @media (max-width: 520px) {
+            .person-photo { grid-column: 1 / span 6; }
+            .person-head { grid-column: 7 / span 6; }
+            .person-name { font-size: 1.9rem; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="navbar-inner">
-            <button class="mobile-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
-                <span></span><span></span><span></span>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="wrap">
+            <a class="brand" href="index.html" aria-label="A Better Way Out — home">
+                <img src="images/logo-mark-112.webp" alt="" width="56" height="55">
+                <span>A Better Way Out</span>
+            </a>
+            <button class="mobile-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+                <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+                Menu
             </button>
-            <ul class="navbar-menu">
+            <nav aria-label="Main">
+            <ul class="navbar-menu" id="primary-menu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="about.html" class="active" aria-current="page">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="events.html">Events</a></li>
                 <li><a href="interviews.html">Interviews</a></li>
-                <li><a href="party.html">Partner</a></li>
+                <li><a href="party.html">Partners</a></li>
                 <li><a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="nav-donate">Donate</a></li>
             </ul>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <main>
-        <div class="container">
-            <div class="page-header">
-                <h1>About Us</h1>
-                <p>Our story, our mission, and the people who make it possible.</p>
-            </div>
+    <main id="main">
+        <header class="page-header wrap">
+            <h1>About us</h1>
+            <p>Our story, our mission, and the people who make it possible.</p>
+        </header>
 
-            <section class="about-block">
-                <img src="images/0729_1.jpg" alt="A Better Way Out team members" class="about-photo" loading="lazy" width="1080" height="810">
-                <p>Our story begins with a simple belief: young people deserve more than judgment; they deserve understanding, opportunity, and hope. Our organization was built by individuals who have walked the very paths we now guide others through. Our team is led by mentors whose shared lived experiences reflect the realities faced by many of the youth we serve. They know what it means to struggle with identity, navigate generational trauma, overcome harmful environments, and rebuild life after stepping back into the community.</p>
-                <p>Each mentor carries a personal story of mistakes made, lessons learned, families impacted, and a healing journey that reshaped their purpose. Their experiences are not just history; they are tools. Tools that empower them to meet young people with empathy, cultural awareness, and a deep understanding of what it takes to break cycles that have lasted for generations.</p>
-                <p>We understand how cultural identity, family systems, community pressures, and past trauma can shape a young person's choices. Many of our team members have lived through environments marked by violence, instability, and harmful influences. Some have faced the heavy challenges of reentry, rebuilding trust, and redefining themselves after incarceration. These journeys fuel our passion to serve not from a distance, but from a place of authentic connection.</p>
-                <p class="about-gap">A Better Way Out exists to stand in that gap.</p>
-                <p>To offer non-judgmental, trauma-informed support to young people who are actively involved in or at risk of influences that may harm their future. We meet youth where they are, without shame or labels. Through mentorship, community connections, and compassionate guidance, we help them build hope, resilience, and a new vision for their lives.</p>
-                <p class="about-tag">This is more than a program. It is a movement of healing, restoration, second chances and A Better Way Out led by people who know firsthand that transformation is possible.</p>
-            </section>
-
-            <!-- ============================================================
-                 LEADERSHIP & BOARD
-                 To add another board member, copy the <div class="person">
-                 block below, paste it after the last one, and swap out the
-                 image, name, role, and bio paragraphs.
-                 ============================================================ -->
-            <section class="leadership-block" id="leadership">
-                <h2 class="leadership-heading">Leadership &amp; Board</h2>
-                <p class="leadership-sub">The people behind the mission</p>
-
-                <div class="person">
-                    <img src="images/meeeeeee1111.jpg"
-                         alt="David Garcia, Founder and Executive Director of A Better Way Out"
-                         class="person-photo" loading="lazy" width="750" height="700">
-                    <div class="person-bio">
-                        <h3 class="person-name">David Garcia</h3>
-                        <p class="person-role">Founder &amp; Executive Director</p>
-                        <p>David Garcia is the founder and Executive Director of <strong>A Better Way Out</strong>, a Washington State nonprofit dedicated to empowering at-risk youth and returning citizens in Whatcom County. Freed from a life marked by trauma, gang affiliation, and drug trafficking, David's story is not one of self-improvement; it is one of redemption by the mercy and grace of God.</p>
-                        <p>That transformation is the fuel behind everything A Better Way Out does, because David knows firsthand that when God changes a life, He changes it completely. He leads this organization with the authority of someone who has lived the struggle, found the way out, and now dedicates his life to showing others that the same freedom is possible for them.</p>
+        <section class="section story" aria-label="Our story">
+            <div class="wrap">
+                <figure class="photo story-photo">
+                    <img src="images/0729_1.jpg" alt="Four men and a woman from A Better Way Out standing together, arms around each other" width="1080" height="810" loading="lazy">
+                </figure>
+                <div class="story-text">
+                    <div class="prose">
+                        <p>Our story begins with a simple belief: young people deserve more than judgment; they deserve understanding, opportunity, and hope. Our organization was built by individuals who have walked the very paths we now guide others through. Our team is led by mentors whose shared lived experiences reflect the realities faced by many of the youth we serve. They know what it means to struggle with identity, navigate generational trauma, overcome harmful environments, and rebuild life after stepping back into the community.</p>
+                        <p>Each mentor carries a personal story of mistakes made, lessons learned, families impacted, and a healing journey that reshaped their purpose. Their experiences are not just history; they are tools. Tools that empower them to meet young people with empathy, cultural awareness, and a deep understanding of what it takes to break cycles that have lasted for generations.</p>
+                        <p>We understand how cultural identity, family systems, community pressures, and past trauma can shape a young person&rsquo;s choices. Many of our team members have lived through environments marked by violence, instability, and harmful influences. Some have faced the heavy challenges of reentry, rebuilding trust, and redefining themselves after incarceration. These journeys fuel our passion to serve not from a distance, but from a place of authentic connection.</p>
+                        <p class="story-gap">A Better Way Out exists to stand in that gap.</p>
+                        <p>To offer non-judgmental, trauma-informed support to young people who are actively involved in or at risk of influences that may harm their future. We meet youth where they are, without shame or labels. Through mentorship, community connections, and compassionate guidance, we help them build hope, resilience, and a new vision for their lives.</p>
+                        <p class="story-close">This is more than a program. It is a movement of healing, restoration, second chances and A Better Way Out led by people who know firsthand that transformation is possible.</p>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="person">
-                    <img src="images/bernabe-garcia.jpg"
-                         alt="Bernabe Garcia, Board Member and Youth Ministry Leader at A Better Way Out"
-                         class="person-photo" loading="lazy" width="560" height="744">
-                    <div class="person-bio">
+        <!-- ============================================================
+             LEADERSHIP & BOARD
+             To add another board member, copy the <article class="person">
+             block below, paste it after the last one, and swap out the
+             image, name, role, and bio paragraphs.
+             ============================================================ -->
+        <section class="section leadership" id="leadership" aria-labelledby="leadership-title">
+            <div class="wrap">
+                <h2 id="leadership-title">Leadership &amp; board</h2>
+                <p class="lead-sub">The people behind the mission.</p>
+
+                <article class="person">
+                    <img src="images/meeeeeee1111.jpg" alt="Portrait of David Garcia" class="person-photo" loading="lazy" width="750" height="700">
+                    <div class="person-head">
+                        <h3 class="person-name">David Garcia</h3>
+                        <p class="person-role">Founder &amp; Executive Director</p>
+                    </div>
+                    <div class="person-bio prose">
+                        <p>David Garcia is the founder and Executive Director of <strong>A Better Way Out</strong>, a Washington State nonprofit dedicated to empowering at-risk youth and returning citizens in Whatcom County. Freed from a life marked by trauma, gang affiliation, and drug trafficking, David&rsquo;s story is not one of self-improvement; it is one of redemption by the mercy and grace of God.</p>
+                        <p>That transformation is the fuel behind everything A Better Way Out does, because David knows firsthand that when God changes a life, He changes it completely. He leads this organization with the authority of someone who has lived the struggle, found the way out, and now dedicates his life to showing others that the same freedom is possible for them.</p>
+                    </div>
+                </article>
+
+                <article class="person">
+                    <img src="images/bernabe-garcia.jpg" alt="Portrait of Bernabe Garcia" class="person-photo" loading="lazy" width="560" height="744">
+                    <div class="person-head">
                         <h3 class="person-name">Bernabe Garcia</h3>
-                        <p class="person-role">Board Member &middot; Youth Ministry Leader</p>
+                        <p class="person-role">Board Member<br>Youth Ministry Leader</p>
+                    </div>
+                    <div class="person-bio prose">
                         <p>For nearly 50 years, Bernabe Garcia has called Whatcom County home, raised in the town of Lynden as part of a proud immigrant family. As the wife of David Garcia, founder of <strong>A Better Way Out</strong>, she has led youth ministry since 2009 &mdash; first known as Gang Out Ministries and now as A Better Way Out &mdash; faithfully serving the community for 17 years.</p>
                         <p>Bernabe carries a powerful testimony of her own deliverance, rescued by the Lord in 2006 from addiction, abuse, and homelessness through a supernatural dream that changed her life. She now shares that testimony boldly, showing others that they too can be saved and delivered through the power of Jesus Christ, and remains passionate about seeing the people of her community encounter Him.</p>
                     </div>
-                </div>
+                </article>
 
-                <div class="person">
-                    <img src="images/Mona.jpg"
-                         alt="Mona Galindo, Board Member of A Better Way Out"
-                         class="person-photo" loading="lazy" width="226" height="225">
-                    <div class="person-bio">
+                <article class="person">
+                    <img src="images/Mona.jpg" alt="Portrait of Mona Galindo" class="person-photo" loading="lazy" width="226" height="225">
+                    <div class="person-head">
                         <h3 class="person-name">Mona Galindo</h3>
-                        <p class="person-role">Board Member &middot; Executive Director &amp; Founder of Sent Ones Ministry</p>
+                        <p class="person-role">Board Member<br>Executive Director &amp; Founder of Sent Ones Ministry</p>
+                    </div>
+                    <div class="person-bio prose">
                         <p>As a board member of <strong>A Better Way Out</strong>, Mona is honored to support its work of empowering youth and strengthening the community. She believes meaningful change begins with meeting people where they are, building genuine relationships, and working together to make sure people feel seen and valued.</p>
                         <p>She is passionate about supporting community-driven efforts that create lasting impact.</p>
                     </div>
-                </div>
+                </article>
 
-                <div class="person">
-                    <img src="images/Armando.jpg"
-                         alt="Armando, Board Member of A Better Way Out"
-                         class="person-photo" loading="lazy" width="750" height="1000">
-                    <div class="person-bio">
+                <article class="person">
+                    <img src="images/Armando.jpg" alt="Portrait of Armando in front of the A Better Way Out tree emblem" class="person-photo" loading="lazy" width="750" height="1000">
+                    <div class="person-head">
                         <h3 class="person-name">Armando</h3>
                         <p class="person-role">Board Member</p>
+                    </div>
+                    <div class="person-bio prose">
                         <p>Armando grew up in Whatcom County, the son of immigrant parents who worked hard to give their family a better life. But behind closed doors, abuse from those in positions of authority left deep wounds &mdash; wounds that led him down a painful path into gangs and drugs. For years, that was the only life he knew, until it finally brought him to rock bottom, and to prison.</p>
                         <p>It was there, stripped of everything, that Armando found the one person that never let him go. He gave his life to God, and from that moment, everything began to change. Today he&rsquo;s grateful for a life he once couldn&rsquo;t have imagined: a loving family, a home, and a peace he never knew growing up.</p>
                         <p>Armando serves on the board of <strong>A Better Way Out</strong> because he knows firsthand what it means to feel lost, and what it means to be found. He&rsquo;s passionate about giving young people in our community the same hope, grace, understanding, and love that turned his own life around, because he believes every person deserves the chance at a better way out.</p>
                     </div>
-                </div>
+                </article>
 
                 <!-- ---- TEMPLATE: copy this block for the next board member ----
-                <div class="person">
-                    <img src="images/FILENAME.jpg"
-                         alt="Full Name, Role at A Better Way Out"
-                         class="person-photo" loading="lazy">
-                    <div class="person-bio">
+                <article class="person">
+                    <img src="images/FILENAME.jpg" alt="Portrait of Full Name" class="person-photo" loading="lazy">
+                    <div class="person-head">
                         <h3 class="person-name">Full Name</h3>
                         <p class="person-role">Board Member</p>
+                    </div>
+                    <div class="person-bio prose">
                         <p>Bio paragraph goes here.</p>
                     </div>
-                </div>
+                </article>
                 ------------------------------------------------------------- -->
-            </section>
-
-            <!-- CTA Row — Donate + Volunteer (shown on every page) -->
-            <div class="cta-row">
-                <section class="support-section">
-                    <h2>Support Our Mission</h2>
-                    <p>Your donation directly impacts the lives of at-risk youth in our community. Every contribution helps us provide mentorship, support, and hope to those who need it most.</p>
-                    <div>
-                        <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="btn-donate">Donate Now</a>
-                    </div>
-                </section>
-
-                <section class="volunteer-section">
-                    <h2>Volunteer With Us</h2>
-                    <p>Making a difference, one life at a time. Join our community of mentors and helpers who walk alongside the youth we serve.</p>
-                    <div>
-                        <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" class="btn-involve">Get Involved</a>
-                    </div>
-                </section>
             </div>
-        </div>
+        </section>
+
+        <!-- CTA — Donate + Volunteer (shown on every page) -->
+        <section class="cta-row" aria-labelledby="cta-title">
+            <img class="cta-roots" src="images/logo-mark-360.webp" alt="" width="360" height="355" loading="lazy">
+            <div class="wrap">
+                <h2 class="cta-title" id="cta-title">Walk with the next young person who needs a way out.</h2>
+                <div class="support-section">
+                    <h3>Give</h3>
+                    <p>Your donation goes straight into mentorship, outreach, and family support for young people in Whatcom County. Donations are tax-deductible.</p>
+                    <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="btn-donate">Donate on Zeffy</a>
+                </div>
+                <div class="volunteer-section">
+                    <h3>Volunteer</h3>
+                    <p>Serve at outreach days, staff a booth, or mentor. Message us on Facebook and we&rsquo;ll tell you what&rsquo;s coming up.</p>
+                    <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" class="btn-involve">Message us on Facebook</a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="site-footer">
-        <div class="footer-container">
-
-            <div class="footer-brand">
-                <img src="images/logo-sm.png" alt="A Better Way Out logo" width="120" height="120" loading="lazy">
-                <h2>A Better Way Out</h2>
-                <p>Empowering at-risk youth in Washington through trauma-informed mentorship, education, and support — led by mentors with lived experience.</p>
-            </div>
-
-            <div class="footer-columns">
-                <section class="footer-col">
-                    <h3>Discover Us</h3>
+        <div class="wrap">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo-mark-112.webp" alt="" width="72" height="71" loading="lazy">
+                    <h2>A Better Way Out</h2>
+                    <p>Trauma-informed mentorship for young people in Whatcom County, Washington &mdash; led by mentors with lived experience.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Who we are</h3>
                     <ul>
-                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="about.html">About us</a></li>
+                        <li><a href="about.html#leadership">Leadership &amp; board</a></li>
                         <li><a href="services.html">Services</a></li>
                         <li><a href="party.html">Partners</a></li>
                     </ul>
-                </section>
-
-                <section class="footer-col">
-                    <h3>Our Impact</h3>
+                </div>
+                <div class="footer-col">
+                    <h3>What we do</h3>
                     <ul>
                         <li><a href="events.html">Events</a></li>
                         <li><a href="interviews.html">Interviews</a></li>
                     </ul>
-                </section>
-
-                <section class="footer-col">
-                    <h3>Get Involved</h3>
+                </div>
+                <div class="footer-col">
+                    <h3>Get in touch</h3>
                     <ul>
-                        <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Volunteer</a></li>
+                        <li><a href="mailto:abetterwayoutwa@gmail.com">abetterwayoutwa@gmail.com</a></li>
+                        <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Facebook</a></li>
                         <li><a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer">Donate</a></li>
                     </ul>
-                </section>
+                </div>
             </div>
-
             <div class="footer-bottom">
-                <p>&copy; 2026 A Better Way Out WA — All Rights Reserved</p>
-                <p class="ein">EIN: 92-1581139 — A 501(c)(3) Nonprofit &middot; <a href="privacy.html">Privacy Policy</a></p>
+                <p>&copy; 2026 A Better Way Out WA. A 501(c)(3) nonprofit, EIN 92-1581139.</p>
+                <p><a href="privacy.html">Privacy policy</a></p>
             </div>
         </div>
     </footer>

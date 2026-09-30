@@ -3,14 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy — A Better Way Out WA</title>
+        <title>Privacy Policy — A Better Way Out WA</title>
     <link rel="canonical" href="https://www.abetterwayoutwa.org/privacy.html">
-    <link rel="icon" href="images/favicon/favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
-    <link rel="manifest" href="images/favicon/site.webmanifest">
-    <meta name="theme-color" content="#03b8d4">
+    <meta name="theme-color" content="#eef0ec">
     <meta name="description" content="How A Better Way Out WA collects, uses, and protects information from visitors, subscribers, and donors.">
     <!-- Open Graph / social sharing -->
     <meta property="og:type" content="website">
@@ -24,202 +19,181 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="A Better Way Out WA — empowering at-risk youth in Whatcom County, Washington">
     <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" href="images/favicon/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
     <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="preload" href="fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/literata.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="shared.css">
     <style>
-        body { background: #e0f7fa; }
-
-        .policy {
-            background: #fff;
-            border-radius: 20px;
-            padding: 44px 38px;
-            margin-bottom: 26px;
-            max-width: 820px;
-            margin-left: auto;
-            margin-right: auto;
-            box-shadow: 0 4px 20px rgba(13,33,55,0.06);
+        .policy-wrap {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            column-gap: 24px;
         }
-        .policy-updated {
-            color: #718096;
-            font-size: 0.9em;
-            font-weight: 600;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            margin-bottom: 26px;
-        }
-        .policy h2 {
-            font-size: 1.3em;
-            font-weight: 800;
-            color: #0d2137;
-            margin: 32px 0 10px;
-        }
-        .policy h2:first-of-type { margin-top: 0; }
-        .policy p, .policy li {
-            font-size: 1em;
-            color: #4a5568;
-            line-height: 1.8;
-        }
-        .policy p { margin-bottom: 14px; }
-        .policy ul { margin: 0 0 14px 22px; }
-        .policy li { margin-bottom: 6px; }
-        .policy a { color: #0099b8; font-weight: 600; text-decoration: none; }
-        .policy a:hover { text-decoration: underline; }
-        .policy .contact-box {
-            background: #e0f7fa;
-            border-radius: 12px;
-            padding: 18px 22px;
-            margin-top: 8px;
-        }
-        .policy .contact-box p { margin-bottom: 4px; }
-
-        @media (max-width: 680px) {
-            .policy { padding: 30px 22px; }
-            .policy h2 { font-size: 1.15em; }
-        }
+        .policy { grid-column: 4 / span 7; font-size: 1.0625rem; }
+        .policy-updated { font-family: var(--ui); color: var(--ink-mute); font-size: .95rem; padding-bottom: 24px; border-bottom: 1px solid var(--ink); }
+        .policy h2 { font-size: var(--step-2); margin: 2.2em 0 .7em; }
+        .policy p { color: var(--ink-soft); }
+        .policy p + p { margin-top: 1em; }
+        .policy ul { margin: .8em 0 0 1.2em; color: var(--ink-soft); }
+        .policy li + li { margin-top: .6em; }
+        .policy strong { color: var(--ink); font-weight: 600; }
+        .contact-box { border-top: 2px solid var(--ochre); padding-top: 18px; font-family: var(--ui); }
+        .contact-box p + p { margin-top: .2em; }
+        @media (max-width: 860px) { .policy { grid-column: 1 / -1; } }
     </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="navbar-inner">
-            <button class="mobile-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
-                <span></span><span></span><span></span>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="wrap">
+            <a class="brand" href="index.html" aria-label="A Better Way Out — home">
+                <img src="images/logo-mark-112.webp" alt="" width="56" height="55">
+                <span>A Better Way Out</span>
+            </a>
+            <button class="mobile-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+                <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+                Menu
             </button>
-            <ul class="navbar-menu">
+            <nav aria-label="Main">
+            <ul class="navbar-menu" id="primary-menu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="events.html">Events</a></li>
                 <li><a href="interviews.html">Interviews</a></li>
-                <li><a href="party.html">Partner</a></li>
+                <li><a href="party.html">Partners</a></li>
                 <li><a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="nav-donate">Donate</a></li>
             </ul>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <main>
-        <div class="container">
-            <div class="page-header">
-                <h1>Privacy Policy</h1>
-                <p>We keep this simple because what we collect is simple. Here is exactly what happens with your information when you visit abetterwayoutwa.org.</p>
+    <main id="main">
+        <header class="page-header wrap">
+            <h1>Privacy policy</h1>
+            <p>We keep this simple because what we collect is simple. Here is exactly what happens with your information when you visit abetterwayoutwa.org.</p>
+        </header>
+
+        <section class="section">
+            <div class="wrap policy-wrap">
+                <article class="policy">
+                    <p class="policy-updated">Last updated: September 30, 2026</p>
+
+                    <h2>Who we are</h2>
+                    <p>A Better Way Out WA is a 501(c)(3) nonprofit organization (EIN 92-1581139) based in Whatcom County, Washington. This policy covers the website at abetterwayoutwa.org. It does not cover our Facebook page, our YouTube channel, or the donation platform we use, each of which has its own privacy policy.</p>
+
+                    <h2>Information you give us</h2>
+                    <p>The only place on this site where you can enter personal information is the <strong>Stay Connected</strong> newsletter form on our home page. If you fill it out, we receive the email address (and any name) you provide.</p>
+                    <p>We use it for one purpose: sending you occasional updates about our programs, events, and the people we serve. We do not add you to any other list. You can unsubscribe at any time by emailing us at the address below, and we will remove you promptly.</p>
+                    <p>The form itself is provided by Google Forms, so your submission is stored in a Google account we control and is also subject to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's privacy policy</a>.</p>
+
+                    <h2>Information collected automatically</h2>
+                    <p>Like most websites, we use <strong>Google Analytics</strong> to understand how the site is used &mdash; which pages people visit, how long they stay, roughly where they are (city level), and what kind of device and browser they use. This helps us see whether the site is working and which content is useful.</p>
+                    <p>Google Analytics uses cookies and similar technologies to do this. The data we see is aggregated and does not identify you by name. We do not use it for advertising, we have not enabled Google's advertising or remarketing features, and we do not link it to any information from the newsletter form.</p>
+                    <p>You can read how Google handles this data at <a href="https://www.google.com/policies/privacy/partners/" target="_blank" rel="noopener noreferrer">How Google uses information from sites or apps that use our services</a>, and you can opt out entirely with the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics opt-out browser add-on</a>.</p>
+                    <p>Our site is hosted on GitHub Pages, which may log basic technical information such as IP addresses for security and operational purposes. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub's privacy statement</a>.</p>
+
+                    <h2>Third-party services on this site</h2>
+                    <p>A few parts of the site are provided by other companies. When you use them, their privacy policies apply:</p>
+                    <ul>
+                        <li><strong>Zeffy</strong> &mdash; our donation platform. Clicking "Donate" takes you to Zeffy's website, where the transaction happens. See <a href="https://www.zeffy.com/en-US/privacy-policy" target="_blank" rel="noopener noreferrer">Zeffy's privacy policy</a>.</li>
+                        <li><strong>YouTube</strong> &mdash; embedded videos on our Events and Interviews pages. We use YouTube's privacy-enhanced mode, which means YouTube does not set tracking cookies until you actually press play.</li>
+                        <li><strong>Fonts</strong> &mdash; the typefaces on this site are stored on our own site, so loading a page does not send a request to Google Fonts or any other font service.</li>
+                        <li><strong>Facebook</strong> &mdash; we link to our Facebook page for volunteering and event updates. We do not embed Facebook tracking on this site.</li>
+                    </ul>
+
+                    <h2>Donations</h2>
+                    <p>We never see or store your credit card or bank information. All payment processing is handled by Zeffy. What we receive from Zeffy is your name, email address, donation amount, and date, which we use to thank you, to issue tax receipts, and to keep the records a nonprofit is required to keep.</p>
+                    <p>We do not publish donor names or amounts without your explicit permission.</p>
+
+                    <h2>What we do not do</h2>
+                    <ul>
+                        <li>We do not sell, rent, or trade your information to anyone.</li>
+                        <li>We do not share donor or subscriber lists with other organizations.</li>
+                        <li>We do not run advertising on this site or use your data to target ads elsewhere.</li>
+                        <li>We do not knowingly collect personal information from children under 13 through this website. Our youth programs are coordinated in person and through parents and guardians, not through online forms.</li>
+                    </ul>
+
+                    <h2>Your choices and your rights</h2>
+                    <p>You can ask us at any time to tell you what information we hold about you, to correct it, or to delete it. For newsletter subscribers, that means removing you from the list. For donors, we may need to keep certain records for tax and accounting purposes, but we will tell you exactly what and why.</p>
+                    <p>You can also block or clear cookies in your browser settings. The site will still work; we just won't be able to count your visit.</p>
+
+                    <h2>Changes to this policy</h2>
+                    <p>If we add a new form, tool, or service that changes what we collect, we will update this page and change the date at the top. We will not quietly expand what we do with your information.</p>
+
+                    <h2>Contact</h2>
+                    <div class="contact-box">
+                        <p><strong>A Better Way Out WA</strong></p>
+                        <p>Email: <a href="mailto:abetterwayoutwa@gmail.com">abetterwayoutwa@gmail.com</a></p>
+                        <p>Ferndale, Washington</p>
+                    </div>
+            </article>
             </div>
+        </section>
 
-            <section class="policy">
-                <p class="policy-updated">Last updated: September 2, 2026</p>
-
-                <h2>Who we are</h2>
-                <p>A Better Way Out WA is a 501(c)(3) nonprofit organization (EIN 92-1581139) based in Whatcom County, Washington. This policy covers the website at abetterwayoutwa.org. It does not cover our Facebook page, our YouTube channel, or the donation platform we use, each of which has its own privacy policy.</p>
-
-                <h2>Information you give us</h2>
-                <p>The only place on this site where you can enter personal information is the <strong>Stay Connected</strong> newsletter form on our home page. If you fill it out, we receive the email address (and any name) you provide.</p>
-                <p>We use it for one purpose: sending you occasional updates about our programs, events, and the people we serve. We do not add you to any other list. You can unsubscribe at any time by emailing us at the address below, and we will remove you promptly.</p>
-                <p>The form itself is provided by Google Forms, so your submission is stored in a Google account we control and is also subject to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's privacy policy</a>.</p>
-
-                <h2>Information collected automatically</h2>
-                <p>Like most websites, we use <strong>Google Analytics</strong> to understand how the site is used &mdash; which pages people visit, how long they stay, roughly where they are (city level), and what kind of device and browser they use. This helps us see whether the site is working and which content is useful.</p>
-                <p>Google Analytics uses cookies and similar technologies to do this. The data we see is aggregated and does not identify you by name. We do not use it for advertising, we have not enabled Google's advertising or remarketing features, and we do not link it to any information from the newsletter form.</p>
-                <p>You can read how Google handles this data at <a href="https://www.google.com/policies/privacy/partners/" target="_blank" rel="noopener noreferrer">How Google uses information from sites or apps that use our services</a>, and you can opt out entirely with the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics opt-out browser add-on</a>.</p>
-                <p>Our site is hosted on GitHub Pages, which may log basic technical information such as IP addresses for security and operational purposes. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub's privacy statement</a>.</p>
-
-                <h2>Third-party services on this site</h2>
-                <p>A few parts of the site are provided by other companies. When you use them, their privacy policies apply:</p>
-                <ul>
-                    <li><strong>Zeffy</strong> &mdash; our donation platform. Clicking "Donate" takes you to Zeffy's website, where the transaction happens. See <a href="https://www.zeffy.com/en-US/privacy-policy" target="_blank" rel="noopener noreferrer">Zeffy's privacy policy</a>.</li>
-                    <li><strong>YouTube</strong> &mdash; embedded videos on our Events and Interviews pages. We use YouTube's privacy-enhanced mode, which means YouTube does not set tracking cookies until you actually press play.</li>
-                    <li><strong>Google Fonts</strong> &mdash; the typefaces on this site are loaded from Google's servers, which means your browser sends a request to Google when a page loads.</li>
-                    <li><strong>Facebook</strong> &mdash; we link to our Facebook page for volunteering and event updates. We do not embed Facebook tracking on this site.</li>
-                </ul>
-
-                <h2>Donations</h2>
-                <p>We never see or store your credit card or bank information. All payment processing is handled by Zeffy. What we receive from Zeffy is your name, email address, donation amount, and date, which we use to thank you, to issue tax receipts, and to keep the records a nonprofit is required to keep.</p>
-                <p>We do not publish donor names or amounts without your explicit permission.</p>
-
-                <h2>What we do not do</h2>
-                <ul>
-                    <li>We do not sell, rent, or trade your information to anyone.</li>
-                    <li>We do not share donor or subscriber lists with other organizations.</li>
-                    <li>We do not run advertising on this site or use your data to target ads elsewhere.</li>
-                    <li>We do not knowingly collect personal information from children under 13 through this website. Our youth programs are coordinated in person and through parents and guardians, not through online forms.</li>
-                </ul>
-
-                <h2>Your choices and your rights</h2>
-                <p>You can ask us at any time to tell you what information we hold about you, to correct it, or to delete it. For newsletter subscribers, that means removing you from the list. For donors, we may need to keep certain records for tax and accounting purposes, but we will tell you exactly what and why.</p>
-                <p>You can also block or clear cookies in your browser settings. The site will still work; we just won't be able to count your visit.</p>
-
-                <h2>Changes to this policy</h2>
-                <p>If we add a new form, tool, or service that changes what we collect, we will update this page and change the date at the top. We will not quietly expand what we do with your information.</p>
-
-                <h2>Contact</h2>
-                <div class="contact-box">
-                    <p><strong>A Better Way Out WA</strong></p>
-                    <p>Email: <a href="mailto:abetterwayoutwa@gmail.com">abetterwayoutwa@gmail.com</a></p>
-                    <p>Ferndale, Washington</p>
+        <!-- CTA — Donate + Volunteer (shown on every page) -->
+        <section class="cta-row" aria-labelledby="cta-title">
+            <img class="cta-roots" src="images/logo-mark-360.webp" alt="" width="360" height="355" loading="lazy">
+            <div class="wrap">
+                <h2 class="cta-title" id="cta-title">Walk with the next young person who needs a way out.</h2>
+                <div class="support-section">
+                    <h3>Give</h3>
+                    <p>Your donation goes straight into mentorship, outreach, and family support for young people in Whatcom County. Donations are tax-deductible.</p>
+                    <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="btn-donate">Donate on Zeffy</a>
                 </div>
-            </section>
-
-            <!-- CTA Row — Donate + Volunteer (shown on every page) -->
-            <div class="cta-row">
-                <section class="support-section">
-                    <h2>Support Our Mission</h2>
-                    <p>Your donation directly impacts the lives of at-risk youth in our community. Every contribution helps us provide mentorship, support, and hope to those who need it most.</p>
-                    <div>
-                        <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="btn-donate">Donate Now</a>
-                    </div>
-                </section>
-
-                <section class="volunteer-section">
-                    <h2>Volunteer With Us</h2>
-                    <p>Making a difference, one life at a time. Join our community of mentors and helpers who walk alongside the youth we serve.</p>
-                    <div>
-                        <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" class="btn-involve">Get Involved</a>
-                    </div>
-                </section>
+                <div class="volunteer-section">
+                    <h3>Volunteer</h3>
+                    <p>Serve at outreach days, staff a booth, or mentor. Message us on Facebook and we&rsquo;ll tell you what&rsquo;s coming up.</p>
+                    <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" class="btn-involve">Message us on Facebook</a>
+                </div>
             </div>
-        </div>
+        </section>
     </main>
 
     <footer class="site-footer">
-        <div class="footer-container">
-
-            <div class="footer-brand">
-                <img src="images/logo-sm.png" alt="A Better Way Out logo" width="120" height="120" loading="lazy">
-                <h2>A Better Way Out</h2>
-                <p>Empowering at-risk youth in Washington through trauma-informed mentorship, education, and support — led by mentors with lived experience.</p>
-            </div>
-
-            <div class="footer-columns">
-                <section class="footer-col">
-                    <h3>Discover Us</h3>
+        <div class="wrap">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo-mark-112.webp" alt="" width="72" height="71" loading="lazy">
+                    <h2>A Better Way Out</h2>
+                    <p>Trauma-informed mentorship for young people in Whatcom County, Washington &mdash; led by mentors with lived experience.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Who we are</h3>
                     <ul>
-                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="about.html">About us</a></li>
+                        <li><a href="about.html#leadership">Leadership &amp; board</a></li>
                         <li><a href="services.html">Services</a></li>
                         <li><a href="party.html">Partners</a></li>
                     </ul>
-                </section>
-
-                <section class="footer-col">
-                    <h3>Our Impact</h3>
+                </div>
+                <div class="footer-col">
+                    <h3>What we do</h3>
                     <ul>
                         <li><a href="events.html">Events</a></li>
                         <li><a href="interviews.html">Interviews</a></li>
                     </ul>
-                </section>
-
-                <section class="footer-col">
-                    <h3>Get Involved</h3>
+                </div>
+                <div class="footer-col">
+                    <h3>Get in touch</h3>
                     <ul>
-                        <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Volunteer</a></li>
+                        <li><a href="mailto:abetterwayoutwa@gmail.com">abetterwayoutwa@gmail.com</a></li>
+                        <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Facebook</a></li>
                         <li><a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer">Donate</a></li>
                     </ul>
-                </section>
+                </div>
             </div>
-
             <div class="footer-bottom">
-                <p>&copy; 2026 A Better Way Out WA — All Rights Reserved</p>
-                <p class="ein">EIN: 92-1581139 — A 501(c)(3) Nonprofit &middot; <a href="privacy.html">Privacy Policy</a></p>
+                <p>&copy; 2026 A Better Way Out WA. A 501(c)(3) nonprofit, EIN 92-1581139.</p>
+                <p><a href="privacy.html">Privacy policy</a></p>
             </div>
         </div>
     </footer>
