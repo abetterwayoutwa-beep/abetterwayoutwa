@@ -38,10 +38,16 @@
             padding: clamp(32px, 4vw, 56px) 0;
             border-bottom: 1px solid var(--line);
         }
-        .service h2 { grid-column: 1 / span 5; font-size: var(--step-3); }
-        .service p { grid-column: 7 / span 6; font-size: 1.125rem; color: var(--ink-soft); max-width: 58ch; }
+        .service h2 { grid-column: 1 / span 5; grid-row: 1; font-size: var(--step-3); }
+        .service img {
+            grid-column: 1 / span 5; grid-row: 2;
+            width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+            border-radius: var(--radius-s); background: var(--paper-2);
+            margin-top: 12px;
+        }
+        .service p { grid-column: 7 / span 6; grid-row: 1 / span 2; font-size: 1.125rem; color: var(--ink-soft); max-width: 58ch; }
         .service:hover h2 { color: var(--ring); }
-        @media (max-width: 760px) { .service h2, .service p { grid-column: 1 / -1; } }
+        @media (max-width: 760px) { .service h2, .service img, .service p { grid-column: 1 / -1; grid-row: auto; } .service img { margin-top: 4px; } }
 
         .section.approach { background: var(--paper-2); padding-top: clamp(64px, 9vw, 128px); }
         .approach .wrap {
@@ -54,7 +60,7 @@
         .approach-text h2 { font-size: var(--step-4); margin-bottom: 24px; }
         .approach-text p { color: var(--ink-soft); font-size: 1.125rem; max-width: 46ch; }
         .approach .photo { grid-column: 7 / span 6; }
-        .approach .photo img { aspect-ratio: 3 / 2; object-fit: cover; }
+        .approach .photo img { aspect-ratio: 4 / 3; object-fit: cover; }
         @media (max-width: 860px) { .approach-text, .approach .photo { grid-column: 1 / -1; } }
     </style>
 </head>
@@ -97,18 +103,22 @@
                 <div class="service-list">
                     <article class="service">
                         <h2>Mental health support</h2>
+                        <img src="images/svc-mental-health.jpg" alt="A workshop leader talking with young people around a table at the library" width="1200" height="900" loading="lazy">
                         <p>Understanding that emotional well-being is essential, we offer resources and supportive mentorship to help individuals manage stress, trauma, anxiety, and life pressures. Our team provides practical coping tools, check-ins, and connections to trusted mental health partners when needed.</p>
                     </article>
                     <article class="service">
                         <h2>Personal connections</h2>
+                        <img src="images/svc-personal-connections.jpg" alt="A volunteer and an older man with a white beard smiling together on a downtown sidewalk" width="1080" height="810" loading="lazy">
                         <p>We believe real change begins with genuine relationships. Our mentors and volunteers walk alongside individuals through one-on-one conversations, guidance, and consistent encouragement. We create safe spaces where people feel heard, valued, and supported.</p>
                     </article>
                     <article class="service">
                         <h2>Family support</h2>
+                        <img src="images/svc-family-support.jpg" alt="Family members preparing food together around a table at home" width="830" height="622" loading="lazy">
                         <p>Healthy families strengthen communities. We come alongside parents, guardians, and youth to build stronger communication, restore trust, and promote healthier home environments. Through mentorship and workshops, we help families grow together.</p>
                     </article>
                     <article class="service">
                         <h2>Community connections</h2>
+                        <img src="images/svc-community-connections.jpg" alt="Volunteers handing out supplies from wagons on a downtown street corner" width="946" height="710" loading="lazy">
                         <p>No one thrives alone. We connect individuals to local organizations, churches, businesses, and resources that can support their journey toward stability and success &mdash; employment, education, housing assistance, and community involvement.</p>
                     </article>
                 </div>
@@ -122,8 +132,7 @@
                     <p>Our services are powered by mentors and volunteers who understand the realities of struggle, growth, and transformation because many of them have lived it themselves. Their firsthand experience allows them to connect authentically, inspire hope, and guide others through challenges with compassion and wisdom.</p>
                 </div>
                 <figure class="photo">
-                    <img src="images/street-outreach-2026-09-2.jpg" alt="Two volunteers in A Better Way Out shirts preparing supply bags on a downtown sidewalk" width="1160" height="773" loading="lazy">
-                    <figcaption>Volunteers preparing supply bags before street outreach in Bellingham.</figcaption>
+                    <img src="images/svc-mentors.jpg" alt="David Garcia and a team member working through papers at a kitchen table" width="752" height="564" loading="lazy">
                 </figure>
             </div>
         </section>
