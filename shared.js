@@ -206,10 +206,6 @@
     heads.forEach(split);
 
     // --- Mark photographs and supporting copy -------------------
-    document.querySelectorAll('figure.photo img, .person-photo, .service img, .voices-thumb, .frame, .mission-mark img').forEach(function (el) {
-        if (el.closest('details') || el.closest('.frame') && !el.classList.contains('frame')) return;
-        el.classList.add('rv');
-    });
     document.querySelectorAll('[data-fade]').forEach(function (el) { el.classList.add('fade'); });
 
     // A fully clipped element never "intersects", so photographs are

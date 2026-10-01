@@ -767,8 +767,8 @@ figure.photo figcaption {
 .js .split .w > span {
     display: inline-block;
     transform: translateY(118%);
-    transition: transform 1s var(--ease-out);
-    transition-delay: calc(var(--i) * 42ms + var(--d, 0ms));
+    transition: transform .6s var(--ease-out);
+    transition-delay: calc(var(--i) * 28ms + var(--d, 0ms));
 }
 .js .split.in .w > span { transform: none; }
 

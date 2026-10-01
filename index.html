@@ -32,7 +32,7 @@
     <link rel="preload" href="fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="fonts/literata.woff2" as="font" type="font/woff2" crossorigin>
     <script>document.documentElement.className+=' js';setTimeout(function(){if(!window.__abwo)document.documentElement.classList.remove('js')},3000)</script>
-    <link rel="stylesheet" href="shared.css?v=3">
+    <link rel="stylesheet" href="shared.css?v=4">
     <style>
         /* ---------- Hero ---------- */
         .hero { padding-top: clamp(40px, 6vw, 88px); }
@@ -77,11 +77,6 @@
             }
         }
         @keyframes hero-drift { from { transform: translateY(-10.7%); } to { transform: translateY(0); } }
-        .js .hero-copy { opacity: 0; transform: translateY(16px); animation: hero-in 1s var(--ease-out) .55s forwards; }
-        .js .hero-photo .frame.rv { transition-delay: .35s; }
-        .js .hero-photo figcaption { opacity: 0; animation: hero-in 1s ease 1.3s forwards; }
-        @keyframes hero-in { to { opacity: 1; transform: none; } }
-        @media (prefers-reduced-motion: reduce) { .js .hero-copy, .js .hero-photo figcaption { opacity: 1; transform: none; animation: none; } }
         @media (max-width: 860px) {
             .hero-copy, .hero-photo { grid-column: 1 / -1; }
         }
@@ -192,14 +187,6 @@
         .ways-frame img.is-active { opacity: 1; transform: none; }
         .ways-foot { grid-column: 1 / -1; margin-top: 48px; }
         .ways-foot a { color: var(--ochre-light); font-family: var(--ui); font-weight: 600; }
-        @media (min-width: 901px) {
-            .js .way button { color: rgba(244,246,242,.34); }
-            .js .way.is-active button { color: #f4f6f2; transform: translateX(clamp(10px, 1.4vw, 22px)); }
-            .js .way-desc { grid-template-rows: 0fr; transition: grid-template-rows .6s var(--ease-out); }
-            .js .way-desc p { padding-bottom: 0; opacity: 0; transition: opacity .4s ease, padding .6s var(--ease-out); }
-            .js .way.is-active .way-desc { grid-template-rows: 1fr; }
-            .js .way.is-active .way-desc p { opacity: 1; padding-bottom: 30px; padding-left: clamp(10px, 1.4vw, 22px); }
-        }
         @media (max-width: 900px) {
             .ways-list { grid-column: 1 / -1; }
             .ways-frame { display: none; }
@@ -349,7 +336,7 @@
                 </div>
                 <div class="mission-text">
                     <h2 id="mission-title" class="visually-hidden">Our mission</h2>
-                    <p class="mission-say scrub">Our mission is to empower at-risk youth through mentorship, education, and support, providing them with a better way out toward a brighter future.</p>
+                    <p class="mission-say">Our mission is to empower at-risk youth through mentorship, education, and support, providing them with a better way out toward a brighter future.</p>
                     <div class="mission-more">
                         <div class="prose">
                             <p>Many of our mentors carry their own stories of gangs, addiction, prison, and rebuilding. They meet young people where they are, without shame or labels, and walk alongside them toward hope, resilience, and a new vision for their lives.</p>
@@ -505,6 +492,6 @@
         </div>
     </footer>
 
-    <script src="shared.js?v=3" defer></script>
+    <script src="shared.js?v=4" defer></script>
 </body>
 </html>
