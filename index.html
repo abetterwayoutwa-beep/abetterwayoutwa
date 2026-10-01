@@ -31,7 +31,8 @@
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preload" href="fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="fonts/literata.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="shared.css">
+    <script>document.documentElement.className+=' js';setTimeout(function(){if(!window.__abwo)document.documentElement.classList.remove('js')},3000)</script>
+    <link rel="stylesheet" href="shared.css?v=3">
     <style>
         /* ---------- Hero ---------- */
         .hero { padding-top: clamp(40px, 6vw, 88px); }
@@ -68,7 +69,19 @@
             max-width: 30ch;
         }
         .hero-photo { grid-column: 6 / span 7; }
-        .hero-photo img { aspect-ratio: 3 / 2; object-fit: cover; }
+        .hero-photo .frame { display: block; overflow: hidden; border-radius: var(--radius-s); aspect-ratio: 3 / 2; background: var(--paper-2); }
+        .hero-photo img { width: 100%; height: 112%; object-fit: cover; border-radius: 0; }
+        @supports (animation-timeline: view()) {
+            @media (prefers-reduced-motion: no-preference) {
+                .hero-photo img { animation: hero-drift linear both; animation-timeline: view(); animation-range: cover 0% cover 100%; }
+            }
+        }
+        @keyframes hero-drift { from { transform: translateY(-10.7%); } to { transform: translateY(0); } }
+        .js .hero-copy { opacity: 0; transform: translateY(16px); animation: hero-in 1s var(--ease-out) .55s forwards; }
+        .js .hero-photo .frame.rv { transition-delay: .35s; }
+        .js .hero-photo figcaption { opacity: 0; animation: hero-in 1s ease 1.3s forwards; }
+        @keyframes hero-in { to { opacity: 1; transform: none; } }
+        @media (prefers-reduced-motion: reduce) { .js .hero-copy, .js .hero-photo figcaption { opacity: 1; transform: none; animation: none; } }
         @media (max-width: 860px) {
             .hero-copy, .hero-photo { grid-column: 1 / -1; }
         }
@@ -95,7 +108,16 @@
             color: var(--ribbon);
         }
         .next-what { font-family: var(--ui); line-height: 1.4; }
-        .next-what small { display: block; font-size: 0.9rem; color: var(--ink-mute); }
+        .next-what small { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: var(--ink-mute); }
+        .next-count:not(:empty) { color: var(--ribbon); font-weight: 600; }
+        .next-count:not(:empty)::before { content: ""; display: inline-block; width: 18px; height: 1px; background: currentColor; vertical-align: middle; margin-right: 8px; }
+        .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--ribbon); position: relative; flex: none; }
+        @media (prefers-reduced-motion: no-preference) {
+            .pulse::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--ribbon); animation: pulse 2s ease-out infinite; }
+        }
+        @keyframes pulse { to { transform: scale(3.2); opacity: 0; } }
+        .next-event a { transition: padding .45s var(--ease-out); }
+        .next-event a:hover { padding-inline: 14px; }
         .next-what strong { display: block; font-size: 1.3rem; font-weight: 700; }
         .next-go {
             font-family: var(--ui);
@@ -118,33 +140,71 @@
             grid-template-columns: repeat(12, minmax(0, 1fr));
             column-gap: 24px;
             row-gap: 40px;
-            align-items: center;
+            align-items: start;
         }
-        .mission-mark { grid-column: 1 / span 4; }
-        .mission-mark img { width: 100%; max-width: 380px; margin-inline: auto; }
-        .mission-text { grid-column: 6 / span 7; }
-        .mission-text h2 { font-size: var(--step-4); margin-bottom: 32px; max-width: 14ch; }
-        .mission-text .prose { font-size: 1.125rem; margin-bottom: 32px; }
+        .mission-mark { grid-column: 1 / span 3; position: sticky; top: calc(var(--header-h) + 32px); }
+        .mission-mark img { width: 100%; max-width: 300px; }
+        .mission-text { grid-column: 5 / span 8; }
+        .mission-say {
+            font-family: var(--read);
+            font-weight: 500;
+            font-size: clamp(1.75rem, 1rem + 3vw, 3.6rem);
+            line-height: 1.16;
+            letter-spacing: -0.018em;
+            color: var(--ink);
+            margin-bottom: clamp(32px, 4vw, 56px);
+            text-wrap: balance;
+        }
+        .mission-say.is-scrub span { color: #b9c2bc; transition: color .35s ease; }
+        .mission-say.is-scrub span.on { color: var(--ink); }
+        .mission-more { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); column-gap: 24px; row-gap: 28px; }
+        .mission-more .prose { grid-column: 1 / span 5; font-size: 1.125rem; }
+        .mission-more .btn-ghost { grid-column: 1 / -1; justify-self: start; }
         @media (max-width: 860px) {
-            .mission-mark { grid-column: 1 / -1; }
-            .mission-mark img { max-width: 240px; margin: 0; }
+            .mission-mark { grid-column: 1 / -1; position: static; }
+            .mission-mark img { max-width: 160px; }
             .mission-text { grid-column: 1 / -1; }
+            .mission-more .prose { grid-column: 1 / -1; }
         }
 
         /* ---------- How we show up ---------- */
-        .ways .wrap > h2 { font-size: var(--step-4); max-width: 12ch; margin-bottom: clamp(40px, 5vw, 72px); }
-        .ways-grid {
+        .ways .wrap {
             display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            column-gap: 24px;
+            align-items: start;
         }
-        .way { border-top: 2px solid var(--ochre); padding-top: 22px; }
-        .way h3 { font-size: 1.9rem; margin-bottom: 14px; }
-        .way p { color: #c3d0cb; font-size: 1rem; line-height: 1.65; }
-        .ways-foot { margin-top: 48px; }
+        .ways .wrap > h2 { grid-column: 1 / -1; font-size: var(--step-4); max-width: 12ch; margin-bottom: clamp(40px, 5vw, 72px); }
+        .ways-list { grid-column: 1 / span 7; list-style: none; border-bottom: 1px solid rgba(244,246,242,.22); }
+        .way { border-top: 1px solid rgba(244,246,242,.22); }
+        .way h3 { font-size: clamp(2.1rem, 1.2rem + 3.4vw, 4.4rem); line-height: .95; }
+        .way button {
+            all: unset; box-sizing: border-box; display: block; width: 100%; cursor: pointer;
+            padding: clamp(18px, 2.2vw, 30px) 0 clamp(14px, 1.8vw, 24px);
+            color: #f4f6f2;
+            transition: color .4s ease, transform .6s var(--ease-out);
+        }
+        .way button:focus-visible { outline: 3px solid var(--ochre-light); outline-offset: -3px; }
+        .way-desc { display: grid; grid-template-rows: 1fr; overflow: hidden; }
+        .way-desc p { overflow: hidden; min-height: 0; color: #c3d0cb; font-size: 1.0625rem; line-height: 1.65; max-width: 44ch; padding-bottom: 26px; }
+        .ways-frame { grid-column: 9 / span 4; position: sticky; top: calc(var(--header-h) + 32px); aspect-ratio: 4 / 5; border-radius: var(--radius-s); overflow: hidden; background: #0a2422; }
+        .ways-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.08); transition: opacity .7s ease, transform 1.4s var(--ease-out); }
+        .ways-frame img.is-active { opacity: 1; transform: none; }
+        .ways-foot { grid-column: 1 / -1; margin-top: 48px; }
         .ways-foot a { color: var(--ochre-light); font-family: var(--ui); font-weight: 600; }
-        @media (max-width: 1000px) { .ways-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 40px; } }
-        @media (max-width: 560px) { .ways-grid { grid-template-columns: 1fr; } }
+        @media (min-width: 901px) {
+            .js .way button { color: rgba(244,246,242,.34); }
+            .js .way.is-active button { color: #f4f6f2; transform: translateX(clamp(10px, 1.4vw, 22px)); }
+            .js .way-desc { grid-template-rows: 0fr; transition: grid-template-rows .6s var(--ease-out); }
+            .js .way-desc p { padding-bottom: 0; opacity: 0; transition: opacity .4s ease, padding .6s var(--ease-out); }
+            .js .way.is-active .way-desc { grid-template-rows: 1fr; }
+            .js .way.is-active .way-desc p { opacity: 1; padding-bottom: 30px; padding-left: clamp(10px, 1.4vw, 22px); }
+        }
+        @media (max-width: 900px) {
+            .ways-list { grid-column: 1 / -1; }
+            .ways-frame { display: none; }
+            .way button { cursor: default; padding-bottom: 10px; }
+        }
 
         /* ---------- Out in the community ---------- */
         .field .head {
@@ -155,13 +215,18 @@
         .field-grid {
             display: grid;
             grid-template-columns: repeat(12, minmax(0, 1fr));
-            gap: 24px;
+            column-gap: 24px;
+            row-gap: clamp(40px, 6vw, 88px);
             align-items: start;
         }
         .field-grid figure:nth-child(1) { grid-column: 1 / span 7; }
         .field-grid figure:nth-child(2) { grid-column: 8 / span 5; margin-top: clamp(0px, 8vw, 120px); }
         .field-grid figure:nth-child(3) { grid-column: 2 / span 5; }
         .field-grid figure:nth-child(4) { grid-column: 7 / span 6; }
+        .field-grid figure:nth-child(1) { --plx: 10px; }
+        .field-grid figure:nth-child(2) { --plx: 34px; }
+        .field-grid figure:nth-child(3) { --plx: 22px; }
+        .field-grid figure:nth-child(4) { --plx: 8px; }
         @media (max-width: 760px) {
             .field-grid figure:nth-child(n) { grid-column: 1 / -1; margin-top: 0; }
         }
@@ -257,7 +322,7 @@
                     </div>
                 </div>
                 <figure class="photo hero-photo">
-                    <img src="images/street-outreach-2026-09-4.jpg" alt="Volunteers pulling wagons of supplies down a sunlit street at the start of an outreach day" width="946" height="630" fetchpriority="high">
+                    <span class="frame"><img src="images/street-outreach-2026-09-4.jpg" alt="Volunteers pulling wagons of supplies down a sunlit street at the start of an outreach day" width="946" height="630" fetchpriority="high"></span>
                     <figcaption>Heading out with supplies for street outreach in downtown Bellingham, September 2026.</figcaption>
                 </figure>
             </div>
@@ -265,11 +330,11 @@
 
         <!-- NEXT EVENT — hides itself automatically the day after data-until.
              Update the date, text, and link when the next event is announced. -->
-        <section class="next-event wrap" data-until="2026-10-25" aria-label="Next event">
+        <section class="next-event wrap" data-until="2026-10-25" data-date="2026-10-24" aria-label="Next event">
             <a href="events.html#gump-run">
                 <span class="next-when">Oct 24</span>
                 <span class="next-what">
-                    <small>Next event</small>
+                    <small><i class="pulse" aria-hidden="true"></i>Next event<span class="next-count"></span></small>
                     <strong>2026 Gump Run 5K &mdash; Running for the Kids</strong>
                     Everson City Park. Check-in 9:00 AM, run starts 10:00 AM.
                 </span>
@@ -283,12 +348,14 @@
                     <img src="images/logo-mark-360.webp" alt="The A Better Way Out emblem: a tree of life with deep roots" width="360" height="355" loading="lazy">
                 </div>
                 <div class="mission-text">
-                    <h2 id="mission-title">A Better Way Out exists to stand in that gap.</h2>
-                    <div class="prose">
-                        <p>Our mission is to empower at-risk youth through mentorship, education, and support, providing them with a better way out toward a brighter future.</p>
-                        <p>Many of our mentors carry their own stories of gangs, addiction, prison, and rebuilding. They meet young people where they are, without shame or labels, and walk alongside them toward hope, resilience, and a new vision for their lives.</p>
+                    <h2 id="mission-title" class="visually-hidden">Our mission</h2>
+                    <p class="mission-say scrub">Our mission is to empower at-risk youth through mentorship, education, and support, providing them with a better way out toward a brighter future.</p>
+                    <div class="mission-more">
+                        <div class="prose">
+                            <p>Many of our mentors carry their own stories of gangs, addiction, prison, and rebuilding. They meet young people where they are, without shame or labels, and walk alongside them toward hope, resilience, and a new vision for their lives.</p>
+                        </div>
+                        <a href="about.html" class="btn-ghost">Meet the people behind it</a>
                     </div>
-                    <a href="about.html" class="btn-ghost">Meet the people behind it</a>
                 </div>
             </div>
         </section>
@@ -296,23 +363,29 @@
         <section class="section section-dark ways" aria-labelledby="ways-title">
             <div class="wrap">
                 <h2 id="ways-title">Four ways we show up.</h2>
-                <div class="ways-grid">
-                    <div class="way">
-                        <h3>Mental health support</h3>
-                        <p>Coping tools for stress, trauma, and pressure, with check-ins and connections to trusted counselors.</p>
-                    </div>
-                    <div class="way">
-                        <h3>Personal connections</h3>
-                        <p>One-on-one conversations, guidance, and consistent encouragement from someone who has been there.</p>
-                    </div>
-                    <div class="way">
-                        <h3>Family support</h3>
-                        <p>Helping parents, guardians, and youth rebuild communication and trust at home.</p>
-                    </div>
-                    <div class="way">
-                        <h3>Community connections</h3>
-                        <p>Links to local churches, employers, schools, and housing help that support the road ahead.</p>
-                    </div>
+                <ul class="ways-list">
+                    <li class="way is-active">
+                        <h3><button type="button" aria-expanded="true">Mental health support</button></h3>
+                        <div class="way-desc"><p>Coping tools for stress, trauma, and pressure, with check-ins and connections to trusted counselors.</p></div>
+                    </li>
+                    <li class="way">
+                        <h3><button type="button" aria-expanded="false">Personal connections</button></h3>
+                        <div class="way-desc"><p>One-on-one conversations, guidance, and consistent encouragement from someone who has been there.</p></div>
+                    </li>
+                    <li class="way">
+                        <h3><button type="button" aria-expanded="false">Family support</button></h3>
+                        <div class="way-desc"><p>Helping parents, guardians, and youth rebuild communication and trust at home.</p></div>
+                    </li>
+                    <li class="way">
+                        <h3><button type="button" aria-expanded="false">Community connections</button></h3>
+                        <div class="way-desc"><p>Links to local churches, employers, schools, and housing help that support the road ahead.</p></div>
+                    </li>
+                </ul>
+                <div class="ways-frame" aria-hidden="true">
+                    <img class="is-active" src="images/svc-mental-health.jpg" alt="" width="1200" height="900" loading="lazy">
+                    <img src="images/svc-personal-connections.jpg" alt="" width="1080" height="810" loading="lazy">
+                    <img src="images/svc-family-support.jpg" alt="" width="830" height="622" loading="lazy">
+                    <img src="images/svc-community-connections.jpg" alt="" width="946" height="710" loading="lazy">
                 </div>
                 <p class="ways-foot"><a href="services.html">How each service works</a></p>
             </div>
@@ -325,19 +398,19 @@
                     <a href="events.html" class="btn-ghost">See upcoming events</a>
                 </div>
                 <div class="field-grid">
-                    <figure class="photo">
+                    <figure class="photo plx">
                         <img src="images/Jam_in_the_River_event_live_2.jpg" alt="Tents and families at Jam on the River, with the A Better Way Out booth in the middle" width="1280" height="720" loading="lazy">
                         <figcaption>Our booth at Jam on the River, Ferndale, June 2026.</figcaption>
                     </figure>
-                    <figure class="photo">
+                    <figure class="photo plx">
                         <img src="images/street-outreach-2026-09-2.jpg" alt="Two volunteers in A Better Way Out shirts preparing supply bags on a downtown sidewalk" width="1160" height="773" loading="lazy">
                         <figcaption>Packing supply bags before a street outreach, September 2026.</figcaption>
                     </figure>
-                    <figure class="photo">
+                    <figure class="photo plx">
                         <img src="images/ABWO-group.jpg" alt="A Better Way Out volunteers gathered for a group photo in a parking lot" width="1080" height="499" loading="lazy">
                         <figcaption>Volunteers after homeless outreach in Bellingham, April 2026.</figcaption>
                     </figure>
-                    <figure class="photo">
+                    <figure class="photo plx">
                         <img src="images/Jam_in_the_River_group_photo.jpg" alt="Three women from A Better Way Out at the booth table with giveaways" width="654" height="475" loading="lazy">
                         <figcaption>Meeting families at the booth, Jam on the River.</figcaption>
                     </figure>
@@ -432,6 +505,6 @@
         </div>
     </footer>
 
-    <script src="shared.js" defer></script>
+    <script src="shared.js?v=3" defer></script>
 </body>
 </html>

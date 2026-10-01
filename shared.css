@@ -710,3 +710,158 @@ figure.photo figcaption {
 .section-dark :focus-visible,
 .cta-row :focus-visible,
 .site-footer :focus-visible { outline-color: var(--ochre-light); }
+
+/* ============================================================
+   MOTION LAYER
+   Everything below is progressive: it only applies when the
+   <html> element carries .js (set inline in each page's head)
+   and the visitor has not asked for reduced motion.
+   ============================================================ */
+:root { --ease-out: cubic-bezier(.19, .8, .22, 1); --ease-io: cubic-bezier(.7, 0, .2, 1); }
+
+/* Page-to-page cross-fade (browsers with cross-document view transitions) */
+@view-transition { navigation: auto; }
+.site-header { view-transition-name: site-header; }
+@media (prefers-reduced-motion: no-preference) {
+    ::view-transition-old(root) { animation: vt-out .26s ease both; }
+    ::view-transition-new(root) { animation: vt-in .6s var(--ease-out) both; }
+}
+@keyframes vt-out { to { opacity: 0; } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(18px); } }
+
+/* The thread: the hero's path carried along the header as you read */
+.thread {
+    position: absolute;
+    left: 0; right: 0; bottom: -1px;
+    height: 2px;
+    pointer-events: none;
+}
+.thread::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: var(--ring);
+    transform-origin: left;
+    transform: scaleX(var(--progress, 0));
+}
+.thread::after {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: calc(var(--progress, 0) * (100% - 8px) + 4px);
+    width: 8px; height: 8px;
+    margin-left: -4px;
+    border-radius: 50%;
+    background: var(--ring);
+    opacity: var(--thread-on, 0);
+    transition: opacity .3s;
+}
+
+/* Headings rise word by word out of their own line */
+.js .split .w {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+    padding: .14em .02em .16em;
+    margin: -.14em -.02em -.16em;
+}
+.js .split .w > span {
+    display: inline-block;
+    transform: translateY(118%);
+    transition: transform 1s var(--ease-out);
+    transition-delay: calc(var(--i) * 42ms + var(--d, 0ms));
+}
+.js .split.in .w > span { transform: none; }
+
+/* Photographs open like a shutter */
+.js .rv { clip-path: inset(0 0 100% 0); transition: clip-path 1.15s var(--ease-io); }
+.js .rv.in { clip-path: inset(0 0 0 0); }
+
+/* Soft arrival for supporting copy */
+.js .fade { opacity: 0; transform: translateY(14px); transition: opacity .8s ease, transform .9s var(--ease-out); transition-delay: var(--d, 0ms); }
+.js .fade.in { opacity: 1; transform: none; }
+
+/* Rules that draw themselves */
+.js .cta-row .support-section,
+.js .cta-row .volunteer-section { border-top-color: transparent; position: relative; }
+.js .cta-row .support-section::before,
+.js .cta-row .volunteer-section::before {
+    content: ""; position: absolute; left: 0; right: 0; top: -2px; height: 2px;
+    background: var(--ochre);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 1.2s var(--ease-io);
+}
+.js .cta-row.in .support-section::before,
+.js .cta-row.in .volunteer-section::before { transform: scaleX(1); }
+.js .cta-row.in .volunteer-section::before { transition-delay: .15s; }
+
+/* Scroll-linked drift for photo groups */
+@supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) and (min-width: 761px) {
+        .plx {
+            animation: plx linear both;
+            animation-timeline: view();
+            animation-range: entry 0% exit 100%;
+        }
+    }
+}
+@keyframes plx {
+    from { transform: translateY(var(--plx, 30px)); }
+    to { transform: translateY(calc(var(--plx, 30px) * -1)); }
+}
+
+/* Buttons: the label stays, the fill slides in from below */
+.btn-primary, .btn-ghost, .btn-donate, .btn-involve, .next-go {
+    position: relative; overflow: hidden; isolation: isolate;
+}
+.btn-ghost::before, .btn-involve::before, .btn-primary::before, .btn-donate::before {
+    content: ""; position: absolute; inset: -2px; z-index: -1;
+    transform: translateY(101%);
+    transition: transform .45s var(--ease-out);
+    border-radius: inherit;
+}
+.btn-ghost::before { background: var(--ink); }
+.btn-involve::before { background: #f4f6f2; }
+.btn-primary::before { background: var(--ring); }
+.btn-donate::before { background: var(--donate-hover); }
+.btn-ghost:hover, .btn-involve:hover { background: transparent; }
+.btn-primary:hover { background: var(--ink); }
+.btn-donate:hover { background: var(--donate); }
+.btn-ghost:hover::before, .btn-involve:hover::before,
+.btn-primary:hover::before, .btn-donate:hover::before { transform: none; }
+
+/* Mobile menu links arrive in order */
+@media (max-width: 960px) and (prefers-reduced-motion: no-preference) {
+    .navbar-menu li { opacity: 0; transform: translateY(14px); transition: opacity .4s ease, transform .6s var(--ease-out); }
+    .navbar-menu.open li { opacity: 1; transform: none; }
+    .navbar-menu.open li:nth-child(1) { transition-delay: .04s; }
+    .navbar-menu.open li:nth-child(2) { transition-delay: .08s; }
+    .navbar-menu.open li:nth-child(3) { transition-delay: .12s; }
+    .navbar-menu.open li:nth-child(4) { transition-delay: .16s; }
+    .navbar-menu.open li:nth-child(5) { transition-delay: .20s; }
+    .navbar-menu.open li:nth-child(6) { transition-delay: .24s; }
+    .navbar-menu.open li:nth-child(7) { transition-delay: .30s; }
+}
+
+/* Footer wordmark, sized by script to span the full measure */
+.footer-mark {
+    font-family: var(--display);
+    font-weight: 800;
+    font-stretch: 62%;
+    line-height: 1;
+    letter-spacing: -.01em;
+    white-space: nowrap;
+    color: #f4f6f2;
+    font-size: 12vw;
+    margin-top: clamp(28px, 5vw, 64px);
+    overflow: hidden;
+    user-select: none;
+}
+.footer-mark span { display: inline-block; }
+.footer-brand h2 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.site-footer { padding-bottom: clamp(12px, 2vw, 24px); }
+.js .footer-mark span { transform: translateY(100%); transition: transform 1.3s var(--ease-out); }
+.js .footer-mark.in span { transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+    .js .split .w > span, .js .rv, .js .fade, .js .footer-mark span { transform: none !important; opacity: 1 !important; clip-path: none !important; }
+}

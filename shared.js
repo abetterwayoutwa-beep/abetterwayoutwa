@@ -124,3 +124,177 @@
         }, { threshold: 0.5 }).observe(form);
     }
 })();
+
+
+/* ============================================================
+   Motion layer — reveals, the reading thread, footer wordmark.
+   Skipped entirely when the visitor prefers reduced motion.
+   ============================================================ */
+(function () {
+    var root = document.documentElement;
+    window.__abwo = true;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // --- Reading thread in the header ---------------------------
+    var header = document.querySelector('.site-header');
+    if (header) {
+        var thread = document.createElement('span');
+        thread.className = 'thread';
+        thread.setAttribute('aria-hidden', 'true');
+        header.appendChild(thread);
+        var ticking = false;
+        var paint = function () {
+            ticking = false;
+            var max = root.scrollHeight - window.innerHeight;
+            var p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+            thread.style.setProperty('--progress', p.toFixed(4));
+            thread.style.setProperty('--thread-on', p > 0.004 ? 1 : 0);
+        };
+        window.addEventListener('scroll', function () {
+            if (!ticking) { ticking = true; requestAnimationFrame(paint); }
+        }, { passive: true });
+        window.addEventListener('resize', paint);
+        paint();
+    }
+
+    // --- Footer wordmark ----------------------------------------
+    var footWrap = document.querySelector('.site-footer .wrap');
+    var mark = null;
+    if (footWrap) {
+        mark = document.createElement('p');
+        mark.className = 'footer-mark';
+        mark.setAttribute('aria-hidden', 'true');
+        mark.innerHTML = '<span>A Better Way Out</span>';
+        footWrap.appendChild(mark);
+        var fit = function () {
+            var inner = mark.firstChild;
+            mark.style.fontSize = '100px';
+            var w = inner.getBoundingClientRect().width;
+            if (w > 0) mark.style.fontSize = (100 * mark.clientWidth / w * 0.995) + 'px';
+        };
+        fit();
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+        window.addEventListener('resize', fit);
+    }
+
+    if (reduce || !('IntersectionObserver' in window)) {
+        root.classList.remove('js');
+        return;
+    }
+
+    // --- Split headings into words ------------------------------
+    var split = function (el) {
+        if (el.children.length || el.closest('details')) return;
+        var text = el.textContent.replace(/\s+/g, ' ').trim();
+        if (!text) return;
+        el.setAttribute('aria-label', text);
+        el.textContent = '';
+        text.split(' ').forEach(function (word, i) {
+            var w = document.createElement('span');
+            w.className = 'w';
+            w.setAttribute('aria-hidden', 'true');
+            var s = document.createElement('span');
+            s.style.setProperty('--i', i);
+            s.textContent = word;
+            w.appendChild(s);
+            el.appendChild(w);
+            el.appendChild(document.createTextNode(' '));
+        });
+        el.classList.add('split');
+    };
+    var heads = document.querySelectorAll('main h1, main .section h2:not(.visually-hidden), .cta-title, [data-split]');
+    heads.forEach(split);
+
+    // --- Mark photographs and supporting copy -------------------
+    document.querySelectorAll('figure.photo img, .person-photo, .service img, .voices-thumb, .frame, .mission-mark img').forEach(function (el) {
+        if (el.closest('details') || el.closest('.frame') && !el.classList.contains('frame')) return;
+        el.classList.add('rv');
+    });
+    document.querySelectorAll('[data-fade]').forEach(function (el) { el.classList.add('fade'); });
+
+    // A fully clipped element never "intersects", so photographs are
+    // revealed by watching their parent instead.
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            var t = entry.target;
+            (t.__reveal || [t]).forEach(function (el) { el.classList.add('in'); });
+            io.unobserve(t);
+        });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0 });
+    document.querySelectorAll('.split, .fade, .cta-row, [data-in]').forEach(function (el) { io.observe(el); });
+    var footBottom = document.querySelector('.footer-bottom');
+    if (mark && footBottom) { footBottom.__reveal = [mark]; io.observe(footBottom); }
+    document.querySelectorAll('.rv').forEach(function (el) {
+        var host = el.parentElement;
+        (host.__reveal = host.__reveal || []).push(el);
+        io.observe(host);
+    });
+
+    // --- Mission statement lights up as it is read --------------
+    var scrub = document.querySelector('.scrub');
+    if (scrub) {
+        var words = scrub.textContent.trim().split(/\s+/);
+        scrub.setAttribute('aria-label', words.join(' '));
+        scrub.textContent = '';
+        var spans = words.map(function (word) {
+            var s = document.createElement('span');
+            s.setAttribute('aria-hidden', 'true');
+            s.textContent = word;
+            scrub.appendChild(s);
+            scrub.appendChild(document.createTextNode(' '));
+            return s;
+        });
+        scrub.classList.add('is-scrub');
+        var lit = -1, queued = false;
+        var read = function () {
+            queued = false;
+            var r = scrub.getBoundingClientRect();
+            var vh = window.innerHeight;
+            var p = (vh * 0.86 - r.top) / (r.height + vh * 0.36);
+            var n = Math.round(Math.min(1, Math.max(0, p)) * spans.length);
+            if (n === lit) return;
+            lit = n;
+            for (var i = 0; i < spans.length; i++) spans[i].classList.toggle('on', i < n);
+        };
+        window.addEventListener('scroll', function () {
+            if (!queued) { queued = true; requestAnimationFrame(read); }
+        }, { passive: true });
+        read();
+    }
+})();
+
+/* ============================================================
+   Homepage — "Four ways" list and the next-event countdown
+   ============================================================ */
+(function () {
+    var ways = document.querySelectorAll('.ways-list .way');
+    var shots = document.querySelectorAll('.ways-frame img');
+    if (ways.length) {
+        var activate = function (i) {
+            ways.forEach(function (w, k) {
+                w.classList.toggle('is-active', k === i);
+                var b = w.querySelector('button');
+                if (b) b.setAttribute('aria-expanded', k === i ? 'true' : 'false');
+            });
+            shots.forEach(function (s, k) { s.classList.toggle('is-active', k === i); });
+        };
+        ways.forEach(function (w, i) {
+            w.addEventListener('mouseenter', function () { activate(i); });
+            w.addEventListener('focusin', function () { activate(i); });
+            w.addEventListener('click', function () { activate(i); });
+        });
+    }
+
+    var next = document.querySelector('.next-event[data-date]');
+    if (next && !next.hidden) {
+        var parts = next.getAttribute('data-date').split('-');
+        var day = new Date(+parts[0], +parts[1] - 1, +parts[2]);
+        var now = new Date(); now.setHours(0, 0, 0, 0);
+        var days = Math.round((day - now) / 864e5);
+        var slot = next.querySelector('.next-count');
+        if (slot && days >= 0) {
+            slot.textContent = days === 0 ? 'Today' : days === 1 ? 'Tomorrow' : 'In ' + days + ' days';
+        }
+    }
+})();
