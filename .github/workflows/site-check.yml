@@ -1,0 +1,77 @@
+name: Site check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 1 * * 1"   # Every Monday 09:00 Taipei: catch external link rot
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: CNAME guard
+        run: |
+          expected="www.abetterwayoutwa.org"
+          if [ ! -f CNAME ]; then
+            echo "::error file=CNAME::CNAME file is missing"
+            exit 1
+          fi
+          actual="$(tr -d '\r\n' < CNAME)"
+          if [ "$actual" != "$expected" ]; then
+            echo "::error file=CNAME::CNAME is '$actual', expected '$expected'"
+            exit 1
+          fi
+          echo "CNAME OK: $actual"
+
+      - name: GA tracking (shared.js on every page)
+        shell: bash
+        run: |
+          missing=0
+          while IFS= read -r f; do
+            if ! grep -q 'shared\.js' "$f"; then
+              echo "::error file=$f::Page does not load shared.js (GA tracking missing)"
+              missing=1
+            fi
+          done < <(find . -name '*.html' -not -path './.git/*' -not -path './node_modules/*' -not -name 'google*.html')
+          [ "$missing" -eq 0 ] && echo "All pages load shared.js"
+          exit $missing
+
+      - name: Image size check (warn over 500 KB)
+        shell: bash
+        run: |
+          found=0
+          while IFS= read -r f; do
+            size=$(stat -c%s "$f")
+            echo "::warning file=$f::Image is $((size / 1024)) KB, consider compressing"
+            found=1
+          done < <(find . -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' -o -iname '*.gif' \) -size +500k -not -path './.git/*')
+          [ "$found" -eq 0 ] && echo "All images under 500 KB"
+          exit 0
+
+      - name: Internal links (fail on broken)
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --offline --no-progress --root-dir "${{ github.workspace }}" './**/*.html'
+          fail: true
+
+      - name: External links (report only)
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --scheme https --scheme http
+            --accept 200,204,206,301,302,403,429
+            --max-retries 2
+            --timeout 20
+            --exclude 'googletagmanager\.com'
+            --exclude 'google-analytics\.com'
+            './**/*.html'
+          fail: false
