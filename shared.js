@@ -282,6 +282,20 @@
         });
     }
 
+    // YouTube: swap the thumbnail for the real player on click
+    document.querySelectorAll('.yt-facade[data-yt]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+            e.preventDefault();
+            var f = document.createElement('iframe');
+            f.src = 'https://www.youtube-nocookie.com/embed/' + a.getAttribute('data-yt') + '?autoplay=1';
+            f.title = a.getAttribute('title') || 'YouTube video';
+            f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+            f.allowFullscreen = true;
+            a.replaceWith(f);
+            f.focus();
+        });
+    });
+
     var next = document.querySelector('.next-event[data-date]');
     if (next && !next.hidden) {
         var parts = next.getAttribute('data-date').split('-');

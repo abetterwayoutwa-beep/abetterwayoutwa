@@ -687,6 +687,37 @@ figure.photo figcaption {
 }
 .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
+/* YouTube: a thumbnail with a play button stands in for the player until clicked,
+   so the ~1 MB YouTube player only loads for people who actually press play. */
+.yt-facade {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    background: var(--ink);
+    border-radius: var(--radius-s);
+}
+.video-frame .yt-facade { position: absolute; inset: 0; border-radius: 0; }
+.event-shorts .yt-facade { aspect-ratio: 9 / 16; }
+.yt-facade img { width: 100%; height: 100%; object-fit: cover; }
+.yt-facade::before {
+    content: "";
+    position: absolute; left: 50%; top: 50%;
+    width: 64px; height: 64px; margin: -32px 0 0 -32px;
+    border-radius: 50%;
+    background: rgba(20, 26, 26, 0.78);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.85);
+    transition: background-color 0.15s;
+}
+.yt-facade::after {
+    content: "";
+    position: absolute; left: 50%; top: 50%;
+    margin: -12px 0 0 -7px;
+    border-style: solid;
+    border-width: 12px 0 12px 20px;
+    border-color: transparent transparent transparent #fff;
+}
+.yt-facade:hover::before, .yt-facade:focus-visible::before { background: #c4302b; }
+
 /* ============================================================
    MOTION PREFERENCES
    ============================================================ */
