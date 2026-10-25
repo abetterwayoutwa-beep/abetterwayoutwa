@@ -36,16 +36,6 @@ jobs:
           source: ./
           destination: ./_site
 
-      - name: CNAME guard
-        run: |
-          expected="www.abetterwayoutwa.org"
-          actual="$(tr -d '\r\n' < _site/CNAME 2>/dev/null || true)"
-          if [ "$actual" != "$expected" ]; then
-            echo "::error file=CNAME::CNAME is '$actual', expected '$expected'"
-            exit 1
-          fi
-          echo "CNAME OK: $actual"
-
       - name: GA tracking (shared.js on every page)
         shell: bash
         run: |
@@ -107,3 +97,15 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # With Actions deploys, the custom domain comes from Settings -> Pages -> Custom domain
+      # (the CNAME file is not used). Fail loudly if the site is not on our domain.
+      - name: Custom domain check
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          echo "Deployed to: $PAGE_URL"
+          case "$PAGE_URL" in
+            https://www.abetterwayoutwa.org*) echo "Custom domain OK" ;;
+            *) echo "::error::Site deployed to '$PAGE_URL', not www.abetterwayoutwa.org. Check Settings -> Pages -> Custom domain."; exit 1 ;;
+          esac
