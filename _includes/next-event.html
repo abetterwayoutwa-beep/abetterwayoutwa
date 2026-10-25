@@ -1,0 +1,22 @@
+{%- comment -%}
+  Homepage "Next event" banner: the soonest upcoming event in _data/events.yml.
+  Uses the event's `home:` title and line if given. Hides itself in the browser the day after.
+{%- endcomment -%}
+{%- assign today = site.time | date: "%Y-%m-%d" %}
+{%- assign by_date = site.data.events | sort: "date" %}
+{%- for e in by_date %}
+{%- if e.date >= today %}
+        <section class="next-event wrap" data-until="{{ e.date | date: "%s" | plus: 86400 | date: "%Y-%m-%d" }}" data-date="{{ e.date }}" aria-label="Next event">
+            <a href="events.html#{{ e.id }}">
+                <span class="next-when">{{ e.date | date: "%b %-d" }}</span>
+                <span class="next-what">
+                    <small><i class="pulse" aria-hidden="true"></i>Next event<span class="next-count"></span></small>
+                    <strong>{{ e.home.title | default: e.title }}</strong>
+                    {{ e.home.line | default: e.where }}
+                </span>
+                <span class="next-go">Event details</span>
+            </a>
+        </section>
+{%- break %}
+{%- endif %}
+{%- endfor %}

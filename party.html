@@ -1,109 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Partners — A Better Way Out WA</title>
-    <link rel="canonical" href="https://www.abetterwayoutwa.org/party.html">
-    <meta name="theme-color" content="#eef0ec">
-    <meta name="description" content="Our Partners - A Better Way Out WA official community partners">
-    <!-- Open Graph / social sharing -->
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="A Better Way Out WA">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:url" content="https://www.abetterwayoutwa.org/party.html">
-    <meta property="og:title" content="Our Partners — A Better Way Out WA">
-    <meta property="og:description" content="The organizations and donors we're proud to work alongside in Whatcom County.">
-    <meta property="og:image" content="https://www.abetterwayoutwa.org/images/og-image.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="A Better Way Out WA — empowering at-risk youth in Whatcom County, Washington">
-    <meta name="twitter:card" content="summary_large_image">
-    
-    <link rel="icon" href="images/favicon/favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
-    <link rel="manifest" href="images/favicon/site.webmanifest">
-    <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="preload" href="fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="fonts/literata.woff2" as="font" type="font/woff2" crossorigin>
-    <script>document.documentElement.className+=' js';setTimeout(function(){if(!window.__abwo)document.documentElement.classList.remove('js')},3000)</script>
-    <link rel="stylesheet" href="shared.css?v=5">
-    <style>
-        .logo-wall {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 1px;
-            background: var(--line);
-            border: 1px solid var(--line);
-            margin-bottom: clamp(56px, 7vw, 104px);
-        }
-        .logo-wall a {
-            background: #fff;
-            display: grid;
-            grid-template-rows: 1fr auto;
-            gap: 14px;
-            padding: 28px 24px 20px;
-            text-decoration: none;
-            color: var(--ink);
-            min-height: 200px;
-        }
-        .logo-wall img { width: 100%; height: 100px; object-fit: contain; align-self: center; }
-        .logo-wall span { font-family: var(--ui); font-size: .9rem; color: var(--ink-mute); }
-        .logo-wall a:hover span { color: var(--ring); text-decoration: underline; }
-        @media (max-width: 860px) { .logo-wall { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+---
+layout: default
+title: "Partners — A Better Way Out WA"
+nav: "partners"
+description: "Our Partners - A Better Way Out WA official community partners"
+og_title: "Our Partners — A Better Way Out WA"
+og_description: "The organizations and donors we're proud to work alongside in Whatcom County."
+style: |
+      .logo-wall {
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap: 1px;
+          background: var(--line);
+          border: 1px solid var(--line);
+          margin-bottom: clamp(56px, 7vw, 104px);
+      }
+      .logo-wall a {
+          background: #fff;
+          display: grid;
+          grid-template-rows: 1fr auto;
+          gap: 14px;
+          padding: 28px 24px 20px;
+          text-decoration: none;
+          color: var(--ink);
+          min-height: 200px;
+      }
+      .logo-wall img { width: 100%; height: 100px; object-fit: contain; align-self: center; }
+      .logo-wall span { font-family: var(--ui); font-size: .9rem; color: var(--ink-mute); }
+      .logo-wall a:hover span { color: var(--ring); text-decoration: underline; }
+      @media (max-width: 860px) { .logo-wall { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
-        .partner-block {
-            display: grid;
-            grid-template-columns: repeat(12, minmax(0, 1fr));
-            column-gap: 24px; row-gap: 24px;
-            padding: clamp(36px, 4vw, 56px) 0;
-            border-top: 1px solid var(--ink);
-        }
-        .partner-block h2 { grid-column: 1 / span 5; font-size: var(--step-3); }
-        .partner-tag {
-            display: inline-block; margin-top: 14px;
-            font-family: var(--ui); font-size: .85rem; font-weight: 650;
-            color: var(--forest); background: var(--ochre-light);
-            padding: 4px 12px; border-radius: var(--radius-pill);
-        }
-        .partner-body { grid-column: 7 / span 6; }
-        .partner-body .prose { margin-bottom: 24px; }
-        .partner-video { grid-column: 7 / span 6; margin-top: 12px; }
-        .partner-video h3 { font-family: var(--ui); font-stretch: 100%; font-weight: 600; font-size: 1rem; margin-bottom: 12px; }
-        @media (max-width: 760px) { .partner-block h2, .partner-body, .partner-video { grid-column: 1 / -1; } }
-    </style>
-</head>
-<body>
-
-    <a class="skip-link" href="#main">Skip to content</a>
-
-    <header class="site-header">
-        <div class="wrap">
-            <a class="brand" href="index.html" aria-label="A Better Way Out — home">
-                <img src="images/logo-mark-112.webp" alt="" width="56" height="55">
-                <span>A Better Way Out</span>
-            </a>
-            <button class="mobile-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
-                <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
-                Menu
-            </button>
-            <nav aria-label="Main">
-            <ul class="navbar-menu" id="primary-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="events.html">Events</a></li>
-                <li><a href="interviews.html">Interviews</a></li>
-                <li><a href="party.html" class="active" aria-current="page">Partners</a></li>
-                <li><a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="nav-donate">Donate</a></li>
-            </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main id="main">
+      .partner-block {
+          display: grid;
+          grid-template-columns: repeat(12, minmax(0, 1fr));
+          column-gap: 24px; row-gap: 24px;
+          padding: clamp(36px, 4vw, 56px) 0;
+          border-top: 1px solid var(--ink);
+      }
+      .partner-block h2 { grid-column: 1 / span 5; font-size: var(--step-3); }
+      .partner-tag {
+          display: inline-block; margin-top: 14px;
+          font-family: var(--ui); font-size: .85rem; font-weight: 650;
+          color: var(--forest); background: var(--ochre-light);
+          padding: 4px 12px; border-radius: var(--radius-pill);
+      }
+      .partner-body { grid-column: 7 / span 6; }
+      .partner-body .prose { margin-bottom: 24px; }
+      .partner-video { grid-column: 7 / span 6; margin-top: 12px; }
+      .partner-video h3 { font-family: var(--ui); font-stretch: 100%; font-weight: 600; font-size: 1rem; margin-bottom: 12px; }
+      @media (max-width: 760px) { .partner-block h2, .partner-body, .partner-video { grid-column: 1 / -1; } }
+---
         <header class="page-header wrap">
             <h1>Our partners</h1>
             <p>Organizations and donors we&rsquo;re proud to work alongside.</p>
@@ -155,66 +100,3 @@
                 </section>
             </div>
         </section>
-
-        <!-- CTA — Donate + Volunteer (shown on every page) -->
-        <section class="cta-row" aria-labelledby="cta-title">
-            <img class="cta-roots" src="images/logo-mark-360.webp" alt="" width="360" height="355" loading="lazy">
-            <div class="wrap">
-                <h2 class="cta-title" id="cta-title">Walk with the next young person who needs a way out.</h2>
-                <div class="support-section">
-                    <h3>Give</h3>
-                    <p>Your donation goes straight into mentorship, outreach, and family support for young people in Whatcom County. Donations are tax-deductible.</p>
-                    <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="btn-donate">Donate on Zeffy</a>
-                </div>
-                <div class="volunteer-section">
-                    <h3>Volunteer</h3>
-                    <p>Serve at outreach days, staff a booth, or mentor. Message us on Facebook and we&rsquo;ll tell you what&rsquo;s coming up.</p>
-                    <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" class="btn-involve">Message us on Facebook</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="wrap">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <img src="images/logo-mark-112.webp" alt="" width="72" height="71" loading="lazy">
-                    <h2>A Better Way Out</h2>
-                    <p>Trauma-informed mentorship for young people in Whatcom County, Washington &mdash; led by mentors with lived experience.</p>
-                </div>
-                <div class="footer-col">
-                    <h3>Who we are</h3>
-                    <ul>
-                        <li><a href="about.html">About us</a></li>
-                        <li><a href="about.html#leadership">Leadership &amp; board</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="party.html">Partners</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>What we do</h3>
-                    <ul>
-                        <li><a href="events.html">Events</a></li>
-                        <li><a href="interviews.html">Interviews</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Get in touch</h3>
-                    <ul>
-                        <li><a href="mailto:abetterwayoutwa@gmail.com">abetterwayoutwa@gmail.com</a></li>
-                        <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-                        <li><a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer">Donate</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 A Better Way Out WA. A 501(c)(3) nonprofit, EIN 92-1581139.</p>
-                <p><a href="privacy.html">Privacy policy</a></p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="shared.js?v=5" defer></script>
-</body>
-</html>

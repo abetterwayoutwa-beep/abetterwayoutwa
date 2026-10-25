@@ -1,0 +1,22 @@
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="wrap">
+            <a class="brand" href="index.html" aria-label="A Better Way Out — home">
+                <img src="images/logo-mark-112.webp" alt="" width="56" height="55">
+                <span>A Better Way Out</span>
+            </a>
+            <button class="mobile-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+                <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+                Menu
+            </button>
+            <nav aria-label="Main">
+            <ul class="navbar-menu" id="primary-menu">
+                {%- for item in site.data.navigation %}
+                <li><a href="{{ item.href }}"{% if item.key == page.nav %} class="active" aria-current="page"{% endif %}>{{ item.label }}</a></li>
+                {%- endfor %}
+                <li><a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="nav-donate">Donate</a></li>
+            </ul>
+            </nav>
+        </div>
+    </header>

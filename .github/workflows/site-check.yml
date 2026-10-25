@@ -17,6 +17,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Build the site the same way GitHub Pages does (fails here if a template or _data file is broken)
+      - name: Build with Jekyll (same builder as GitHub Pages)
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+
       - name: CNAME guard
         run: |
           expected="www.abetterwayoutwa.org"
@@ -40,7 +47,7 @@ jobs:
               echo "::error file=$f::Page does not load shared.js (GA tracking missing)"
               missing=1
             fi
-          done < <(find . -name '*.html' -not -path './.git/*' -not -path './node_modules/*' -not -name 'google*.html')
+          done < <(find _site -name '*.html' -not -name 'google*.html')
           [ "$missing" -eq 0 ] && echo "All pages load shared.js"
           exit $missing
 
@@ -52,14 +59,14 @@ jobs:
             size=$(stat -c%s "$f")
             echo "::warning file=$f::Image is $((size / 1024)) KB, consider compressing"
             found=1
-          done < <(find . -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' -o -iname '*.gif' \) -size +500k -not -path './.git/*')
+          done < <(find . -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' -o -iname '*.gif' \) -size +500k -not -path './.git/*' -not -path './_site/*')
           [ "$found" -eq 0 ] && echo "All images under 500 KB"
           exit 0
 
       - name: Internal links (fail on broken)
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --offline --no-progress --root-dir "${{ github.workspace }}" './**/*.html'
+          args: --offline --no-progress --root-dir "${{ github.workspace }}/_site" './_site/**/*.html'
           fail: true
 
       - name: External links (report only)
@@ -73,5 +80,5 @@ jobs:
             --timeout 20
             --exclude 'googletagmanager\.com'
             --exclude 'google-analytics\.com'
-            './**/*.html'
+            './_site/**/*.html'
           fail: false

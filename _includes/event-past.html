@@ -1,0 +1,30 @@
+{%- comment -%}
+  One past event on an events-YEAR.html archive page. Expects the event in `e`
+  and `open_event` (true for the newest one, which starts expanded).
+  Uses the recap text if there is one, otherwise falls back to the upcoming text.
+{%- endcomment -%}
+{%- assign r = e.recap | default: e.upcoming %}
+                <details class="event" id="{{ e.id }}"{% if open_event %} open{% endif %}>
+                    <summary>
+                        <span class="event-date">{{ e.date | date: "%b %-d" }}<small>{{ e.date | date: "%Y" }}</small></span>
+                        <h2 class="event-title">{{ e.title }}</h2>
+                        <span class="event-where">{{ e.where }}</span>
+                        <span class="event-toggle"><span class="when-closed">Details</span><span class="when-open">Close</span></span>
+                    </summary>
+                    <div class="event-body">
+                        {%- if r.facts %}
+                        <dl class="event-facts">
+                            {%- for f in r.facts %}
+                            <dt>{{ f.label }}</dt><dd>{{ f.value }}</dd>
+                            {%- endfor %}
+                        </dl>
+                        {%- endif %}
+                        {%- if r.text %}
+                        <div class="prose">
+                            {{ r.text }}
+                        </div>
+                        {%- endif %}
+{% include event-media.html %}
+                        <p class="event-note">{{ r.note | default: 'Follow <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">our Facebook page</a> for the next one.' }}</p>
+                    </div>
+                </details>

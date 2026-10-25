@@ -1,0 +1,32 @@
+{%- comment -%}
+  One upcoming event on events.html. Expects the event in `e`.
+  data-until hides it in the browser the day after the event, even before the site is rebuilt.
+{%- endcomment -%}
+{%- assign u = e.upcoming | default: e.recap %}
+        <section class="section upcoming" id="{{ e.id }}" aria-labelledby="{{ e.id }}-title" data-until="{{ e.date | date: "%s" | plus: 86400 | date: "%Y-%m-%d" }}">
+            <div class="wrap">
+                {%- if e.posters %}
+                {%- assign img = e.posters.first %}
+                <figure class="upcoming-poster">
+                    <img src="{{ img.src }}" alt="{{ img.alt | escape }}" width="{{ img.width }}" height="{{ img.height }}"{% if first_upcoming %} fetchpriority="high"{% else %} loading="lazy"{% endif %}>
+                </figure>
+                {%- endif %}
+                <div class="upcoming-info">
+                    <span class="status">Upcoming</span>
+                    <p class="upcoming-date">{{ e.date | date: "%A, %B %-d" }}</p>
+                    <h2 id="{{ e.id }}-title">{{ e.title }}</h2>
+                    <div class="prose">
+                        {{ u.text }}
+                    </div>
+                    <dl class="event-facts">
+                        <dt>Where</dt><dd>{{ e.where }}</dd>
+                        {%- for f in u.facts %}
+                        <dt>{{ f.label }}</dt><dd>{{ f.value }}</dd>
+                        {%- endfor %}
+                    </dl>
+                    {%- if u.note %}
+                    <p class="event-note">{{ u.note }}</p>
+                    {%- endif %}
+                </div>
+            </div>
+        </section>

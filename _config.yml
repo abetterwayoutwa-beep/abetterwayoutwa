@@ -1,0 +1,4 @@
+# Site settings for Jekyll (GitHub Pages builds the site from these files on every push)
+url: "https://www.abetterwayoutwa.org"
+# Event dates are judged in Washington time, not the build server's UTC
+timezone: America/Los_Angeles

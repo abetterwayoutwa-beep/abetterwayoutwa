@@ -1,0 +1,25 @@
+{%- comment -%}
+  Posters, photos, and videos for one event. Expects the event in `e`.
+  Each photo's shape (--ar) is worked out from its width and height.
+{%- endcomment -%}
+{%- if e.posters %}
+                        <div class="event-media posters">
+                            {%- for img in e.posters %}
+                            <a class="poster shot" href="{{ img.src }}" style="--ar:{{ img.width | times: 1.0 | divided_by: img.height | round: 3 }}"><img src="{{ img.thumb | default: img.src }}" alt="{{ img.alt | escape }}" width="{{ img.width }}" height="{{ img.height }}" loading="lazy"></a>
+                            {%- endfor %}
+                        </div>
+{%- endif %}
+{%- if e.photos %}
+                        <div class="event-media{% if e.photo_grid %} photo-grid{% endif %}">
+                            {%- for img in e.photos %}
+                            <a class="{% if img.flyer %}poster {% endif %}shot" href="{{ img.src }}" style="--ar:{{ img.width | times: 1.0 | divided_by: img.height | round: 3 }}"><img src="{{ img.thumb | default: img.src }}" alt="{{ img.alt | escape }}" width="{{ img.width }}" height="{{ img.height }}" loading="lazy"></a>
+                            {%- endfor %}
+                        </div>
+{%- endif %}
+{%- if e.videos %}
+                        <div class="event-shorts">
+                            {%- for vid in e.videos %}
+                            <a class="yt-facade" href="https://www.youtube.com/watch?v={{ vid.youtube }}" data-yt="{{ vid.youtube }}" title="{{ vid.title | escape }}" aria-label="Play video: {{ vid.title | escape }}"><img src="https://i.ytimg.com/vi/{{ vid.youtube }}/hqdefault.jpg" alt="" width="480" height="360" loading="lazy"></a>
+                            {%- endfor %}
+                        </div>
+{%- endif %}

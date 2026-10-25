@@ -1,380 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>2026 Past Events — A Better Way Out WA</title>
-    <link rel="canonical" href="https://www.abetterwayoutwa.org/events-2026.html">
-    <meta name="theme-color" content="#eef0ec">
-    <meta name="description" content="Events & Activities - A Better Way Out community programs and gatherings">
-    <!-- Open Graph / social sharing -->
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="A Better Way Out WA">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:url" content="https://www.abetterwayoutwa.org/events-2026.html">
-    <meta property="og:title" content="2026 Past Events — A Better Way Out WA">
-    <meta property="og:description" content="Photos and highlights from the gatherings, outreach, and celebrations we shared in 2026.">
-    <meta property="og:image" content="https://www.abetterwayoutwa.org/images/og-image.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="A Better Way Out WA — empowering at-risk youth in Whatcom County, Washington">
-    <meta name="twitter:card" content="summary_large_image">
-    
-    <link rel="icon" href="images/favicon/favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
-    <link rel="manifest" href="images/favicon/site.webmanifest">
-    <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="preload" href="fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="fonts/literata.woff2" as="font" type="font/woff2" crossorigin>
-    <script>document.documentElement.className+=' js';setTimeout(function(){if(!window.__abwo)document.documentElement.classList.remove('js')},3000)</script>
-    <link rel="stylesheet" href="shared.css?v=5">
-    <style>
-        .back-link {
-            display: inline-flex; gap: 8px; align-items: center;
-            font-family: var(--ui); font-weight: 600; color: var(--ink); text-decoration: none;
-            margin-bottom: 28px;
-        }
-        .back-link:hover { color: var(--ring); }
-        .event-media .poster { display: block; }
-        /* Even grid for a set of same-shape photos */
-        .event-media.photo-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
-        .event-media.photo-grid > .shot { max-width: none; }
-        @media (max-width: 640px) { .event-media.photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    </style>
-</head>
-<body>
-
-    <a class="skip-link" href="#main">Skip to content</a>
-
-    <header class="site-header">
-        <div class="wrap">
-            <a class="brand" href="index.html" aria-label="A Better Way Out — home">
-                <img src="images/logo-mark-112.webp" alt="" width="56" height="55">
-                <span>A Better Way Out</span>
-            </a>
-            <button class="mobile-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
-                <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
-                Menu
-            </button>
-            <nav aria-label="Main">
-            <ul class="navbar-menu" id="primary-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="events.html">Events</a></li>
-                <li><a href="interviews.html">Interviews</a></li>
-                <li><a href="party.html">Partners</a></li>
-                <li><a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="nav-donate">Donate</a></li>
-            </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main id="main">
+---
+layout: default
+year: 2026
+title: "2026 Past Events — A Better Way Out WA"
+description: "Events & Activities - A Better Way Out community programs and gatherings"
+og_description: "Photos and highlights from the gatherings, outreach, and celebrations we shared in 2026."
+style: |
+      .back-link {
+          display: inline-flex; gap: 8px; align-items: center;
+          font-family: var(--ui); font-weight: 600; color: var(--ink); text-decoration: none;
+          margin-bottom: 28px;
+      }
+      .back-link:hover { color: var(--ring); }
+      .event-media .poster { display: block; }
+      /* Even grid for a set of same-shape photos */
+      .event-media.photo-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .event-media.photo-grid > .shot { max-width: none; }
+      @media (max-width: 640px) { .event-media.photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+---
         <header class="page-header wrap">
-            <h1>2026 past events</h1>
-            <p>A look back at the gatherings, outreach, and celebrations we shared with our community in 2026.</p>
+            <h1>{{ page.year }} past events</h1>
+            <p>A look back at the gatherings, outreach, and celebrations we shared with our community in {{ page.year }}.</p>
         </header>
 
-        <section class="section" aria-label="Events in 2026">
+        <section class="section" aria-label="Events in {{ page.year }}">
             <div class="wrap">
                 <a href="events.html" class="back-link"><span aria-hidden="true">&larr;</span> Back to upcoming events</a>
 
-                <!-- Newest first. Copy a <details class="event"> block to add one. -->
+                <!-- Generated from _data/events.yml: past events from this page's year, newest first. -->
                 <div class="event-list">
-                <details class="event" id="gump-run" open>
-                    <summary>
-                        <span class="event-date">Oct 24<small>2026</small></span>
-                        <h2 class="event-title">2026 Gump Run 5K &mdash; Running for the Kids &amp; A Better Way Out</h2>
-                        <span class="event-where">Everson City Park, 201&ndash;205 Lincoln St, Everson, WA 98247</span>
-                        <span class="event-toggle"><span class="when-closed">Details</span><span class="when-open">Close</span></span>
-                    </summary>
-                    <div class="event-body">
-                        <dl class="event-facts">
-                            <dt>When</dt><dd>Check-in 9:00 AM, 5K started 10:00 AM</dd>
-                            <dt>Who</dt><dd>Runners, walkers, and families of all ages</dd>
-                        </dl>
-                        <div class="prose">
-                            <p>On a crisp fall Saturday, runners, walkers, families, and volunteers gathered at Everson City Park for the <strong>2026 Gump Run 5K</strong>, a fun run supporting the kids and the mission of <strong>A Better Way Out</strong>. The course followed the Nooksack River trail and back, with volunteers at every crossing to keep everyone safe.</p>
-                            <p>The park was full of Forrest Gump spirit, from &ldquo;Life is like a box of chocolates&rdquo; banners to boxes of chocolates waiting for the finishers alongside the medals. Our tent kept a fire going for anyone who needed to warm up before and after the run.</p>
-                            <p>Thank you to every runner, volunteer, and supporter who showed up. Every step helps us provide mentorship, support, and hope to young people in our community. <strong>Run. Support. Transform.</strong></p>
-                        </div>
-                        <div class="event-media posters">
-                            <a class="poster shot" href="images/FB_IMG_1786567376608.jpg" style="--ar:0.629"><img src="images/FB_IMG_1786567376608.jpg" alt="Flyer for the 2026 Gump Run 5K, Running for the Kids" width="1009" height="1605" loading="lazy"></a>
-                        </div>
-                        <div class="event-media photo-grid">
-                            <a class="shot" href="images/gump-run-2026-1.jpg" style="--ar:0.75"><img src="images/thumbs/gump-run-2026-1.jpg" alt="Yellow inflatable START arch on the grass at Everson City Park, lined with colorful pennant flags" width="480" height="640" loading="lazy"></a>
-                            <a class="shot" href="images/gump-run-2026-2.jpg" style="--ar:0.75"><img src="images/thumbs/gump-run-2026-2.jpg" alt="Runners checking in at the gazebo table under a Life is like a box of chocolates banner" width="480" height="640" loading="lazy"></a>
-                            <a class="shot" href="images/gump-run-2026-3.jpg" style="--ar:0.75"><img src="images/thumbs/gump-run-2026-3.jpg" alt="Two volunteers in Gump Run hats at the refreshment table with fruit, water, and snack bars" width="480" height="640" loading="lazy"></a>
-                            <a class="shot" href="images/gump-run-2026-4.jpg" style="--ar:0.75"><img src="images/thumbs/gump-run-2026-4.jpg" alt="Medals and ribbon-tied boxes of chocolates laid out as prizes for finishers" width="480" height="640" loading="lazy"></a>
-                            <a class="shot" href="images/gump-run-2026-5.jpg" style="--ar:0.75"><img src="images/thumbs/gump-run-2026-5.jpg" alt="Three runners wearing race bibs standing by a fire pit under the A Better Way Out tent" width="480" height="640" loading="lazy"></a>
-                            <a class="shot" href="images/gump-run-2026-6.jpg" style="--ar:0.75"><img src="images/thumbs/gump-run-2026-6.jpg" alt="Two runners laughing and posing in front of the START arch" width="480" height="640" loading="lazy"></a>
-                            <a class="shot" href="images/gump-run-2026-7.jpg" style="--ar:0.75"><img src="images/thumbs/gump-run-2026-7.jpg" alt="Two runners with race bibs in front of the yellow Gump Run banner" width="480" height="640" loading="lazy"></a>
-                            <a class="shot" href="images/gump-run-2026-8.jpg" style="--ar:0.75"><img src="images/thumbs/gump-run-2026-8.jpg" alt="Two organizers in Gump Run shirts taking a selfie in front of the Gump Run banner" width="480" height="640" loading="lazy"></a>
-                        </div>
-                        <p class="event-note">Follow <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">our Facebook page</a> for the next one.</p>
-                    </div>
-                </details>
-                <details class="event" id="outreach-sep">
-                    <summary>
-                        <span class="event-date">Sep 19<small>2026</small></span>
-                        <h2 class="event-title">Homeless outreach</h2>
-                        <span class="event-where">Downtown Bellingham</span>
-                        <span class="event-toggle"><span class="when-closed">Details</span><span class="when-open">Close</span></span>
-                    </summary>
-                    <div class="event-body">
-                        <dl class="event-facts">
-                            <dt>With</dt><dd>Iglesia Pentecostal Nueva Jerusal&eacute;n</dd>
-                        </dl>
-                        <div class="prose">
-                            <p>It was not just a beautiful day, but it was also a blessing for us to be able to bless others. We can all do our part, no matter how big or small. Thank you for coming together to help us do what we do.</p>
-                            <p><strong>&ldquo;It takes a village. When one of us hurts, we all hurt.&rdquo;</strong></p>
-                        </div>
-                        <div class="event-media">
-                            <a class="shot" href="images/street-outreach-2026-09-1.jpg" style="--ar:1.502"><img src="images/street-outreach-2026-09-1.jpg" alt="Volunteers pulling wagons of supplies down a tree-lined sidewalk in downtown Bellingham" width="946" height="630" loading="lazy"></a>
-                            <a class="shot" href="images/street-outreach-2026-09-2.jpg" style="--ar:1.501"><img src="images/street-outreach-2026-09-2.jpg" alt="Two volunteers in A Better Way Out shirts preparing supply bags" width="1160" height="773" loading="lazy"></a>
-                            <a class="shot" href="images/street-outreach-2026-09-3.jpg" style="--ar:1.499"><img src="images/street-outreach-2026-09-3.jpg" alt="Wagons loaded with boxes and bags of supplies" width="946" height="631" loading="lazy"></a>
-                            <a class="shot" href="images/street-outreach-2026-09-4.jpg" style="--ar:1.502"><img src="images/street-outreach-2026-09-4.jpg" alt="Volunteers heading out with wagons at the start of the outreach" width="946" height="630" loading="lazy"></a>
-                        </div>
-                        <p class="event-note">Follow <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">our Facebook page</a> for the next one.</p>
-                    </div>
-                </details>
-                <details class="event" id="safe-space">
-                    <summary>
-                        <span class="event-date">Aug 13<small>2026</small></span>
-                        <h2 class="event-title">Create a safe space &mdash; with Whatcom Dispute Resolution Center</h2>
-                        <span class="event-where">Ferndale Public Library, 2125 Main St, Ferndale, WA 98248</span>
-                        <span class="event-toggle"><span class="when-closed">Details</span><span class="when-open">Close</span></span>
-                    </summary>
-                    <div class="event-body">
-                        <dl class="event-facts">
-                            <dt>When</dt><dd>2:00&ndash;3:00 PM</dd>
-                            <dt>Who</dt><dd>Young people ages 12+ and parents</dd>
-                        </dl>
-                        <div class="prose">
-                            <p><strong>A Better Way Out</strong> and the <strong>Whatcom Dispute Resolution Center</strong> collaborated to create a safe space &mdash; <em>Support. Listen. Respect. Together.</em></p>
-                            <p><strong>Subject: stress and how to deal with it.</strong> Young people and parents learned healthy ways to manage stress, shared and listened in a safe space, built stronger relationships, and grew together as a community.</p>
-                            <p>You matter. Your voice matters. Our community matters. Stronger together &mdash; better together!</p>
-                        </div>
-                        <div class="event-media posters">
-                            <a class="poster shot" href="images/ABWO-and-WDRC.jpg" style="--ar:0.667"><img src="images/ABWO-and-WDRC.jpg" alt="Create a Safe Space event flyer from A Better Way Out and the Whatcom Dispute Resolution Center" width="800" height="1200" loading="lazy"></a>
-                        </div>
-                        <p class="event-note">Learn more about our partner at <a href="https://www.whatcomdrc.org" target="_blank" rel="noopener noreferrer">whatcomdrc.org</a>.</p>
-                    </div>
-                </details>
-                <details class="event" id="amando">
-                    <summary>
-                        <span class="event-date">Aug 1<small>2026</small></span>
-                        <h2 class="event-title">Amando Mi Comunidad &mdash; Loving My Community</h2>
-                        <span class="event-where">4860 Northwest Dr, Bellingham, WA 98226</span>
-                        <span class="event-toggle"><span class="when-closed">Details</span><span class="when-open">Close</span></span>
-                    </summary>
-                    <div class="event-body">
-                        <dl class="event-facts">
-                            <dt>When</dt><dd>12:00&ndash;3:30 PM</dd>
-                            <dt>Cost</dt><dd>Free, whole family welcome</dd>
-                            <dt>Sponsor</dt><dd>Whatcom Community Foundation</dd>
-                        </dl>
-                        <div class="prose">
-                            <p><strong>Amando Mi Comunidad</strong> (Loving My Community) was a free, family-friendly community event held on Saturday, August 1. There was delicious food for everyone and fun activities for kids, while invited organizations shared information about resources, services, and support available for you and your community, including:</p>
-                            <ul>
-                                <li>Mental health counselors</li>
-                                <li>Food bank</li>
-                                <li>Home weatherization &amp; repair</li>
-                                <li>Education specialist</li>
-                                <li>Housing services &amp; support</li>
-                                <li>Health support</li>
-                                <li>And more</li>
-                            </ul>
-                            <p>Special thanks to sponsor <strong>Whatcom Community Foundation</strong> for supporting this event.</p>
-                        </div>
-                        <div class="event-media posters">
-                            <a class="poster shot" href="images/amando-mi-comunidad.jpg" style="--ar:0.707"><img src="images/amando-mi-comunidad.jpg" alt="Amando Mi Comunidad event flyer" width="1131" height="1600" loading="lazy"></a>
-                        </div>
-                        <div class="event-shorts">
-                            <a class="yt-facade" href="https://www.youtube.com/watch?v=6qFkTRWGbhc" data-yt="6qFkTRWGbhc" title="Serving Our Community: Cornhole with Kids at Amando mi Comunidad" aria-label="Play video: Serving Our Community: Cornhole with Kids at Amando mi Comunidad"><img src="https://i.ytimg.com/vi/6qFkTRWGbhc/hqdefault.jpg" alt="" width="480" height="360" loading="lazy"></a>
-                            <a class="yt-facade" href="https://www.youtube.com/watch?v=AKfDjFIjZ1g" data-yt="AKfDjFIjZ1g" title="Cornhole Fun with Kids at Amando mi Comunidad — Part 2" aria-label="Play video: Cornhole Fun with Kids at Amando mi Comunidad — Part 2"><img src="https://i.ytimg.com/vi/AKfDjFIjZ1g/hqdefault.jpg" alt="" width="480" height="360" loading="lazy"></a>
-                            <a class="yt-facade" href="https://www.youtube.com/watch?v=GDKV666FdE0" data-yt="GDKV666FdE0" title="Cornhole Fun with Kids at Amando mi Comunidad — Part 3" aria-label="Play video: Cornhole Fun with Kids at Amando mi Comunidad — Part 3"><img src="https://i.ytimg.com/vi/GDKV666FdE0/hqdefault.jpg" alt="" width="480" height="360" loading="lazy"></a>
-                        </div>
-                        <p class="event-note">Follow <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">our Facebook page</a> for the next one.</p>
-                    </div>
-                </details>
-                <details class="event" id="jam-river">
-                    <summary>
-                        <span class="event-date">Jun 26<small>2026</small></span>
-                        <h2 class="event-title">Jam on the River 2026 &mdash; live music &amp; family festival</h2>
-                        <span class="event-where">Centennial Riverwalk Park, 2007 Cherry St, Ferndale, WA 98248</span>
-                        <span class="event-toggle"><span class="when-closed">Details</span><span class="when-open">Close</span></span>
-                    </summary>
-                    <div class="event-body">
-                        <dl class="event-facts">
-                            <dt>When</dt><dd>Fri June 26, 5:00&ndash;8:30 PM. Sat June 27, 12:00&ndash;8:30 PM</dd>
-                            <dt>Cost</dt><dd>Free</dd>
-                        </dl>
-                        <div class="prose">
-                            <p><strong>Jam on the River</strong> returned to Ferndale&rsquo;s Centennial Riverwalk Park on June 26&ndash;27, 2026. This free, all-ages festival brought the community together along the Nooksack River for a weekend of live music, food trucks, a beer garden, local vendors, and kids&rsquo; activities.</p>
-                            <p>A Better Way Out had a booth at the festival, sharing our programs and mission with families who stopped by to say hi.</p>
-                        </div>
-                        <div class="event-media">
-                            <a class="shot" href="images/Jam_in_the_River_group_photo.jpg" style="--ar:1.377"><img src="images/Jam_in_the_River_group_photo.jpg" alt="Three women from A Better Way Out at the booth table" width="654" height="475" loading="lazy"></a>
-                            <a class="shot" href="images/Jam_in_the_River_event_live_2.jpg" style="--ar:1.778"><img src="images/Jam_in_the_River_event_live_2.jpg" alt="Festival tents and families, with the A Better Way Out booth in the middle" width="1280" height="720" loading="lazy"></a>
-                            <a class="shot" href="images/Jam_in_the_River_event_live.jpg" style="--ar:0.955"><img src="images/Jam_in_the_River_event_live.jpg" alt="Visitors at the A Better Way Out booth" width="737" height="772" loading="lazy"></a>
-                            <a class="shot" href="images/Jam_in_the_River_booth.jpg" style="--ar:0.846"><img src="images/Jam_in_the_River_booth.jpg" alt="The A Better Way Out booth with its tree-of-life banner" width="356" height="421" loading="lazy"></a>
-                        </div>
-                        <p class="event-note">Follow <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">our Facebook page</a> for the next one.</p>
-                    </div>
-                </details>
-                <details class="event" id="outreach-may">
-                    <summary>
-                        <span class="event-date">May 16<small>2026</small></span>
-                        <h2 class="event-title">Homeless outreach</h2>
-                        <span class="event-where">Downtown Bellingham, Cornwall Alleys</span>
-                        <span class="event-toggle"><span class="when-closed">Details</span><span class="when-open">Close</span></span>
-                    </summary>
-                    <div class="event-body">
-                        <dl class="event-facts">
-                            <dt>When</dt><dd>Met at 12:00 PM</dd>
-                            <dt>Who</dt><dd>Open to all volunteers</dd>
-                        </dl>
-                        <div class="prose">
-                            <p>Our team and volunteers gathered to serve those experiencing homelessness in downtown Bellingham. Volunteers met at noon to prepare food together, then headed out to the Cornwall Alleys area to distribute meals and supplies directly to those in need.</p>
-                            <p>A huge thank you to everyone who showed up with a compassionate heart. Your time and presence made a real difference.</p>
-                        </div>
-                        <div class="event-media">
-                            <a class="poster shot" href="images/homless_outreach.jpg" style="--ar:2.165"><img src="images/homless_outreach.jpg" alt="Homeless outreach event flyer" width="2048" height="946" loading="lazy"></a>
-                        </div>
-                        <p class="event-note">Follow <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">our Facebook page</a> for the next one.</p>
-                    </div>
-                </details>
-                <details class="event" id="qa-director">
-                    <summary>
-                        <span class="event-date">Apr 25<small>2026</small></span>
-                        <h2 class="event-title">Q&amp;A with the Director</h2>
-                        <span class="event-where">Ferndale Public Library, 2125 Main St, Ferndale, WA 98248</span>
-                        <span class="event-toggle"><span class="when-closed">Details</span><span class="when-open">Close</span></span>
-                    </summary>
-                    <div class="event-body">
-                        <dl class="event-facts">
-                            <dt>When</dt><dd>10:30 AM&ndash;12:30 PM</dd>
-                            <dt>Who</dt><dd>Ages 12+</dd>
-                        </dl>
-                        <div class="prose">
-                            <p>A community Q&amp;A with the Director of <em>A Better Way Out</em>: a chance to learn about our mission, our programs, and how we support people in finding positive paths in life. Attendees asked questions about our mission, met the director and team, and learned how to get involved.</p>
-                            <p><strong>Who attended:</strong> youth ages 12 and up, community members, parents and mentors, city officials, nonprofits, and business leaders.</p>
-                        </div>
-                        <div class="event-media posters">
-                            <a class="poster shot" href="images/Q%26A-with-the-director.jpg" style="--ar:0.667"><img src="images/Q%26A-with-the-director.jpg" alt="Q&amp;A with the Director event flyer" width="1024" height="1536" loading="lazy"></a>
-                        </div>
-                        <p class="event-note">Follow <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">our Facebook page</a> for the next one.</p>
-                    </div>
-                </details>
-                <details class="event" id="outreach-apr">
-                    <summary>
-                        <span class="event-date">Apr 11<small>2026</small></span>
-                        <h2 class="event-title">Homeless outreach</h2>
-                        <span class="event-where">Downtown Bellingham, Cornwall Alleys</span>
-                        <span class="event-toggle"><span class="when-closed">Details</span><span class="when-open">Close</span></span>
-                    </summary>
-                    <div class="event-body">
-                        <dl class="event-facts">
-                            <dt>When</dt><dd>Met at 12:00 PM</dd>
-                            <dt>Who</dt><dd>Open to all volunteers</dd>
-                        </dl>
-                        <div class="prose">
-                            <p>We served those experiencing homelessness in downtown Bellingham. Volunteers met at noon to prepare food together, then headed out to the Cornwall Alleys area to distribute meals and supplies directly to those in need.</p>
-                        </div>
-                        <div class="event-media">
-                            <a class="shot" href="images/ABWO-group.jpg" style="--ar:2.164"><img src="images/ABWO-group.jpg" alt="Volunteers gathered for a group photo after the outreach" width="1080" height="499" loading="lazy"></a>
-                            <a class="shot" href="images/ABWO-group-1.jpg" style="--ar:0.462"><img src="images/ABWO-group-1.jpg" alt="Second group photo from the outreach" width="499" height="1080" loading="lazy"></a>
-                        </div>
-                        <p class="event-note">Follow <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">our Facebook page</a> for the next one.</p>
-                    </div>
-                </details>
-                <details class="event" id="interview-cop">
-                    <summary>
-                        <span class="event-date">Jan 17<small>2026</small></span>
-                        <h2 class="event-title">Interview with a Cop</h2>
-                        <span class="event-where">500 14th St, Lynden, WA 98264</span>
-                        <span class="event-toggle"><span class="when-closed">Details</span><span class="when-open">Close</span></span>
-                    </summary>
-                    <div class="event-body">
-                        <dl class="event-facts">
-                            <dt>When</dt><dd>3:30&ndash;8:00 PM</dd>
-                            <dt>Who</dt><dd>Ages 12+</dd>
-                        </dl>
-                        <div class="event-media">
-                            <a class="poster shot" href="images/interview_with_a_cop.jpg" style="--ar:0.573"><img src="images/interview_with_a_cop.jpg" alt="Interview with a Cop event flyer" width="733" height="1280" loading="lazy"></a>
-                            <a class="shot" href="images/interview-with-a-cop-2026-1.jpg" style="--ar:1.333"><img src="images/interview-with-a-cop-2026-1.jpg" alt="Photo from Interview with a Cop" width="1160" height="870" loading="lazy"></a>
-                            <a class="shot" href="images/interview-with-a-cop-2026-2.jpg" style="--ar:1.391"><img src="images/interview-with-a-cop-2026-2.jpg" alt="Second photo from Interview with a Cop" width="1160" height="834" loading="lazy"></a>
-                        </div>
-                        <p class="event-note">Follow <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">our Facebook page</a> for the next one.</p>
-                    </div>
-                </details>
+                {%- assign today = site.time | date: "%Y-%m-%d" %}
+                {%- assign year = page.year | append: "" %}
+                {%- assign by_date = site.data.events | sort: "date" | reverse %}
+                {%- assign open_event = true %}
+                {%- for e in by_date %}
+                {%- assign ey = e.date | slice: 0, 4 %}
+                {%- if ey == year and e.date < today %}
+{% include event-past.html %}
+                {%- assign open_event = false %}
+                {%- endif %}
+                {%- endfor %}
                 </div>
             </div>
         </section>
-
-        <!-- CTA — Donate + Volunteer (shown on every page) -->
-        <section class="cta-row" aria-labelledby="cta-title">
-            <img class="cta-roots" src="images/logo-mark-360.webp" alt="" width="360" height="355" loading="lazy">
-            <div class="wrap">
-                <h2 class="cta-title" id="cta-title">Walk with the next young person who needs a way out.</h2>
-                <div class="support-section">
-                    <h3>Give</h3>
-                    <p>Your donation goes straight into mentorship, outreach, and family support for young people in Whatcom County. Donations are tax-deductible.</p>
-                    <a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer" class="btn-donate">Donate on Zeffy</a>
-                </div>
-                <div class="volunteer-section">
-                    <h3>Volunteer</h3>
-                    <p>Serve at outreach days, staff a booth, or mentor. Message us on Facebook and we&rsquo;ll tell you what&rsquo;s coming up.</p>
-                    <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer" class="btn-involve">Message us on Facebook</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="wrap">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <img src="images/logo-mark-112.webp" alt="" width="72" height="71" loading="lazy">
-                    <h2>A Better Way Out</h2>
-                    <p>Trauma-informed mentorship for young people in Whatcom County, Washington &mdash; led by mentors with lived experience.</p>
-                </div>
-                <div class="footer-col">
-                    <h3>Who we are</h3>
-                    <ul>
-                        <li><a href="about.html">About us</a></li>
-                        <li><a href="about.html#leadership">Leadership &amp; board</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="party.html">Partners</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>What we do</h3>
-                    <ul>
-                        <li><a href="events.html">Events</a></li>
-                        <li><a href="interviews.html">Interviews</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Get in touch</h3>
-                    <ul>
-                        <li><a href="mailto:abetterwayoutwa@gmail.com">abetterwayoutwa@gmail.com</a></li>
-                        <li><a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-                        <li><a href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-6576" target="_blank" rel="noopener noreferrer">Donate</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 A Better Way Out WA. A 501(c)(3) nonprofit, EIN 92-1581139.</p>
-                <p><a href="privacy.html">Privacy policy</a></p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="shared.js?v=5" defer></script>
-</body>
-</html>

@@ -1,0 +1,19 @@
+# Main menu, in order. key matches `nav:` in each page's front matter.
+- key: home
+  label: "Home"
+  href: index.html
+- key: about
+  label: "About"
+  href: about.html
+- key: services
+  label: "Services"
+  href: services.html
+- key: events
+  label: "Events"
+  href: events.html
+- key: interviews
+  label: "Interviews"
+  href: interviews.html
+- key: partners
+  label: "Partners"
+  href: party.html
