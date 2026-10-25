@@ -1,24 +1,36 @@
-name: Site check
+name: Build, check, and deploy
 
+# Builds the site with Jekyll, checks it, and only publishes if every check passes.
+# Repo Settings -> Pages -> Source must be "GitHub Actions".
 on:
   push:
     branches: [main]
-  pull_request:
-  workflow_dispatch:
+  pull_request:          # check only, never deploys
+  workflow_dispatch:     # "Run workflow" button in the Actions tab
   schedule:
-    - cron: "0 1 * * 1"   # Every Monday 09:00 Taipei: catch external link rot
+    # Daily rebuild so finished events move to the archive on their own.
+    # 09:23 UTC = just after 1-2 AM in Washington (Pacific time).
+    - cron: "23 9 * * *"
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
+
+# One deploy at a time; a newer push replaces a queued one
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
-  check:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      # Build the site the same way GitHub Pages does (fails here if a template or _data file is broken)
-      - name: Build with Jekyll (same builder as GitHub Pages)
+      - uses: actions/configure-pages@v5
+
+      - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./
@@ -27,11 +39,7 @@ jobs:
       - name: CNAME guard
         run: |
           expected="www.abetterwayoutwa.org"
-          if [ ! -f CNAME ]; then
-            echo "::error file=CNAME::CNAME file is missing"
-            exit 1
-          fi
-          actual="$(tr -d '\r\n' < CNAME)"
+          actual="$(tr -d '\r\n' < _site/CNAME 2>/dev/null || true)"
           if [ "$actual" != "$expected" ]; then
             echo "::error file=CNAME::CNAME is '$actual', expected '$expected'"
             exit 1
@@ -56,14 +64,13 @@ jobs:
         run: |
           found=0
           while IFS= read -r f; do
-            size=$(stat -c%s "$f")
-            echo "::warning file=$f::Image is $((size / 1024)) KB, consider compressing"
+            echo "::warning file=${f#_site/}::Image is $(( $(stat -c%s "$f") / 1024 )) KB, consider compressing"
             found=1
-          done < <(find . -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' -o -iname '*.gif' \) -size +500k -not -path './.git/*' -not -path './_site/*')
+          done < <(find _site -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' -o -iname '*.gif' \) -size +500k)
           [ "$found" -eq 0 ] && echo "All images under 500 KB"
           exit 0
 
-      - name: Internal links (fail on broken)
+      - name: Internal links (blocks deploy if broken)
         uses: lycheeverse/lychee-action@v2
         with:
           args: --offline --no-progress --root-dir "${{ github.workspace }}/_site" './_site/**/*.html'
@@ -82,3 +89,21 @@ jobs:
             --exclude 'google-analytics\.com'
             './_site/**/*.html'
           fail: false
+
+      - name: Upload site
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
