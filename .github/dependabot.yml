@@ -1,0 +1,15 @@
+# Dependabot: opens a pull request when a GitHub Action used in our workflows
+# has a new version or a security fix. Review the PR, then merge it.
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    # Bundle all action updates into one PR instead of one per action
+    groups:
+      github-actions:
+        patterns: ["*"]
+    commit-message:
+      prefix: "ci"
