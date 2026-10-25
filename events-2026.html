@@ -38,6 +38,10 @@
         }
         .back-link:hover { color: var(--ring); }
         .event-media .poster { display: block; }
+        /* Even grid for a set of same-shape photos */
+        .event-media.photo-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        .event-media.photo-grid > .shot { max-width: none; }
+        @media (max-width: 640px) { .event-media.photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     </style>
 </head>
 <body>
@@ -80,7 +84,40 @@
 
                 <!-- Newest first. Copy a <details class="event"> block to add one. -->
                 <div class="event-list">
-                <details class="event" id="outreach-sep" open>
+                <details class="event" id="gump-run" open>
+                    <summary>
+                        <span class="event-date">Oct 24<small>2026</small></span>
+                        <h2 class="event-title">2026 Gump Run 5K &mdash; Running for the Kids &amp; A Better Way Out</h2>
+                        <span class="event-where">Everson City Park, 201&ndash;205 Lincoln St, Everson, WA 98247</span>
+                        <span class="event-toggle"><span class="when-closed">Details</span><span class="when-open">Close</span></span>
+                    </summary>
+                    <div class="event-body">
+                        <dl class="event-facts">
+                            <dt>When</dt><dd>Check-in 9:00 AM, 5K started 10:00 AM</dd>
+                            <dt>Who</dt><dd>Runners, walkers, and families of all ages</dd>
+                        </dl>
+                        <div class="prose">
+                            <p>On a crisp fall Saturday, runners, walkers, families, and volunteers gathered at Everson City Park for the <strong>2026 Gump Run 5K</strong>, a fun run supporting the kids and the mission of <strong>A Better Way Out</strong>. The course followed the Nooksack River trail and back, with volunteers at every crossing to keep everyone safe.</p>
+                            <p>The park was full of Forrest Gump spirit, from &ldquo;Life is like a box of chocolates&rdquo; banners to boxes of chocolates waiting for the finishers alongside the medals. Our tent kept a fire going for anyone who needed to warm up before and after the run.</p>
+                            <p>Thank you to every runner, volunteer, and supporter who showed up. Every step helps us provide mentorship, support, and hope to young people in our community. <strong>Run. Support. Transform.</strong></p>
+                        </div>
+                        <div class="event-media posters">
+                            <a class="poster shot" href="images/FB_IMG_1786567376608.jpg" style="--ar:0.629"><img src="images/FB_IMG_1786567376608.jpg" alt="Flyer for the 2026 Gump Run 5K, Running for the Kids" width="1009" height="1605" loading="lazy"></a>
+                        </div>
+                        <div class="event-media photo-grid">
+                            <a class="shot" href="images/gump-run-2026-1.jpg" style="--ar:0.75"><img src="images/gump-run-2026-1.jpg" alt="Yellow inflatable START arch on the grass at Everson City Park, lined with colorful pennant flags" width="900" height="1200" loading="lazy"></a>
+                            <a class="shot" href="images/gump-run-2026-2.jpg" style="--ar:0.75"><img src="images/gump-run-2026-2.jpg" alt="Runners checking in at the gazebo table under a Life is like a box of chocolates banner" width="900" height="1200" loading="lazy"></a>
+                            <a class="shot" href="images/gump-run-2026-3.jpg" style="--ar:0.75"><img src="images/gump-run-2026-3.jpg" alt="Two volunteers in Gump Run hats at the refreshment table with fruit, water, and snack bars" width="900" height="1200" loading="lazy"></a>
+                            <a class="shot" href="images/gump-run-2026-4.jpg" style="--ar:0.75"><img src="images/gump-run-2026-4.jpg" alt="Medals and ribbon-tied boxes of chocolates laid out as prizes for finishers" width="900" height="1200" loading="lazy"></a>
+                            <a class="shot" href="images/gump-run-2026-5.jpg" style="--ar:0.75"><img src="images/gump-run-2026-5.jpg" alt="Three runners wearing race bibs standing by a fire pit under the A Better Way Out tent" width="900" height="1200" loading="lazy"></a>
+                            <a class="shot" href="images/gump-run-2026-6.jpg" style="--ar:0.75"><img src="images/gump-run-2026-6.jpg" alt="Two runners laughing and posing in front of the START arch" width="900" height="1200" loading="lazy"></a>
+                            <a class="shot" href="images/gump-run-2026-7.jpg" style="--ar:0.75"><img src="images/gump-run-2026-7.jpg" alt="Two runners with race bibs in front of the yellow Gump Run banner" width="900" height="1200" loading="lazy"></a>
+                            <a class="shot" href="images/gump-run-2026-8.jpg" style="--ar:0.75"><img src="images/gump-run-2026-8.jpg" alt="Two organizers in Gump Run shirts taking a selfie in front of the Gump Run banner" width="900" height="1200" loading="lazy"></a>
+                        </div>
+                        <p class="event-note">Follow <a href="https://www.facebook.com/a.better.way.out" target="_blank" rel="noopener noreferrer">our Facebook page</a> for the next one.</p>
+                    </div>
+                </details>
+                <details class="event" id="outreach-sep">
                     <summary>
                         <span class="event-date">Sep 19<small>2026</small></span>
                         <h2 class="event-title">Homeless outreach</h2>
