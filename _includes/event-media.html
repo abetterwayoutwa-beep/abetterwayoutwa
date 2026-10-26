@@ -1,18 +1,25 @@
 {%- comment -%}
   Posters, photos, and videos for one event. Expects the event in `e`.
-  Each photo's shape (--ar) is worked out from its width and height.
+  Each image's shape (--ar), size, and WebP versions come from _data/images.json.
+  Links open the largest WebP version in the lightbox.
 {%- endcomment -%}
-{%- if e.posters %}
+{%- if e.posters and skip_posters != true %}
                         <div class="event-media posters">
                             {%- for img in e.posters %}
-                            <a class="poster shot" href="{{ img.src }}" style="--ar:{{ img.width | times: 1.0 | divided_by: img.height | round: 3 }}"><img src="{{ img.thumb | default: img.src }}" alt="{{ img.alt | escape }}" width="{{ img.width }}" height="{{ img.height }}" loading="lazy"></a>
+                            {%- assign pic = img %}{% assign pic_sizes = "(max-width: 640px) calc(100vw - 32px), 320px" %}{% assign pic_attrs = 'loading="lazy"' %}
+                            {%- assign info = site.data.images[img.src] %}
+                            {%- assign pw = img.width | default: info.width %}{% assign ph = img.height | default: info.height %}
+                            <a class="poster shot" href="{{ info.largest | default: img.src }}" style="--ar:{{ pw | times: 1.0 | divided_by: ph | round: 3 }}">{% include picture.html %}</a>
                             {%- endfor %}
                         </div>
 {%- endif %}
 {%- if e.photos %}
                         <div class="event-media{% if e.photo_grid %} photo-grid{% endif %}">
                             {%- for img in e.photos %}
-                            <a class="{% if img.flyer %}poster {% endif %}shot" href="{{ img.src }}" style="--ar:{{ img.width | times: 1.0 | divided_by: img.height | round: 3 }}"><img src="{{ img.thumb | default: img.src }}" alt="{{ img.alt | escape }}" width="{{ img.width }}" height="{{ img.height }}" loading="lazy"></a>
+                            {%- assign pic = img %}{% assign pic_sizes = "(max-width: 640px) 50vw, 320px" %}{% assign pic_attrs = 'loading="lazy"' %}
+                            {%- assign info = site.data.images[img.src] %}
+                            {%- assign pw = img.width | default: info.width %}{% assign ph = img.height | default: info.height %}
+                            <a class="{% if img.flyer %}poster {% endif %}shot" href="{{ info.largest | default: img.src }}" style="--ar:{{ pw | times: 1.0 | divided_by: ph | round: 3 }}">{% include picture.html %}</a>
                             {%- endfor %}
                         </div>
 {%- endif %}

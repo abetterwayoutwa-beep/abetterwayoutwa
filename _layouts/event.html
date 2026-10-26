@@ -1,0 +1,67 @@
+---
+layout: default
+---
+{%- comment -%}
+  One page per event: /events/YEAR/short-name.html, built from a file in _events/.
+  Shows the upcoming text before the event and the recap after it.
+{%- endcomment -%}
+{%- assign e = page %}
+{%- assign today = site.time | date: "%Y-%m-%d" %}
+{%- assign d = e.date | date: "%Y-%m-%d" %}
+{%- if d >= today %}
+{%- assign is_upcoming = true %}
+{%- assign u = e.upcoming | default: e.recap %}
+{%- else %}
+{%- assign is_upcoming = false %}
+{%- assign u = e.recap | default: e.upcoming %}
+{%- endif %}
+        <article class="section upcoming" aria-labelledby="event-title">
+            <div class="wrap">
+                {%- if e.posters %}
+                {%- assign img = e.posters.first %}
+                <figure class="upcoming-poster">
+                    {%- assign pic = img %}{% assign pic_sizes = "(max-width: 452px) calc(100vw - 32px), (max-width: 860px) 420px, 40vw" %}{% assign pic_attrs = 'fetchpriority="high"' %}
+                    {% include picture.html %}
+                </figure>
+                {%- endif %}
+                <div class="upcoming-info">
+                    {%- if is_upcoming %}
+                    <span class="status">Upcoming</span>
+                    {%- else %}
+                    <span class="status is-past">Past event</span>
+                    {%- endif %}
+                    <p class="upcoming-date">{{ e.date | date: "%A, %B %-d, %Y" }}</p>
+                    <h1 id="event-title">{{ e.title }}</h1>
+                    {%- if u.text %}
+                    <div class="prose">
+                        {{ u.text }}
+                    </div>
+                    {%- endif %}
+                    <dl class="event-facts">
+                        <dt>Where</dt><dd>{{ e.where }}</dd>
+                        {%- for f in u.facts %}
+                        <dt>{{ f.label }}</dt><dd>{{ f.value }}</dd>
+                        {%- endfor %}
+                    </dl>
+                    {%- if u.note %}
+                    <p class="event-note">{{ u.note }}</p>
+                    {%- endif %}
+                </div>
+            </div>
+        </article>
+        {%- if e.photos or e.videos %}
+        <section class="section event-page-media" aria-label="Photos and videos">
+            <div class="wrap">
+{%- assign skip_posters = true %}
+{% include event-media.html %}
+            </div>
+        </section>
+        {%- endif %}
+        <nav class="section event-page-media event-page-nav" aria-label="More events">
+            <div class="wrap">
+                <a href="/events.html" class="back-link"><span aria-hidden="true">&larr;</span> All events</a>
+                {%- unless is_upcoming %}
+                <a href="/events-{{ e.date | date: "%Y" }}.html" class="back-link">More from {{ e.date | date: "%Y" }} <span aria-hidden="true">&rarr;</span></a>
+                {%- endunless %}
+            </div>
+        </nav>

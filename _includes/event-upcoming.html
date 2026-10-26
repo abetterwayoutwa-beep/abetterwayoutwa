@@ -3,18 +3,20 @@
   data-until hides it in the browser the day after the event, even before the site is rebuilt.
 {%- endcomment -%}
 {%- assign u = e.upcoming | default: e.recap %}
-        <section class="section upcoming" id="{{ e.id }}" aria-labelledby="{{ e.id }}-title" data-until="{{ e.date | date: "%s" | plus: 86400 | date: "%Y-%m-%d" }}">
+        <section class="section upcoming" id="{{ e.slug }}" aria-labelledby="{{ e.slug }}-title" data-until="{{ e.date | date: "%s" | plus: 90000 | date: "%Y-%m-%d" }}">
             <div class="wrap">
                 {%- if e.posters %}
                 {%- assign img = e.posters.first %}
                 <figure class="upcoming-poster">
-                    <img src="{{ img.src }}" alt="{{ img.alt | escape }}" width="{{ img.width }}" height="{{ img.height }}"{% if first_upcoming %} fetchpriority="high"{% else %} loading="lazy"{% endif %}>
+                    {%- assign pic = img %}{% assign pic_sizes = "(max-width: 452px) calc(100vw - 32px), (max-width: 860px) 420px, 40vw" %}
+                    {%- if first_upcoming %}{% assign pic_attrs = 'fetchpriority="high"' %}{% else %}{% assign pic_attrs = 'loading="lazy"' %}{% endif %}
+                    {% include picture.html %}
                 </figure>
                 {%- endif %}
                 <div class="upcoming-info">
                     <span class="status">Upcoming</span>
                     <p class="upcoming-date">{{ e.date | date: "%A, %B %-d" }}</p>
-                    <h2 id="{{ e.id }}-title">{{ e.title }}</h2>
+                    <h2 id="{{ e.slug }}-title">{{ e.title }}</h2>
                     <div class="prose">
                         {{ u.text }}
                     </div>
@@ -27,6 +29,7 @@
                     {%- if u.note %}
                     <p class="event-note">{{ u.note }}</p>
                     {%- endif %}
+                    <p class="event-note"><a href="{{ e.url }}">Event page and share link &rarr;</a></p>
                 </div>
             </div>
         </section>

@@ -1,2 +1,8 @@
 _site/
 .jekyll-cache/
+# generated in CI by _tools/images.py
+assets/img/
+_data/images.json
+# Lighthouse local runs
+.lighthouseci/
+lhci-report/

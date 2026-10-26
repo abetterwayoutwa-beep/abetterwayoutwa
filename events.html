@@ -6,36 +6,6 @@ description: "Events & Activities - A Better Way Out community programs and gath
 og_title: "Events &amp; Activities — A Better Way Out WA"
 og_description: "Community gatherings, outreach, and Night of Testimonies on October 31 — see what we're up to."
 style: |
-      .upcoming .wrap {
-          display: grid;
-          grid-template-columns: repeat(12, minmax(0, 1fr));
-          column-gap: 24px; row-gap: 40px;
-          align-items: start;
-      }
-      .upcoming .wrap::before { content: ""; grid-column: 1 / -1; height: 1px; background: var(--ink); margin-bottom: clamp(0px, 1vw, 16px); }
-      .upcoming-poster { grid-column: 1 / span 5; }
-      .upcoming-poster img { border-radius: var(--radius-s); }
-      .upcoming-info { grid-column: 7 / span 6; }
-      .status {
-          display: inline-block;
-          font-family: var(--ui); font-weight: 650; font-size: .85rem;
-          color: #fff; background: var(--ribbon);
-          padding: 5px 12px; border-radius: var(--radius-pill);
-          margin-bottom: 20px;
-      }
-      .upcoming-date {
-          font-family: var(--display); font-stretch: 66%; font-weight: 800;
-          font-size: var(--step-4); line-height: .9; color: var(--ribbon);
-          margin-bottom: 14px;
-      }
-      .upcoming-info h2 { font-size: var(--step-3); margin-bottom: 28px; }
-      .upcoming-info .prose { margin-bottom: 28px; }
-      .upcoming-info .event-facts { border-top: 1px solid var(--line); padding-top: 20px; }
-      @media (max-width: 860px) {
-          .upcoming-poster, .upcoming-info { grid-column: 1 / -1; }
-          .upcoming-poster { max-width: 420px; }
-      }
-
       .past .wrap {
           display: grid;
           grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -59,13 +29,14 @@ style: |
             <p>Community gatherings built to create connection, inspire hope, and bring real change.</p>
         </header>
 
-        <!-- Upcoming events come from _data/events.yml: any event dated today or later shows here. -->
+        <!-- Upcoming events come from _events/: any event dated today or later shows here. -->
 {%- assign today = site.time | date: "%Y-%m-%d" %}
-{%- assign by_date = site.data.events | sort: "date" %}
+{%- assign by_date = site.events | sort: "date" %}
 {%- assign first_upcoming = true %}
 {%- assign shown = 0 %}
 {%- for e in by_date %}
-{%- if e.date >= today %}
+{%- assign d = e.date | date: "%Y-%m-%d" %}
+{%- if d >= today %}
 {% include event-upcoming.html %}
 {%- assign first_upcoming = false %}
 {%- assign shown = shown | plus: 1 %}
@@ -79,21 +50,21 @@ style: |
         </section>
 {%- endif %}
 
-        <!-- PAST EVENTS — year links are generated from _data/events.yml -->
+        <!-- PAST EVENTS — year links are generated from _events/ -->
         <section class="section past" aria-labelledby="past-title">
             <div class="wrap">
                 <h2 id="past-title">Past events</h2>
                 <div class="past-body">
                     <p>Looking back at what we&rsquo;ve done together: photos, videos, and highlights from previous gatherings.</p>
                     {%- comment %} One link per year that has past events; each year needs an events-YEAR.html page. {% endcomment %}
-                    {%- assign by_date = site.data.events | sort: "date" | reverse %}
-                    {%- capture years %}{% for e in by_date %}{% if e.date < today %}{{ e.date | slice: 0, 4 }},{% endif %}{% endfor %}{% endcapture %}
+                    {%- assign by_date = site.events | sort: "date" | reverse %}
+                    {%- capture years %}{% for e in by_date %}{% assign d = e.date | date: "%Y-%m-%d" %}{% if d < today %}{{ e.date | date: "%Y" }},{% endif %}{% endfor %}{% endcapture %}
                     {%- assign years = years | split: "," | uniq %}
                     {%- for y in years %}
                     {%- if y == "" %}{% continue %}{% endif %}
                     {%- assign n = 0 %}
-                    {%- for e in by_date %}{% assign ey = e.date | slice: 0, 4 %}{% if ey == y and e.date < today %}{% assign n = n | plus: 1 %}{% endif %}{% endfor %}
-                    <a href="events-{{ y }}.html" class="year-link"><b>{{ y }}</b><span>{{ n }} event{% if n != 1 %}s{% endif %}</span></a>
+                    {%- for e in by_date %}{% assign ey = e.date | date: "%Y" %}{% assign d = e.date | date: "%Y-%m-%d" %}{% if ey == y and d < today %}{% assign n = n | plus: 1 %}{% endif %}{% endfor %}
+                    <a href="/events-{{ y }}.html" class="year-link"><b>{{ y }}</b><span>{{ n }} event{% if n != 1 %}s{% endif %}</span></a>
                     {%- endfor %}
                 </div>
             </div>
