@@ -10,6 +10,9 @@ collections:
     output: true
     permalink: /events/:year/:slug.html
 
+# Build pages for upcoming events too (Jekyll skips future-dated files by default)
+future: true
+
 defaults:
   - scope:
       type: events
