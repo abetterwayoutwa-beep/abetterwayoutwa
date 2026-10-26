@@ -113,6 +113,8 @@ jobs:
             --timeout 20
             --exclude 'googletagmanager\.com'
             --exclude 'google-analytics\.com'
+            --exclude '^https://www\.abetterwayoutwa\.org'
+            --root-dir "${{ github.workspace }}/_site"
             './_site/**/*.html'
           fail: false
 
