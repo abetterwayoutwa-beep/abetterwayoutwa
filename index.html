@@ -255,7 +255,7 @@ style: |
                     </div>
                 </div>
                 <figure class="photo hero-photo">
-                    <span class="frame"><img src="/images/street-outreach-2026-09-4.jpg" alt="Volunteers pulling wagons of supplies down a sunlit street at the start of an outreach day" width="946" height="630" fetchpriority="high"></span>
+                    <span class="frame">{% include picture.html src="/images/street-outreach-2026-09-4.jpg" alt="Volunteers pulling wagons of supplies down a sunlit street at the start of an outreach day" width="946" height="630" sizes="(max-width: 860px) calc(100vw - 32px), 58vw" attrs='fetchpriority="high"' %}</span>
                     <figcaption>Heading out with supplies for street outreach in downtown Bellingham, September 2026.</figcaption>
                 </figure>
             </div>
@@ -304,10 +304,10 @@ style: |
                     </li>
                 </ul>
                 <div class="ways-frame" aria-hidden="true">
-                    <img class="is-active" src="/images/svc-mental-health.jpg" alt="" width="1200" height="900" loading="lazy">
-                    <img src="/images/svc-personal-connections.jpg" alt="" width="1080" height="810" loading="lazy">
-                    <img src="/images/svc-family-support.jpg" alt="" width="830" height="622" loading="lazy">
-                    <img src="/images/svc-community-connections.jpg" alt="" width="946" height="710" loading="lazy">
+                    {% include picture.html src="/images/svc-mental-health.jpg" alt="" width="1200" height="900" sizes="(max-width: 860px) calc(100vw - 32px), 50vw" attrs='loading="lazy"' class="is-active" %}
+                    {% include picture.html src="/images/svc-personal-connections.jpg" alt="" width="1080" height="810" sizes="(max-width: 860px) calc(100vw - 32px), 50vw" attrs='loading="lazy"' %}
+                    {% include picture.html src="/images/svc-family-support.jpg" alt="" width="830" height="622" sizes="(max-width: 860px) calc(100vw - 32px), 50vw" attrs='loading="lazy"' %}
+                    {% include picture.html src="/images/svc-community-connections.jpg" alt="" width="946" height="710" sizes="(max-width: 860px) calc(100vw - 32px), 50vw" attrs='loading="lazy"' %}
                 </div>
                 <p class="ways-foot"><a href="/services.html">How each service works</a></p>
             </div>
@@ -321,19 +321,19 @@ style: |
                 </div>
                 <div class="field-grid">
                     <figure class="photo plx">
-                        <img src="/images/Jam_in_the_River_event_live_2.jpg" alt="Tents and families at Jam on the River, with the A Better Way Out booth in the middle" width="1280" height="720" loading="lazy">
+                        {% include picture.html src="/images/Jam_in_the_River_event_live_2.jpg" alt="Tents and families at Jam on the River, with the A Better Way Out booth in the middle" width="1280" height="720" sizes="(max-width: 860px) calc(100vw - 32px), 50vw" attrs='loading="lazy"' %}
                         <figcaption>Our booth at Jam on the River, Ferndale, June 2026.</figcaption>
                     </figure>
                     <figure class="photo plx">
-                        <img src="/images/street-outreach-2026-09-2.jpg" alt="Two volunteers in A Better Way Out shirts preparing supply bags on a downtown sidewalk" width="1160" height="773" loading="lazy">
+                        {% include picture.html src="/images/street-outreach-2026-09-2.jpg" alt="Two volunteers in A Better Way Out shirts preparing supply bags on a downtown sidewalk" width="1160" height="773" sizes="(max-width: 860px) calc(100vw - 32px), 50vw" attrs='loading="lazy"' %}
                         <figcaption>Packing supply bags before a street outreach, September 2026.</figcaption>
                     </figure>
                     <figure class="photo plx">
-                        <img src="/images/ABWO-group.jpg" alt="A Better Way Out volunteers gathered for a group photo in a parking lot" width="1080" height="499" loading="lazy">
+                        {% include picture.html src="/images/ABWO-group.jpg" alt="A Better Way Out volunteers gathered for a group photo in a parking lot" width="1080" height="499" sizes="(max-width: 860px) calc(100vw - 32px), 50vw" attrs='loading="lazy"' %}
                         <figcaption>Volunteers after homeless outreach in Bellingham, April 2026.</figcaption>
                     </figure>
                     <figure class="photo plx">
-                        <img src="/images/Jam_in_the_River_group_photo.jpg" alt="Three women from A Better Way Out at the booth table with giveaways" width="654" height="475" loading="lazy">
+                        {% include picture.html src="/images/Jam_in_the_River_group_photo.jpg" alt="Three women from A Better Way Out at the booth table with giveaways" width="654" height="475" sizes="(max-width: 860px) calc(100vw - 32px), 50vw" attrs='loading="lazy"' %}
                         <figcaption>Meeting families at the booth, Jam on the River.</figcaption>
                     </figure>
                 </div>
