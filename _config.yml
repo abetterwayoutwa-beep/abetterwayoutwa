@@ -1,4 +1,22 @@
-# Site settings for Jekyll (GitHub Pages builds the site from these files on every push)
+# Site settings for Jekyll (built by .github/workflows/deploy.yml)
 url: "https://www.abetterwayoutwa.org"
 # Event dates are judged in Washington time, not the build server's UTC
 timezone: America/Los_Angeles
+
+# Each event is one file in _events/, named YYYY-MM-DD-short-name.html.
+# The date and short name come from the file name; every event gets its own page.
+collections:
+  events:
+    output: true
+    permalink: /events/:year/:slug.html
+
+defaults:
+  - scope:
+      type: events
+    values:
+      layout: event
+      nav: events
+
+# sitemap.xml is generated automatically (includes every event page)
+plugins:
+  - jekyll-sitemap

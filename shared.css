@@ -893,6 +893,50 @@ figure.photo figcaption {
 .js .footer-mark span { transform: translateY(100%); transition: transform 1.3s var(--ease-out); }
 .js .footer-mark.in span { transform: none; }
 
+/* ---- Events: upcoming block, event pages, archive (shared by events.html, events-YEAR.html, /events/) ---- */
+.upcoming .wrap {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 24px; row-gap: 40px;
+    align-items: start;
+}
+.upcoming .wrap::before { content: ""; grid-column: 1 / -1; height: 1px; background: var(--ink); margin-bottom: clamp(0px, 1vw, 16px); }
+.upcoming-poster { grid-column: 1 / span 5; }
+.upcoming-poster img { border-radius: var(--radius-s); }
+.upcoming-info { grid-column: 7 / span 6; }
+.status {
+    display: inline-block;
+    font-family: var(--ui); font-weight: 650; font-size: .85rem;
+    color: #fff; background: var(--ribbon);
+    padding: 5px 12px; border-radius: var(--radius-pill);
+    margin-bottom: 20px;
+}
+.upcoming-date {
+    font-family: var(--display); font-stretch: 66%; font-weight: 800;
+    font-size: var(--step-4); line-height: .9; color: var(--ribbon);
+    margin-bottom: 14px;
+}
+.upcoming-info h2, .upcoming-info h1 { font-size: var(--step-3); margin-bottom: 28px; }
+.upcoming-info .prose { margin-bottom: 28px; }
+.upcoming-info .event-facts { border-top: 1px solid var(--line); padding-top: 20px; }
+@media (max-width: 860px) {
+    .upcoming-poster, .upcoming-info { grid-column: 1 / -1; }
+    .upcoming-poster { max-width: 420px; }
+}
+.back-link {
+    display: inline-flex; gap: 8px; align-items: center;
+    font-family: var(--ui); font-weight: 600; color: var(--ink); text-decoration: none;
+    margin-bottom: 28px;
+}
+.back-link:hover { color: var(--ring); }
+/* Even grid for a set of same-shape photos */
+.event-media.photo-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.event-media.photo-grid > .shot { max-width: none; }
+@media (max-width: 640px) { .event-media.photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.status.is-past { background: var(--ink-soft); }
+.event-page-media { padding-top: 0; }
+.event-page-nav .wrap { display: flex; flex-wrap: wrap; gap: 8px 32px; }
+
 @media (prefers-reduced-motion: reduce) {
     .js .split .w > span, .js .rv, .js .fade, .js .footer-mark span { transform: none !important; opacity: 1 !important; clip-path: none !important; }
 }

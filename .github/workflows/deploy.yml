@@ -19,7 +19,7 @@ permissions:
 
 # One deploy at a time; a newer push replaces a queued one
 concurrency:
-  group: pages
+  group: ${{ github.event_name == 'pull_request' && format('pr-{0}', github.ref) || 'pages' }}
   cancel-in-progress: false
 
 jobs:
@@ -28,6 +28,21 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      # Responsive images: resized WebP copies + sizes for the templates (not committed)
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Restore generated images
+        uses: actions/cache@v4
+        with:
+          path: assets/img
+          # exact match only: any image change regenerates everything (~10 s)
+          key: images-${{ hashFiles('images/**', '_tools/images.py') }}
+      - name: Generate responsive images
+        run: |
+          python -m pip install --quiet "pillow>=11,<12"
+          python _tools/images.py
+
       - uses: actions/configure-pages@v6
 
       - name: Build with Jekyll
@@ -35,6 +50,15 @@ jobs:
         with:
           source: ./
           destination: ./_site
+
+      - name: Build timezone is Pacific
+        run: |
+          stamp=$(grep -o 'built [0-9-]* [0-9:]* [-+][0-9]*' _site/index.html | head -1)
+          echo "$stamp"
+          case "$stamp" in
+            *-0700|*-0800) echo "Timezone OK" ;;
+            *) echo "::error::Site was not built in Pacific time ($stamp); event dates would be off"; exit 1 ;;
+          esac
 
       - name: GA tracking (shared.js on every page)
         shell: bash
@@ -65,6 +89,18 @@ jobs:
         with:
           args: --offline --no-progress --root-dir "${{ github.workspace }}/_site" './_site/**/*.html'
           fail: true
+
+      # Lighthouse: blocks deploy if accessibility/SEO/best-practices/performance drop
+      # below the thresholds in .lighthouserc.json. Reports are attached to the run.
+      - name: Lighthouse
+        run: npx --yes @lhci/cli@0.15.1 autorun
+      - name: Save Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-report
+          path: lhci-report
+          if-no-files-found: ignore
 
       - name: External links (report only)
         uses: lycheeverse/lychee-action@v2
