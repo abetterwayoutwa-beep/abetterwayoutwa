@@ -10,8 +10,9 @@
 @font-face {
     font-family: 'Archivo';
     src: url('fonts/archivo.woff2') format('woff2');
-    font-weight: 100 900;
-    font-stretch: 62% 125%;
+    /* Trimmed to the ranges the site uses (weights 400-800, widths 62-100%) */
+    font-weight: 400 800;
+    font-stretch: 62% 100%;
     font-display: swap;
 }
 @font-face {

@@ -1,12 +1,35 @@
 {%- comment -%}
-  Responsive <img> for one image. Set these before including:
-    pic        the image ({ src, alt }, optional width/height)
-    pic_sizes  the "sizes" attribute (how wide it shows on screen)
-    pic_attrs  extra attributes, e.g. loading="lazy" or fetchpriority="high"
+  Responsive <img>. Two ways to use it:
+
+  1) In a page, with parameters (written inside Liquid tag braces):
+       include picture.html src="/images/photo.jpg" alt="..." width="946" height="630"
+               sizes="(max-width: 860px) calc(100vw - 32px), 50vw" attrs='loading="lazy"' class="..."
+     alt is written as-is (already HTML), width/height are optional.
+
+  2) From a template, with variables set first (used by the event includes):
+       pic (the image: { src, alt }), pic_sizes, pic_attrs
+
   Width, height, and the WebP srcset come from _data/images.json, which
   _tools/images.py writes in CI. Without it, the original image is used as is.
 {%- endcomment -%}
-{%- assign info = site.data.images[pic.src] -%}
-{%- assign pw = pic.width | default: info.width -%}
-{%- assign ph = pic.height | default: info.height -%}
-<img src="{% if info %}{{ info.default }}{% else %}{{ pic.src }}{% endif %}"{% if info %} srcset="{% for v in info.variants %}{{ v.src }} {{ v.w }}w{% unless forloop.last %}, {% endunless %}{% endfor %}" sizes="{{ pic_sizes }}"{% endif %} alt="{{ pic.alt | escape }}" width="{{ pw }}" height="{{ ph }}" {{ pic_attrs }}>
+{%- if include.src -%}
+  {%- assign p_src = include.src -%}
+  {%- capture p_alt %}{{ include.alt }}{% endcapture -%}
+  {%- assign p_sizes = include.sizes | default: "100vw" -%}
+  {%- assign p_attrs = include.attrs -%}
+  {%- assign p_class = include.class -%}
+  {%- assign p_w = include.width -%}
+  {%- assign p_h = include.height -%}
+{%- else -%}
+  {%- assign p_src = pic.src -%}
+  {%- capture p_alt %}{{ pic.alt | escape }}{% endcapture -%}
+  {%- assign p_sizes = pic_sizes -%}
+  {%- assign p_attrs = pic_attrs -%}
+  {%- assign p_class = nil -%}
+  {%- assign p_w = pic.width -%}
+  {%- assign p_h = pic.height -%}
+{%- endif -%}
+{%- assign info = site.data.images[p_src] -%}
+{%- assign p_w = p_w | default: info.width -%}
+{%- assign p_h = p_h | default: info.height -%}
+<img{% if p_class %} class="{{ p_class }}"{% endif %} src="{% if info %}{{ info.default }}{% else %}{{ p_src }}{% endif %}"{% if info %} srcset="{% for v in info.variants %}{{ v.src }} {{ v.w }}w{% unless forloop.last %}, {% endunless %}{% endfor %}" sizes="{{ p_sizes }}"{% endif %} alt="{{ p_alt }}"{% if p_w %} width="{{ p_w }}" height="{{ p_h }}"{% endif %} {{ p_attrs }}>

@@ -1,6 +1,9 @@
 name: Build, check, and deploy
 
-# Builds the site with Jekyll, checks it, and only publishes if every check passes.
+# build ──► lighthouse (one job per page, in parallel) ──► deploy
+#       └─► external-links (report only, never blocks)
+#
+# Pull requests run build + lighthouse + external-links but never deploy.
 # Repo Settings -> Pages -> Source must be "GitHub Actions".
 on:
   push:
@@ -14,10 +17,8 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
-# One deploy at a time; a newer push replaces a queued one
+# One deploy at a time. PR runs get their own group so they never cancel a queued deploy.
 concurrency:
   group: ${{ github.event_name == 'pull_request' && format('pr-{0}', github.ref) || 'pages' }}
   cancel-in-progress: false
@@ -42,8 +43,6 @@ jobs:
         run: |
           python -m pip install --quiet "pillow>=11,<12"
           python _tools/images.py
-
-      - uses: actions/configure-pages@v6
 
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
@@ -90,18 +89,72 @@ jobs:
           args: --offline --no-progress --root-dir "${{ github.workspace }}/_site" './_site/**/*.html'
           fail: true
 
-      # Lighthouse: blocks deploy if accessibility/SEO/best-practices/performance drop
-      # below the thresholds in .lighthouserc.json. Reports are attached to the run.
-      - name: Lighthouse
-        run: npx --yes @lhci/cli@0.15.1 autorun
-      - name: Save Lighthouse reports
+      # The built site, for the lighthouse and external-links jobs
+      - name: Share built site with later jobs
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: _site
+          retention-days: 1
+
+      # The built site, packaged for GitHub Pages (deployed only after lighthouse passes)
+      - name: Package site for Pages
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: ./_site
+
+  # Each page is tested in its own job so they run side by side (3 runs each, median).
+  # Thresholds live in .lighthouserc.json; any failure blocks deploy.
+  lighthouse:
+    needs: build
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        page:
+          - index.html
+          - about.html
+          - events.html
+          - events-2026.html
+          - events/2026/gump-run.html
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          sparse-checkout: .lighthouserc.json
+          sparse-checkout-cone-mode: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: _site
+      - name: Cache Lighthouse CI
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: lhci-0.15.1
+      - name: Lighthouse ${{ matrix.page }}
+        run: npx --yes @lhci/cli@0.15.1 autorun --collect.url="http://localhost/${{ matrix.page }}"
+      - name: Report name
+        if: always()
+        id: name
+        run: echo "slug=$(echo '${{ matrix.page }}' | tr '/.' '--')" >> "$GITHUB_OUTPUT"
+      - name: Save Lighthouse report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: lighthouse-report
+          name: lighthouse-${{ steps.name.outputs.slug }}
           path: lhci-report
           if-no-files-found: ignore
 
+  # Checks links to other websites. Report only: it never blocks deploy.
+  external-links:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: _site
       - name: External links (report only)
         uses: lycheeverse/lychee-action@v2
         with:
@@ -118,16 +171,26 @@ jobs:
             './_site/**/*.html'
           fail: false
 
-      - name: Upload site
-        if: github.event_name != 'pull_request'
-        uses: actions/upload-pages-artifact@v5
-        with:
-          path: ./_site
+  # One stable check name for branch protection ("All checks passed"),
+  # so the rule doesn't have to list every Lighthouse page.
+  checks:
+    name: All checks passed
+    if: always()
+    needs: [build, lighthouse]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Summarize
+        run: |
+          echo "build: ${{ needs.build.result }}, lighthouse: ${{ needs.lighthouse.result }}"
+          [ "${{ needs.build.result }}" = "success" ] && [ "${{ needs.lighthouse.result }}" = "success" ]
 
   deploy:
     if: github.event_name != 'pull_request'
-    needs: build
+    needs: [build, lighthouse]
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
